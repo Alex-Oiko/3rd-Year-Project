@@ -1,0 +1,73 @@
+Some c++ notes to remember
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-header files are used in orer to declare the functions that are going to be used throught the program
+-.cpp files define those functions
+
+
+-Task class just reads the .task files
+-Node is the each node that the Cube contains.
+
+
+
+Dealer.h && Dealer.cpp
+~~~~~~~~~~
+-Distributes the nodes among available processors. It can either be deal of the deck or random
+-The algorithm spreads the Nodes on cores as thinly as possible
+
+-Task.cpp
+~~~~~~~~~~
+GetNextInt()-->Reads the file char-by-char
+GetLine()-->Reads the file line-by-line
+
+
+-Task.cpp, but Node Class
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+PrintNodeList()-->prints the node list
+ReadNodeList()-->possibly read the file and read the information from each column. That way you populate the information to each Node and you have a complete Node with all the info
+FillKeyMaps()-->puts the nodes to the multimap after it has being distributed by the Dealer
+PrintKeyMaps()-->prints the map
+
+Core.h
+~~~~~~~
+-***AllCores-->A 3D array. When instantiating a new variable in Cores.cpp(AllCores), in order to access a level inside the array you need to reference the 2D array.(Check line 13 of Cores.cpp)
+
+Cores.cpp
+~~~~~~~~~~
+-MakeTargetTables-->makes the target tables for each core.
+	PseudoCode for above
+	MakeTargetTables(){
+		for all Cores in the Grid{
+			-Get all the Nodes in the Core
+			-Create a new TargetTable for the Core(for all nodes)
+			-For all Nodes in Core{
+				.Fill info about that node in an index of the TargetTable
+				.save all the connected nodes of that node and also check their weights??ASK!! 
+			}
+		}
+
+	}
+-PrintLUT()-->prints the Look Up Tables
+-PrintValues-->prints values of the LUT
+-UsedCores-->just counts how many cores are used
+-UsedChips-->counts the number of chips used
+
+-MyWalloc()-->for memory dumping i guess
+-READ ABOUT MEMORY STORING
+
+
+MCTables.h
+~~~~~~~~~~~~
+-It starts with forming P2P tables from the selected machine topology,
+	next the raw MC tables are formed, then through routing is implemented.
+	The machine is an NX.NY (NX>=NY) Manchester grid with or without wrap around
+	Sometimes Chips are given single value ids XY = X*NY + Y
+MCTables.cpp
+~~~~~~~~~~~~~~
+-MakeMCTables()-->Key, Mask and Data are 2D arrays that have as elements a vector. That possibly makes them a 3D array. Each index referes to an X-Y grid(X-Y plane) NX-NY that is.
+-ConvertXY()-->Converts the index of a possibly gridpoint to larger limits(Possibly in the P2P grid????)
+-RevertXY()-->Puts x,y coordinates back to original form(Key,Mask,Data format)
+-GetLink()-->Gets the link of the original KMD format to P2P format.
+-NeighbourWrap()-->finds the neighbours of a (x,y) point in the original KMD format and converts it to P2P format when returning
+-Neighbour()-->searhes for neighbours in the original KMD format. It converts when it returns
+-MakeP2P()-->
+
