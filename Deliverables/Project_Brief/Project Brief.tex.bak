@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\begin{document}
+\begin{Huge}
+\centering{\bf{3$^{rd}$ Year Project Brief}}
+\newline
+
+\end{Huge}
+\begin{large}
+\centering{Alexandros-Pana Oikonomou}
+
+\end{large}
+
+\begin{large}
+\centering{Supervisor: Jeff Reeve}
+
+\end{large}
+\begin{large}
+\centering{Title: Solution Of The Conjugate Gradient Method on a SpiNNaker Chip}
+\newline
+
+\end{large}
+\begin{normalsize}
+\bf{Problem:}
+\textnormal{	
+SpiNNaker is a parallel architecture that its basic idea is inspired by the human brain. It simmulates electronically the communication between neurons of a brain and its most basic components (ie. axons, dendrites and synapses) using spikes which are the median by which the information is transferred. So far the most prominent uses of the SpiNNaker architecture have been neural networks (which was the basic reason for the design) and robotics. The conjugate gradient method is an iterative algorithm for finding the solution of systems of linear equations, whose matrix is symmetric and positive-definite. The purpose of this  project is to try to solve the conjugate gradient method problem on a SpiNNaker chip, so as to display more of the possibilities of the SpiNNaker architecture outside the spectrum of neural networks and closer to classic computer science problems.}
+\newline
+\newline
+\bf{Goal:}
+\textnormal{The goal of this project, is not only to display the ability of the SpiNNaker architecture in classic computer science applications, but also do it in an efficient way. This means to have the traditional complexity of the algorithm reduced by taking advantage the parallelilism that the SpiNNaker chip provides.}
+\newline
+\newline
+\bf{Scope:}
+\textnormal{The scope of this project is to develop a software to solve the conjugate gradient method,which will exploit the massive paralellilism that the SpiNNaker chip offers. This project however will not interfere with the hardware of the SpiNNaker chip, or with any neural network applications that the chip may provide.}
+
+\end{normalsize}
+\end{document}
+

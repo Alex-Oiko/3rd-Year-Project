@@ -1,0 +1,157 @@
+SpiNNaker
+-message passing
+-each processor has its own memory
+
+Excitory vs Inhibitory
+------------------------
+-In biology if a a spike is excitory, then that makes it more likely for the postsynaptic neuron to generate an action potential. If it is inhibitory, then it is less likely for the postsynaptic neuron to generate an action potential. 
+-The same is for SpiNNaker, although each spike has a weight(number) and that determines whether the synapse is excitory(positive) or inhibitory(negative)
+-The “weight” of a synapse can therefore be regarded as a measure of the amount of postsynaptic response that occurs when an action potential invades the presynaptic terminal.
+
+Address Event Representation
+------------------------------
+-spike is a pure asynchronous event
+-all information is conveyed at the time of the spike along with the identity of the neuron that emitted the spike
+-SpiNNaker achieves this by using packets and multicast. In order to deal with delays the neuron might keep track of the input packet in order to use it afterwards
+
+Topological Virtualisation
+-----------------------------
+-nothing interesting.
+
+Quantitative architecture drivers
+----------------------------------
+-human brain 10^11 neurones-->SpiNNaker 1% of that(1 billions processors)
+
+Routing
+---------
+How is the computation payload transmitted from one neuron to the other, if the packet only carries ID and control byte?
+
+
+Execution Model
+-----------------
+	Terminology
+	------------
+	-Fascicle-->a set of neurones. Each neurone can only be in one fascicle.
+		 -->The term defines nothing about the connectivity of the neurons in one fascicle
+		 -->Neurons in a fascicle share COMMON INPUT fascicles. But they can be non-interconnected
+	-Fascicle Processor-->a single physical ARM core on a SpiNNaker chip
+			   -->It can be host to one or more fascicles in the simulation proccess
+	-Monitor Processor-->also a single physcial ARM core on a SpiNNaker chip
+			  -->It is not involved in application tht SpiNNaker might run, but is available for monitor and debuging functions
+			  -->It can communicate with a Fascicle Processor, by interrupting them and exchanging data via on-chip memory
+Didnt quite understand the usage of a Monitor Processor!!!!!!!!!!!!!(Is it to test other Fascicle processors and/or monitor them)
+
+
+Neural data structures
+-----------------------
+-Each neuron a simple dynamic system-->state and parameter data are held in the processors local memory
+-Each processor uses DMA and an SDRAM
+-the state of the neurones is held in local data memory and is modified as processing advances. The connection topology and synapse state is held in SDRAM. If needs be, the SDRAM can be written to either directly or via DMA to update the synapse state.
+-Most expensive aspect is simulating the axonal delays that exist-->solution, each processor having a bin
+
+Event Driven Processing
+------------------------
+Processes are executed when:
+1)A spike arrives into a neuron. An interrupt is issued. The information of the spike is stored in the SDRAM under the block of neurons that it is supposed to go. This is calculated from the information the spike has.
+2)When the DMA has no other data. A process is started to update the state of the neuron
+3)Timer interrupt. The dynamic state of each neuron is updated
+
+
+HOW THE SYNAPSE IS SIMULATED EXACTLY(ELECTRONICALLY)
+HOW DOES THE NEURON KNOW TO WHICH NEURON TO PASS ON THE RESULT?AND HOW DO THEY KNOW WHICH INFORMATION IS NEEDED FOR THE PROCESSING?Is the flood and prune model used?
+Learning
+----------
+Hebbian learning
+
+
+Input-Output-Monitoring
+------------------------
+The input-output device will use the 100Mb ehthernet hub that the processors of SpiNNaker share and it will be connected to a Host processor, which in return will distribute that input to other processors and also monitor the system.
+
+
+Machine Operation
+------------------------------
+
+How is an application loaded onto the machine for execution?-->The program is loaded to SpiNNaker. The hardware allocation is fixed and determined externally
+-->Dynamic model. Again the program is loaded, but this time SpiNNaker has the ability to do most of the operation by itself, without external help
+
+Static Model
+-------------
+1)The desired neural network is specified
+2)The program is compiled. That means-->Each neuron is assigned a processor
+				     -->An appropriate model is chosen for the function of the neurons
+				     -->Routing tables are built
+				     -->Synaptic weights are defined
+3)The compiled program is loaded to SpiNNaker via the Host processor
+4)The host has an execute command, at which point the program starts running
+5)The internal activity might be checked out by checking out the Monitor Processor
+6)When the user wishes to stop, there is a halt option in the Host processor. The user may continue to observe SpiNNaker
+
+
+
+General Principles
+--------------------
+1 SpiNNaker node<-->1 SpiNNaker chip plus a bank of SDRAM
+
+Packets
+--------
+Packets come in 3 types
+
+	The naming hierarchy
+	---------------------
+	-32-bit identifiers for the neurones
+	-neurones are collected togerther in fascicles. Fascicles are managed by the Fascicle Processor
+	-The bit layout for the identofier of the neuron is like the following
+		64k chips	32 fascicles	2048 neurones
+	    31...	  ...1234|	 ...2345|	  ...0
+		  16 bits	  5 bits   	    11 bits
+
+
+	-Within the fascicles the neurones are re-labelled from 0 and upwards
+	-Within a chip fascicles are also numbered contiguously
+	-limitations of the above design are that there cannot be more that 64k chips, each with more than 32 fascicles etc.
+
+
+1)Neural event multicast. Type 0 packets
+ -Packet: 32-bit source address,8 bits of control,32 bits of payload
+ -It is the only packet that is sent to the Fascicle Processor
+ -On arrival it causes a hardware interrupt and the arriving neural event is processed
+ -Only packet that a Fascicle processor may launch	
+
+2)Point-to-Point. Type 1 packets
+ -command/control packet
+ -sent from the Monitor processor to the source chip
+ -NOT GOOD UNDERSTANDING OF THE USAGE OF THESE PACKETS
+
+3)Nearest Neighbours. Type 3 packets
+ -again command/control packet
+ -SAMe as above
+
+
+The SDRAM structure
+--------------------
+SpiNNaker is designed to simulate arbitrary topology, but some assumption must be made about the statistics of connectivity purely bcs of efficiency
+
+
+
+The algorithm
+---------------
+-Minucut algorithm
+
+
+Input-->1)The entire circuit, described as a devices-on-devices graph
+	2)SDRAM size
+	3)A number of heuristice fiddle factors
+Output-->The content of SDRAM
+
+
+How it works
+===============
+
+-The input graph is bisected randomly into 2 subgraphs A,B
+-Define some size limit h=0.5*number_of_synapses_in_G*HFF1(HFF1 is usually around 1.1)
+-Find the neurone(and A or B) that a)is unflagged and b) would make the biggest improvement to the pealty function d() if  it were to be moved to the opposite subgraph
+-If Deltad() is an improvement ad does not violate the fascicle size limit then move and flag it
+-Recursivelt apply step 2,3 by replacing G with A and B.The size of G will halve at each iteration
+
+ALSO SEE GRAPHS IN PAPER
