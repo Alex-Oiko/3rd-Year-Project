@@ -69,5 +69,24 @@ MCTables.cpp
 -GetLink()-->Gets the link of the original KMD format to P2P format.
 -NeighbourWrap()-->finds the neighbours of a (x,y) point in the original KMD format and converts it to P2P format when returning
 -Neighbour()-->searhes for neighbours in the original KMD format. It converts when it returns
--MakeP2P()-->
+-MakeP2P()-->P2P is a 2D array
+		-PseudoCode for function^^
+		MakeP2P(){
+			-instatiate the P2P array, by creating a x,y grid
+			-also mark all elements of Visited=0
 
+			-for all grid-points
+				-set all elements of visited to 0 and all elements of link to -1
+				-	
+		}
+
+
+MCEnter()-->not sure what DATA and LINK are doing
+	    -in the for loop it checks if the KEY and MASK correspond to a core that is in the MCTable and if it is it assigns that data to that core
+	    -if the core is not found it add the keys in the end of the vector(possibly to check after or )
+	    -This function inserts entries to the MC Tables, OR is the multicast command that is issued and checks in the MC Table of the other core if a certain entry exists in orer to transmit data there
+
+
+SetRoute-->sets the route obviously
+		-checks the difference between the source and destination. If the difference is 0, then it finds itself and finds its own cores???
+		-if not it converts the KMD format grid to the P2P network grid in order to search in the bigger grid
