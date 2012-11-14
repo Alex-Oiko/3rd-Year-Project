@@ -4,7 +4,6 @@ Some c++ notes to remember
 -.cpp files define those functions
 
 
--Task class just reads the .task files
 -Node is the each node that the Cube contains.
 
 
@@ -24,21 +23,20 @@ GetLine()-->Reads the file line-by-line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 PrintNodeList()-->prints the node list
 ReadNodeList()-->possibly read the file and read the information from each column. That way you populate the information to each Node and you have a complete Node with all the info
-FillKeyMaps()-->puts the nodes to the multimap after it has being distributed by the Dealer
+FillKeyMaps()-->puts the nodes to the multimap after it has being distributed by the Dealer.
 PrintKeyMaps()-->prints the map
 
 Core.h
 ~~~~~~~
--***AllCores-->A 3D array. When instantiating a new variable in Cores.cpp(AllCores), in order to access a level inside the array you need to reference the 2D array.(Check line 13 of Cores.cpp)
-
+***AllCores-->A 3D array. first 2 indexes are a (x,y) plane and then you have the index of each core
 Cores.cpp
 ~~~~~~~~~~
 -MakeTargetTables-->makes the target tables for each core.
 	PseudoCode for above
 	MakeTargetTables(){
 		for all Cores in the Grid{
-			-Get all the Nodes in the Core
-			-Create a new TargetTable for the Core(for all nodes)
+			-Get all the Nodes in one Core
+			-Create a new TargetTable for that Core(for all nodes)
 			-For all Nodes in Core{
 				.Fill info about that node in an index of the TargetTable
 				.save all the connected nodes of that node and also check their weights??ASK!! 
@@ -90,3 +88,20 @@ MCEnter()-->not sure what DATA and LINK are doing
 SetRoute-->sets the route obviously
 		-checks the difference between the source and destination. If the difference is 0, then it finds itself and finds its own cores???
 		-if not it converts the KMD format grid to the P2P network grid in order to search in the bigger grid
+
+
+FillTables()-->For all the nodes that are read by the task file set the Route they are supposed to do throughout the grid.
+
+PrintCommsTables()-->Prints the communication between the chips and the inter chip communication
+
+PrintTableSizes()-->self-explanatory(inner chip??)
+PrintTables()-->Print Multicast Tables entries(inner chip)
+
+  ThroughRoute()-->it defines the 2d vector arrays TKey,TMask,TData for all the grid points of the inner chip
+                -then, for all the data(all the elements of the vector in that index) of all the grid points
+                -NOT SURE WHAT LinkIn and LinkOut do ASK!!!!!!!!!!!!!!!
+
+
+GetMCData()-->gets all the data from the MC tables(larger grid)
+GetTablesCount()-->Self-explanatory
+WriteMC()-->nothing important really

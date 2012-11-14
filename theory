@@ -1,0 +1,79 @@
+If I can use a for loop which seems unlikely
+
+Have one node that runs the algorithm. Store all matrices as 2D arrays in the RAM of one of the chips.
+
+If a multiplication occurs give the double for loop to another core, which will assign each multiplication to a new core.
+
+Have another core to do subtractions. Subtractions will work the same way as multiplications
+
+In fact each line of the code can be done by a different processor
+
+As in all SpiNNaker applications the result is flooded to the rest of the machine using a spike.
+
+(If this^^ is computationally heavy, you can assign it to another node. This node will be creating nodes on the fly and assign them to cores using spikes. It will contain the source of the core that assigns the multipllications, so that when the loop finishes the data is sent correctly. Of course this will need to be executed before the double for loop)
+
+Possibly flood the cores and store the values of the most used values. For example x(if possible)
+
+Scalar results can be flooded through the whole system in order to prevent searching when they are needed. Or can(and should be stored in memory) and be sent every time they are needed.
+
+	   ____	same___
+	  /	a3x3   \
+	 /		\	
+      __/		 \ 
+     /  \  		  \ 
+     \__/		same
+      a1x1          	a2x2
+
+
+
+n0 weight is initially 0 and all others nodes weights are 1.
+-All the other nodes except the last one send their results to n0. Since the architecture is like a neural network, it has to be added to the weight. So the weight becomes the final result. Finally, when the n0's computation is completed it too is added to the weight to produce the final result.
+
+PSEUDOCODE
+-----------
+for(i=0;i<matrix.length;i++){
+	for(k=0;k<matrix.length;k++){
+
+	}
+}
+Alternative approach for matrix-vector multiplication
+-------------------------------------------------------
+As mentioned before the nodes are created before by a core(which is slow)
+
+Each time a multiplication(say a1*x1) finished it is sent to the second node that it is supposed to go. The last node that contains the last multiplication, will then cause an interrupt, which will update the value to the main core(the one that runs the algorithm). You can probably use flags for this.
+
+
+
+x=x+alpha*p  | 
+r=r-alpha*Ap |-->these 2 operations can be done in parallel, since they can be independent from each other
+
+
+
+
+
+
+Each element of b,A,r,p and x is loaded as a node in a task file
+
+nodes for A look like this:
+
+number	value	weight	row	endNode(bool)	latestresult	incomingIDs
+
+nodes for b look like this
+number value weights row elementID
+
+nodes for x look like this:
+number	value	weight 	row elementID
+
+nodes for r look like this:
+number value weight row incomingIDs
+
+
+For generating r
+------------------
+You send(through a spike) the contents of x to the nodes of A
+
+When doing A*x0 you can save the results to the(after you have finished) r nodes, which have as initiated values 0. Then you can reverse the sign of each value and and ssubtract b.
+
+You send through a spike the contents of b nodes to the r nodes and save their value in the r nodes
+
+
