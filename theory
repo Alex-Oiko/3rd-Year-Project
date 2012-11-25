@@ -49,7 +49,7 @@ r=r-alpha*Ap |-->these 2 operations can be done in parallel, since they can be i
 
 
 
-
+	
 
 
 Each element of b,A,r,p and x is loaded as a node in a task file
@@ -76,4 +76,99 @@ When doing A*x0 you can save the results to the(after you have finished) r nodes
 
 You send through a spike the contents of b nodes to the r nodes and save their value in the r nodes
 
+============================================================================================================================================================
 
+struct Value{
+  signed Value;
+  operator op;
+}
+
+To compute r
+  --------------
+x nodes sends its info to A nodes
+
+Maybe instead of just having the x node, you have a structure that stores the operator along with the value. That might be needed for all the values that exist in the Nodes of other elements(for example x value and operator in A-nodes)
+
+A nodes are
+************
+number  value   Xneeded   lastresult
+
+x nodes are
+************
+number  value pValue
+
+Once the nodes of A have the result they flood the information on the result attribute and try to find r
+
+r nodes are
+************
+number  value Anodes(array) or column   squareValue ApNode
+
+In the beginning r-nodes have the value of b-nodes. The reason for that being that b nodes are not used anywhere else, so they dont need to be instantiated anywhere else. Once the addition is complete(maybe add an attribute of how many additions have been completed), you reverse the sign of the value. 
+
+send all the r nodes to their respective p nodes
+
+p nodes
+********
+number  value   rNode Anodes(array or many nodes) or column alpha alphaValue rsold/rsnew
+
+
+Then rsold needs to be computed
+********************************
+number value
+
+The square value from r nodes is sent to the rsold node. Rsold then computes the addition and now has the scalar value of it.
+
+
+Maybe spike an interrupt and say that rsold is computed and the iteration can begin now.
+
+to compute Ap
+***************
+the values of p are flooded to A and the multiplication is computed. Then the lastresult atribute of A is sent to Ap nodes
+
+Ap nodes are
+**************
+number  value   Anodes(array or many nodes)or column  pNode   pApresult alpha  alphaAp
+
+The addition is completed in the Ap nodes
+
+
+Again issue an interrupt, which tells p-Nodes to send their values to Ap nodes
+
+to compute alpha
+******************
+alpha node is
+****************
+node  value   rsold   alpha_denom
+
+alpha_denom node is
+**********************
+node value 
+
+The pApresult of the Ap nodes are sent here in order to do the appropriate addition. Then the value is sent to the alpha node to do the dviision
+
+
+x=x+alpha*p
+
+alpha is sent to the p nodes where the multiplication with the value is done and added to the alphaValue attribute. Then the p nodes send their alphaValue to the x nodes and after the addition is completed x´s value is updated
+
+
+same with r
+
+rsnew node
+******
+The newly updated squareValue of rNodes is sent here so the addition can be completed and produce rsnew. Also do the check to see if sqrt(rsnew)<1e-10, in order to see if you continue the iteration
+
+
+rsnew/rsold node
+********************
+number value  rsnew   rsold
+
+rsnew and rsold are sent here and the division happens
+
+
+rsnew/rsold node are sent throughout the p nodes.
+
+The p-nodes handle the multiplication of the values of each node. Then the r-nodes re-send their new updated information to the p nodes and the addition of the value of the p node with the incoming r-node value is done.
+
+The iteration finishes with sending the rsnew value to the rsold node and changing it, so as to begin the next iteration
+	

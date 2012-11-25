@@ -1,0 +1,51 @@
+
+struct Value{
+  signed Value;
+  operator op;
+}
+
+A,x,r,p,Ap,alpha,alpha_denom,rsnew,rsold.rsnew/rsold
+
+
+A nodes are
+************
+number  value   Xneeded   lastresult
+
+x nodes are
+************
+number  value pValue
+
+r nodes are
+************
+number  value Anodes(array)  squareValue ApNode
+
+p nodes
+********
+number  value   rNode Anodes(array) alpha alphaValue rsold/rsnew
+
+
+Then rsold needs to be computed
+********************************
+number value
+
+Ap nodes are
+**************
+number  value   Anodes(array)  pNode   pApresult alpha  alphaAp
+
+
+alpha node is
+****************
+node  value   rsold   alpha_denom
+
+alpha_denom node is
+**********************
+node value 
+
+rsnew node
+************
+node value
+
+rsnew/rsold node
+********************
+number value  rsnew   rsold
+
