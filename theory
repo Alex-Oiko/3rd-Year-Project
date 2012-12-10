@@ -95,7 +95,7 @@ number  value   Xneeded   lastresult
 
 x nodes are
 ************
-number  value pValue
+number  value pValue rValue
 
 Once the nodes of A have the result they flood the information on the result attribute and try to find r
 
@@ -109,7 +109,7 @@ send all the r nodes to their respective p nodes
 
 p nodes
 ********
-number  value   rNode Anodes(array or many nodes) or column alpha alphaValue rsold/rsnew
+number  value   rNode Anodes(array or many nodes) or column alpha alphaValue beta
 
 
 Then rsold needs to be computed
@@ -142,7 +142,7 @@ node  value   rsold   alpha_denom
 
 alpha_denom node is
 **********************
-node value 
+node value Ap_node
 
 The pApresult of the Ap nodes are sent here in order to do the appropriate addition. Then the value is sent to the alpha node to do the dviision
 

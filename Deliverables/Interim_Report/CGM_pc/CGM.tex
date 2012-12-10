@@ -1,0 +1,29 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+
+\usepackage{amssymb}
+\author{Alexandros-Pana Oikonomou}
+\begin{document}
+
+
+\begin{algorithmic}
+\STATE r$_0$=b-Ax$_0$
+\STATE p$_0$=r$_0$
+\STATE f=0
+\FOR{f to 1000000}
+\STATE $alpha_f=\frac{r_f ^T*r_f}{p_f ^T*A*p_f}$
+\STATE x$_{f+1}$=x$_f$+alpha$_f$*p$_f$
+\STATE r$_{f+1}$=r$_f$-alpha$_f$*p$_f$*A
+\IF{r$_{f+1}^T$*r$_{f+1}$ is small enough}
+\STATE break
+\ENDIF
+\STATE $beta_f=\frac{r_{f+1} ^T*r_{f+1}}{r_f ^T*r_f}$
+\STATE r$_{f+1}$=r$_{f+1}$+beta$_f$*p$_f$
+\STATE f=f+1
+\ENDFOR
+\end{algorithmic}
+\end{document}
