@@ -24,7 +24,7 @@ void Task::printNodes(){
 					ANodes[i].XNode,ANodes[i].Xvalue,ANodes[i].lastResult);
 	}
 
-	printf("The nodes for r are\n");
+	printf("The nodes odes[f].Xvaluefor r are\n");
 	for(int i=0;i<Bsize;i++){
 		printf("ID:%d value:%d\n",RNodes[i].ID,RNodes[i].value);
 		for(int f=0;f<Asize;f++){

@@ -14,14 +14,14 @@ class Task {
 
 public:
 	struct XNode{
-			unsigned number;
+			unsigned ID;
 			int value;
 			unsigned PNode;
 			int PValue;
 	};
 
 	struct ANode{
-		unsigned number;
+		unsigned ID;
 		int value;
 		unsigned XNode;
 		int Xvalue;
@@ -30,32 +30,35 @@ public:
 	};
 
 	struct RNode{
-		unsigned number;
+		unsigned ID;
 		int value;
-		unsigned *ANodes;
+		unsigned *ANodeID;
 		int *lastresults;
 		unsigned squareValue;
 
 	};
 
 	struct PNode{
-		unsigned number;
+		unsigned ID;
 		int value;
-		unsigned RNode;
-		unsigned Value;
+		unsigned RNodeID;
+		unsigned RValue;
 		int alpha;
 		int alphaValue;
 		long rson;//rsold/rsnew
 	};
 
+
 	unsigned nodeNumber;
 	XNode *XNodes;
 	ANode *ANodes;
 	RNode *RNodes;
+	PNode *PNodes;
 
 	void constructXNodes(int *xVector,unsigned vectorSize);
 	void constructANodes(unsigned size,int **matrix);
-	void constructRNodes(unsigned size,int *bvector);
+	void constructRNodes(unsigned size,unsigned Asize,int *bvector);
+	void constructPNodes(unsigned size);
 	void printNodes();
 };
 
