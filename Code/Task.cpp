@@ -12,6 +12,33 @@ unsigned Asize,Bsize;
 
 void Task::printNodes(){
 
+	printf("rsnew node is\n");
+	printf("ID:%d value:%d\n",rsnew.ID,rsnew.value);
+	printf("The r nodes saved in rsnew are\n");
+	for(int i=0;i<Xsize;i++){
+		printf("r_ID:%d\n",rsnew.Rnodes[i]);
+	}
+
+	printf("rsold node is\n");
+	printf("ID:%d value:%d rsew_address:%d\n",rsold.ID,rsold.value,rsold.rsNew);
+	printf("The r nodes saved in rsnew are\n");
+	for(int i=0;i<Xsize;i++){
+		printf("r_ID:%d\n",rsold.RNodes[i]);
+	}
+
+	printf("alpha_denom node is\n");
+	printf("ID:%d value:%d\n",alpha_denom.ID,alpha_denom.value);
+
+	printf("alpha node is\n");
+	printf("ID:%d value:%d rsoldID:%d alpha_denomID:%d\n",alpha.ID,alpha.value,alpha.rsoldID,alpha.alpha_denomID);
+
+	printf("The nodes for the p vector\n");
+	for(int i=0;i<Xsize;i++){
+		printf("ID:%d value:%d alpha:%d alphaValue:%d rsold:%d rsnew:%d rsold/rsnew:%d rnode:%d\n",
+				PNodes[i].ID,PNodes[i].value,PNodes[i].alpha,PNodes[i].alphaValue,PNodes[i].rsold,
+				PNodes[i].rsnew,PNodes[i].rson,PNodes[i].RNodeID);
+	}
+
 	printf("The nodes for the x vector\n");
 	for(int i=0;i<Xsize;i++){
 		printf("ID:%d value:%d pnode:%d pvalue:%d \n",
@@ -20,8 +47,8 @@ void Task::printNodes(){
 	printf("The nodes for the matrix A\n");
 
 	for(int i=0;i<Asize*Asize;i++){
-			printf("ID:%d value:%d xnode:%d xvalue:%d lastresult:%d\n",ANodes[i].ID,ANodes[i].value,
-					ANodes[i].XNode,ANodes[i].Xvalue,ANodes[i].lastResult);
+			printf("ID:%d value:%d xnode:%d xvalue:%d pNode:%d lastresult:%d\n",ANodes[i].ID,ANodes[i].value,
+					ANodes[i].XNode,ANodes[i].Xvalue,ANodes[i].PNode,ANodes[i].lastResult);
 	}
 
 	printf("The nodes for r are\n");
@@ -35,15 +62,14 @@ void Task::printNodes(){
 }
 
 void Task::constructXNodes(int *xVector,unsigned vectorSize){
-	nodeNumber=0;
 	Xsize = vectorSize;
 	XNode node;
 	XNodes = new XNode[Xsize];
 	for(int i=0;i<Xsize;i++){
 		node.ID=nodeNumber;
 		node.value=xVector[i];
-		node.PNode=0;
-		node.PValue=1;
+		node.PNode=PNodes[i].ID;
+		node.PValue=PNodes[i].value;
 		XNodes[i]=node;
 		nodeNumber++;
 	}
@@ -61,6 +87,7 @@ void Task::constructANodes(unsigned size,int **matrix){
 		node.value = matrix[i][j];
 		node.XNode =XNodes[j].ID;
 		node.Xvalue = XNodes[j].value;
+		node.PNode=PNodes[j].ID;
 		node.lastResult = 0;
 		ANodes[counter] = node;
 		nodeNumber++;
@@ -76,6 +103,8 @@ void Task::constructRNodes(unsigned size,unsigned Asize,int *bvector){
 	unsigned counterA=Asize;
 	unsigned counter=0;
 	RNodes = new RNode[Bsize];
+	rsold.RNodes=new unsigned[Bsize];
+	rsnew.Rnodes=new unsigned[Bsize];
 	for(int i=0;i<Bsize;i++){
 		node.ID=nodeNumber;
 		node.value=bvector[i];
@@ -87,6 +116,10 @@ void Task::constructRNodes(unsigned size,unsigned Asize,int *bvector){
 			node.lastresults[counter]=ANodes[f].lastResult;
 			counter++;
 		}
+		rsold.RNodes[i]=node.ID;
+		rsnew.Rnodes[i]=node.ID;
+		PNodes[i].RNodeID=node.ID;
+		PNodes[i].RValue=node.value;
 		nodeNumber++;
 		counterA+=Asize;
 		counter=0;
@@ -98,18 +131,55 @@ void Task::constructPNodes(unsigned size){
 	PNode node;
 	PNodes=new PNode[size];
 	for(int i=0;i<size;i++){
-		node.ID=nodeNumber;
+		node.ID=nodeNumber++;
 		node.value=0;
-		node.RNodeID=RNodes[i].ID;
-		node.RValue=RNodes[i].value;
+		node.alpha=alpha.ID;
+		node.alphaValue=alpha.value;
+		node.rsnew=rsnew.ID;
+		node.rsold=rsold.ID;
+		node.rson=0;
+		PNodes[i]=node;
 	}
+}
+
+void Task::constructRSNewNode(){
+	nodeNumber=0;
+	rsnew.ID=nodeNumber++;
+	rsnew.value=0;
+
+}
+void Task::constructRSOldNode(){
+	rsold.ID=nodeNumber++;
+	rsold.value=0;
+	rsold.rsNew=rsnew.ID;
+}
+
+void Task::constructAlphaDenomNode(){
+	alpha_denom.ID=nodeNumber++;
+	alpha_denom.value=0;
+}
+
+void Task::constructAlphaNode(){
+	alpha.ID=nodeNumber++;
+	alpha.value=0;
+	alpha.rsoldID=rsold.ID;
+	alpha.alpha_denomID=alpha_denom.ID;
 }
 
 int main(){
 	Task t;
+
+	//construct helper nodes(Nodes with one entry)
+	t.constructRSNewNode();
+	t.constructRSOldNode();
+	t.constructAlphaDenomNode();
+	t.constructAlphaNode();
+
 	const unsigned xSize=2;
 	const unsigned aSize=2;
 	const unsigned rsize=2;
+	//construct nodes with multiple entries
+	t.constructPNodes(rsize);
 
 	int vector[xSize] ={2,1};
 	t.constructXNodes(vector,xSize);
@@ -127,8 +197,6 @@ int main(){
 
 	int bvector[rsize]={1,2};
 	t.constructRNodes(rsize,Asize,bvector);
-
-	t.constructPNodes(rsize);
 
 	t.printNodes();
 }

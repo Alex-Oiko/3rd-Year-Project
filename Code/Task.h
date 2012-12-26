@@ -26,6 +26,7 @@ public:
 		unsigned XNode;
 		int Xvalue;
 		int lastResult;
+		unsigned PNode;
 
 	};
 
@@ -42,10 +43,45 @@ public:
 		unsigned ID;
 		int value;
 		unsigned RNodeID;
-		unsigned RValue;
-		int alpha;
+		int RValue;
+		unsigned alpha;
 		int alphaValue;
+		unsigned rsold;
+		unsigned rsnew;
 		long rson;//rsold/rsnew
+	};
+
+	struct RSoldNode{
+		unsigned ID;
+		int value;
+		unsigned *Rnodes;
+		unsigned rsnew;
+	};
+
+	struct RSNewNode{
+		unsigned ID;
+		int value;
+		unsigned *Rnodes;
+	};
+
+	struct RSOldNode{
+		unsigned ID;
+		int value;
+		unsigned rsNew;
+		unsigned *RNodes;
+	};
+
+	struct AlphaDenomNode{
+		unsigned ID;
+		int value;
+		unsigned *Ap_adresses;
+	};
+
+	struct AlphaNode{
+		unsigned ID;
+		int value;
+		unsigned rsoldID;
+		unsigned alpha_denomID;
 	};
 
 
@@ -54,11 +90,19 @@ public:
 	ANode *ANodes;
 	RNode *RNodes;
 	PNode *PNodes;
+	RSNewNode rsnew;
+	RSOldNode rsold;
+	AlphaDenomNode alpha_denom;
+	AlphaNode alpha;
 
 	void constructXNodes(int *xVector,unsigned vectorSize);
 	void constructANodes(unsigned size,int **matrix);
 	void constructRNodes(unsigned size,unsigned Asize,int *bvector);
 	void constructPNodes(unsigned size);
+	void constructRSNewNode();
+	void constructRSOldNode();
+	void constructAlphaDenomNode();
+	void constructAlphaNode();
 	void printNodes();
 };
 
