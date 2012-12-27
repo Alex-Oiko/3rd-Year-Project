@@ -6,7 +6,7 @@ A nodes-
 =========
 ID value xNode last_result(sends to r Nodes) pNode
 
-r Nodes
+r Nodes-
 =========
 ID Value *Anodes squared_value(sends to rsoldNode) ApNode
 
@@ -22,11 +22,11 @@ alpha Node-
 ======
 ID value rsoldNode alpha_denomNode
 
-Ap Node
+Ap Node-
 =======
 ID value *ANodes pNode last_result(sends to alpha_denom Node) alphaNode
 
-alpha_denom Node
+alpha_denom Node-
 ================
 ID value *ApNodes
 

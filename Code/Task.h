@@ -36,6 +36,7 @@ public:
 		unsigned *ANodeID;
 		int *lastresults;
 		unsigned squareValue;
+		unsigned ApNodeID;
 
 	};
 
@@ -74,7 +75,7 @@ public:
 	struct AlphaDenomNode{
 		unsigned ID;
 		int value;
-		unsigned *Ap_adresses;
+		unsigned *Ap_addresses;
 	};
 
 	struct AlphaNode{
@@ -82,6 +83,15 @@ public:
 		int value;
 		unsigned rsoldID;
 		unsigned alpha_denomID;
+	};
+
+	struct ApNode{
+		unsigned ID;
+		int value;
+		unsigned *Anodes;
+		unsigned pNode;
+		int last_result;
+		unsigned alpha;
 	};
 
 
@@ -94,6 +104,7 @@ public:
 	RSOldNode rsold;
 	AlphaDenomNode alpha_denom;
 	AlphaNode alpha;
+	ApNode *ApNodes;
 
 	void constructXNodes(int *xVector,unsigned vectorSize);
 	void constructANodes(unsigned size,int **matrix);
@@ -103,6 +114,7 @@ public:
 	void constructRSOldNode();
 	void constructAlphaDenomNode();
 	void constructAlphaNode();
+	void constructApNodes(unsigned size);
 	void printNodes();
 };
 

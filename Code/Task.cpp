@@ -28,6 +28,10 @@ void Task::printNodes(){
 
 	printf("alpha_denom node is\n");
 	printf("ID:%d value:%d\n",alpha_denom.ID,alpha_denom.value);
+	printf("Ap id's in alpha_denom are\n");
+	for(int i=0;i<Xsize;i++){
+		printf("Ap_ID:%d\n",alpha_denom.Ap_addresses[i]);
+	}
 
 	printf("alpha node is\n");
 	printf("ID:%d value:%d rsoldID:%d alpha_denomID:%d\n",alpha.ID,alpha.value,alpha.rsoldID,alpha.alpha_denomID);
@@ -37,6 +41,19 @@ void Task::printNodes(){
 		printf("ID:%d value:%d alpha:%d alphaValue:%d rsold:%d rsnew:%d rsold/rsnew:%d rnode:%d\n",
 				PNodes[i].ID,PNodes[i].value,PNodes[i].alpha,PNodes[i].alphaValue,PNodes[i].rsold,
 				PNodes[i].rsnew,PNodes[i].rson,PNodes[i].RNodeID);
+	}
+
+	printf("The nodes for the Ap vector are\n");
+	for(int i=0;i<Xsize;i++){
+		printf("ID:%d value:%d alpha:%d pNode:%d last_result:%d\n",ApNodes[i].ID,ApNodes[i].value,
+				ApNodes[i].alpha,ApNodes[i].pNode,ApNodes[i].last_result);
+	}
+	printf("The corresponding A nodes that go into Ap are\n");
+	for(int i=0;i<Xsize;i++){
+		printf("ID:%d\n",ApNodes[i].ID);
+		for(int f=0;f<Xsize;f++){
+			printf("A_ID:%d\n",ApNodes[i].Anodes[f]);
+		}
 	}
 
 	printf("The nodes for the x vector\n");
@@ -53,9 +70,9 @@ void Task::printNodes(){
 
 	printf("The nodes for r are\n");
 	for(int i=0;i<Bsize;i++){
-		printf("ID:%d value:%d\n",RNodes[i].ID,RNodes[i].value);
+		printf("ID:%d value:%d ApNodeID:%d\n",RNodes[i].ID,RNodes[i].value,RNodes[i].ApNodeID);
 		for(int f=0;f<Asize;f++){
-			printf("A_ID:%d last_result:%d \n",RNodes[i].ANodeID[f],RNodes[i].lastresults[f]);
+			printf("A_ID:%d last_result:%d\n",RNodes[i].ANodeID[f],RNodes[i].lastresults[f]);
 		}
 	}
 
@@ -81,14 +98,15 @@ void Task::constructANodes(unsigned size,int **matrix){
 	ANode node;
 	ANodes = new ANode[Asize*Asize];
 	unsigned counter=0;
-	for(int i=0;i<Asize;i++){
-		for(int j=0;j<Asize;j++){
+	for(unsigned i=0;i<Asize;i++){
+		for(unsigned j=0;j<Asize;j++){
 		node.ID = nodeNumber;
 		node.value = matrix[i][j];
 		node.XNode =XNodes[j].ID;
 		node.Xvalue = XNodes[j].value;
 		node.PNode=PNodes[j].ID;
 		node.lastResult = 0;
+		ApNodes[i].Anodes[j]=node.ID;
 		ANodes[counter] = node;
 		nodeNumber++;
 		counter++;
@@ -111,6 +129,7 @@ void Task::constructRNodes(unsigned size,unsigned Asize,int *bvector){
 		node.squareValue=0;
 		node.ANodeID=new unsigned[Asize];
 		node.lastresults=new int[Asize];
+		node.ApNodeID=ApNodes[i].ID;
 		for(int f=counterA-Asize;f<counterA;f++){
 			node.ANodeID[counter]=ANodes[f].ID;
 			node.lastresults[counter]=ANodes[f].lastResult;
@@ -124,6 +143,7 @@ void Task::constructRNodes(unsigned size,unsigned Asize,int *bvector){
 		counterA+=Asize;
 		counter=0;
 		RNodes[i]=node;
+
 	}
 
 }
@@ -166,10 +186,27 @@ void Task::constructAlphaNode(){
 	alpha.alpha_denomID=alpha_denom.ID;
 }
 
+void Task::constructApNodes(unsigned size){
+	ApNode node;
+	ApNodes = new ApNode[size];
+	alpha_denom.Ap_addresses=new unsigned[size];
+	for(int i=0;i<size;i++){
+		node.ID=nodeNumber++;
+		node.value=0;
+		node.alpha=alpha.ID;
+		node.last_result=0;
+		node.pNode=PNodes[i].ID;
+		node.Anodes=new unsigned[size];
+		ApNodes[i]=node;
+		alpha_denom.Ap_addresses[i]=node.ID;
+	}
+
+}
+
 int main(){
 	Task t;
 
-	//construct helper nodes(Nodes with one entry)
+	//construct helper nodes(Nodes that exist only once)
 	t.constructRSNewNode();
 	t.constructRSOldNode();
 	t.constructAlphaDenomNode();
@@ -180,6 +217,7 @@ int main(){
 	const unsigned rsize=2;
 	//construct nodes with multiple entries
 	t.constructPNodes(rsize);
+	t.constructApNodes(rsize);
 
 	int vector[xSize] ={2,1};
 	t.constructXNodes(vector,xSize);
