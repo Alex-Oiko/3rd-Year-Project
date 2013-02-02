@@ -114,9 +114,23 @@ struct event-->has type,source key, destination key, fired value, for throught r
 
 Simulate.cpp
 =============
-LoadFireAll-->makes all the nodes in the system to fire by adding them to the event Q. The important part of this function is that it changes the type of the event, so that when it is called from the event Q the appropriate function will be called
+LoadFireAll-->makes all the nodes in the system ready to fire by adding them to the event Q. The important part of this function is that it changes the type of the event, so that when it is called from the event Q the appropriate function will be called
 UpdateAll-->makes all the nodes in the system to update their values using the information currently stored in the target tables, by adding them in the event Q. Last sentence of LoadFireAll function applies to this one as well.
 
 ^^Difference between the 2 is that the LoadFireAll tweaks the source key of the event and UpdateAll changes the destination key of the event. That happens so the event which node to do operations on every time.
 
-SimBegin-->Begins the simulation, by calling the LoadFireAll function, to fill up the event queue with events. In the beginning the while loop executes all the events from the LoadFireAll  function that was called before, so as to make all the cores fire to their respective destinations and check that the paths are correct and also update the values in the destinatin cores, if they were uncorrect or changed after the program was loaded. When the event Q is empty the if statement will be called, which will call the UpdateAll funtion that will fill up the event Q, which will update the values in the nodes. After that it calls the LoadFireAll function so as to fill up the event Q even further and make the nodes fire spikes about their updated information to the nodes that communicate with them. Here is the part where some kind of flow is introduced to the program. The 'l' variable is incremented in order to stop the program after a while, otherwise it will run forever. Something like an end condition. After that the event Q is read event by event so as to call the correct function in each event, hence the if statements
+SimBegin-->Begins the simulation, by calling the LoadFireAll function, to fill up the event queue with events. In the beginning the while loop executes all the events from the LoadFireAll  function that was called before, so as to make all the cores fire to their respective destinations and check that the paths are correct and also update the values in the destinatin cores, if they were uncorrect or changed after the program was loaded. When the event Q is empty the first if statement will be called, which will call the UpdateAll funtion that will fill up the event Q, which will update the values in the nodes. After that it calls the LoadFireAll function so as to fill up the event Q even further and make the nodes fire spikes about their updated information to the nodes that communicate with them. Here is the part where some kind of flow is introduced to the program. The 'l' variable is incremented in order to stop the program after a while, otherwise it will run forever. Something like an end condition. After that the event Q is read event by event so as to call the correct function in each event, hence the if statements
+
+LoadFire-->prepares the event in order to be fired, by changing its value to the nodes value. It also changes the destination of the core, so as to satisfy the weird packets that the SpiNNaker uses. It also changes the type of the event to FIREAWAY, so that a different event is called next time, that will actually fire the event/spike.It finally adds it to the event Q so that it actually gets fired in the end.
+
+Update-->Obviously updates the nodes of the core based on the incoming weights of the nodes that a specific node is connected to. These weights are communicated to a node through spikes.VinPoint?????? It ends by updating the value of the node.
+
+FireAway-->Actually fires the spike from the core to the system. Gets the data of the node that will be sent and the links in order to know where to initially send the spike. Sets the through routing of the spike and 
+
+Deliver-->Does something with VinPoint I am not completely sure....ASK
+
+
+-Why is ThroughRouted and Thru incremented and why is there?
+-VinPoint?-->is it the incoming value?
+-Why do Wvt>>30 in assignement
+-Deliver-> makes the chenge in the core where the spike is delivered from the existing value to the one in the spike?
