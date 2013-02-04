@@ -1,0 +1,48 @@
+Computing in A{
+	
+	last_result=value*ValueIn//to compute A*x
+	FIRE last_result
+}
+
+Computing in r{
+
+	for(i=0;i<Valecny;i++){
+		temp+=ValueIn[i]//To compute A*x for all the rows
+	}
+ 	value=value-temp//compute r
+	FIRE value
+}
+
+Computing in p{
+	beg_of_loop=0
+	if(beg_of_loop==1){
+		FIRE p
+	}
+	else{
+		p=ValueIn//store r in p
+		beg_of_loop=1;
+	}
+}
+
+Computing in rsold{
+	
+	for(int i=0;i<Valency;i++){
+		temp+=ValueIn[i]^2//compute r^2
+	}
+	FIRE rsold
+}
+
+Computing in x{
+
+if(Beginning_of_problem){
+	FIRE X
+}
+
+}
+
+SimBegin{
+Computing in x()
+Computing in p()
+
+}
+

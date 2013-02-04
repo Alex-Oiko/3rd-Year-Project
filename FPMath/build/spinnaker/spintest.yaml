@@ -1,0 +1,8 @@
+defaults: {}
+iptags:
+- !!python/tuple [0, localhost, 17892]
+programs:
+- base: 0x72000000
+  file: output/spintest.aplx
+  cores:
+  - [0, 0, 0x00000002]
