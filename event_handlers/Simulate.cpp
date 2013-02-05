@@ -3,98 +3,30 @@
 #include "Simulate.h"
 
 
-void Simulate::SimBegin(Task TASK, Dealer DEAL, Core CORE, MakeMCTables MCT) {
-	event E;
-	int l=0;
-	long loops=0;
-	puts("Starting Simulation");
-	ComputingInX(E,CORE,DEAL);
-
-}
-
-void Simulate ComputingInX(Event E,Core CORE,Deal DEAL){
-	int begin_sim=0;
-	int node;
-	Event E;
-
-	if(begin_sim==0){
-		for(node=0;node<xNodes;node++){
-			E.Ks=DEAL.MAP[node];
-			LoadFire(E,CORE,DEAL);
+void Simulate::Update(Event E,Core CORE,Deal DEAL){
+	unsigned Xd,Yd,Cd,Od;
+	unsigned *W,*Vp;
+	int temp;
+ 	KeyTo(E.kd,Xd,Yd,Cd,Od);
+	W=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Weights[counter];
+	if(W==-1){
+		//do nothing
+	}
+	else if(W==0){//multiplication
+		Vp=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].VinPoint;
+		temp=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value;
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];//which one????
+		LoadFire(Event E,Core CORE,Dealer DEAL);
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=temp;
+	}
+	else if(W==1){//addition
+		for(int node=0;node<Valency;node++){//Valecy care..how many and from where do you start??
+			temp+=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];//replace with value or lasres???
 		}
-		ComputingInA(Core CORE);
+		LoadFire(Event E,Core CORE,Dealer DEAL);
+
 	}
-	else{}
-}
+	else if(W==2){//subtracting
 
-void Simulate ComputingInA(Core CORE){
-	int i;
-	for(i=0;i<xNodes;i++){
-		
 	}
-
 }
-
- void Simulate::LoadFire(event E, Core CORE, Dealer DEAL){
- 	 unsigned Xs, Ys, Cs, Os;//when are they initialised for use??
-	 KeyTo(E.Ks, Xs, Ys, Cs, Os);
-	 E.Value = CORE.AllCores[Xs][Ys][Cs].TargetTable[Os].Value;
-	 E.Kd = E.Ks;    //start off at source
-	 E.Type = FIREAWAY;
-	 E.OutLink = 6; //this is the start
-	 EventQ.push(E);//IMPORTANT
-	 return;
-}
-
-unsigned Simulate::FireAway(event E, MakeMCTables MCT, Core CORE){
-     unsigned DATA, CORES, LINKS;
-     unsigned Xd,Yd,Cd,Od;
-     int XYn,Xn,Yn;
-     unsigned ThroughRouted=0;
-     KeyTo(E.Kd, Xd, Yd, Cd, Od);
-     int link, core;
-     DATA = MCT.GetMCData(E.Ks, E.Kd);
-     LINKS = DATA&0x03f;
-     if(DATA == 0){
-         LINKS = (1<<E.OutLink);//through route
-         ThroughRouted++;
-   }
-   link = 1;
-   for(int i = 0;LINKS && i < 6; i++, link = (link<<1)){//multicasts here to other links
-         if(link&LINKS){
-             E.OutLink = i;//set for through routing
- 
-          if(MCT.Wrap)
-             XYn = MCT.NeighbourWrap(Xd, Yd, i);
-             else
-             XYn = MCT.Neighbour(Xd, Yd, i);
-             MCT.RevertXY(XYn, Xn, Yn);
-             E.Kd = KeyFrom(Xn, Yn, Cd, Od); //off to new destination
-             EventQ.push(E);
-          }
-     }
-     CORES = (DATA>>7)&0x0ffff; //look only at cores 1 to 16 (0 to 15 in my data structures)   
-     core = 1;
-     for(int i = 0;CORES && i < 16; i++,core = (core<<1)){   //deliver as needed to cores
-         if(core&CORES){
-             E.Kd = KeyFrom(Xd, Yd, i, 0);
-             E.Type = DELIVER;
-             Deliver(E, CORE);
-       	     }
-     }
-     return ThroughRouted;
-}
-
-void Simulate::Deliver(event E, Core CORE){
-     unsigned Xd, Yd, Cd, Od;
-     unsigned VinP;
-     map<unsigned, unsigned>::iterator InVal;
-     KeyTo(E.Kd,Xd, Yd, Cd, Od);
-     InVal = CORE.AllCores[Xd][Yd][Cd].LUT.find(E.Ks);//find through the source address
-     if(InVal == CORE.AllCores[Xd][Yd][Cd].LUT.end())
-         return;     //delivered to disinterested core
-     VinP = InVal->second;
-     CORE.AllCores[Xd][Yd][Cd].ValuesIn[VinP] = E.Value;
-     return;
-}
-

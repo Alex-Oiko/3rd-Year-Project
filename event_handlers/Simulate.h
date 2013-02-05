@@ -34,13 +34,11 @@ private:
         unsigned OutLink; //for through routing
     };
     queue<event> EventQ;
-    queue<unsigned> KeysQ;
+    unsigned counter;
     void LoadFire(event, Core, Dealer);
     void Update(event, Core);
     void Deliver(event, Core);
     unsigned FireAway(event, MakeMCTables,Core);
-    void ComputingInX(Event E,Core CORE,Deal DEAL);
-    void ComputinInA(Core CORE);
 public:
     void SimBegin(Task, Dealer, Core, MakeMCTables);
     
