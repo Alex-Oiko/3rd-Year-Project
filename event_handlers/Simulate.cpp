@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Simulate.h"
 
-//counter++ when Q is empty
+//counter++ when Q is empty,<--NO! When an update session is over
 void Simulate::Update(Event E,Core CORE,Deal DEAL){
 	unsigned Xd,Yd,Cd,Od;
 	unsigned *W,*Vp;
@@ -23,6 +23,7 @@ void Simulate::Update(Event E,Core CORE,Deal DEAL){
 		for(int node=0;node<xNodes;node++){//Valecy care..how many and from where do you start??xNodes is the number of elements of the x vector
 			temp+=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];//replace with value or lasres???
 		}
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=temp;
 		LoadFire(Event E,Core CORE,Dealer DEAL);
 
 	}
@@ -31,19 +32,19 @@ void Simulate::Update(Event E,Core CORE,Deal DEAL){
 		LoadFire(Event E,Core CORE,Dealer DEAL);
 
 	}
-	else if(W==3){//assignement
-		CORE.AllCores[Xd][Yd][Cd].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
-		CORE.AllCores[Xd][Yd][Cd].lasres=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+	else if(W==3){//assignement. Not sure for both
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].lasres=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
 	}
 	else if(W==4){//constants
 		for(int node=0;i<xNodes;i++){
-			AllCores[Xd][Yd][Cd].Value+=CORE.AllCores[Xd][Yd][Cd].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]]^2;
-			LoadFire(Event E,Core CORE,Deal DEAL);	
+			AllCores[Xd][Yd][Cd].TargetTable[Od].Value+=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]]^2;
 		}
+			LoadFire(Event E,Core CORE,Deal DEAL);	
 	}
 	else if(W==5){//constant*value
-			AllCores[Xd][Yd][Cd].lasres=CORE.AllCores[Xd][Yd][Cd].Value*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
-			E.Value=AllCores[Xd][Yd][Cd].lasres;
+			CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].lasres=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+			E.Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].lasres;
 			LoadFire(Event E,Core CORE,Deal DEAL);
 	}
 	else if(W==6){//calculate r & p'Ap
@@ -51,17 +52,24 @@ void Simulate::Update(Event E,Core CORE,Deal DEAL){
 			temp+=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];//replace with value or lasres???
 		}
 		if(from Ap){//think about this
-		CORE.AllCores[Xd][Yd][Cd].lasres=CORE.AllCores[Xd][Yd][Cd].Value*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+		CORE.AllCores[Xd][Yd][Cd].TargetTable.lasres=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
 		E.Value=lasres;
 		LoadFire(Event E,Core CORE,Deal DEAL);
 		}
 		else{
-		CORE.AllCores[Xd][Yd][Cd].Value=CORE.AllCores[Xd][Yd][Cd].Value-CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value-CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
 		LoadFire(Event E,Core CORE,Deal DEAL);
 		}
 	}
 	else if(W==7){//division
-		CORE.AllCores[Xd][Yd][Cd].Value=CORE.AllCores[Xd][Yd][Cd].Value/CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value/CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]
+	}
+	else if(W==8 && AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]<1e-10){//end condition
+		return;
+	}
+	else if(W==9){//beta division
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]/CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value
+		
 	}
 
 }
