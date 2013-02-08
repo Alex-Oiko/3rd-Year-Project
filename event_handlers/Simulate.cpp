@@ -3,17 +3,18 @@
 #include "Simulate.h"
 
 //counter++ when Q is empty,<--NO! When an update session is over
+//Possie,VinPoint and ValueIn confusion
 void Simulate::Update(Event E,Core CORE,Deal DEAL){
 	unsigned Xd,Yd,Cd,Od;
 	unsigned *W,*Vp;
 	int temp,rsold;
  	KeyTo(E.kd,Xd,Yd,Cd,Od);
 	W=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Weights[counter];
+	Vp=CORE.AllCores[Xd][Y][Cd].TargetTable[Od].VinPoint;
 	if(W==-1){
 		//do nothing
 	}
 	else if(W==0){//multiplication
-		Vp=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].VinPoint;
 		temp=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value;
 		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=*CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];//which one????
 		LoadFire(Event E,Core CORE,Dealer DEAL);
@@ -62,14 +63,19 @@ void Simulate::Update(Event E,Core CORE,Deal DEAL){
 		}
 	}
 	else if(W==7){//division
-		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value/CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]
+		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value/CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+		LoadFire(Event E,Core CORE,Deal DEAL);
 	}
 	else if(W==8 && AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]<1e-10){//end condition
 		return;
 	}
 	else if(W==9){//beta division
 		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]]/CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value
-		
+		LoadFire(Event E,Core CORE,Deal DEAL);	
+	}
+	else if(W==10){//last addition
+		E.Value=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od]=CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value+CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[0]];
+		LoadFire(Event E,Core CORE,Deal DEAL);	
 	}
 
 }
