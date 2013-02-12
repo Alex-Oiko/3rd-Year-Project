@@ -102,9 +102,9 @@ void Simulate::LoadFire(event E, Core CORE, Dealer DEAL){
 void Simulate::SimBegin(Task TASK, Dealer DEAL, Core CORE, MakeMCTables MCT) {
    event E;
    int l = 0;
-   unsigned counter;
    long loops = 0;
    unsigned Thru=0;
+   counter=0;
    puts("Starting simulation");
    LoadFireAll(TASK, DEAL);
     while(true){
