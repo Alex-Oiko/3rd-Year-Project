@@ -21,7 +21,7 @@ void Simulate::Update(Event E,Core CORE,Deal DEAL){
 	}
 	else if(W==1){//addition
 		for(int node=0;node<xNodes;node++){//Valecy care..how many and from where do you start??xNodes is the number of elements of the x vector
-			temp=+CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];
+			temp+=CORE.AllCores[Xd][Yd][Cd].ValuesIn[Vp[node]];
 		}
 		CORE.AllCores[Xd][Yd][Cd].TargetTable[Od].Value=temp;
 		LoadFire(Event E,Core CORE,Dealer DEAL);
