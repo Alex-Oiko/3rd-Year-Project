@@ -1,0 +1,42 @@
+BEGIN VALUES
+MX1[2,2] 1
+4.0 1.0
+1.0 3.0
+X[2] 3
+2.0 1.0
+R[2] 2
+1.0 2.0
+P[2] 4
+0.0 0.0
+A[2] 9
+0.0 0.0
+RO[2] 5 
+0.0
+RN[2] 7
+0.0
+AL[2] 4 
+0.0
+B[2] 4 
+0.0
+END VALUES
+BEGIN OVERLAYS
+PT=P
+END OVERLAYS
+BEGIN CONNECTIONS
+X[0]>MX1[0,0] MX1[1,0]
+X[1]>MX1[0,1] MX1[1,1]
+MX1[0,0]>R[0] A[0]
+MX1[1,0]>R[1] A[1]
+MX1[0,1]>R[0] A[0]
+MX1[1,1]>R[1] A[1]
+R[0]>P[0] RO[0] RN[0]
+R[1]>P[1] RO[0] RN[1]
+RO[0]>AL[0] B[0]
+P[0]>MX1[0,0] MX1[1,0] A[0] X[0] R[0]
+P[1]>MX1[0,1] MX1[1,1] A[1] X[1] R[1]
+A[0]>AL[0] R[0]
+A[1]>AL[0] R[1]
+AL[0]>A[0] A[1] P[0] P[1]
+RN[0]>B[0] P[0] P[1]
+B[0]>P[0] P[1]
+END CONNECTIONS
