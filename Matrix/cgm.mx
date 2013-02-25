@@ -1,26 +1,25 @@
 BEGIN VALUES
-MX1[2,2] 1
+MX1[2,2] 1/
 4.0 1.0
 1.0 3.0
-X[2] 3
+X[2] 3/
 2.0 1.0
-R[2] 2
+R[2] 2/
 1.0 2.0
-P[2] 4
+P[2] 4/
 0.0 0.0
-A[2] 9
+A[2] 9/
 0.0 0.0
-RO[2] 5 
+RO[1] 5/ 
 0.0
-RN[2] 7
+RN[1] 7/
 0.0
-AL[2] 4 
+AL[1] 4/
 0.0
-B[2] 4 
+B[1] 4/ 
 0.0
 END VALUES
 BEGIN OVERLAYS
-PT=P
 END OVERLAYS
 BEGIN CONNECTIONS
 X[0]>MX1[0,0] MX1[1,0]

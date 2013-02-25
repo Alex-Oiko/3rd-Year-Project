@@ -138,7 +138,7 @@ bool Task::readMatrix(){
     string name;
     string NewLine, sOpCode;
     unsigned OpCode;
-    
+    vector<unsigned> sOpCodes;
     vector<float> fpValues;
     vector<string> SubStrings;
     //vector<float>::iterator iFP;

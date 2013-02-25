@@ -27,7 +27,7 @@ public:
     bool readTask(string);
     void printConnections();
     map<string,unsigned> pidStart;              //mapping of variable names to process ID starting value
-    map<string, unsigned> OpCodes;              //OpCodes for each element
+    map<string, vector<unsigned>> OpCodes;              //OpCodes for each element
     map<unsigned,string> pidName;               //mapping of process ID starting value to variable name
     map<string,unsigned> nameSize;              //mapping of variable names to sizes
     map<string,unsigned> nameD1;                //mapping of variable name to first dimension
