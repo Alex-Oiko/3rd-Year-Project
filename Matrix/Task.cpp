@@ -138,7 +138,8 @@ bool Task::readMatrix(){
     string name;
     string NewLine, sOpCode;
     unsigned OpCode;
-    
+    vector<string> sOpCodes;
+    vector<unsigned> OpCodez;
     vector<float> fpValues;
     vector<string> SubStrings;
     //vector<float>::iterator iFP;
@@ -149,11 +150,15 @@ bool Task::readMatrix(){
     split(inLine, ' ', SubStrings);
     NewLine = SubStrings[0];
     sOpCode = SubStrings[1];
-    OpCode = stoi(sOpCode);
 
+    split(sOpCode,'/',sOpCodes);
+    for(int i=0;i<sOpCodes.size();i++){
+	cout<<"OpCode "<<sOpCodes[i]<<"\n";
+	OpCodez.push_back(stoi(sOpCodes[i]));
+    }
     idx = NewLine.find('[');
     name = NewLine.substr(0,idx);    
-    OpCodes.insert(map<string, unsigned>::value_type(name,OpCode)); 
+    OpCodes.insert(map<string, vector<unsigned>>::value_type(name,OpCodez)); 
     if(idx == string::npos){ // must be a scalar
         vType = SCALAR;
     }
@@ -470,7 +475,7 @@ void Task::CoreFiller(){
         for(;i<4;i++)
             CoreEntry.Name[i] = '\0';
         auto iOp = OpCodes.find(name);
-        CoreEntry.OpCode = iOp->second;
+        CoreEntry.OpCodes = iOp->second;
         auto iD1 = nameD1.find(name);
         XD = iD1->second;
         CoreEntry.XD = XD;

@@ -9,6 +9,7 @@
 #ifndef Matrix_Utils_h
 #define Matrix_Utils_h
 #include <iostream>
+#include <vector>
 #include <iomanip>
 #include <string>
 using namespace std;
@@ -27,7 +28,7 @@ static unsigned KeyFrom(unsigned X, unsigned Y, unsigned C, unsigned O){
 
 struct TargetTableEntry{        //There are CoreData.NodesOnCore of these
     unsigned Kd;                //identifies this particular node (Key actually)
-    unsigned OpCode;            //identifies what function to use on MC message arrival
+    vector<unsigned> OpCodes;   //identifies what function to use on MC message arrival
     char Name[4];              //Name of the node as from the input file
     unsigned XD;                //X dimension of the matrix element
     unsigned YD;                //Y dimension of the matrix element

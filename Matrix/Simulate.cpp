@@ -24,11 +24,15 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
             continue;
         auto iTTE = CORE.CoreEntries.find(E.Ks);
         TTE = iTTE->second;
-        if(TTE.OpCode == 3){
+        if(TTE.OpCodes[0] == 3){
             E.Value = TTE.IV;
             E.Kd = E.Ks;
+	    counters = new unsigned[TTE.YD];
             EventQ.push(E);
         }
+	else if(TTE.OpCodes[0]==2){
+		counters[TTE.Y]=0;
+	}
     }
 }
 void Simulate::UpdateAll(Task& TASK, Dealer& DEAL){
@@ -72,7 +76,10 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     }
         printf("%lu events in total\n%u Through routes\n",loops,Thru);
         printf("%lu core hits and %lu core misses\n", CoreHits, CoreMisses);
-    CORE.PrintByOpCode(2);
+        CORE.PrintByOpCode(2);
+	CORE.PrintByOpCode(3);
+	CORE.PrintByOpCode(4);
+	CORE.PrintByOpCode(5);
     
 }
 void Simulate::LoadFire(event E, Core& CORE, Dealer& DEAL){
@@ -177,17 +184,40 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.Kd = RES.Ks;
         RES.Type = FIREAWAY;
         RES.OutLink = 6;
-        if (TTE.OpCode == 1) {
+        if (TTE.OpCodes[0] == 1) {
             Vme = CORE.Mstore[TTE.V];
             Res = Vme*E.Value;
             RES.Value = Res;
             EventQ.push(RES);
         }
-        else if(TTE.OpCode == 2){
+        else if(TTE.OpCodes[0] == 2){
+	    counters[TTE.Y]++;
             Vme = CORE.Mstore[TTE.V];
-            float NewValue = CORE.Mstore[TTE.V] + E.Value;
-            CORE.Mstore[TTE.V] = NewValue;
+            CORE.Mstore[TTE.V] -=E.Value;
+	    cout<<"OpCode size is "<<TTE.OpCodes.size()<<"\n";
+	    cout<<"COUNTER "<<counters[TTE.Y]<<"\n";
+	    TTE.OpCodes.pop_back();
+	    if(counters[TTE.Y]==TTE.YD){
+		cout<<"FIRING NOW!!!";
+		RES.Value=CORE.Mstore[TTE.V];
+		counters[TTE.Y]=0;
+		EventQ.push(RES);
+	    }
         }
+	else if(TTE.OpCodes[0]==4){
+		CORE.Mstore[TTE.V]=E.Value;
+		//RES.Value=E.Value;
+		//EventQ.push(RES);
+	}
+	else if(TTE.OpCodes[0]==5){
+		counters[TTE.Y]++;
+		CORE.Mstore[TTE.V]+=E.Value*E.Value;
+		if(counters[TTE.Y]==TTE.YD){
+			RES.Value=CORE.Mstore[TTE.V];
+			counters[TTE.Y]=0;
+			EventQ.push(RES);
+		}
+	}	
     }    
     return;
 }

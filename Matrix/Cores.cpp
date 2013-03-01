@@ -29,7 +29,7 @@ void Core::MakeLUT(Task& TASK){
 
 void Core::PrintTTE(TargetTableEntry& TTE){
     string sName = TTE.Name;
-    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCode<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
+    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCodes[0]<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
 }
 
 void Core::PrintByOpCode(unsigned OpCode){
@@ -37,7 +37,7 @@ void Core::PrintByOpCode(unsigned OpCode){
     unsigned X,Y,C,O;
     for(auto iTTE = CoreEntries.cbegin(); iTTE!=CoreEntries.cend();iTTE++){
         TTE = iTTE->second;
-        if(TTE.OpCode != OpCode) continue;
+        if(TTE.OpCodes[0] != OpCode) continue;
         string sName = TTE.Name;
         KeyTo(TTE.Kd, X, Y, C, O);
         float value = Mstore[TTE.V];
