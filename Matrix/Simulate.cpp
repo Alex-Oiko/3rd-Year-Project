@@ -194,9 +194,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 	    counters[TTE.Y]++;
             Vme = CORE.Mstore[TTE.V];
             CORE.Mstore[TTE.V] -=E.Value;
-	    cout<<"OpCode size is "<<TTE.OpCodes.size()<<"\n";
+	    cout<<"OpCode size is "<<TTE.OpCodes[0]<<"\n";
 	    cout<<"COUNTER "<<counters[TTE.Y]<<"\n";
-	    TTE.OpCodes.pop_back();
+	    TTE.OpCodes[0]=5;
 	    if(counters[TTE.Y]==TTE.YD){
 		cout<<"FIRING NOW!!!";
 		RES.Value=CORE.Mstore[TTE.V];
