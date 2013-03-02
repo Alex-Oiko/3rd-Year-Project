@@ -36,6 +36,7 @@ public:
     map<string,string> overlays21;                //overlays 1st value is second declared second id is the first declaration
     multimap<unsigned, unsigned> Connections;   //list of connections in PIDs source to destination
     map<string,float**> mStore;                 //map of name to variable values
+    map<string,float**> mTemp;
     void printMatrixValues();                   //look at the values of the matrices
     multimap<unsigned, unsigned>    KsKd;       //from source to destination
     void FillKeyMaps(Dealer&);

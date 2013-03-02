@@ -28,7 +28,8 @@ public:
     void PrintLUT();
     void PrintTTE(TargetTableEntry&);
     vector<float>  Mstore;       //storage for values Mstore[X][Y][C][]
-    vector<vector<unsigned>> MOp;
+    vector<vector<unsigned>> mop;
+    vector<float> Mtemp;
     void AllocateStorage(Task&);
     void PrintByOpCode(unsigned);
 };

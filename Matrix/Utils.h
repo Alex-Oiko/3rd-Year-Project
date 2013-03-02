@@ -35,6 +35,7 @@ struct TargetTableEntry{        //There are CoreData.NodesOnCore of these
     unsigned X;                 //X position of element Name[X][Y]
     unsigned Y;                 //X position of element Name[X][Y]
     float IV;                //initial value
+    float Temp;
     unsigned V;                //array offset pointer to my value = pid for simulation here.
 };
 

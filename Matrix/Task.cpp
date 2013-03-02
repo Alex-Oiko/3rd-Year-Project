@@ -206,6 +206,7 @@ void Task::makeMatrix(string name, unsigned D1, unsigned D2){
     for(int i=0;i<D1;i++)
         matrix[i] = new float[D2];
     mStore.insert(map<string, float**>::value_type(name,matrix));
+    mTemp.insert(map<string, float**>::value_type(name,matrix));
     return;
 }
 
@@ -490,7 +491,8 @@ void Task::CoreFiller(){
                 CoreEntry.Y = y;
                 CoreEntry.IV = M[x][y];
                 CoreEntry.V = pid++;
-                CoreFill.insert(multimap<string, TargetTableEntry>::value_type(name,CoreEntry));
+                CoreEntry.Temp=M[x][y];
+		CoreFill.insert(multimap<string, TargetTableEntry>::value_type(name,CoreEntry));
                 CoreFlix.push_back(CoreEntry);
             }
         }
