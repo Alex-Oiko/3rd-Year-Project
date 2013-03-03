@@ -56,7 +56,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty())
+        if(EventQ.empty() || loops==200)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -80,6 +80,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
 	CORE.PrintByOpCode(3);
 	CORE.PrintByOpCode(4);
 	CORE.PrintByOpCode(5);
+	CORE.PrintByOpCode(0);
     
 }
 void Simulate::LoadFire(event E, Core& CORE, Dealer& DEAL){
@@ -147,7 +148,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
     event RES;
     vector<unsigned>  vTTE;
     TargetTableEntry TTE;
-    unsigned X,Y,C,O;
+    unsigned X,Y,C,O,oc;
     float Vme,Res;
     auto iTTE = CORE.LUT.find(E.Ks);
     if(iTTE == CORE.LUT.cend()){
@@ -176,6 +177,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
          cout << "Target ";
         TTE = iC->second;
         CORE.PrintTTE(TTE);
+	oc=CORE.mop[TTE.V][0];
         //put your code here - The values are in Core.Mstore[X][Y][C] (put the Key into "KeyTo" to get X,Y and C
         //KeyTo(E.Ks,X,Y,C,O);
         //Current value is at Core.Mstore[X][Y][C][iC->second.V]
@@ -184,39 +186,77 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.Kd = RES.Ks;
         RES.Type = FIREAWAY;
         RES.OutLink = 6;
-        if (TTE.OpCodes[0] == 1) {
-            Vme = CORE.Mstore[TTE.V];
-            Res = Vme*E.Value;
-            RES.Value = Res;
-            EventQ.push(RES);
-        }
-        else if(TTE.OpCodes[0] == 2){
-	    counters[TTE.Y]++;
-            Vme = CORE.Mstore[TTE.V];
-            CORE.Mstore[TTE.V] -=E.Value;
-	    cout<<"OpCode size is "<<TTE.OpCodes[0]<<"\n";
-	    cout<<"COUNTER "<<counters[TTE.Y]<<"\n";
-	    TTE.OpCodes[0]=5;
-	    if(counters[TTE.Y]==TTE.YD){
-		cout<<"FIRING NOW!!!";
-		RES.Value=CORE.Mstore[TTE.V];
-		counters[TTE.Y]=0;
-		EventQ.push(RES);
-	    }
-        }
-	else if(TTE.OpCodes[0]==4){
-		CORE.Mstore[TTE.V]=E.Value;
-		//RES.Value=E.Value;
-		//EventQ.push(RES);
-	}
-	else if(TTE.OpCodes[0]==5){
-		counters[TTE.Y]++;
-		CORE.Mstore[TTE.V]+=E.Value*E.Value;
-		if(counters[TTE.Y]==TTE.YD){
-			RES.Value=CORE.Mstore[TTE.V];
-			counters[TTE.Y]=0;
+	switch(CORE.mop[TTE.V][0]){
+		case 0:
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+			break;
+        	case 1://matrix_element*vector_element
+            		Vme = CORE.Mstore[TTE.V];
+            		Res = Vme*E.Value;
+            		RES.Value = Res;
+			cout<<"A*something happening 'ere"<<endl;
+            		EventQ.push(RES);
+			break;
+        	case 2://specific for the creation of r
+	    		counters[TTE.Y]++;
+          		Vme = CORE.Mstore[TTE.V];
+            		CORE.Mstore[TTE.V] -=E.Value;
+	    		cout<<"COUNTER "<<counters[TTE.Y]<<"\n";
+	    		if(counters[TTE.Y]==TTE.YD){
+				RES.Value=CORE.Mstore[TTE.V];
+				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+				cout<<"R CREATED"<<endl;
+				counters[TTE.Y]=0;
+				EventQ.push(RES);
+	    		}
+        		break;
+		case 4://assignement
+			CORE.Mstore[TTE.V]=E.Value;
+			CORE.Mtemp[TTE.V]=E.Value;
+			RES.Value=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			EventQ.push(RES);
-		}
+			break;
+	
+		case 5://constant
+			counters[TTE.Y]++;
+			CORE.Mstore[TTE.V]+=E.Value*E.Value;
+			if(counters[TTE.Y]==TTE.YD){
+				RES.Value=CORE.Mstore[TTE.V];
+				counters[TTE.Y]=0;
+				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+				cout<<"RSOLD CREATED"<<endl;
+				EventQ.push(RES);
+			}
+			break;
+		case 6:
+			if(counters[TTE.Y]==0)
+				CORE.Mstore[TTE.Y]=0;
+
+			cout<<"numbah 6 here"<<endl;
+			counters[TTE.Y]++;
+			CORE.Mstore[TTE.V]+=E.Value*CORE.Mtemp[TTE.V];
+			if(counters[TTE.Y]==TTE.YD){
+				RES.Value=CORE.Mstore[TTE.V];
+				counters[TTE.Y]=0;
+				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+				//EventQ.push(RES);
+			}
+			break;
+		case 7://Assignement without send
+			counters[TTE.V]=E.Value;
+			CORE.Mstore[TTE.V]=E.Value;
+			CORE.Mtemp[TTE.V]=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+			cout<<"Value is EDWWWWWWWWWWWW "<<CORE.Mtemp[TTE.V]<<" "<<E.Value<<endl;
+			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 	}
 	
     }    

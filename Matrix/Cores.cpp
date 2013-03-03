@@ -70,16 +70,19 @@ void Core::PrintLUT(){
 
 void Core::AllocateStorage(Task& TASK){
     TargetTableEntry TTE;
+    vector<unsigned> memalloc;
     //firstly create the storage needed
     for(int i = 0; i < TASK.nextPID; i++){
         Mstore.push_back((float)-1.0);
-	//MOp.push_back(vector<unsigned>);
+	Mtemp.push_back((float)-1.0);
+	mop.push_back(memalloc);
     }
  
     for(auto iS = CoreEntries.cbegin(); iS != CoreEntries.cend(); iS++){
         TTE = iS->second;
         Mstore[TTE.V] = TTE.IV;
-	//MOp[TTE.V] = TTE.OpCodes;
+	Mtemp[TTE.V] = TTE.Temp;
+	mop[TTE.V] = TTE.OpCodes;
 	}
 }
 
