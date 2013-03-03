@@ -7,7 +7,15 @@
 
 -Temp vairable in TTE
 	.Utils.h @ an extra variable called Temp exists now in the TTE
+	.Task.h @ description, there is a new vector of type vector<string,float**> called mTemp
+	.Task.cpp @ CoreFiller, adds one line to set the corresponding value to the core, in the same principle as the actual value works(mStore vector)
 	.Cores.h @ a new vectors is added to save these variables to hte cores
 	.Cores.cpp @ AllocateStorage(), to allocate some memory there
+
+-Counter variable in TTE
+	.Utils.h @ an extra counter variable exists to count how many receptions have occured in a node, so as to not fire prematurely
+	.Task.cpp @ CoreFiller sets the counter variable to 0 for all the cores
+	.Core.h @ description there is a new vector called Mcounter<unsigned> to keep all the counters for all the nodes according to the TTE.V pointer that is saved in each TTE
+	.Core.cpp @ AllocateStorage, memory is allocated for the Mcounter vector and the respective value(0) is assigned.
 
 

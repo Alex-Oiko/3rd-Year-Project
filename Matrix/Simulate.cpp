@@ -55,7 +55,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty() || loops==200)
+        if(EventQ.empty() || loops==230)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -75,12 +75,17 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     }
         printf("%lu events in total\n%u Through routes\n",loops,Thru);
         printf("%lu core hits and %lu core misses\n", CoreHits, CoreMisses);
-        CORE.PrintByOpCode(1);
+        cout<<"Matrix/Vector values"<<endl;
+	CORE.PrintByOpCode(1);
 	CORE.PrintByOpCode(2);
 	CORE.PrintByOpCode(3);
 	CORE.PrintByOpCode(4);
-	CORE.PrintByOpCode(5);
 	CORE.PrintByOpCode(0);
+	cout<<"Constants"<<endl;
+	CORE.PrintByOpCode(5);
+	CORE.PrintByOpCode(7);
+
+
     
 }
 void Simulate::LoadFire(event E, Core& CORE, Dealer& DEAL){
@@ -189,13 +194,16 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 	switch(CORE.mop[TTE.V][0]){
 		case 0:
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"opcode is 0 here"<<endl;
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 			break;
         	case 1://matrix_element*vector_element
             		Vme = CORE.Mstore[TTE.V];
             		Res = Vme*E.Value;
             		RES.Value = Res;
-			cout<<"A*something happening 'ere"<<endl;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+			cout<<"Multiplication happened here"<<endl;
             		cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
             		cout<<"resValue is "<<Res<<endl;
 			EventQ.push(RES);
@@ -249,7 +257,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 				cout<<"value of node is"<<CORE.Mstore[TTE.V]<<endl;
-				//EventQ.push(RES);
+				EventQ.push(RES);
 			}
 			break;
 		case 7://Assignement without send
@@ -258,6 +266,23 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"Value is EDWWWWWWWWWWWW "<<CORE.Mstore[TTE.V]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
+			break;
+		case 8://create alpha node
+			if(CORE.Mcounter[TTE.V]==0)
+				CORE.Mtemp[TTE.V]=0;
+
+			CORE.Mcounter[TTE.V]++;
+			CORE.Mtemp[TTE.V]+=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"ALPHA node here"<<endl;
+		 	if(CORE.Mcounter[TTE.V]==matrix_size){
+				CORE.Mstore[TTE.V]=CORE.Mstore[TTE.V]/CORE.Mtemp[TTE.V];
+				RES.Value=CORE.Mstore[TTE.V];
+				CORE.Mcounter[TTE.V]=0;
+				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
+				//EventQ.push(RES);
+			}
+			break;
 	}
 	
     }    
