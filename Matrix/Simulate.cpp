@@ -27,11 +27,10 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
         if(TTE.OpCodes[0] == 3){
             E.Value = TTE.IV;
             E.Kd = E.Ks;
-	    counters = new unsigned[TTE.YD];
             EventQ.push(E);
         }
 	else if(TTE.OpCodes[0]==2){
-		counters[TTE.Y]=0;
+		matrix_size=TTE.YD;
 	}
     }
 }
@@ -76,7 +75,8 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     }
         printf("%lu events in total\n%u Through routes\n",loops,Thru);
         printf("%lu core hits and %lu core misses\n", CoreHits, CoreMisses);
-        CORE.PrintByOpCode(2);
+        CORE.PrintByOpCode(1);
+	CORE.PrintByOpCode(2);
 	CORE.PrintByOpCode(3);
 	CORE.PrintByOpCode(4);
 	CORE.PrintByOpCode(5);
@@ -196,66 +196,67 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
             		Res = Vme*E.Value;
             		RES.Value = Res;
 			cout<<"A*something happening 'ere"<<endl;
-            		EventQ.push(RES);
+            		cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
+            		cout<<"resValue is "<<Res<<endl;
+			EventQ.push(RES);
 			break;
         	case 2://specific for the creation of r
-	    		counters[TTE.Y]++;
+	    		CORE.Mcounter[TTE.V]++;
           		Vme = CORE.Mstore[TTE.V];
             		CORE.Mstore[TTE.V] -=E.Value;
-	    		cout<<"COUNTER "<<counters[TTE.Y]<<"\n";
-	    		if(counters[TTE.Y]==TTE.YD){
+	    		cout<<"COUNTER "<<CORE.Mcounter[TTE.V]<<"\n";
+	    		if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 				cout<<"R CREATED"<<endl;
-				counters[TTE.Y]=0;
+				CORE.Mcounter[TTE.V]=0;
 				EventQ.push(RES);
 	    		}
         		break;
 		case 4://assignement
 			CORE.Mstore[TTE.V]=E.Value;
 			CORE.Mtemp[TTE.V]=E.Value;
-			RES.Value=E.Value;
+			RES.Value=CORE.Mstore[TTE.V];
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
+			cout<<CORE.Mstore[TTE.V]<<endl;
 			EventQ.push(RES);
 			break;
 	
 		case 5://constant
-			counters[TTE.Y]++;
+			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value*E.Value;
-			if(counters[TTE.Y]==TTE.YD){
+			if(CORE.Mcounter[TTE.V]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=CORE.Mstore[TTE.V];
-				counters[TTE.Y]=0;
+				CORE.Mcounter[TTE.V]=0;
 				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 				cout<<"RSOLD CREATED"<<endl;
+				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 				EventQ.push(RES);
 			}
 			break;
-		case 6:
-			if(counters[TTE.Y]==0)
-				CORE.Mstore[TTE.Y]=0;
+		case 6://to create Ap nodes
 
 			cout<<"numbah 6 here"<<endl;
-			counters[TTE.Y]++;
-			CORE.Mstore[TTE.V]+=E.Value*CORE.Mtemp[TTE.V];
-			if(counters[TTE.Y]==TTE.YD){
+			CORE.Mcounter[TTE.V]++;
+			CORE.Mstore[TTE.V]+=E.Value;
+			if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
-				counters[TTE.Y]=0;
+				CORE.Mcounter[TTE.V]=0;
 				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+				cout<<"value of node is"<<CORE.Mstore[TTE.V]<<endl;
 				//EventQ.push(RES);
 			}
 			break;
 		case 7://Assignement without send
-			counters[TTE.V]=E.Value;
 			CORE.Mstore[TTE.V]=E.Value;
 			CORE.Mtemp[TTE.V]=E.Value;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
-			cout<<"Value is EDWWWWWWWWWWWW "<<CORE.Mtemp[TTE.V]<<" "<<E.Value<<endl;
+			cout<<"Value is EDWWWWWWWWWWWW "<<CORE.Mstore[TTE.V]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 	}
 	

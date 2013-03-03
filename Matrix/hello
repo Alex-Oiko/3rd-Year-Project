@@ -1,0 +1,449 @@
+Matrix handling on SpiNNaker
+A root file name if you would matey: line 0:BEGIN VALUES
+line 1:MX1[2,2] 1/1
+OpCode 1
+OpCode 1
+line 2:4.0 1.0
+line 3:1.0 3.0
+read values for dimension 2 MX1
+4 1 1 3 
+line 4:X[2] 3/3
+OpCode 3
+OpCode 3
+line 5:2.0 1.0
+read values for dimension 1 X
+2 1 
+line 6:R[2] 2/0/0/0
+OpCode 2
+OpCode 0
+OpCode 0
+OpCode 0
+line 7:1.0 2.0
+read values for dimension 1 R
+1 2 
+line 8:P[2] 4/0/0/0/0/0
+OpCode 4
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+line 9:0.0 0.0
+read values for dimension 1 P
+0 0 
+line 10:A[2] 0/0/7/6/6
+OpCode 0
+OpCode 0
+OpCode 7
+OpCode 6
+OpCode 6
+line 11:0.0 0.0
+read values for dimension 1 A
+0 0 
+line 12:RO[1] 5/5 
+OpCode 5
+OpCode 5
+line 13:0.0
+read values for dimension 1 RO
+0 
+line 14:RN[1] 0/0
+OpCode 0
+OpCode 0
+line 15:0.0
+read values for dimension 1 RN
+0 
+line 16:AL[1] 7/0/0/0/0/0/0/0
+OpCode 7
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+OpCode 0
+line 17:0.0
+read values for dimension 1 AL
+0 
+line 18:B[1] 7/0 
+OpCode 7
+OpCode 0
+line 19:0.0
+read values for dimension 1 B
+0 
+line 20:END VALUES
+line 21:BEGIN OVERLAYS
+line 22:END OVERLAYS
+line 23:BEGIN CONNECTIONS
+line 24:X[0]>MX1[0,0] MX1[1,0]
+line 25:X[1]>MX1[0,1] MX1[1,1]
+line 26:MX1[0,0]>R[0] A[0]
+line 27:MX1[1,0]>R[1] A[1]
+line 28:MX1[0,1]>R[0] A[0]
+line 29:MX1[1,1]>R[1] A[1]
+line 30:R[0]>P[0] RO[0] RN[0]
+line 31:R[1]>P[1] RO[0] RN[1]
+line 32:RO[0]>AL[0] B[0]
+line 33:P[0]>A[0] MX1[0,0] MX1[1,0] X[0] R[0]
+line 34:P[1]>A[1] MX1[0,1] MX1[1,1] X[1] R[1]
+line 35:A[0]>AL[0] R[0]
+line 36:A[1]>AL[0] R[1]
+line 37:AL[0]>A[0] A[1] P[0] P[1]
+line 38:RN[0]>B[0] P[0] P[1]
+line 39:B[0]>P[0] P[1]
+line 40:END CONNECTIONS
+List of Connections
+MX1[0,0] --> R[0] A[0] 
+MX1[0,1] --> R[0] A[0] 
+MX1[1,0] --> R[1] A[1] 
+MX1[1,1] --> R[1] A[1] 
+X[0] --> MX1[0,0] MX1[1,0] 
+X[1] --> MX1[0,1] MX1[1,1] 
+R[0] --> P[0] RO RN 
+R[1] --> P[1] RO RN 
+P[0] --> A[0] MX1[0,0] MX1[1,0] X[0] R[0] 
+P[1] --> A[1] MX1[0,1] MX1[1,1] X[1] R[1] 
+A[0] --> AL R[0] 
+A[1] --> AL R[1] 
+RO --> AL B 
+RN --> B P[0] P[1] 
+AL --> A[0] A[1] P[0] P[1] 
+B --> P[0] P[1] 
+values of A
+0 0 
+values of AL
+0 
+values of B
+0 
+values of MX1
+4 1 
+1 3 
+values of P
+0 0 
+values of R
+1 2 
+values of RN
+0 
+values of RO
+0 
+values of X
+2 1 
+Machine is a Rectangle(0), Torus(1) or Board48(2)? Give me a Grid Size, NX NY Placement:- Random(TASK seed) or Deal off the deck(TASK 0)  Node  Key KeyFromMap
+0  40000[0,4,0,0] MX1[0,0] 
+1  50000[0,5,0,0] MX1[0,1] 
+2  60000[0,6,0,0] MX1[1,0] 
+3  70000[0,7,0,0] MX1[1,1] 
+4  1040000[1,4,0,0] X[0] 
+5  1050000[1,5,0,0] X[1] 
+6  1000000[1,0,0,0] R[0] 
+7  1010000[1,1,0,0] R[1] 
+8  80000[0,8,0,0] P[0] 
+9  90000[0,9,0,0] P[1] 
+10  0[0,0,0,0] A[0] 
+11  10000[0,1,0,0] A[1] 
+12  1030000[1,3,0,0] RO 
+13  1020000[1,2,0,0] RN 
+14  20000[0,2,0,0] AL 
+15  30000[0,3,0,0] B 
+Filling MC tables
+Look up Tables
+Source Key: 0 {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+
+Destination Keys: 20000 {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+1000000 {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+
+Source Key: 10000 {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+
+Destination Keys: 20000 {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+1010000 {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+
+Source Key: 20000 {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+
+Destination Keys: 0 {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+10000 {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+80000 {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+90000 {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+
+Source Key: 30000 {K:30000 B OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:15}
+
+Destination Keys: 80000 {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+90000 {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+
+Source Key: 40000 {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+
+Destination Keys: 1000000 {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+0 {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+
+Source Key: 50000 {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+
+Destination Keys: 1000000 {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+0 {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+
+Source Key: 60000 {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+
+Destination Keys: 1010000 {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+10000 {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+
+Source Key: 70000 {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+
+Destination Keys: 1010000 {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+10000 {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+
+Source Key: 80000 {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+
+Destination Keys: 0 {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+40000 {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+60000 {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+1040000 {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+1000000 {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+
+Source Key: 90000 {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+
+Destination Keys: 10000 {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+50000 {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+70000 {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+1050000 {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+1010000 {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+
+Source Key: 1000000 {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+
+Destination Keys: 80000 {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+1030000 {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+1020000 {K:1020000 RN OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+
+Source Key: 1010000 {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+
+Destination Keys: 90000 {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+1030000 {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+1020000 {K:1020000 RN OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+
+Source Key: 1020000 {K:1020000 RN OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+
+Destination Keys: 30000 {K:30000 B OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:15}
+80000 {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+90000 {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+
+Source Key: 1030000 {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+
+Destination Keys: 20000 {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+30000 {K:30000 B OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:15}
+
+Source Key: 1040000 {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+
+Destination Keys: 40000 {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+60000 {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+
+Source Key: 1050000 {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+
+Destination Keys: 50000 {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+70000 {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+
+MC Table Entries for (X=1, y=1)
+Key	Mask	Data
+10000	ffffffff	80
+60000	ffffffff	80
+70000	ffffffff	80
+90000	ffffffff	80
+1010000	ffffffff	4
+ffff3fff	ffffffff	10
+ffff7fff	ffffffff	10
+ffff1fff	ffffffff	84
+
+Run simulation(1) or not(0)? Starting simulation
+
+Source {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+Target {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+A*something happening 'ere
+Value is 4
+Value is 4
+
+Source {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+Target {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+A*something happening 'ere
+Value is 1
+Value is 1
+
+Source {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+Target {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+A*something happening 'ere
+Value is 1
+Value is 1
+
+Source {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+Target {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+A*something happening 'ere
+Value is 3
+Value is 3
+
+Source {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+new opcode is 0
+
+Source {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+COUNTER 1
+
+Source {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+new opcode is 7
+
+Source {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+COUNTER 2
+new opcode is 0
+R CREATED
+
+Source {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+new opcode is 0
+
+Source {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+COUNTER 1
+
+Source {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+new opcode is 7
+
+Source {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+COUNTER 2
+new opcode is 0
+R CREATED
+
+Source {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:1020000 RN OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+new opcode is 0
+
+Source {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+
+Source {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:1020000 RN OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+new opcode is 0
+
+Source {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+new opcode is 5
+RSOLD CREATED
+Value is 73
+
+Source {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+Target {K:30000 B OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:15}
+new opcode is 0
+Value is EDWWWWWWWWWWWW 73ASSIGNEMENT DONE HERE
+
+Source {K:1030000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+Target {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+new opcode is 0
+Value is EDWWWWWWWWWWWW 73ASSIGNEMENT DONE HERE
+
+Source {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+new opcode is 0
+ASSIGNEMENT DONE HERE
+-8
+
+Source {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+new opcode is 0
+ASSIGNEMENT DONE HERE
+-3
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+A*something happening 'ere
+Value is 1
+Value is 1
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+A*something happening 'ere
+Value is 4
+Value is 4
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+A*something happening 'ere
+Value is 3
+Value is 3
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+A*something happening 'ere
+Value is 1
+Value is 1
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+new opcode is 6
+Value is EDWWWWWWWWWWWW -8ASSIGNEMENT DONE HERE
+
+Source {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+new opcode is 6
+Value is EDWWWWWWWWWWWW -8ASSIGNEMENT DONE HERE
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+new opcode is 0
+
+Source {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+numbah 6 here
+
+Source {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+new opcode is 0
+
+Source {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+new opcode is 0
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+numbah 6 here
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+new opcode is 0
+
+Source {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+numbah 6 here
+new opcode is 6
+
+Source {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+numbah 6 here
+new opcode is 6
+
+Source {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+new opcode is 0
+
+Source {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+new opcode is 0
+165 events in total
+98 Through routes
+38 core hits and 0 core misses
+{K:40000 MX1[0][0]=0}
+{K:50000 MX1[0][1]=0}
+{K:60000 MX1[1][0]=1}
+{K:70000 MX1[1][1]=3}
+{K:1000000 R[0][0]=-8}
+{K:1010000 R[0][1]=-3}
+{K:1040000 X[0][0]=2}
+{K:1050000 X[0][1]=1}
+{K:80000 P[0][0]=-8}
+{K:90000 P[0][1]=-3}
+{K:1030000 RO[0][0]=73}
+{K:0 A[0][0]=272}
+{K:10000 A[0][1]=88}
+{K:1020000 RN[0][0]=0}

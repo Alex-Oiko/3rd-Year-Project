@@ -30,6 +30,7 @@ public:
     vector<float>  Mstore;       //storage for values Mstore[X][Y][C][]
     vector<vector<unsigned>> mop;
     vector<float> Mtemp;
+    vector<unsigned> Mcounter;
     void AllocateStorage(Task&);
     void PrintByOpCode(unsigned);
 };

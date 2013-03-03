@@ -75,11 +75,13 @@ void Core::AllocateStorage(Task& TASK){
     for(int i = 0; i < TASK.nextPID; i++){
         Mstore.push_back((float)-1.0);
 	Mtemp.push_back((float)-1.0);
+	Mcounter.push_back((unsigned)+1);
 	mop.push_back(memalloc);
     }
  
     for(auto iS = CoreEntries.cbegin(); iS != CoreEntries.cend(); iS++){
         TTE = iS->second;
+	Mcounter[TTE.V]=TTE.counter;
         Mstore[TTE.V] = TTE.IV;
 	Mtemp[TTE.V] = TTE.Temp;
 	mop[TTE.V] = TTE.OpCodes;

@@ -483,7 +483,8 @@ void Task::CoreFiller(){
         auto iD2 = nameD2.find(name);
         YD = iD2->second;
         CoreEntry.YD = YD;            
-        iDF = mStore.find(name);
+        CoreEntry.counter=0;
+	iDF = mStore.find(name);
         M = iDF->second;
         for(unsigned x=0;x<XD;x++){
             CoreEntry.X = x;

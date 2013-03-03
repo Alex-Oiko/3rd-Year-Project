@@ -46,7 +46,7 @@ private:
     unsigned long CoreHits, CoreMisses;
 public:
     void SimBegin(Task&, Dealer&, Core&, MakeMCTables&,Machine&);
-    unsigned *counters; 
+    unsigned matrix_size;
 };
 
 
