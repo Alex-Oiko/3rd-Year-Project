@@ -27,6 +27,7 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
         if(TTE.OpCodes[0] == 3){
             E.Value = TTE.IV;
             E.Kd = E.Ks;
+	    CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
             EventQ.push(E);
         }
 	else if(TTE.OpCodes[0]==2){
@@ -251,10 +252,11 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"numbah 6 here"<<endl;
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value;
+			cout<<"Opcode"<<CORE.mop[TTE.V][0]<<endl;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
-				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 				cout<<"value of node is"<<CORE.Mstore[TTE.V]<<endl;
 				EventQ.push(RES);
@@ -280,9 +282,27 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
 				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
-				//EventQ.push(RES);
+				EventQ.push(RES);
 			}
 			break;
+		case 9://constant*node
+			RES.Value=CORE.Mstore[TTE.V]*E.Value;
+			cout<<"RES Value is"<<RES.Value<<endl;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			//EventQ.push(RES);
+			break;
+		case 10://make new r nodes
+			CORE.Mstore[TTE.V]-=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			RES.Value=CORE.Mstore[TTE.V];
+			//EventQ.push(RES);
+			break;
+		case 11://make new x nodes
+			CORE.Mstore[TTE.V]+=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			RES.Value=CORE.Mstore[TTE.V];
+			//EventQ.push(RES);
+
 	}
 	
     }    
