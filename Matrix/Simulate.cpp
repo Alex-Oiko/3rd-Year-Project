@@ -56,7 +56,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty() || loops==230)
+        if(EventQ.empty() || loops==300)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -289,7 +289,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			RES.Value=CORE.Mstore[TTE.V]*E.Value;
 			cout<<"RES Value is"<<RES.Value<<endl;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			//EventQ.push(RES);
+			EventQ.push(RES);
 			break;
 		case 10://make new r nodes
 			CORE.Mstore[TTE.V]-=E.Value;
@@ -301,7 +301,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.Mstore[TTE.V]+=E.Value;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			RES.Value=CORE.Mstore[TTE.V];
+			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			//EventQ.push(RES);
+			break;
 
 	}
 	

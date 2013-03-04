@@ -1,21 +1,27 @@
 Matrix handling on SpiNNaker
 A root file name if you would matey: line 0:BEGIN VALUES
-line 1:MX1[2,2] 1/1/0
+line 1:MX1[2,2] 1/1/0/0
 OpCode 1
 OpCode 1
+OpCode 0
 OpCode 0
 line 2:4.0 1.0
 line 3:1.0 3.0
 read values for dimension 2 MX1
 4 1 1 3 
-line 4:X[2] 3/3
+line 4:X[2] 3/0/0/11
 OpCode 3
-OpCode 3
+OpCode 0
+OpCode 0
+OpCode 11
 line 5:2.0 1.0
 read values for dimension 1 X
 2 1 
-line 6:R[2] 2/0/0/0/0/0
+line 6:R[2] 2/0/0/0/0/0/0/0/0
 OpCode 2
+OpCode 0
+OpCode 0
+OpCode 0
 OpCode 0
 OpCode 0
 OpCode 0
@@ -24,9 +30,11 @@ OpCode 0
 line 7:1.0 2.0
 read values for dimension 1 R
 1 2 
-line 8:P[2] 4/1
+line 8:P[2] 4/1/9/0
 OpCode 4
 OpCode 1
+OpCode 9
+OpCode 0
 line 9:0.0 0.0
 read values for dimension 1 P
 0 0 
@@ -51,12 +59,14 @@ OpCode 0
 line 15:0.0
 read values for dimension 1 RN
 0 
-line 16:AL[1] 7/0/0/8/8
+line 16:AL[1] 7/0/0/8/8/0/0
 OpCode 7
 OpCode 0
 OpCode 0
 OpCode 8
 OpCode 8
+OpCode 0
+OpCode 0
 line 17:0.0
 read values for dimension 1 AL
 0 
@@ -378,6 +388,8 @@ resValue is -9
 
 Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
 Target {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+opcode is 0 here
+new opcode is 0
 
 Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
 Target {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
@@ -393,6 +405,8 @@ resValue is -3
 
 Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
 Target {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+opcode is 0 here
+new opcode is 0
 
 Source {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
 Target {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
@@ -465,14 +479,14 @@ new opcode is 0
 
 Source {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
 Target {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
-new opcode is 1
+new opcode is 9
 Multiplication happened here
 Value is -3
 resValue is 51
 
 Source {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
 Target {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
-new opcode is 1
+new opcode is 9
 Multiplication happened here
 Value is -8
 resValue is 280
@@ -499,9 +513,13 @@ new opcode is 0
 
 Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
 Target {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+opcode is 0 here
+new opcode is 11
 
 Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
 Target {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+opcode is 0 here
+new opcode is 11
 
 Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
 Target {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
@@ -529,3 +547,100 @@ new opcode is 0
 Source {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
 Target {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
 RES Value is-7.71903
+
+Source {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+opcode is 0 here
+new opcode is 0
+
+Source {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+opcode is 0 here
+new opcode is 0
+
+Source {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+Target {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+RES Value is-1.76435
+
+Source {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+Target {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+RES Value is-0.661631
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:60000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+opcode is 0 here
+new opcode is 0
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:70000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+opcode is 0 here
+new opcode is 0
+
+Source {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+Target {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+opcode is 0 here
+new opcode is 0
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:40000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+opcode is 0 here
+new opcode is 0
+
+Source {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+Target {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+opcode is 0 here
+new opcode is 0
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:50000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+opcode is 0 here
+new opcode is 0
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1040000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+Value is 0.23565
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1050000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+Value is 0.338369
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+opcode is 0 here
+new opcode is 0
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:20000 AL OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+opcode is 0 here
+new opcode is 0
+
+Source {K:80000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1000000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+opcode is 0 here
+new opcode is 0
+
+Source {K:90000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1010000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+opcode is 0 here
+new opcode is 0
+278 events in total
+166 Through routes
+70 core hits and 0 core misses
+Matrix/Vector values
+{K:40000 MX1[0][0]=4}
+{K:50000 MX1[0][1]=1}
+{K:60000 MX1[1][0]=1}
+{K:70000 MX1[1][1]=3}
+{K:1000000 R[0][0]=-8}
+{K:1010000 R[0][1]=-3}
+{K:1040000 X[0][0]=0.23565}
+{K:1050000 X[0][1]=0.338369}
+{K:80000 P[0][0]=-8}
+{K:90000 P[0][1]=-3}
+{K:0 A[0][0]=-35}
+{K:10000 A[0][1]=-17}
+{K:1020000 RN[0][0]=0}
+Constants
+{K:1030000 RO[0][0]=73}
+{K:20000 AL[0][0]=0.220544}
+{K:30000 B[0][0]=73}
