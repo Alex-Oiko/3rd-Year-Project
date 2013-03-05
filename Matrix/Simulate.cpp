@@ -12,6 +12,8 @@
 #include <iostream>
 #include "Simulate.h"
 using namespace std;
+map<unsigned,unsigned> aKeys;
+
 void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
     event E;
     TargetTableEntry TTE;
@@ -31,7 +33,11 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
             EventQ.push(E);
         }
 	else if(TTE.OpCodes[0]==2){
-		matrix_size=TTE.YD;
+    		matrix_size=TTE.YD;
+	}
+	else if(TTE.Name[0]=='A' && TTE.Name[1]=='\0'){
+		aKeys.insert(map<unsigned,unsigned>::value_type(E.Ks,1));
+		cout<<"Keys inserted are "<<E.Ks<<endl;
 	}
     }
 }
@@ -82,6 +88,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
 	CORE.PrintByOpCode(3);
 	CORE.PrintByOpCode(4);
 	CORE.PrintByOpCode(0);
+	CORE.PrintByOpCode(20);
 	cout<<"Constants"<<endl;
 	CORE.PrintByOpCode(5);
 	CORE.PrintByOpCode(7);
@@ -115,6 +122,7 @@ unsigned Simulate::FireAway(event E, MakeMCTables& MCT, Core& CORE, Machine& MAC
     int XYn,Xn,Yn, XYd;
     unsigned ThroughRouted=0;
     int NextChip;
+    //map<unsigned,unsigned> rKeys={{0=0}};
     map<unsigned, unsigned>::iterator CID;
     KeyTo(E.Kd, Xd, Yd, Cd, Od);
     XYd = (Xd<<8) | Yd;
@@ -292,10 +300,16 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			EventQ.push(RES);
 			break;
 		case 10://make new r nodes
-			CORE.Mstore[TTE.V]-=E.Value;
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			RES.Value=CORE.Mstore[TTE.V];
-			//EventQ.push(RES);
+			cout<<"Making r values"<<endl;
+			if(aKeys.at(E.Kd)==1){//if the message is from an A node
+				cout<<"Inside if stat"<<endl;
+				CORE.Mstore[TTE.V]-=E.Value;
+				//CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+				RES.Value=CORE.Mstore[TTE.V];
+				//EventQ.push(RES);
+			}
+			else//do nothing
+				
 			break;
 		case 11://make new x nodes
 			CORE.Mstore[TTE.V]+=E.Value;
