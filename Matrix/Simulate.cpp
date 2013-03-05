@@ -62,7 +62,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty() || loops==300)
+        if(EventQ.empty() || loops==310)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -245,12 +245,13 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 5://constant
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value*E.Value;
+			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			if(CORE.Mcounter[TTE.V]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
 				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
-				cout<<"RSOLD CREATED"<<endl;
+				cout<<"RSOLD/RSNEW CREATED"<<endl;
 				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 				EventQ.push(RES);
 			}
@@ -301,23 +302,39 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			break;
 		case 10://make new r nodes
 			cout<<"Making r values"<<endl;
-			if(aKeys.at(E.Kd)==1){//if the message is from an A node
+			cout<<"key of event is "<<E.Ks<<endl;
+			try{if(aKeys.at(E.Ks)==1){//if the message is from an A node
 				cout<<"Inside if stat"<<endl;
 				CORE.Mstore[TTE.V]-=E.Value;
 				//CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+				cout<<"R value at opcode 10 is "<<CORE.Mstore[TTE.V]<<endl;
 				RES.Value=CORE.Mstore[TTE.V];
-				//EventQ.push(RES);
+				EventQ.push(RES);
 			}
-			else//do nothing
-				
+			else{}//do nothing
+			}
+			catch(exception e){
+				cout<<"This spike isnt coming from an A Node"<<endl;
+			}
 			break;
 		case 11://make new x nodes
+			cout<<"MAKING AN X NODE HERE!!"<<endl;
 			CORE.Mstore[TTE.V]+=E.Value;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			RES.Value=CORE.Mstore[TTE.V];
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			//EventQ.push(RES);
 			break;
+		case 12://make beta
+			cout<<"CREATING BETA HERE"<<endl;
+			CORE.Mstore[TTE.V]=E.Value/CORE.Mstore[TTE.V];
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			RES.Value=CORE.Mstore[TTE.V];
+			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
+			EventQ.push(RES);
+			break;
+
+			
 
 	}
 	
