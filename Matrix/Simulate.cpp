@@ -202,6 +202,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.OutLink = 6;
 	switch(CORE.mop[TTE.V][0]){
 		case 0:
+			cout<<"opcode is 0 here"<<endl;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"opcode is 0 here"<<endl;
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
@@ -333,9 +334,21 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			EventQ.push(RES);
 			break;
-
-			
-
+		case 13://check end condition
+			cout<<"Checking end cond"<<endl;
+			cout<<"EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"<<endl;
+			if(E.Value<1e-10){
+				return;	
+			}
+			else{
+				cout<<"Condition failed"<<endl;
+			}
+		case 14://addition w/o store
+			//calculating r+beta*p
+			RES.Value=E.Values+CORE.Mstore[TTE.V];
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			EventQ.push(RES);
+			break;
 	}
 	
     }    
