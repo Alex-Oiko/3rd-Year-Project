@@ -206,14 +206,13 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"opcode is 0 here"<<endl;
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 			break;
-        	case 1://matrix_element*vector_element
+        	case 1://multiplication but no send
             		Vme = CORE.Mstore[TTE.V];
             		Res = Vme*E.Value;
             		RES.Value = Res;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 			cout<<"Multiplication happened here"<<endl;
-            		cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
             		cout<<"resValue is "<<Res<<endl;
 			EventQ.push(RES);
 			break;
@@ -293,12 +292,12 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				EventQ.push(RES);
 			}
 			break;
-		case 9://constant*node
-			RES.Value=CORE.Mstore[TTE.V]*E.Value;
-			cout<<"RES Value is"<<RES.Value<<endl;
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			EventQ.push(RES);
-			break;
+		//case 9://constant*node
+		//	RES.Value=CORE.Mstore[TTE.V]*E.Value;
+		//	cout<<"RES Value is"<<RES.Value<<endl;
+		//	CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+		//	EventQ.push(RES);
+		//	break;
 		case 10://make new r nodes, basically subtraction
 			cout<<"Making r values"<<endl;
 			cout<<"key of event is "<<E.Ks<<endl;
@@ -345,9 +344,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			//EventQ.push(RES);
 			break;
-			
 	}
-	
     }    
     return;
 }
