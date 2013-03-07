@@ -326,13 +326,13 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			break;
 		case 13://check end condition
 			cout<<"Checking end cond"<<endl;
-			cout<<"EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"<<endl;
 			if(E.Value<1e-10){
 				return;	
 			}
 			else{
 				cout<<"Condition failed"<<endl;
 			}
+			break;
 		case 14://temp assignement only
 			cout<<"ASSIGNING IN TEMP"<<endl;
 			CORE.Mtemp[TTE.V]=E.Value;
