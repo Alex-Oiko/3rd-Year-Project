@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Simulate.h"
 using namespace std;
-map<unsigned,unsigned> aKeys;
+//map<unsigned,unsigned> aKeys;
 
 void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
     event E;
@@ -35,10 +35,10 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
 	else if(TTE.OpCodes[0]==2){
     		matrix_size=TTE.YD;
 	}
-	else if(TTE.Name[0]=='A' && TTE.Name[1]=='\0'){
-		aKeys.insert(map<unsigned,unsigned>::value_type(E.Ks,1));
-		cout<<"Keys inserted are "<<E.Ks<<endl;
-	}
+	//else if(TTE.Name[0]=='A' && TTE.Name[1]=='\0'){
+	//	aKeys.insert(map<unsigned,unsigned>::value_type(E.Ks,1));
+	//	cout<<"Keys inserted are "<<E.Ks<<endl;
+	//}
     }
 }
 void Simulate::UpdateAll(Task& TASK, Dealer& DEAL){
@@ -62,7 +62,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty() || loops==310)
+        if(EventQ.empty() || loops==300)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -202,7 +202,6 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.OutLink = 6;
 	switch(CORE.mop[TTE.V][0]){
 		case 0:
-			cout<<"opcode is 0 here"<<endl;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"opcode is 0 here"<<endl;
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
@@ -258,7 +257,6 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			}
 			break;
 		case 6://to create Ap nodes
-
 			cout<<"numbah 6 here"<<endl;
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value;
@@ -301,22 +299,14 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			EventQ.push(RES);
 			break;
-		case 10://make new r nodes
+		case 10://make new r nodes, basically subtraction
 			cout<<"Making r values"<<endl;
 			cout<<"key of event is "<<E.Ks<<endl;
-			try{if(aKeys.at(E.Ks)==1){//if the message is from an A node
-				cout<<"Inside if stat"<<endl;
-				CORE.Mstore[TTE.V]-=E.Value;
-				//CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-				cout<<"R value at opcode 10 is "<<CORE.Mstore[TTE.V]<<endl;
-				RES.Value=CORE.Mstore[TTE.V];
-				EventQ.push(RES);
-			}
-			else{}//do nothing
-			}
-			catch(exception e){
-				cout<<"This spike isnt coming from an A Node"<<endl;
-			}
+			CORE.Mstore[TTE.V]-=E.Value;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"R value at opcode 10 is "<<CORE.Mstore[TTE.V]<<endl;
+			RES.Value=CORE.Mstore[TTE.V];
+			EventQ.push(RES);
 			break;
 		case 11://make new x nodes
 			cout<<"MAKING AN X NODE HERE!!"<<endl;
@@ -343,12 +333,19 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			else{
 				cout<<"Condition failed"<<endl;
 			}
-		case 14://addition w/o store
-			//calculating r+beta*p
-			RES.Value=E.Values+CORE.Mstore[TTE.V];
+		case 14://temp assignement only
+			cout<<"ASSIGNING IN TEMP"<<endl;
+			CORE.Mtemp[TTE.V]=E.Value;
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			EventQ.push(RES);
 			break;
+		case 15://make new p nodes
+			CORE.Mstore[TTE.V]*=E.Value;
+			CORE.Mstore[TTE.V]+=CORE.Mtemp[TTE.V];
+			cout<<"New p value is "<<CORE.Mstore[TTE.V]<<endl;
+			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			//EventQ.push(RES);
+			break;
+			
 	}
 	
     }    
