@@ -28,7 +28,7 @@ using namespace std;
  */
 class Simulate{
 private:
-    enum EType{LOADFIRE,UPDATE,DELIVER,FIREAWAY};
+    enum EType{LOADFIRE,UPDATE,DELIVER,FIREAWAY,UPALL};
     struct event{
         EType Type;     // LOADFIRE UPDATE FIREAWAY
         unsigned Ks;    // source key
@@ -47,6 +47,8 @@ private:
 public:
     void SimBegin(Task&, Dealer&, Core&, MakeMCTables&,Machine&);
     unsigned matrix_size;
+    unsigned iterator_counter;
+    unsigned hello;
 };
 
 
