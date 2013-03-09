@@ -122,7 +122,8 @@ void Simulate::LoadFire(event E, Core& CORE, Dealer& DEAL){
 }
 void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      vector<unsigned>  vTTE;
-     TargetTableEntry TTE;
+     event RES;
+     TargetTableEntry TTE,kTTE;
      unsigned X,Y,C,O,oc;
      float Vme,Res;
      auto iTTE = CORE.LUT.find(E.Ks);
@@ -141,20 +142,29 @@ void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      cout << "\nSource ";
      CORE.PrintTTE(iSTTE->second);
      vTTE = iTTE->second;
-     TTE=iSTTE->second;
-     if(TTE.Name[0]=='A' || TTE.Name[0]=='X'){
-	cout<<"Opcodes to be deleted are "<<CORE.mop[TTE.V][0]<<"and "<<CORE.mop[TTE.V][1]<<endl;
-	cout<<"erasing OpCodes in A or X"<<endl;
-	CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-	CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-	cout<<"New first OpCode is "<<CORE.mop[TTE.V][0]<<endl;
+     kTTE=iSTTE->second;
+     if(kTTE.Name[0]=='A'){
+	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V][0]<<"and "<<CORE.mop[kTTE.V][1]<<endl;
+	cout<<"erasing OpCodes in A"<<endl;
+	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
+	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
+	cout<<"New first OpCode is "<<CORE.mop[kTTE.V][0]<<endl;
      }
      else{
-	cout<<"Opcodes to be deleted are "<<CORE.mop[TTE.V][0]<<endl;
+	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V][0]<<endl;
 	cout<<"erasing classic node"<<endl;
-	CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-	cout<<"New first OpCode is "<<CORE.mop[TTE.V][0]<<endl;
-     }	
+	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
+	cout<<"New first OpCode is "<<CORE.mop[kTTE.V][0]<<endl;
+     }
+     if(kTTE.Name[0]=='P'){
+        RES.Ks = kTTE.Kd;
+        RES.Kd = RES.Ks;
+        RES.Type = FIREAWAY;
+        RES.OutLink = 6;
+	RES.Value=CORE.Mstore[kTTE.V];
+	cout<<"Firing P with value "<<CORE.Mstore[kTTE.V]<<endl;
+	EventQ.push(RES);
+     }
 }
 
 unsigned Simulate::FireAway(event E, MakeMCTables& MCT, Core& CORE, Machine& MAC){
@@ -236,7 +246,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         //KeyTo(E.Ks,X,Y,C,O);
         //Current value is at Core.Mstore[X][Y][C][iC->second.V]
         KeyTo(TTE.Kd,X,Y,C,O);
-        RES.Ks = TTE.Kd;;
+        RES.Ks = TTE.Kd;
         RES.Kd = RES.Ks;
         RES.Type = FIREAWAY;
         RES.OutLink = 6;
@@ -256,6 +266,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 			cout<<"Multiplication happened here"<<endl;
             		cout<<"resValue is "<<Res<<endl;
+			if(TTE.Name[0]=='A'){
+				CORE.Mstore[TTE.V]=0;
+			}
 			EventQ.push(RES);
 			break;
         	case 2://specific for the creation of r
@@ -332,7 +345,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			cout<<"ALPHA node here"<<endl;
-		 	if(CORE.Mcounter[TTE.V]==matrix_size){
+		 	cout<<"Bottom happenning here "<<CORE.Mtemp[TTE.V]<<endl;
+			if(CORE.Mcounter[TTE.V]==matrix_size){
+				cout<<"rsold in Mstore is "<<CORE.Mstore[TTE.V]<<endl;
 				CORE.Mstore[TTE.V]=CORE.Mstore[TTE.V]/CORE.Mtemp[TTE.V];
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
@@ -397,13 +412,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			hello++;
-			if(hello==1){//when hello==N 
+			if(hello==matrix_size){//when hello==N 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			RES.Type=FIREAWAY;
-			RES.Value=CORE.Mstore[TTE.V];
-			EventQ.push(RES);
 			break;
 	}
     }    
