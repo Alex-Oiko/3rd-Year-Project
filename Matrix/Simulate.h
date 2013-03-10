@@ -48,7 +48,7 @@ public:
     void SimBegin(Task&, Dealer&, Core&, MakeMCTables&,Machine&);
     unsigned matrix_size;
     unsigned iterator_counter;
-    unsigned hello;
+    unsigned case15_counter;
 };
 
 

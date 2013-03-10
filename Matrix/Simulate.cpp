@@ -61,7 +61,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     iterator_counter=0;
     CoreHits = 0;
     CoreMisses = 0;
-    hello=0;
+    case15_counter=0;
     CORE.AllocateStorage(TASK);
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
@@ -414,12 +414,12 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"New p value is "<<CORE.Mstore[TTE.V]<<endl;
 			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			hello++;
-			if(hello==matrix_size){//when hello==N 
+			case15_counter++;
+			if(case15_counter==matrix_size){//when case15_counter==N 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			//if(hello>matrix_size){//if the first iteration has passed
+			//if(case15_counter>matrix_size){//if the first iteration has passed
 			//	RES.Value=CORE.Mstore[TTE.V];
 			//	EventQ.push(RES);
 			//}

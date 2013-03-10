@@ -18,4 +18,7 @@
 	.Core.h @ description there is a new vector called Mcounter<unsigned> to keep all the counters for all the nodes according to the TTE.V pointer that is saved in each TTE
 	.Core.cpp @ AllocateStorage, memory is allocated for the Mcounter vector and the respective value(0) is assigned.
 
+-There is a matrix_size variable that indicates the size of the matrix
+-There is a case15_counter, that counts how many times case15 has been accessed
+
 
