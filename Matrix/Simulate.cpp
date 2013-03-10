@@ -143,7 +143,7 @@ void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      CORE.PrintTTE(iSTTE->second);
      vTTE = iTTE->second;
      kTTE=iSTTE->second;
-     if(kTTE.Name[0]=='A'){
+     if(kTTE.Name[0]=='A' || kTTE.Name[0]=='N'){
 	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V][0]<<"and "<<CORE.mop[kTTE.V][1]<<endl;
 	cout<<"erasing OpCodes in A"<<endl;
 	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
@@ -310,6 +310,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
 				cout<<"RSOLD/RSNEW CREATED"<<endl;
 				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
+				if(TTE.Name[0]=='N')//so it does not have previous value in other iterations
+					CORE.Mstore[TTE.V]=0;
+
 				EventQ.push(RES);
 			}
 			break;
@@ -363,11 +366,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		//	break;
 		case 10://make new r nodes, basically subtraction
 			cout<<"Making r values"<<endl;
-			cout<<"key of event is "<<E.Ks<<endl;
 			CORE.Mstore[TTE.V]-=E.Value;
 			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			cout<<"R value at opcode 10 is "<<CORE.Mstore[TTE.V]<<endl;
+			cout<<"R value is "<<CORE.Mstore[TTE.V]<<endl;
 			RES.Value=CORE.Mstore[TTE.V];
 			EventQ.push(RES);
 			break;
@@ -386,6 +388,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
 			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
 			RES.Value=CORE.Mstore[TTE.V];
+			CORE.Mstore[TTE.V]=E.Value;//save it as rsold for the next iteration
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			EventQ.push(RES);
 			break;
@@ -416,6 +419,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
+			//if(hello>matrix_size){//if the first iteration has passed
+			//	RES.Value=CORE.Mstore[TTE.V];
+			//	EventQ.push(RES);
+			//}
 			break;
 	}
     }    
