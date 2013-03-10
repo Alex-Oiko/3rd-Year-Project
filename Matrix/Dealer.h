@@ -35,6 +35,7 @@ private:
 public:
     Dealer(const unsigned, const unsigned);
     vector<unsigned> MAP;                  //from the node id to the Key MAP[node] = Key
+    map<unsigned, unsigned> PMAP;           // map of key to node number (to find all the keys in order
     vector<unsigned> RAN;                  //shuffled node ids
     void Deal(Machine&, Task&, bool, int, Core&);   //does the distribution
     void PrintMappings(Task&);

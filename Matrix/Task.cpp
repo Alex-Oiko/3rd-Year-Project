@@ -450,6 +450,7 @@ void Task::FillKeyMaps(Dealer& DEAL){
     for(iCon = Connections.begin(); iCon != Connections.end(); iCon++){
         Ks = DEAL.MAP[iCon->first];
         Kd = DEAL.MAP[iCon->second];
+        KdKs.insert(multimap<unsigned, unsigned>::value_type(Kd,Ks));
         KsKd.insert(multimap<unsigned, unsigned>::value_type(Ks,Kd));
     }
 }

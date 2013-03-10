@@ -13,6 +13,7 @@ using namespace std;
 #include "MCTables.h"
 #include "Cores.h"
 #include "Simulate.h"
+#include "WriteCore.h"
 #define CD 16
 int main(int argc, const char * argv[])
 {

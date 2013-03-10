@@ -21,4 +21,17 @@
 -There is a matrix_size variable that indicates the size of the matrix
 -There is a case15_counter, that counts how many times case15 has been accessed
 
-
+==============================================================================================================
+Changes Made to make WriteCore.h and WriteCore.cpp compatible with CGM
+--------------------------------------------------------------------------
+i) Inserted the map PMAP(map PMAP<unsigned,unsigned>) in Dealer.h and filled it up in Dealer.cpp-->It is used to map the node keys to numbers
+ii)Inserted the map KdKs(map KdKs<unsigned,Unsigned>) in Task.h and filled it up in Task.cpp.-->It is used to map the keys from destination to source
+iii)In WriteCore.h inserted the new values in the dTTE struct
+	1)XD
+	2)YD
+	3)X
+	4)Y
+	5)Temp
+	6)counter
+	7)Also changed uint32_t OpCode to vector<uint32_t> OpCodes
+Also made those additions to the WriteCore.cpp file to support the new format.

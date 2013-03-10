@@ -32,8 +32,15 @@ private:
     };
     struct _DTTE{
         uint32_t Kd;
-        uint32_t OpCode;
+        vector<uint32_t> OpCodes;
         float IV;
+	float Temp;
+	char Name;
+	uint32_t XD;
+	uint32_t YD;
+	uint32_t X;
+	uint32_t Y;
+	uint32_t counter;
         uint32_t oV;
         uint32_t Expected;
         uint32_t Arrived;
@@ -45,6 +52,9 @@ private:
     unsigned PointCount, LUTSize;;
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
+    float *Temp;		//Array for the Temp values
+    uint32_t *counter;		//Array for the counters
+    vector<uint32_t> *OpCodesA;  //Array for OpCodes
     _LookUp  *LUT;                  //Look up table for incoming
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);

@@ -12,6 +12,7 @@ const unsigned ChipMask = 0xffff0000;
 void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT){
     unsigned oKey = (-1)&CoreMask, Key, oChip = (-1)&ChipMask, CoreKey, ChipKey;
     uint32_t NoUsedChips, CoreCount;
+    vector<uint32_t> memal;
     const char *TCram;
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
@@ -69,7 +70,10 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(&HeadCore, HeadSize, 1, Results);
                     fwrite(LUT,sizeof(_LookUp), LUTSize, Results);
                     fwrite(TTArray, sizeof(_DTTE), PointCount, Results);
-                    fwrite(Values, sizeof(float), PointCount, Results);                                                        
+                    fwrite(Values, sizeof(float), PointCount, Results);
+                    fwrite(Temp, sizeof(float), PointCount, Results);
+                    fwrite(counter, sizeof(uint32_t), PointCount, Results);
+                    //fwrite(Values, sizeof(memal), PointCount, Results);
                 }
             }
 
@@ -126,10 +130,17 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
         //deal with core entries
         auto iTTE = CORE.CoreEntries.find(Kt);
         TTE = iTTE->second;
+	dTTE.Name = TTE.Name[0];
         dTTE.Kd = TTE.Kd;
-        dTTE.OpCode = TTE.OpCode;
+        dTTE.OpCodes = TTE.OpCodes;
         dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
+	dTTE.XD = TTE.XD;
+	dTTE.YD = TTE.YD;
+	dTTE.X = TTE.X;
+	dTTE.Y = TTE.Y;
+	dTTE.counter = TTE.counter;
+	dTTE.Temp = TTE.Temp;
         dTTE.Expected = 0;
         dTTE.Arrived = 0;
 
@@ -150,7 +161,10 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     for(idx = 0; idx < PointCount; idx++){
         TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
-        TTArray[idx].oV = idx;    }
+        Temp[idx] = TTArray[idx].Temp;
+        counter[idx] = TTArray[idx].counter;
+	OpCodesA[idx] =TTArray[idx].OpCodes;
+	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];
     _LookUp tLUT;

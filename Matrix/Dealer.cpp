@@ -123,7 +123,8 @@ void Dealer::Deal(Machine& MAC, Task& TASK, bool Toss, int seed, Core& CORE){
                 K = KeyFrom(X,Y,NextCore,Offset[NextChip][NextCore]);
                 n = Vstart[ov] + s;
                 MAP[RAN[n]] = K;
-                TTE = TASK.CoreFlix[RAN[n]];
+                PMAP.insert({K, n});
+		TTE = TASK.CoreFlix[RAN[n]];
                 TTE.Kd = K;
                 CORE.CoreEntries.insert(map<unsigned, TargetTableEntry>::value_type(K,TTE));
                 Offset[NextChip][NextCore]++;

@@ -39,6 +39,7 @@ public:
     map<string,float**> mTemp;			//temp value-->Alex's creation
     void printMatrixValues();                   //look at the values of the matrices
     multimap<unsigned, unsigned>    KsKd;       //from source to destination
+    multimap<unsigned,unsigned>	    KdKs;	
     void FillKeyMaps(Dealer&);
     string elementFromPID(const unsigned);
     multimap<string,TargetTableEntry>  CoreFill;         //info for Cores in pid order
