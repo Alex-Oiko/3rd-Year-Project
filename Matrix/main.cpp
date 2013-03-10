@@ -20,7 +20,7 @@ int main(int argc, const char * argv[])
     
     string inFile;
     unsigned MachineType, MachineSize, XD,YD;
-    unsigned Seed = 0,SIMrun=0;
+    unsigned Seed = 0,SIMrun=0,WriteOut=0;
     bool Toss = false;
     //Ask for the task
     cout << "Matrix handling on SpiNNaker\nA root file name if you would matey: ";
@@ -76,6 +76,14 @@ int main(int argc, const char * argv[])
         Simulate SIM;
         SIM.SimBegin(TASK, DEAL, CORE, MCT, MAC);
     }
+    cout << "Write binaries(1) or not(0)? ";
+    cin >> WriteOut;
+    if(WriteOut){
+    	MCT.WriteMC(inFile);
+    	WriteCore WC;
+    	WC.BinaryDump(inFile, TASK, DEAL, CORE, MCT);
+    }
+
     return 0;
 }
 
