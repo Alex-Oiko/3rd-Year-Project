@@ -52,8 +52,8 @@ private:
     unsigned PointCount, LUTSize;;
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
-    float *Temp;		//Array for the Temp values
-    uint32_t *counter;		//Array for the counters
+    float *Temps;		//Array for the Temp values
+    uint32_t *counters;		//Array for the counters
     vector<uint32_t> *OpCodesA;  //Array for OpCodes
     _LookUp  *LUT;                  //Look up table for incoming
     unsigned UsedCores(unsigned,Dealer&);

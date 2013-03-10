@@ -71,9 +71,9 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(LUT,sizeof(_LookUp), LUTSize, Results);
                     fwrite(TTArray, sizeof(_DTTE), PointCount, Results);
                     fwrite(Values, sizeof(float), PointCount, Results);
-                    fwrite(Temp, sizeof(float), PointCount, Results);
-                    fwrite(counter, sizeof(uint32_t), PointCount, Results);
-                    //fwrite(Values, sizeof(memal), PointCount, Results);
+                    fwrite(Temps, sizeof(float), PointCount, Results);
+                    fwrite(counters, sizeof(uint32_t), PointCount, Results);
+                    fwrite(OpCodesA, sizeof(memal), PointCount, Results);
                 }
             }
 
@@ -161,9 +161,9 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     for(idx = 0; idx < PointCount; idx++){
         TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
-        Temp[idx] = TTArray[idx].Temp;
-        counter[idx] = TTArray[idx].counter;
-	OpCodesA[idx] =TTArray[idx].OpCodes;
+        Temps[idx] = TTArray[idx].Temp;
+        counters[idx] = TTArray[idx].counter;
+	//OpCodesA[idx] =TTArray[idx].OpCodes;
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];
