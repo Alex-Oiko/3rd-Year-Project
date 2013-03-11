@@ -12,7 +12,7 @@ const unsigned ChipMask = 0xffff0000;
 void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT){
     unsigned oKey = (-1)&CoreMask, Key, oChip = (-1)&ChipMask, CoreKey, ChipKey;
     uint32_t NoUsedChips, CoreCount;
-    vector<uint32_t> memal;
+    vector<uint32_t> memal(8);
     const char *TCram;
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
@@ -133,7 +133,8 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.Name = TTE.Name[0];
         dTTE.Kd = TTE.Kd;
         dTTE.OpCodes = TTE.OpCodes;
-        dTTE.IV = TTE.IV;
+        cout<<dTTE.OpCodes[0]<<endl;
+	dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
 	dTTE.XD = TTE.XD;
 	dTTE.YD = TTE.YD;
