@@ -1,0 +1,565 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Queue - Array Implementation - Types</title>
+</head>
+
+<body>
+<h1 align="center">Queue - Array Implementation - Types</h1>
+<hr>
+
+<p>
+</p><ol>
+<li>
+<b>Abstract idea of a queue:</b><p>
+
+The <em>queue</em> is another data structure.  A physical analogy for a
+queue is a line at a bank.  When you go to the bank, customers go to
+the <em>rear</em> (end) of the line and customers come off of the line
+(i.e., are serviced) from the <em>front</em> of the line.
+
+</p><p>
+</p><hr align="left" width="20%">
+<b>Aside:</b>
+In fact, other English-speaking countries use this term for a line,
+e.g., they might say "Queue up!" rather than "Get in a line!"
+<hr align="left" width="20%">
+
+<p>
+Like a stack, a queue usually holds things of the same type.  We
+usually draw queues horizontally.  Here's a queue of characters with 3
+elements:
+
+</p><blockquote><pre>queue
+-------------
+| a | b | c |
+-------------
+  ^       ^
+  |       |
+front    rear
+</pre></blockquote>
+
+<p>
+The main property of a queue is that objects go on the <em>rear</em>
+and come off of the <em>front</em> of the queue.
+
+</p><p>
+Here are the minimal set of operations we'd need for an abstract
+queue:
+
+</p><p>
+</p><ul>
+
+<li><code>Enter</code> (or <code>Insert</code>)
+<p>
+Places an object at the <em>rear</em> of the queue.
+
+</p><p>
+</p></li><li><code>Delete</code> (or <code>Remove</code>)
+<p>
+Removes an object from the <em>front</em> of the queue and produces
+that object.
+
+</p><p>
+</p></li><li><code>IsEmpty</code>
+<p>
+Reports whether the queue is empty or not.
+
+</p></li></ul>
+
+<p>
+</p></li><li>
+<b><em>Order</em> produced by a queue:</b><p>
+
+</p><p>
+Queues are useful because they produce a certain order in which the
+contents of the queue are used.  Let's see what order that is by
+looking at a queue of characters.
+
+Now, what would a particular sequence of <code>Enter</code> and
+<code>Delete</code>s do to this queue:
+
+</p><blockquote><pre>queue
+-------------
+| a | b | c |
+-------------
+  ^       ^
+  |       |
+front    rear
+</pre></blockquote>
+
+<p>
+Now, <code>Enter(queue, 'd')</code>...
+
+</p><blockquote><pre>queue
+-----------------
+| a | b | c | d |
+-----------------
+  ^           ^
+  |           |
+front        rear
+</pre></blockquote>
+
+<p>
+Now, <code>ch = Delete(queue)</code>...
+
+</p><blockquote><pre>queue           ch
+-------------   -----
+| b | c | d |   | a |
+-------------   -----
+  ^       ^
+  |       |
+front    rear
+</pre></blockquote>
+
+<p>
+You'll notice that the queue enforces a certain <em>order</em> to
+the use of its contents.
+
+<em>Is the ordering of the queue <b>Last</b> thing <b>In</b> is the
+<b>First</b> thing <b>Out</b> (<strong>LIFO</strong>) or <b>First</b>
+Thing <b>In</b> is the <b>First</b> thing <b>Out</b>
+(<strong>FIFO</strong>)?</em>
+
+</p><p><b>Answer:</b> <em>Queues</em> produce <b>FIFO</b> order.  Remember
+that <em>stacks</em> produce <b>LIFO</b> order.
+
+</p><p>
+</p></li><li>
+<b>Implementing a queue with an array:</b><p>
+
+Since a queue usually holds a bunch of items with the same type, we
+could implement a queue with an array.  Let's simplify our array
+implementation of a queue by using an array of a fixed size,
+<code>MAX_QUEUE_SIZE</code>.
+
+</p><p>
+<em>What other pieces of data would you need (besides an array) to
+implement a queue in this way?</em>
+
+</p><p>
+One of the things we'll need to keep track of is the number of elements
+in the queue, i.e., not all the elements in the array may be holding
+elements of the queue at any given time.
+
+</p><p>
+So far, the pieces of data we need for our array implementation of
+the queue are:
+
+</p><blockquote><pre>an array
+a count
+</pre></blockquote>
+
+<p>
+<em>Will these pieces be sufficient?</em>  Let's look at an example
+to find out...We'll start with a queue with 3 elements:
+
+</p><blockquote><pre>queue (made up of 'contents' and 'count')
+-----------------   -----
+| a | b | c |   |   | 3 |
+-----------------   -----
+  0   1   2   3     count
+contents
+</pre></blockquote>
+
+<p>
+where <b>a</b> is at the <em>front</em> and <b>c</b> is at the
+<em>rear</em>.  Now, we <em>enter</em> a new element with:
+<nobr><code>Enter(queue, 'd')</code></nobr>...
+
+</p><blockquote><pre>queue (made up of 'contents' and 'count')
+-----------------   -----
+| a | b | c | d |   | 4 |
+-----------------   -----
+  0   1   2   3     count
+contents
+</pre></blockquote>
+
+<p>
+All seems well.  How about if we remove an element with:
+<nobr><code>ch = Delete(queue)</code></nobr>?...
+
+</p><blockquote><pre>queue (made up of 'contents' and 'count')
+-----------------   -----   -----
+|   | b | c | d |   | 3 |   | a |
+-----------------   -----   -----
+  0   1   2   3     count    ch
+contents
+</pre></blockquote>
+
+<p>
+Hmmm, we have a problem because the <em>front</em> of the queue is
+no longer at array position 0.  One solution would be to move all the
+elements down one, giving:
+
+</p><blockquote><pre>queue (made up of 'contents' and 'count')
+-----------------   -----
+| b | c | d |   |   | 3 |
+-----------------   -----
+  0   1   2   3     count
+contents
+</pre></blockquote>
+
+<p>
+We <strong>reject</strong> that solution though because it is <em>too
+expensive</em> to move everything down every time we remove an element.
+
+</p><p>
+<em>
+Instead, can we use an additional piece of information to keep track
+of the <b>front</b>?
+</em>
+
+</p><p><b>Answer:</b> Yes!  We can use the index of the element at the
+front, giving:
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'count')
+-----------------   -----   -----
+|   | b | c | d |   | <font color="#ee0000">1 |   | 3 |
+-----------------   -----   -----
+  0   1   2   3     front   count
+contents
+</font></pre></blockquote><font color="#ee0000">
+
+<p>
+Now, what if we enter another element with:
+<nobr><code>Enter(queue, 'e')</code></nobr>?  Currently, the rear of
+the queue holds <code>'d'</code> and is at the end of the array.
+<em>Where will we put <code>'e'</code>?</em>
+
+</p><p>
+We've already said that moving everything down is too expensive.  An
+alternative would be to use the array in a <em>circular fashion</em>.
+In other words, when we hit the end of the array, we wrap around and
+use the beginning.  Now, with this choice for entering
+<code>'e'</code>, the fields look like:
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'count')
+-----------------   -----   -----
+| <font color="#ee0000">e</font> | b | c | d |   | 1 |   | <font color="#ee0000">4</font> |
+-----------------   -----   -----
+  0   1   2   3     front   count
+contents
+</pre></blockquote>
+
+<p>
+<em>
+Finally, how would it look like after:
+<nobr><code>ch = Delete(queue)</code></nobr>?
+</em>
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'count')
+-----------------   -----   -----   -----
+| e |   | c | d |   | <font color="#ee0000">2</font> |   | <font color="#ee0000">3</font> |   | b |
+-----------------   -----   -----   -----
+  0   1   2   3     front   count    ch
+contents
+</pre></blockquote>
+
+<p>
+</p></font></li><li><font color="#ee0000">
+<b>Alternative representation:</b><p>
+
+As we've seen, one choice for the set of <em>data</em> needed
+for the queue is:
+
+</p><blockquote><pre>an array
+a front index
+a count
+</pre></blockquote>
+
+<p>
+There is another possibility...Instead, we could replace the
+<em>count</em> with the location of the <em>rear</em>, thus using
+the following pieces of data:
+
+</p><blockquote><pre>an array
+a front index
+<font color="#ee0000">a rear index</font>
+</pre></blockquote>
+
+<p>
+Then, these pieces of data would reflect the state of the
+queue in the following way...Starting out with a queue with
+4 elements...
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'rear')
+-----------------   -----   -----
+| a | b | c | d |   | 0 |   | 3 |
+-----------------   -----   -----
+  0   1   2   3     front   rear
+contents
+</pre></blockquote>
+
+<p>
+Now, remove one with <nobr><code>ch = Delete(queue)</code></nobr>, giving:
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'rear')
+-----------------   -----   -----
+|   | b | c | d |   | <font color="#ee0000">1</font> |   | 3 |
+-----------------   -----   -----
+  0   1   2   3     front   rear
+contents
+</pre></blockquote>
+
+<p>
+Now, add one with <nobr><code>Enter(queue, 'e')</code></nobr>, giving:
+
+</p><blockquote><pre>queue (made up of 'contents', 'front' and 'rear')
+-----------------   -----   -----
+| <font color="#ee0000">e</font> | b | c | d |   | 1 |   | <font color="#ee0000">0</font> |
+-----------------   -----   -----
+  0   1   2   3     front   rear
+contents
+</pre></blockquote>
+
+<p>
+Let's decide which data representation to use.  Since one representation
+might make some of the queue functionality <em>conceptually easier</em> to
+write, we have to look at the functionality we'll need.
+
+</p><p>
+From the generic description of the queue, we know we need, at least:
+
+</p><p>
+<code>
+</code></p><ul><code>
+<li>Enter
+</li><li>Delete
+</li><li>IsEmpty
+</li></code></ul><code>
+</code>
+
+<p>
+However, since we will be writing this is C, we'll also need things to:
+
+</p><p>
+</p><ul>
+<li><code>Create</code> - create a new queue.
+</li><li><code>Destroy</code> - destroy the queue when we are done with it.
+</li><li><code>IsFull</code> - test for <em>fullness</em> since this is a
+queue with a fixed maximum size.
+</li></ul>
+
+<p>
+Our analysis of the tradeoffs are the following:
+
+</p><p>
+</p><ul>
+
+<li>Using the <em>count</em> will make <code>IsEmpty()</code> and
+<code>IsFull()</code> easy, although we'll have to make sure the count is
+updated properly in <code>Enter()</code> and <code>Delete()</code>.
+We haven't explored how to determine emptiness/fullness with <em>rear</em>
+or whether doing so presents any challenges.
+
+<p>
+</p></li><li>Using the <em>count</em> in <code>Enter()</code> is similar to using
+<em>rear</em>.  In both cases, the <em>front</em> won't move.  With the
+count, we'll have to use <em>count</em> to calculate at which position
+to add new values, making sure to wrap around the array if necessary.
+Similarly, with a <em>rear</em> we have to make sure the rear moves
+properly and wraps around.
+
+<p>
+</p></li><li>Using the <em>count</em> in <code>Delete()</code> is not more
+difficult than using <em>rear</em>.  In both cases, the <em>front</em>
+has to move (and wrap around when necessary).
+
+</li></ul>
+
+<p>
+Given these differences, we'll choose the representation with a
+<em>count</em>.
+
+</p><p>
+</p></font></li><li><font color="#ee0000">
+<b>C implementation:</b><p>
+
+Now, think about how to actually implement this queue in C.  Again,
+we're implementing a queue of <em>characters</em>.
+
+</p><p>
+Since we put data structures in their own modules, we'll want to
+create the source files <code>queue.h</code> and <code>queue.c</code>.
+
+</p><p>
+The operations needed for our queue are mainly determined by the
+operations provided by an <em>abstract queue</em>, namely:
+
+</p><blockquote><pre>QueueEnter()
+QueueDelete()
+QueueIsEmpty()
+</pre></blockquote>
+
+<p>
+However, as we've seen, we also need additional operations for
+<em>setup</em> and <em>cleanup</em> since we are implementing the queue
+in a programming language. In addition, we need to be able to test
+fullness for this <em>finite</em> queue.  We'll introduce these extra
+operations when we know more about how we will implement the queue.
+
+</p><p>
+<em>Now, before we ponder the details of the queue operations, what
+must we decide on?</em>
+
+</p><p>
+</p></font></li><li><font color="#ee0000">
+<b>Organization of data types for a queue:</b><p>
+
+Our goal is to have a type for a queue, so that people using our queue
+can define queue variables, and pass them to queue functions.  For
+example, we'd like to do something like the following:
+
+</p><blockquote><pre><em>type-of-a-queue</em> q1, q2;
+char ch;
+
+/* Setup queues. */
+
+QueueEnter(<em>ref-to-q1</em>, 'a');
+QueueEnter(<em>ref-to-q2</em>, 'b');
+
+ch = QueueDelete(<em>ref-to-q1</em>);
+
+/* Cleanup queues. */
+</pre></blockquote>
+
+<p>
+However, we'll also want to <em>abstract</em> the type of an
+<em>element</em>.
+
+</p><p>
+Let's consider the organization of types between our queue module
+files:
+
+</p><blockquote><pre>queue.h				queue.c
+-------				-------
+				#include "queue.h"
+
+type-of-an-element
+
+type-of-a-queue
+</pre></blockquote>
+
+<p>
+The <em>interface</em> (<code>.h</code>) for the queue will need to
+have a type for the queue (for people to define queue variables) and
+the type of an element (for functional prototypes)...
+
+</p><p>
+However, while people using the queue will need to know the
+<em>type-of-a-queue</em>, and thus, it will need to be in the header
+file, we want to hide any of the <em>internals</em> of the
+<em>type-of-a-queue</em> in the <code>.c</code> file.  Thus, the
+<em>type-of-a-queue</em> is broken up into an <em>abstract</em> and
+<em>concrete</em> part.
+
+</p><p>
+</p><ul>
+
+<li>The <em>concrete</em> part is a structure with all the pieces
+of data needed for a queue, which is hidden in the implementation.
+(Remember that we isolate this type from users of the queue, i.e., they
+do not need to know that the queue is implemented with an array.
+Furthermore, isolating the type will prevent them from being able to
+mess up the queue.)
+
+<p>
+</p></li><li>The <em>abstract</em> part that is a pointer to such a structure,
+which is publicly available to users of a queue.
+
+</li></ul>
+
+<p>
+Therefore, our goal is to have the following:
+
+</p><blockquote><pre>queue.h				queue.c
+-------				-------
+				#include "queue.h"
+
+type-of-an-element
+
+abstract-type-of-a-queue	concrete-type-of-a-queue
+</pre></blockquote>
+
+<p>
+We'll get the types from <code>queue.h</code> in <code>queue.c</code>
+since we always include the header for a module in the
+<em>implementation</em> (<code>.c</code>) part of the module.
+
+</p><p>
+</p></font></li><li><font color="#ee0000">
+<b>ADTs and CDTs:</b><p>
+
+</p><p>
+Let's start filling in the types for a queue.  First, we want to write
+a queue that is very generic.  The fact that this queue holds a
+character is only particular to this program.  It should be easy to
+change the type of things held in the queue.
+
+</p><p>
+Let's introduce a type name things held in the queue:
+
+</p><blockquote><pre>typedef char queueElementT;
+</pre></blockquote>
+
+<p>
+This will go in the header file, since we need it for the
+queue function prototypes.
+
+</p><p>
+Next, we need something that holds all the information needed to keep
+track of the queue.  We already decided that we will use an
+<em>array</em>, <em>front index</em> and <em>count</em>.
+
+</p><p>
+<em>What construct will we use to combine these 3 fields
+into a single type?</em>
+
+</p><p><b>Answer:</b> A <code>struct</code>, which becomes our
+<em>concrete-type-of-a-queue</em>, <code>struct queueCDT</code>:
+
+</p><blockquote><pre>typedef struct queueCDT {
+  queueElementT contents[MAX_QUEUE_SIZE];
+  int front;
+  int count;
+} queueCDT;
+</pre></blockquote>
+
+<p>
+and goes in the implementation file.  Now, in the header file, we must
+fill in what the <em>abstract-type-of-a-queue</em> is as follows:
+
+</p><blockquote><pre>typedef struct queueCDT *queueADT;
+</pre></blockquote>
+
+<p>
+Finally, we have:
+
+</p><pre>queue.h                         queue.c
+-------                         -------
+				#include "queue.h"
+
+typedef char queueElementT;	#define MAX_QUEUE_SIZE  100
+
+typedef struct queueCDT		typedef struct queueCDT {
+	*queueADT;		  queueElementT contents[MAX_QUEUE_SIZE];
+				  int front;
+				  int count;
+				} queueCDT;
+</pre>
+
+</font></li></ol><font color="#ee0000">
+
+<p>
+</p><hr>
+<address>
+BU CAS CS - Queue - Array Implementation - Types
+<br>
+Copyright © 1993-2000 by
+<a target="_top">Robert I. Pitts</a>
+&lt;rip at bu dot edu&gt;.
+All Rights Reserved.
+</address>
+
+
+</font></body></html>

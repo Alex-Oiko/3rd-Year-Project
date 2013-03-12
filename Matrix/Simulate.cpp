@@ -25,14 +25,14 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
             continue;
         auto iTTE = CORE.CoreEntries.find(E.Ks);
         TTE = iTTE->second;
-        if(TTE.OpCodes[0] == 3){
+        if(TTE.OpCodes.front() == 3){
             E.Value = TTE.IV;
             E.Kd = E.Ks;
-	    CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-	    CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    CORE.mop[TTE.V].pop();
             EventQ.push(E);
         }
-	else if(TTE.OpCodes[0]==2){
+	else if(TTE.OpCodes.front()==2){
     		matrix_size=TTE.YD;
 	}
 	//else if(TTE.Name[0]=='A' && TTE.Name[1]=='\0'){
@@ -66,7 +66,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty() || loops==300)
+        if(EventQ.empty())
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -144,17 +144,18 @@ void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      vTTE = iTTE->second;
      kTTE=iSTTE->second;
      if(kTTE.Name[0]=='A' || kTTE.Name[0]=='N'){
-	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V][0]<<"and "<<CORE.mop[kTTE.V][1]<<endl;
-	cout<<"erasing OpCodes in A"<<endl;
-	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
-	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
-	cout<<"New first OpCode is "<<CORE.mop[kTTE.V][0]<<endl;
+	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V].front()<<endl;
+	CORE.mop[kTTE.V].pop();
+	cout<<"and"<<CORE.mop[kTTE.V].front()<<endl;
+	cout<<"erasing OpCodes in A or RSNEW"<<endl;
+	CORE.mop[kTTE.V].pop();
+	cout<<"New first OpCode is "<<CORE.mop[kTTE.V].front()<<endl;
      }
      else{
-	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V][0]<<endl;
-	cout<<"erasing classic node"<<endl;
-	CORE.mop[kTTE.V].erase(CORE.mop[kTTE.V].begin());
-	cout<<"New first OpCode is "<<CORE.mop[kTTE.V][0]<<endl;
+	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V].front()<<endl;
+	cout<<"erasing clssic node"<<endl;
+	CORE.mop[kTTE.V].pop();
+	cout<<"New first OpCode is "<<CORE.mop[kTTE.V].front()<<endl;
      }
      if(kTTE.Name[0]=='P'){
         RES.Ks = kTTE.Kd;
@@ -250,20 +251,20 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.Kd = RES.Ks;
         RES.Type = FIREAWAY;
         RES.OutLink = 6;
-	switch(CORE.mop[TTE.V][0]){
+	switch(CORE.mop[TTE.V].front()){
 		case 0:
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			cout<<"opcode is 0 here"<<endl;
-			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+			cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 			break;
         	case 1://multiplication but no send
             		Vme = CORE.Mstore[TTE.V];
             		Res = Vme*E.Value;
             		RES.Value = Res;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+			CORE.mop[TTE.V].pop();
+			cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 			cout<<"Multiplication happened here"<<endl;
             		cout<<"resValue is "<<Res<<endl;
 			if(TTE.Name[0]=='A'){
@@ -278,9 +279,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 	    		cout<<"COUNTER "<<CORE.Mcounter[TTE.V]<<"\n";
 	    		if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
-				CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+	    			CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    			CORE.mop[TTE.V].pop();
+				cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 				cout<<"R CREATED"<<endl;
 				CORE.Mcounter[TTE.V]=0;
 				EventQ.push(RES);
@@ -290,9 +291,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.Mstore[TTE.V]=E.Value;
 			CORE.Mtemp[TTE.V]=E.Value;
 			RES.Value=CORE.Mstore[TTE.V];
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-			cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	 	   	CORE.mop[TTE.V].pop();
+			cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			cout<<CORE.Mstore[TTE.V]<<endl;
 			EventQ.push(RES);
@@ -305,9 +306,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			if(CORE.Mcounter[TTE.V]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
-				CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-				CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
-				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+	    			CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    			CORE.mop[TTE.V].pop();
+				cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 				cout<<"RSOLD/RSNEW CREATED"<<endl;
 				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 				if(TTE.Name[0]=='N')//so it does not have previous value in other iterations
@@ -320,13 +321,13 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			cout<<"numbah 6 here"<<endl;
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value;
-			cout<<"Opcode"<<CORE.mop[TTE.V][0]<<endl;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+			cout<<"Opcode"<<CORE.mop[TTE.V].front()<<endl;
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
-				cout<<"new opcode is "<<CORE.mop[TTE.V][0]<<endl;
+				cout<<"new opcode is "<<CORE.mop[TTE.V].front()<<endl;
 				cout<<"value of node is"<<CORE.Mstore[TTE.V]<<endl;
 				EventQ.push(RES);
 			}
@@ -334,8 +335,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 7://Assignement without send
 			CORE.Mstore[TTE.V]=E.Value;
 			CORE.Mtemp[TTE.V]=E.Value;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			cout<<"Value is EDWWWWWWWWWWWW "<<CORE.Mstore[TTE.V]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			break;
@@ -345,8 +346,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mtemp[TTE.V]+=E.Value;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			cout<<"ALPHA node here"<<endl;
 		 	cout<<"Bottom happenning here "<<CORE.Mtemp[TTE.V]<<endl;
 			if(CORE.Mcounter[TTE.V]==matrix_size){
@@ -367,8 +368,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 10://make new r nodes, basically subtraction
 			cout<<"Making r values"<<endl;
 			CORE.Mstore[TTE.V]-=E.Value;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			cout<<"R value is "<<CORE.Mstore[TTE.V]<<endl;
 			RES.Value=CORE.Mstore[TTE.V];
 			EventQ.push(RES);
@@ -376,8 +377,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 11://make new x nodes
 			cout<<"MAKING AN X NODE HERE!!"<<endl;
 			CORE.Mstore[TTE.V]+=E.Value;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			RES.Value=CORE.Mstore[TTE.V];
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 			//EventQ.push(RES);
@@ -385,8 +386,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 12://make beta
 			cout<<"CREATING BETA HERE"<<endl;
 			CORE.Mstore[TTE.V]=E.Value/CORE.Mstore[TTE.V];
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	 	   	CORE.mop[TTE.V].pop();
 			RES.Value=CORE.Mstore[TTE.V];
 			CORE.Mstore[TTE.V]=E.Value;//save it as rsold for the next iteration
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
@@ -405,15 +406,15 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 14://temp assignement only
 			cout<<"ASSIGNING IN TEMP"<<endl;
 			CORE.Mtemp[TTE.V]=E.Value;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			break;
 		case 15://make new p nodes
 			CORE.Mstore[TTE.V]*=E.Value;
 			CORE.Mstore[TTE.V]+=CORE.Mtemp[TTE.V];
 			cout<<"New p value is "<<CORE.Mstore[TTE.V]<<endl;
-			CORE.mop[TTE.V].push_back(CORE.mop[TTE.V][0]);
-			CORE.mop[TTE.V].erase(CORE.mop[TTE.V].begin());
+	    		CORE.mop[TTE.V].push(CORE.mop[TTE.V].front());
+	    		CORE.mop[TTE.V].pop();
 			case15_counter++;
 			if(case15_counter==matrix_size){//when case15_counter==N 
 				RES.Type=UPALL;

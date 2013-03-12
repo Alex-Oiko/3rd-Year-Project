@@ -12,7 +12,7 @@ const unsigned ChipMask = 0xffff0000;
 void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT){
     unsigned oKey = (-1)&CoreMask, Key, oChip = (-1)&ChipMask, CoreKey, ChipKey;
     uint32_t NoUsedChips, CoreCount;
-    vector<uint32_t> memal(8);
+    uint32_t *memal;
     const char *TCram;
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
@@ -73,8 +73,9 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(Values, sizeof(float), PointCount, Results);
                     fwrite(Temps, sizeof(float), PointCount, Results);
                     fwrite(counters, sizeof(uint32_t), PointCount, Results);
-                    fwrite(OpCodesA, sizeof(memal), PointCount, Results);
-                }
+                    fwrite(Fronts,sizeof(uint32_t),PointCount, Results);
+		    fwrite(OpCodesA, sizeof(memal), PointCount, Results);
+		}
             }
 
         }
@@ -133,13 +134,14 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.Name = TTE.Name[0];
         dTTE.Kd = TTE.Kd;
         dTTE.OpCodes = TTE.OpCodes;
-        cout<<dTTE.OpCodes[0]<<endl;
+        //cout<<dTTE.OpCodes.front()<<endl;
 	dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
-	dTTE.XD = TTE.XD;
 	dTTE.YD = TTE.YD;
 	dTTE.X = TTE.X;
 	dTTE.Y = TTE.Y;
+	dTTE.ArSize = TTE.OpCodes.size();
+	dTTE.front=0;
 	dTTE.counter = TTE.counter;
 	dTTE.Temp = TTE.Temp;
         dTTE.Expected = 0;
@@ -159,12 +161,20 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     PointCount = idx;
     TTArray = new _DTTE[PointCount];
     Values = new float[PointCount];
+    OpCodesA = new queue<uint32_t>[PointCount];
     for(idx = 0; idx < PointCount; idx++){
-        TTArray[idx] = vTargetTable[idx];
+	TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
         Temps[idx] = TTArray[idx].Temp;
         counters[idx] = TTArray[idx].counter;
-	//OpCodesA[idx] =TTArray[idx].OpCodes;
+	cout<<TTE.Name[0]<<endl;
+	for(int i=0;i<TTArray[idx].OpCodes.size();i++){
+		uint32_t fr=TTArray[idx].OpCodes.front();
+		OpCodesA[idx].push(fr);
+		TTArray[idx].OpCodes.pop();
+		TTArray[idx].OpCodes.push(fr);
+	}
+	//cout<<"First opcode is "<<OpCodesA[idx][0]<<endl;
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];

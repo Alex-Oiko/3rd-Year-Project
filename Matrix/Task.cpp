@@ -139,7 +139,7 @@ bool Task::readMatrix(){
     string NewLine, sOpCode;
     unsigned OpCode;
     vector<string> sOpCodes;
-    vector<unsigned> OpCodez;
+    queue<unsigned> OpCodez;
     vector<float> fpValues;
     vector<string> SubStrings;
     //vector<float>::iterator iFP;
@@ -154,11 +154,11 @@ bool Task::readMatrix(){
     split(sOpCode,'/',sOpCodes);
     for(int i=0;i<sOpCodes.size();i++){
 	cout<<"OpCode "<<sOpCodes[i]<<"\n";
-	OpCodez.push_back(stoi(sOpCodes[i]));
+	OpCodez.push(stoi(sOpCodes[i]));
     }
     idx = NewLine.find('[');
     name = NewLine.substr(0,idx);    
-    OpCodes.insert(map<string, vector<unsigned>>::value_type(name,OpCodez)); 
+    OpCodes.insert(map<string, queue<unsigned>>::value_type(name,OpCodez)); 
     if(idx == string::npos){ // must be a scalar
         vType = SCALAR;
     }
