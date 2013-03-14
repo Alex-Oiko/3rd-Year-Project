@@ -120,15 +120,48 @@ void Dealer::Deal(Machine& MAC, Task& TASK, bool Toss, int seed, Core& CORE){
             X = XY>>8;
             Y = XY&0x0ff;
             for(int ov=0; ov < Vstart.size();ov++){
-                K = KeyFrom(X,Y,NextCore,Offset[NextChip][NextCore]);
                 n = Vstart[ov] + s;
-                MAP[RAN[n]] = K;
-                PMAP.insert({K, n});
 		TTE = TASK.CoreFlix[RAN[n]];
+		switch(TTE.Name[0]){
+			case 'M':break;
+			case 'X':
+				Offset[NextChip][NextCore]++;
+				break;
+			case 'R':
+				if(TTE.Name[1]=='O')
+					Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+2;
+				else
+					Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+3;
+
+				break;
+			case 'P':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+4;
+				break;
+			case 'A':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+5;
+				break;
+			case 'N':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+6;
+				break;
+			case 'L':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+7;
+				break;
+			case 'C':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+8;
+				break;
+			case 'B':
+				Offset[NextChip][NextCore]=Offset[NextChip][NextCore]+9;
+				break;
+
+		}
+                K = KeyFrom(X,Y,NextCore,Offset[NextChip][NextCore]);
+		cout<<"Name:"<<TTE.Name[0]<<" Key:"<<K<<" Offset:"<<Offset[NextChip][NextCore]<<endl;
+		MAP[RAN[n]] = K;
+                PMAP.insert({K, n});
                 TTE.Kd = K;
                 CORE.CoreEntries.insert(map<unsigned, TargetTableEntry>::value_type(K,TTE));
-                Offset[NextChip][NextCore]++;
-            }
+            	//Offset[NextChip][NextCore]++;
+	    }
         }
     }
 }

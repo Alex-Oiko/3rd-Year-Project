@@ -670,84 +670,87 @@ UPDATE ALL IS FINISHED
 
 Source {K:1010000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
 Opcodes to be deleted are 1
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 
 Source {K:1020000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
 Opcodes to be deleted are 1
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 
 Source {K:1030000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
 Opcodes to be deleted are 1
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 
 Source {K:1040000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
 Opcodes to be deleted are 1
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 
 Source {K:3000000 X OpCode 3 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
 Opcodes to be deleted are 3
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:3010000 X OpCode 3 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
 Opcodes to be deleted are 3
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:2030000 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
 Opcodes to be deleted are 2
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:2040000 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
 Opcodes to be deleted are 2
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:2010000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
 Opcodes to be deleted are 4
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 Firing P with value -18.6963
 
 Source {K:2020000 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
 Opcodes to be deleted are 4
-erasing classic node
+erasing clssic node
 New first OpCode is 1
 Firing P with value -7.10476
 
 Source {K:0 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
-Opcodes to be deleted are 0and 0
-erasing OpCodes in A
+Opcodes to be deleted are 0
+and0
+erasing OpCodes in A or RSNEW
 New first OpCode is 6
 
 Source {K:10000 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
-Opcodes to be deleted are 0and 0
-erasing OpCodes in A
+Opcodes to be deleted are 0
+and0
+erasing OpCodes in A or RSNEW
 New first OpCode is 6
 
 Source {K:2050000 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
 Opcodes to be deleted are 5
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:2000000 N OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
-Opcodes to be deleted are 0and 0
-erasing OpCodes in A
+Opcodes to be deleted are 0
+and0
+erasing OpCodes in A or RSNEW
 New first OpCode is 5
 
 Source {K:1000000 L OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
 Opcodes to be deleted are 7
-erasing classic node
+erasing clssic node
 New first OpCode is 0
 
 Source {K:20000 B OpCode 7 XD:1 YD:1 X:0 Y:0 IV:0 O:16}
 Opcodes to be deleted are 7
-erasing classic node
+erasing clssic node
 New first OpCode is 12
 
 Source {K:2010000 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}

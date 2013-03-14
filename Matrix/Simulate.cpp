@@ -66,7 +66,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty())
+        if(EventQ.empty()||loops==300)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -190,7 +190,7 @@ unsigned Simulate::FireAway(event E, MakeMCTables& MCT, Core& CORE, Machine& MAC
     link = 1;
     for(int i = 0;LINKS && i < 6; i++, link = (link<<1)){
         if(link&LINKS){
-            E.OutLink = i;//set for through routing
+	    E.OutLink = i;//set for through routing
             NextChip = MAC.ChipLink[ChipID][i];
             XYn = MAC.ChipXY[NextChip];
             Xn = XYn>>8;
@@ -396,8 +396,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 		case 13://check end condition
 			cout<<"Checking end cond"<<endl;
 			if(E.Value<1e-10){
-				cout<<"CONDITION TRUE....TERMINATING"<<endl;
-				return;	
+				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
+				cout<<"Results are"<<endl;
+				CORE.PrintByOpCode(3);
+				exit(EXIT_SUCCESS);	
 			}
 			else{
 				cout<<"Condition failed"<<endl;
