@@ -1,7 +1,7 @@
--OpCode is now OpCodes and a vector of unsigned integers. It is also added in a changeable vector and saved into a core. Name is mop
-	.Task.h @ its description. instead of havong vector<float>, it is now vector<vectors<<unsigned>
+-OpCode is now a map of queues. The key is an unsigned integer that recognises the type of node that the message has been sent from and the describes the opcodes for that particular type of node.	
+	.Task.h @ its description. instead of having vector<float>, it is now vector map<unisigned,queue<unsigned>>
 	.Task.cpp @readMatrix(). It tweaked a bit to read the OpCodes 
-	.Utils.h @its description. It is described as vector<unsigned> instead of float
+	.Utils.h @its description. It is described as map<unsigned,queue<unsigned>> instead of float
 	.Core.h @a new vector exists called mop that will save the OpCodes(vectors) to the Core memory
 	.Cores.cpp @ AllocateStorage(task...), in order to allocate storage in the respective core, otherwise->seg fault
 

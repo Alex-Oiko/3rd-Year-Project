@@ -29,7 +29,7 @@ static unsigned KeyFrom(unsigned X, unsigned Y, unsigned C, unsigned O){
 
 struct TargetTableEntry{        //There are CoreData.NodesOnCore of these
     unsigned Kd;                //identifies this particular node (Key actually)
-    queue<unsigned> OpCodes;   //identifies what function to use on MC message arrival
+    map<unsigned,queue<unsigned>> OpCodes;   //identifies what function to use on MC message arrival, based on the type of the core that sent it
     char Name[4];              //Name of the node as from the input file
     unsigned XD;                //X dimension of the matrix element
     unsigned YD;                //Y dimension of the matrix element

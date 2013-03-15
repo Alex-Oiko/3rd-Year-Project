@@ -137,8 +137,10 @@ bool Task::readMatrix(){
     string::size_type idx, sp;
     string name;
     string NewLine, sOpCode;
-    unsigned OpCode;
+    unsigned OpCode,type;
     vector<string> sOpCodes;
+    vector<string> nmOP;
+    map<unsigned,queue<unsigned>> actualOps;
     queue<unsigned> OpCodez;
     vector<float> fpValues;
     vector<string> SubStrings;
@@ -150,15 +152,27 @@ bool Task::readMatrix(){
     split(inLine, ' ', SubStrings);
     NewLine = SubStrings[0];
     sOpCode = SubStrings[1];
-
-    split(sOpCode,'/',sOpCodes);
-    for(int i=0;i<sOpCodes.size();i++){
-	cout<<"OpCode "<<sOpCodes[i]<<"\n";
-	OpCodez.push(stoi(sOpCodes[i]));
+    split(sOpCode,';',nmOP);
+    for(int f=0;f<nmOP.size();f++){
+        cout<<"hello "<<nmOP[f]<<endl;
+	sOpCodes.clear();
+    	split(nmOP[f],'/',sOpCodes);
+    	for(int i=0;i<sOpCodes.size();i++){
+		if(i==0){
+			type=stoi(sOpCodes[i]);
+			cout<<"type is:"<<sOpCodes[i]<<endl;
+		}
+		else{
+			cout<<"OpCode "<<sOpCodes[i]<<"\n";
+			OpCodez.push(stoi(sOpCodes[i]));
+		}
+    	}
+	actualOps[type]=OpCodez;
     }
     idx = NewLine.find('[');
-    name = NewLine.substr(0,idx);    
-    OpCodes.insert(map<string, queue<unsigned>>::value_type(name,OpCodez)); 
+    name = NewLine.substr(0,idx);
+    cout<<"Map inserted successfully"<<endl;
+    OpCodes.insert(map<string, map<unsigned,queue<unsigned>>>::value_type(name,actualOps)); 
     if(idx == string::npos){ // must be a scalar
         vType = SCALAR;
     }

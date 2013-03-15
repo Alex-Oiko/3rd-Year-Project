@@ -134,7 +134,6 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.Name = TTE.Name[0];
         dTTE.Kd = TTE.Kd;
         dTTE.OpCodes = TTE.OpCodes;
-        //cout<<dTTE.OpCodes.front()<<endl;
 	dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
 	dTTE.YD = TTE.YD;
@@ -174,7 +173,6 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 		TTArray[idx].OpCodes.pop();
 		TTArray[idx].OpCodes.push(fr);
 	}
-	//cout<<"First opcode is "<<OpCodesA[idx][0]<<endl;
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];

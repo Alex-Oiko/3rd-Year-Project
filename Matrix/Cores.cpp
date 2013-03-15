@@ -29,7 +29,7 @@ void Core::MakeLUT(Task& TASK){
 
 void Core::PrintTTE(TargetTableEntry& TTE){
     string sName = TTE.Name;
-    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCodes.front()<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
+    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCodes.at(0).front()<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
 }
 
 void Core::PrintByOpCode(unsigned OpCode){
@@ -37,7 +37,7 @@ void Core::PrintByOpCode(unsigned OpCode){
     unsigned X,Y,C,O;
     for(auto iTTE = CoreEntries.cbegin(); iTTE!=CoreEntries.cend();iTTE++){
         TTE = iTTE->second;
-        if(TTE.OpCodes.front() != OpCode) continue;
+        if(TTE.OpCodes.at(0).front() != OpCode) continue;
         string sName = TTE.Name;
         KeyTo(TTE.Kd, X, Y, C, O);
         float value = Mstore[TTE.V];
@@ -70,7 +70,7 @@ void Core::PrintLUT(){
 
 void Core::AllocateStorage(Task& TASK){
     TargetTableEntry TTE;
-    queue<unsigned> memalloc;
+    map<unsigned,queue<unsigned>> memalloc;
     //firstly create the storage needed
     for(int i = 0; i < TASK.nextPID; i++){
         Mstore.push_back((float)-1.0);
