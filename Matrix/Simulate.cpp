@@ -66,7 +66,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty()||loops==300)
+        if(EventQ.empty())
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -114,7 +114,7 @@ void Simulate::LoadFire(event E, Core& CORE, Dealer& DEAL){
     return;
 }
 void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
-     /*vector<unsigned>  vTTE;
+     vector<unsigned>  vTTE;
      event RES;
      TargetTableEntry TTE,kTTE;
      unsigned X,Y,C,O,oc,Offset;
@@ -132,12 +132,69 @@ void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      	exit(1);
   
      }
-     Offset=E.Ks%10;
+     KeyTo(E.Ks,X,Y,C,Offset);
      cout << "\nSource ";
      CORE.PrintTTE(iSTTE->second,Offset);
      vTTE = iTTE->second;
      kTTE=iSTTE->second;
-     if(kTTE.Name[0]=='A' || kTTE.Name[0]=='N'){
+     switch(kTTE.Name[0]){
+     	case 'M':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][1].front()<<endl;
+		CORE.mop[kTTE.V][1].pop();
+	        cout<<"New OpCode at key 1 is:"<<CORE.mop[kTTE.V][1].front()<<endl;
+     	      	break;
+     	case 'X':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][16].front()<<endl;
+		CORE.mop[kTTE.V][16].pop();
+              	cout<<"New OpCode at key 16 is:"<<CORE.mop[kTTE.V][16].front()<<endl;
+             	 break;
+     	case 'R':
+             	if(kTTE.Name[1]=='O'){
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][3].front()<<endl;
+	     		CORE.mop[kTTE.V][3].pop();
+			cout<<"New OpCode at key 3 is:"<<CORE.mop[kTTE.V][3].front()<<endl;
+	     	}
+             	else{
+	     		cout<<"Size of OpCodes at key 0 is:"<<CORE.mop[kTTE.V][0].size();
+		}
+             	break;
+     	case 'P':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][3].front()<<endl;
+		CORE.mop[kTTE.V][3].pop();
+	      	cout<<"New OpCode at key 3 is:"<<CORE.mop[kTTE.V][3].front()<<endl;
+		RES.Ks=kTTE.Kd;
+	      	RES.Kd=RES.Ks;
+	      	RES.Type=FIREAWAY;	      
+	      	RES.OutLink=6;
+	      	RES.Value=CORE.Mstore[kTTE.V];
+	      	cout<<"Firing p with value"<<CORE.Mstore[kTTE.V]<<endl;
+	      	EventQ.push(RES);
+     	      	break;
+     	case 'A':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][0].front()<<endl;
+		CORE.mop[kTTE.V][0].pop();
+     	      	CORE.mop[kTTE.V][0].pop();
+     	      	cout<<"New OpCode at key 0 is:"<<CORE.mop[kTTE.V][0].front()<<endl;
+	     	break;
+     	case 'N':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][0].front()<<endl;
+		CORE.mop[kTTE.V][3].pop();
+              	CORE.mop[kTTE.V][3].pop();
+	      	cout<<"New OpCode at key 3 is:"<<CORE.mop[kTTE.V][0].front()<<endl;
+     	      	break;
+     	case 'L':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][2].front()<<endl;
+		CORE.mop[kTTE.V][2].pop();
+	      	cout<<"New OpCode at key 2 is:"<<CORE.mop[kTTE.V][2].front()<<endl;
+     	      	break;	
+     	case 'B':
+		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][2].front()<<endl;
+		CORE.mop[kTTE.V][2].pop();
+	      	cout<<"New OpCode at key 2 is:"<<CORE.mop[kTTE.V][2].front()<<endl;
+	      	break;
+     }
+     cout<<"\n"<<endl;
+     /*if(kTTE.Name[0]=='A' || kTTE.Name[0]=='N'){
 	cout<<"Opcodes to be deleted are "<<CORE.mop[kTTE.V].front()<<endl;
 	CORE.mop[kTTE.V].pop();
 	cout<<"and"<<CORE.mop[kTTE.V].front()<<endl;
@@ -274,7 +331,6 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 	    		cout<<"COUNTER "<<CORE.Mcounter[TTE.V]<<"\n";
 	    		if(CORE.Mcounter[TTE.V]==TTE.YD){
 				RES.Value=CORE.Mstore[TTE.V];
-	    			CORE.mop[TTE.V][Offset].push(CORE.mop[TTE.V][Offset].front());
 	    			CORE.mop[TTE.V][Offset].pop();
 				cout<<"new opcode is "<<CORE.mop[TTE.V][Offset].front()<<endl;
 				cout<<"R CREATED"<<endl;
