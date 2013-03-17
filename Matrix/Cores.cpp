@@ -27,17 +27,17 @@ void Core::MakeLUT(Task& TASK){
     }
 }
 
-void Core::PrintTTE(TargetTableEntry& TTE){
+void Core::PrintTTE(TargetTableEntry& TTE,unsigned Offset){
     string sName = TTE.Name;
-    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCodes.at(0).front()<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
+    cout << "{K:"<<hex<<TTE.Kd<<" "<<sName<< dec <<" OpCode "<< TTE.OpCodes.at(Offset).front()<< " XD:"<<TTE.XD<<" YD:"<<TTE.YD<<" X:"<<TTE.X<<" Y:"<<TTE.Y<<" IV:"<< TTE.IV <<" O:" <<TTE.V << "}\n";
 }
 
-void Core::PrintByOpCode(unsigned OpCode){
+void Core::PrintByOpCode(unsigned Q,unsigned OpCode){
     TargetTableEntry TTE;
     unsigned X,Y,C,O;
     for(auto iTTE = CoreEntries.cbegin(); iTTE!=CoreEntries.cend();iTTE++){
         TTE = iTTE->second;
-        if(TTE.OpCodes.at(0).front() != OpCode) continue;
+        if(TTE.OpCodes.at(Q).front() != OpCode) continue;
         string sName = TTE.Name;
         KeyTo(TTE.Kd, X, Y, C, O);
         float value = Mstore[TTE.V];
@@ -45,15 +45,13 @@ void Core::PrintByOpCode(unsigned OpCode){
     }
 }
 
-
-
 void Core::PrintLUT(){
     cout.setf(ios::hex);
     cout << "Look up Tables\n";
     for(auto iL = LUT.cbegin(); iL != LUT.cend(); iL++){
         cout << "Source Key: "<< hex << iL->first<< " ";
         auto iS = CoreEntries.find(iL->first);
-        PrintTTE(iS->second);
+        //PrintTTE(iS->second,);
         cout << "\nDestination Keys: ";
         for(int v = 0; v < iL->second.size(); v++){
             cout << hex << iL->second[v]<< " ";
@@ -62,15 +60,15 @@ void Core::PrintLUT(){
                 cerr << "No Core Entry for Ks " << hex << iL->second[v]<<endl;
                 exit(1);
             }
-            PrintTTE(iC->second);
-        }
+           //PrintTTE(iC->second);
+	}
         cout << endl;
     }
 }
 
 void Core::AllocateStorage(Task& TASK){
     TargetTableEntry TTE;
-    map<unsigned,queue<unsigned>> memalloc;
+    vector<queue<unsigned>> memalloc;
     //firstly create the storage needed
     for(int i = 0; i < TASK.nextPID; i++){
         Mstore.push_back((float)-1.0);

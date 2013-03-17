@@ -26,13 +26,13 @@ public:
     map<unsigned,TargetTableEntry> CoreEntries;  //mostly filled in by Dealer
     void MakeLUT(Task&);
     void PrintLUT();
-    void PrintTTE(TargetTableEntry&);
+    void PrintTTE(TargetTableEntry&,unsigned Offset);
     vector<float>  Mstore;       //storage for values Mstore[X][Y][C][]
-    vector<map<unsigned,queue<unsigned>>> mop;
+    vector<vector<queue<unsigned>>> mop;
     vector<float> Mtemp;
     vector<unsigned> Mcounter;
     void AllocateStorage(Task&);
-    void PrintByOpCode(unsigned);
+    void PrintByOpCode(unsigned,unsigned);
 };
 
 
