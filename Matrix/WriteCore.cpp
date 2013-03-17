@@ -160,7 +160,7 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     PointCount = idx;
     TTArray = new _DTTE[PointCount];
     Values = new float[PointCount];
-    OpCodesA = new queue<uint32_t>[PointCount];
+    OpCodesA = new vector<queue<uint32_t>>[PointCount];
     for(idx = 0; idx < PointCount; idx++){
 	TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
@@ -168,10 +168,10 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
         counters[idx] = TTArray[idx].counter;
 	cout<<TTE.Name[0]<<endl;
 	for(int i=0;i<TTArray[idx].OpCodes.size();i++){
-		uint32_t fr=TTArray[idx].OpCodes.front();
-		OpCodesA[idx].push(fr);
-		TTArray[idx].OpCodes.pop();
-		TTArray[idx].OpCodes.push(fr);
+		//uint32_t fr=TTArray[idx].OpCodes.front();
+		//OpCodesA[idx].push(fr);
+		//TTArray[idx].OpCodes.pop();
+		//TTArray[idx].OpCodes.push(fr);
 	}
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();

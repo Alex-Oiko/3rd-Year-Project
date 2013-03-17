@@ -32,7 +32,7 @@ private:
     };
     struct _DTTE{
         uint32_t Kd;
-        queue<uint32_t> OpCodes;
+        vector<queue<uint32_t>> OpCodes;
         float IV;
 	float Temp;
 	char Name;
@@ -56,7 +56,7 @@ private:
     float *Temps;		//Array for the Temp values
     uint32_t *Fronts;		//Array for keeping track of custom queue
     uint32_t *counters;		//Array for the counters
-    queue<uint32_t> *OpCodesA;  //Array for OpCodes
+    vector<queue<uint32_t>> *OpCodesA;  //Array for OpCodes
     _LookUp  *LUT;                  //Look up table for incoming
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);
