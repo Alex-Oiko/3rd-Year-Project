@@ -1,541 +1,72 @@
 Matrix handling on SpiNNaker
 A root file name if you would matey: line 0:BEGIN VALUES
 line 1:MX1[2,2] 1/1;4/1/0/0
-hello 1/1
-type is:1
-OpCode 1
-vector inserted 1
-hello 4/1/0/0
-type is:4
-OpCode 1
-OpCode 0
-OpCode 0
-vector inserted 3
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:0
-Type is:1
-Opcode:1
-Opcode:0
-Type is:2
-Opcode:0
-Type is:3
-Opcode:0
-Type is:4
-Opcode:1
-Opcode:0
-Opcode:0
-Type is:5
-Opcode:0
-Type is:6
-Opcode:0
-Type is:7
-Opcode:0
-Type is:8
-Opcode:0
-Type is:9
-Opcode:0
-Type is:10
-Opcode:0
-Type is:11
-Opcode:0
-Type is:12
-Opcode:0
-Type is:13
-Opcode:0
-Type is:14
-Opcode:0
-Type is:15
-Opcode:0
-Type is:16
-Opcode:0
+
+
 Vector inserted successfully
 line 2:4.0 1.0
 line 3:1.0 3.0
 read values for dimension 2 MX1
 4 1 1 3 
 line 4:X[2] 16/3;4/0/0/11
-hello 16/3
-type is:16
-OpCode 3
-vector inserted 1
-hello 4/0/0/11
-type is:4
-OpCode 0
-OpCode 0
-OpCode 11
-vector inserted 3
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262984
-Type is:1
-Opcode:1731264104
-Type is:2
-Opcode:1731264088
-Type is:3
-Opcode:1731264072
-Type is:4
-Opcode:0
-Opcode:0
-Opcode:11
-Type is:5
-Opcode:1731264024
-Type is:6
-Opcode:1731264008
-Type is:7
-Opcode:1731263992
-Type is:8
-Opcode:1731263976
-Type is:9
-Opcode:1731263944
-Type is:10
-Opcode:1731263928
-Type is:11
-Opcode:1731263912
-Type is:12
-Opcode:1731263896
-Type is:13
-Opcode:1731263880
-Type is:14
-Opcode:1731263832
-Type is:15
-Opcode:1731263688
-Type is:16
-Opcode:3
-Opcode:1731263528
+
+
 Vector inserted successfully
 line 5:2.0 1.0
 read values for dimension 1 X
 2 1 
 line 6:R[2] 0/2/0/0/0;5/0/10
-hello 0/2/0/0/0
-type is:0
-OpCode 2
-OpCode 0
-OpCode 0
-OpCode 0
-vector inserted 4
-hello 5/0/10
-type is:5
-OpCode 0
-OpCode 10
-vector inserted 4
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:2
-Opcode:0
-Opcode:0
-Type is:1
-Opcode:1731262984
-Type is:2
-Opcode:1731264088
-Type is:3
-Opcode:1731264056
-Type is:4
-Opcode:1731264040
-Type is:5
-Opcode:0
-Opcode:0
-Opcode:0
-Type is:6
-Opcode:1731264008
-Type is:7
-Opcode:1731263992
-Type is:8
-Opcode:1731263960
-Type is:9
-Opcode:1731263944
-Type is:10
-Opcode:1731263928
-Type is:11
-Opcode:1731263912
-Type is:12
-Opcode:1731263896
-Type is:13
-Opcode:1731263864
-Type is:14
-Opcode:1731263816
-Type is:15
-Opcode:1731263656
-Type is:16
-Opcode:1731263512
+
+
 Vector inserted successfully
 line 7:1.0 2.0
 read values for dimension 1 R
 1 2 
 line 8:P[2] 3/4/14;5/1/0;7/1;9/15
-hello 3/4/14
-type is:3
-OpCode 4
-OpCode 14
-vector inserted 2
-hello 5/1/0
-type is:5
-OpCode 1
-OpCode 0
-vector inserted 3
-hello 7/1
-type is:7
-OpCode 1
-vector inserted 2
-hello 9/15
-type is:9
-OpCode 15
-vector inserted 2
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262856
-Type is:1
-Opcode:1731262952
-Type is:2
-Opcode:1731262984
-Type is:3
-Opcode:4
-Opcode:14
-Type is:4
-Opcode:1731264056
-Type is:5
-Opcode:14
-Opcode:1
-Opcode:0
-Type is:6
-Opcode:1731264008
-Type is:7
-Opcode:0
-Opcode:1
-Type is:8
-Opcode:1731263976
-Type is:9
-Opcode:1
-Opcode:15
-Type is:10
-Opcode:1731263928
-Type is:11
-Opcode:1731263912
-Type is:12
-Opcode:1731263896
-Type is:13
-Opcode:1731263880
-Type is:14
-Opcode:1731263864
-Type is:15
-Opcode:1731263704
-Type is:16
-Opcode:1731263560
+
+
 Vector inserted successfully
 line 9:0.0 0.0
 read values for dimension 1 P
 0 0 
 line 10:A[2] 0/0/0/6/6;7/1
-hello 0/0/0/6/6
-type is:0
-OpCode 0
-OpCode 0
-OpCode 6
-OpCode 6
-vector inserted 4
-hello 7/1
-type is:7
-OpCode 1
-vector inserted 3
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:0
-Opcode:0
-Opcode:6
-Type is:1
-Opcode:1731262328
-Type is:2
-Opcode:1731262856
-Type is:3
-Opcode:1731262984
-Type is:4
-Opcode:1731263016
-Type is:5
-Opcode:1731264072
-Type is:6
-Opcode:1731264040
-Type is:7
-Opcode:6
-Opcode:6
-Opcode:1
-Type is:8
-Opcode:1731264008
-Type is:9
-Opcode:1731263992
-Type is:10
-Opcode:1731263976
-Type is:11
-Opcode:1731263960
-Type is:12
-Opcode:1731263928
-Type is:13
-Opcode:1731263912
-Type is:14
-Opcode:1731263896
-Type is:15
-Opcode:1731263880
-Type is:16
-Opcode:1731263848
+
+
 Vector inserted successfully
 line 11:0.0 0.0
 read values for dimension 1 A
 0 0 
 line 12:RO[1] 3/5/0/0;6/7
-hello 3/5/0/0
-type is:3
-OpCode 5
-OpCode 0
-OpCode 0
-vector inserted 3
-hello 6/7
-type is:6
-OpCode 7
-vector inserted 2
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262840
-Type is:1
-Opcode:1731262328
-Type is:2
-Opcode:1731262856
-Type is:3
-Opcode:5
-Opcode:0
-Opcode:0
-Type is:4
-Opcode:1731262952
-Type is:5
-Opcode:1731264040
-Type is:6
-Opcode:0
-Opcode:7
-Type is:7
-Opcode:1731264008
-Type is:8
-Opcode:1731263976
-Type is:9
-Opcode:1731263960
-Type is:10
-Opcode:1731263944
-Type is:11
-Opcode:1731263928
-Type is:12
-Opcode:1731263912
-Type is:13
-Opcode:1731263896
-Type is:14
-Opcode:1731263864
-Type is:15
-Opcode:1731263800
-Type is:16
-Opcode:1731263640
+
+
 Vector inserted successfully
 line 13:0.0
 read values for dimension 1 RO
 0 
 line 14:N[1] 3/0/0/5
-hello 3/0/0/5
-type is:3
-OpCode 0
-OpCode 0
-OpCode 5
-vector inserted 3
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262840
-Type is:1
-Opcode:1731262840
-Type is:2
-Opcode:1731262328
-Type is:3
-Opcode:0
-Opcode:0
-Opcode:5
-Type is:4
-Opcode:1731262328
-Type is:5
-Opcode:1731262872
-Type is:6
-Opcode:1731262952
-Type is:7
-Opcode:1731264008
-Type is:8
-Opcode:1731263992
-Type is:9
-Opcode:1731263960
-Type is:10
-Opcode:1731263944
-Type is:11
-Opcode:1731263928
-Type is:12
-Opcode:1731263912
-Type is:13
-Opcode:1731263896
-Type is:14
-Opcode:1731263864
-Type is:15
-Opcode:1731263816
-Type is:16
-Opcode:1731263656
+
+
 Vector inserted successfully
 line 15:0.0
 read values for dimension 1 N
 0 
 line 16:L[1] 2/7;4/0/0/8/8/0/0;7/7
-hello 2/7
-type is:2
-OpCode 7
-vector inserted 1
-hello 4/0/0/8/8/0/0
-type is:4
-OpCode 0
-OpCode 0
-OpCode 8
-OpCode 8
-OpCode 0
-OpCode 0
-vector inserted 6
-hello 7/7
-type is:7
-OpCode 7
-vector inserted 4
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262840
-Type is:1
-Opcode:1731262840
-Type is:2
-Opcode:7
-Opcode:1731262328
-Type is:3
-Opcode:1731262856
-Type is:4
-Opcode:0
-Opcode:0
-Opcode:8
-Opcode:8
-Type is:5
-Opcode:1731262872
-Type is:6
-Opcode:1731262920
-Type is:7
-Opcode:8
-Opcode:0
-Opcode:0
-Type is:8
-Opcode:1731263960
-Type is:9
-Opcode:1731263944
-Type is:10
-Opcode:1731263928
-Type is:11
-Opcode:1731263912
-Type is:12
-Opcode:1731263896
-Type is:13
-Opcode:1731263864
-Type is:14
-Opcode:1731263816
-Type is:15
-Opcode:1731263656
-Type is:16
-Opcode:1731263512
+
+
 Vector inserted successfully
 line 17:0.0
 read values for dimension 1 L
 0 
 line 18:CH[1] 6/13
-hello 6/13
-type is:6
-OpCode 13
-vector inserted 1
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262840
-Type is:1
-Opcode:1731262840
-Type is:2
-Opcode:1731262328
-Type is:3
-Opcode:1731262856
-Type is:4
-Opcode:1731262328
-Type is:5
-Opcode:1731262872
-Type is:6
-Opcode:13
-Opcode:1731262920
-Type is:7
-Opcode:1731263016
-Type is:8
-Opcode:1731263336
-Type is:9
-Opcode:1731263960
-Type is:10
-Opcode:1731263928
-Type is:11
-Opcode:1731263912
-Type is:12
-Opcode:1731263896
-Type is:13
-Opcode:1731263880
-Type is:14
-Opcode:1731263848
-Type is:15
-Opcode:1731263704
-Type is:16
-Opcode:1731263544
+
+
 Vector inserted successfully
 line 19:0.0
 read values for dimension 1 CH
 0 
 line 20:B[1] 2/7;6/12
-hello 2/7
-type is:2
-OpCode 7
-vector inserted 1
-hello 6/12
-type is:6
-OpCode 12
-vector inserted 1
-EDWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-Type is:0
-Opcode:1731262840
-Type is:1
-Opcode:1731262840
-Type is:2
-Opcode:7
-Opcode:1731262328
-Type is:3
-Opcode:1731262856
-Type is:4
-Opcode:1731262328
-Type is:5
-Opcode:1731262328
-Type is:6
-Opcode:12
-Opcode:1731262872
-Type is:7
-Opcode:1731262920
-Type is:8
-Opcode:1731263016
-Type is:9
-Opcode:1731263928
-Type is:10
-Opcode:1731263912
-Type is:11
-Opcode:1731263896
-Type is:12
-Opcode:1731263864
-Type is:13
-Opcode:1731263816
-Type is:14
-Opcode:1731263656
-Type is:15
-Opcode:1731263512
-Type is:16
-Opcode:1731263352
+
+
 Vector inserted successfully
 line 21:0.0
 read values for dimension 1 B
@@ -599,4 +130,394 @@ values of RO
 0 
 values of X
 2 1 
-Machine is a Rectangle(0), Torus(1) or Board48(2)? 
+Machine is a Rectangle(0), Torus(1) or Board48(2)? Placement:- Random(TASK seed) or Deal off the deck(TASK 0)  Name:A Key:5 Offset:5
+Name:A Key:65541 Offset:5
+Name:B Key:131081 Offset:9
+Name:C Key:196616 Offset:8
+Name:L Key:16777223 Offset:7
+Name:M Key:16842752 Offset:0
+Name:M Key:16908288 Offset:0
+Name:M Key:16973824 Offset:0
+Name:M Key:17039360 Offset:0
+Name:N Key:33554438 Offset:6
+Name:P Key:33619972 Offset:4
+Name:P Key:33685508 Offset:4
+Name:R Key:33751043 Offset:3
+Name:R Key:33816579 Offset:3
+Name:R Key:33882114 Offset:2
+Name:X Key:50331649 Offset:1
+Name:X Key:50397185 Offset:1
+Node  Key KeyFromMap
+0  1010000[1,1,0,0] MX1[0,0] 
+1  1020000[1,2,0,0] MX1[0,1] 
+2  1030000[1,3,0,0] MX1[1,0] 
+3  1040000[1,4,0,0] MX1[1,1] 
+4  3000001[3,0,0,1] X[0] 
+5  3010001[3,1,0,1] X[1] 
+6  2030003[2,3,0,3] R[0] 
+7  2040003[2,4,0,3] R[1] 
+8  2010004[2,1,0,4] P[0] 
+9  2020004[2,2,0,4] P[1] 
+10  5[0,0,0,5] A[0] 
+11  10005[0,1,0,5] A[1] 
+12  2050002[2,5,0,2] RO 
+13  2000006[2,0,0,6] N 
+14  1000007[1,0,0,7] L 
+15  30008[0,3,0,8] CH 
+16  20009[0,2,0,9] B 
+Filling MC tables
+Look up Tables
+Source Key: 5 
+Destination Keys: 2030003 2010004 
+Source Key: 10005 
+Destination Keys: 2040003 2020004 
+Source Key: 20009 
+Destination Keys: 2010004 2020004 
+Source Key: 1000007 
+Destination Keys: 5 10005 2010004 2020004 
+Source Key: 1010000 
+Destination Keys: 2030003 5 
+Source Key: 1020000 
+Destination Keys: 2030003 5 
+Source Key: 1030000 
+Destination Keys: 2040003 10005 
+Source Key: 1040000 
+Destination Keys: 2040003 10005 
+Source Key: 2000006 
+Destination Keys: 20009 2050002 30008 1000007 
+Source Key: 2010004 
+Destination Keys: 1010000 1030000 3000001 1000007 
+Source Key: 2020004 
+Destination Keys: 1020000 1040000 3010001 1000007 
+Source Key: 2030003 
+Destination Keys: 2010004 2050002 2000006 
+Source Key: 2040003 
+Destination Keys: 2020004 2050002 2000006 
+Source Key: 2050002 
+Destination Keys: 1000007 20009 
+Source Key: 3000001 
+Destination Keys: 1010000 1030000 
+Source Key: 3010001 
+Destination Keys: 1020000 1040000 
+MC Table Entries for (X=1, y=1)
+Key	Mask	Data
+10005	ffffffff	2
+1000007	ffffffff	8
+1010000	ffffffff	12
+2010004	ffffffff	80
+2020004	ffffffff	20
+3000001	ffffffff	80
+ffff3fff	ffffffff	10
+ffff7fff	ffffffff	10
+ffff1fff	ffffffff	86
+
+Run simulation(1) or not(0)? Starting simulation
+
+Source 1{K:3000001 X OpCode 0 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+Target {K:1010000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+new opcode is 1
+Multiplication happened here
+resValue is 8
+
+Source 1{K:3010001 X OpCode 0 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+Target {K:1020000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+new opcode is 1
+Multiplication happened here
+resValue is 1
+
+Source 1{K:3000001 X OpCode 0 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+Target {K:1030000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+new opcode is 1
+Multiplication happened here
+resValue is 2
+
+Source 0{K:1010000 MX1 OpCode 30431608 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+opcode is 0 here
+new opcode is 0
+
+Source 1{K:3010001 X OpCode 0 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+Target {K:1040000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+new opcode is 1
+Multiplication happened here
+resValue is 3
+
+Source 0{K:1020000 MX1 OpCode 0 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:2030003 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+COUNTER 1
+
+Source 0{K:1010000 MX1 OpCode 30431608 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:2030003 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+COUNTER 2
+new opcode is 0
+R CREATED
+
+Source 0{K:1020000 MX1 OpCode 0 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+opcode is 0 here
+new opcode is 6
+
+Source 0{K:1030000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:2040003 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+COUNTER 1
+
+Source 0{K:1040000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:2040003 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+COUNTER 2
+new opcode is 0
+R CREATED
+
+Source 0{K:1030000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+opcode is 0 here
+new opcode is 0
+
+Source 3{K:2030003 R OpCode 0 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:2050002 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+Value is 64
+matrix_size is:1075876165
+
+Source 3{K:2030003 R OpCode 0 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:2010004 P OpCode 4 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+new opcode is 14
+ASSIGNEMENT DONE HERE
+-8
+
+Source 3{K:2040003 R OpCode 0 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:2050002 RO OpCode 5 XD:1 YD:1 X:0 Y:0 IV:0 O:12}
+Value is 73
+matrix_size is:1075876165
+
+Source 0{K:1040000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+opcode is 0 here
+new opcode is 6
+
+Source 3{K:2030003 R OpCode 0 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+Target {K:2000006 N OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+opcode is 0 here
+new opcode is 0
+
+Source 3{K:2040003 R OpCode 0 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:2020004 P OpCode 4 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+new opcode is 14
+ASSIGNEMENT DONE HERE
+-3
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1010000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+new opcode is 0
+Multiplication happened here
+resValue is -32
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1000007 L OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:3000001 X OpCode 0 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+opcode is 0 here
+new opcode is 0
+
+Source 3{K:2040003 R OpCode 0 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+Target {K:2000006 N OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:13}
+opcode is 0 here
+new opcode is 5
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1020000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+new opcode is 0
+Multiplication happened here
+resValue is -3
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1030000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+new opcode is 0
+Multiplication happened here
+resValue is -8
+
+Source 0{K:1010000 MX1 OpCode 30431608 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+numbah 6 here
+Opcode6
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:3010001 X OpCode 0 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1000007 L OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+opcode is 0 here
+new opcode is 8
+
+Source 0{K:1010000 MX1 OpCode 30431608 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+Target {K:2030003 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1040000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+new opcode is 0
+Multiplication happened here
+resValue is -9
+
+Source 0{K:1020000 MX1 OpCode 0 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:2030003 R OpCode 2 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+opcode is 0 here
+new opcode is 0
+
+Source 0{K:1030000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:2040003 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+opcode is 0 here
+new opcode is 0
+
+Source 0{K:1020000 MX1 OpCode 0 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+Target {K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+numbah 6 here
+Opcode6
+new opcode is 0
+value of node is-35
+
+Source 0{K:1030000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+Target {K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+numbah 6 here
+Opcode6
+
+Source 0{K:1040000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:2040003 R OpCode 2 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+opcode is 0 here
+new opcode is 0
+
+Source 0{K:1040000 MX1 OpCode 0 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+Target {K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+numbah 6 here
+Opcode6
+new opcode is 0
+value of node is-17
+
+Source 5{K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+Target {K:2010004 P OpCode 1 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+new opcode is 0
+Multiplication happened here
+resValue is 280
+
+Source 5{K:5 A OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:10}
+Target {K:2030003 R OpCode 0 XD:1 YD:2 X:0 Y:0 IV:1 O:6}
+opcode is 0 here
+new opcode is 10
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1010000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:0 IV:4 O:0}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1000007 L OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+ALPHA node here
+Bottom happenning here 280
+
+Source 5{K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+Target {K:2020004 P OpCode 1 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+new opcode is 0
+Multiplication happened here
+resValue is 51
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:3000001 X OpCode 0 XD:1 YD:2 X:0 Y:0 IV:2 O:4}
+opcode is 0 here
+new opcode is 11
+
+Source 5{K:10005 A OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:11}
+Target {K:2040003 R OpCode 0 XD:1 YD:2 X:0 Y:1 IV:2 O:7}
+opcode is 0 here
+new opcode is 10
+
+Source 4{K:2010004 P OpCode 0 XD:1 YD:2 X:0 Y:0 IV:0 O:8}
+Target {K:1030000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:0 IV:1 O:2}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1020000 MX1 OpCode 1 XD:2 YD:2 X:0 Y:1 IV:1 O:1}
+opcode is 0 here
+new opcode is 0
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:3010001 X OpCode 0 XD:1 YD:2 X:0 Y:1 IV:1 O:5}
+opcode is 0 here
+new opcode is 11
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1000007 L OpCode 0 XD:1 YD:1 X:0 Y:0 IV:0 O:14}
+ALPHA node here
+Bottom happenning here 331
+
+Source 4{K:2020004 P OpCode 0 XD:1 YD:2 X:0 Y:1 IV:0 O:9}
+Target {K:1040000 MX1 OpCode 1 XD:2 YD:2 X:1 Y:1 IV:3 O:3}
+opcode is 0 here
+new opcode is 0
+108 events in total
+18 Through routes
+46 core hits and 0 core misses
+Number of iterations 0
+Matrix/Vector values
+{K:1010000 MX1[0][0]=4}
+{K:1020000 MX1[0][1]=1}
+{K:1030000 MX1[1][0]=1}
+{K:1040000 MX1[1][1]=3}
+{K:2000006 N[0][0]=0}
+{K:2010004 P[0][0]=-8}
+{K:2020004 P[0][1]=-3}
+{K:2030003 R[0][0]=-8}
+{K:2040003 R[0][1]=-3}
+{K:2050002 RO[0][0]=73}
+{K:3000001 X[0][0]=2}
+{K:3010001 X[0][1]=1}
+{K:2030003 R[0][0]=-8}
+{K:2040003 R[0][1]=-3}
+{K:2050002 RO[0][0]=73}
+{K:3000001 X[0][0]=2}
+{K:3010001 X[0][1]=1}
+{K:5 A[0][0]=-35}
+{K:10005 A[0][1]=-17}
+{K:20009 B[0][0]=0}
+{K:30008 CH[0][0]=0}
+{K:1000007 L[0][0]=0}
+{K:1010000 MX1[0][0]=4}
+{K:1020000 MX1[0][1]=1}
+{K:1030000 MX1[1][0]=1}
+{K:1040000 MX1[1][1]=3}
+{K:2000006 N[0][0]=0}
+{K:2010004 P[0][0]=-8}
+{K:2020004 P[0][1]=-3}
+{K:2030003 R[0][0]=-8}
+{K:2040003 R[0][1]=-3}
+{K:2050002 RO[0][0]=73}
+{K:3000001 X[0][0]=2}
+{K:3010001 X[0][1]=1}
+{K:2010004 P[0][0]=-8}
+{K:2020004 P[0][1]=-3}
+{K:2030003 R[0][0]=-8}
+{K:2040003 R[0][1]=-3}
+{K:2000006 N[0][0]=0}
+Constants
+{K:2050002 RO[0][0]=73}
+{K:3000001 X[0][0]=2}
+{K:3010001 X[0][1]=1}
+{K:20009 B[0][0]=0}
+{K:30008 CH[0][0]=0}
+{K:1000007 L[0][0]=0}
+{K:1010000 MX1[0][0]=4}
+{K:1020000 MX1[0][1]=1}
+{K:1030000 MX1[1][0]=1}
+{K:1040000 MX1[1][1]=3}
+{K:2000006 N[0][0]=0}
+{K:2010004 P[0][0]=-8}
+{K:2020004 P[0][1]=-3}
+{K:2030003 R[0][0]=-8}
+{K:2040003 R[0][1]=-3}
+{K:2050002 RO[0][0]=73}
+{K:3000001 X[0][0]=2}
+{K:3010001 X[0][1]=1}

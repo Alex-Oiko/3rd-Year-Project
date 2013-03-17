@@ -32,7 +32,7 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
 	    CORE.mop[TTE.V][16].pop();
             EventQ.push(E);
         }
-	else if(CORE.mop[TTE.V][2].front()==2){
+	else if(TTE.Name[0]=='A'){
     		matrix_size=TTE.YD;
 	}
 	//else if(TTE.Name[0]=='A' && TTE.Name[1]=='\0'){
@@ -90,12 +90,6 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
         printf("%lu core hits and %lu core misses\n", CoreHits, CoreMisses);
         cout<<"Number of iterations "<<iterator_counter<<endl;
 	cout<<"Matrix/Vector values"<<endl;
-	CORE.PrintByOpCode(1,1);
-	CORE.PrintByOpCode(0,2);
-	CORE.PrintByOpCode(16,3);
-	CORE.PrintByOpCode(3,4);
-	CORE.PrintByOpCode(3,0);
-	cout<<"Constants"<<endl;
 	CORE.PrintByOpCode(3,5);
 	CORE.PrintByOpCode(2,7);
 
@@ -252,12 +246,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
         RES.Kd = RES.Ks;
         RES.Type = FIREAWAY;
         RES.OutLink = 6;
-	cout<<CORE.mop[TTE.V][Offset].front()<<endl;
 	switch(CORE.mop[TTE.V][Offset].front()){
 		case 0:
 	    		CORE.mop[TTE.V][Offset].push(CORE.mop[TTE.V][Offset].front());
 	    		CORE.mop[TTE.V][Offset].pop();
-			cout<<"yelo "<<CORE.mop[TTE.V][7].front()<<endl;
 			cout<<"opcode is 0 here"<<endl;
 			cout<<"new opcode is "<<CORE.mop[TTE.V][Offset].front()<<endl;
 			break;
@@ -306,6 +298,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			CORE.Mcounter[TTE.V]++;
 			CORE.Mstore[TTE.V]+=E.Value*E.Value;
 			cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
+			cout<<"matrix_size is:"<<matrix_size<<endl;
 			if(CORE.Mcounter[TTE.V]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=CORE.Mstore[TTE.V];
 				CORE.Mcounter[TTE.V]=0;
