@@ -8,7 +8,6 @@
 #include <iostream>
 #include <sys/stat.h>
 #include "TCRAM.h"
-#include "TCRAM.h"
 #include "Utils.h"
 TCram::TCram(uint32_t XD, uint32_t YD, uint32_t CD){
     TCData = new uint32_t***[XD];

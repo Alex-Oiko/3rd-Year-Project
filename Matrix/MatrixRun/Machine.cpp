@@ -7,7 +7,6 @@
 //
 
 #include "Machine.h"
-#include "Machine.h"
 #include "Utils.h"
 Machine::Machine(int MachineType,int XD, int YD, int MachineSize){
     int Chip, X, Y, l;

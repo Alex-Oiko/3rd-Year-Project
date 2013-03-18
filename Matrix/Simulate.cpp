@@ -451,7 +451,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
 				cout<<"Results are"<<endl;
 				CORE.PrintByOpCode(16,3);
-				exit(EXIT_SUCCESS);	
+				//exit(EXIT_SUCCESS);	
 			}
 			else{
 				cout<<"Condition failed"<<endl;

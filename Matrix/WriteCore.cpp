@@ -12,7 +12,7 @@ const unsigned ChipMask = 0xffff0000;
 void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT){
     unsigned oKey = (-1)&CoreMask, Key, oChip = (-1)&ChipMask, CoreKey, ChipKey;
     uint32_t NoUsedChips, CoreCount;
-    uint32_t *memal;
+    vector<queue<uint32_t>> *memal;
     const char *TCram;
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
@@ -167,12 +167,13 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
         Temps[idx] = TTArray[idx].Temp;
         counters[idx] = TTArray[idx].counter;
 	cout<<TTE.Name[0]<<endl;
-	for(int i=0;i<TTArray[idx].OpCodes.size();i++){
+	//for(int i=0;i<TTArray[idx].OpCodes.size();i++){
 		//uint32_t fr=TTArray[idx].OpCodes.front();
 		//OpCodesA[idx].push(fr);
 		//TTArray[idx].OpCodes.pop();
 		//TTArray[idx].OpCodes.push(fr);
-	}
+	//}
+	OpCodesA[idx] = TTArray[idx].OpCodes;
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];

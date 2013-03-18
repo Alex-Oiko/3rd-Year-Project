@@ -25,10 +25,11 @@ MCLines::MCLines(uint32_t XD, uint32_t YD){
 uint32_t MCLines::GetMCData(uint32_t Ks, uint32_t Kd){//avec through routing
     //Ks is the source key Kd is the core I'm on.
     uint32_t Xd, Yd, Cd, Od;
-    uint32_t MASK = 0xfffff800;
+    uint32_t MASK;
     KeyTo(Kd, Xd, Yd, Cd, Od);
     for(uint32_t e = 0; e < Key[Xd][Yd].size(); e++){
-        if ((Key[Xd][Yd][e]&Mask[Xd][Yd][e]) == (Ks&MASK)) {
+        MASK = Mask[Xd][Yd][e];
+        if ((Key[Xd][Yd][e]&MASK) == (Ks&MASK)) {
             return Data[Xd][Yd][e];
         }
     }
