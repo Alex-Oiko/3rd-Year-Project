@@ -4,7 +4,7 @@ CFLAGS = -O4
 CC = c++ -std=c++0x 
 
 Matrix:		$(OBJS)
-		$(CC) $(CFLAGS) -o matmul  $(OBJS) -lm
+		$(CC) $(CFLAGS) -o CGM  $(OBJS) -lm
 
 main.o:		Machine.h Simulate.h MCTables.h TCRAM.h main.cpp
 		$(CC) $(CFLAGS) -c main.cpp

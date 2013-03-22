@@ -73,7 +73,6 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(Values, sizeof(float), PointCount, Results);
                     fwrite(Temps, sizeof(float), PointCount, Results);
                     fwrite(counters, sizeof(uint32_t), PointCount, Results);
-                    fwrite(Fronts,sizeof(uint32_t),PointCount, Results);
 		    fwrite(OpCodesA, sizeof(memal), PointCount, Results);
 		}
             }
@@ -139,8 +138,6 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.YD = TTE.YD;
 	dTTE.X = TTE.X;
 	dTTE.Y = TTE.Y;
-	dTTE.ArSize = TTE.OpCodes.size();
-	dTTE.front=0;
 	dTTE.counter = TTE.counter;
 	dTTE.Temp = TTE.Temp;
         dTTE.Expected = 0;

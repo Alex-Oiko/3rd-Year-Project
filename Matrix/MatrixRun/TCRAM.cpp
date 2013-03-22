@@ -125,6 +125,7 @@ uint32_t TCram::Update(uint32_t Kd){
 bool TCram::ReadData(string TCDataFile){
     uint32_t Rtype = 0, XY = 0, X = 0, Y = 0, Chip, ChipCount = 0, CoreID = 0, StartAddress = 0,CoreCount = 0, WordCount = 0, C;
     struct stat stat_record;
+    cout<<"Starting out"<<endl;
     if(stat(TCDataFile.c_str(), &stat_record)){
         cerr << "Can't find TCRAM table file " << TCDataFile <<"\n";
         return false;
@@ -145,19 +146,23 @@ bool TCram::ReadData(string TCDataFile){
         cout <<TCDataFile + " is the wrong file type matey\n";
         return false;
     }
+    cout<<"Starting to read the file"<<endl;
     fread(&Rtype,1,3,TCFile);
     fread(&ChipCount,4,1,TCFile);
     for(Chip = 0; Chip < ChipCount; Chip++) {
+        cout<<"Reading a chip's info"<<endl;
         fread(&XY,2,1,TCFile);
         X = XY >> 8;
         Y = XY&0x0FF;
         fread(&CoreCount, 2, 1, TCFile);
         for(C=0;C<CoreCount;C++) {
+	    cout<<"Reading a core's info"<<endl;
             fread(&StartAddress, 4, 1, TCFile);
             fread(&CoreID, 4, 1, TCFile);
             fread(&WordCount, 4, 1, TCFile);
             TCData[X][Y][CoreID-1] = new uint32_t[WordCount];
             fread(TCData[X][Y][CoreID-1], 4, WordCount, TCFile);
+	    cout<<"End of reading 1 core with ID:"<<CoreID<<endl;
         }
     }
     fclose(TCFile);
@@ -168,7 +173,7 @@ void TCram::PrintTCram(){
     uint32_t *CoreData;
     _CoreCommon *CoreCommon;
     _LookUp *LUT;
-    uint32_t PointCount;
+    uint32_t PointCount,Xd,Yd,Cd,O;
     _DTTE *TTE;
     float *Values;
     for(int X = 0; X< NX;X++){
@@ -189,7 +194,9 @@ void TCram::PrintTCram(){
                 TTE = (_DTTE*)&CoreData[CoreCommon->TTStart];
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
                 for(int i = 0; i < PointCount; i++){
-                    printf("Kd = %x, OpCode = %d, IV = %f, Value = %f, Expected = %d, Arrived = %d\n",TTE[i].Kd,TTE[i].OpCode, TTE[i].IV,Values[TTE[i].oV], TTE[i].Expected, TTE[i].Arrived);
+		    KeyTo(TTE[i].Kd,Xd,Yd,Cd,O);
+		    printf("Offset is O = %d \n",O);
+                    printf("Kd = %x, OpCode = 0, IV = %f, Value = %f, Expected = %d, Arrived = %d\n YD = %d X = %d Y = %d",TTE[i].Kd,TTE[i].IV,Values[TTE[i].oV], TTE[i].Expected, TTE[i].Arrived,TTE[i].YD,TTE[i].X,TTE[i].Y);
                 }
             }
         }

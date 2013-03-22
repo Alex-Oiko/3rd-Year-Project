@@ -41,8 +41,6 @@ private:
 	uint32_t Y;
 	uint32_t counter;
         uint32_t oV;
-	uint32_t front;//for custom queue
-	uint32_t ArSize;
         uint32_t Expected;
         uint32_t Arrived;
     };
@@ -54,7 +52,6 @@ private:
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
     float *Temps;		//Array for the Temp values
-    uint32_t *Fronts;		//Array for keeping track of custom queue
     uint32_t *counters;		//Array for the counters
     vector<queue<uint32_t>> *OpCodesA;  //Array for OpCodes
     _LookUp  *LUT;                  //Look up table for incoming

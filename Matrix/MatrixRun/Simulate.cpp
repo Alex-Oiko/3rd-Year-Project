@@ -28,9 +28,9 @@ void Simulate::PrintByOpCode(unsigned OpCode, TCram& TCRAM){
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
                 TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
                 for(Lup = 0; Lup < CoreCommon->PointCount; Lup++){
-                    if(TTE[Lup].OpCode == OpCode){
-                        cout << "Kd = "<<hex<<TTE[Lup].Kd<<" OpCode = "<<dec<<TTE[Lup].OpCode<<" IV = "<<TTE[Lup].IV<<" V = "<< Values[TTE[Lup].oV]<<" Expected "<<TTE[Lup].Expected<<" Arrived "<<TTE[Lup].Arrived<<endl;
-                    }
+                    //if(TTE[Lup].OpCode == OpCode){
+                        //cout << "Kd = "<<hex<<TTE[Lup].Kd<<" OpCode = "<<dec<<TTE[Lup].OpCode<<" IV = "<<TTE[Lup].IV<<" V = "<< Values[TTE[Lup].oV]<<" Expected "<<TTE[Lup].Expected<<" Arrived "<<TTE[Lup].Arrived<<endl;
+                    //}
                 }
             }
 }
@@ -59,13 +59,13 @@ void Simulate::LoadFireAll(TCram& TCRAM){
                 CoreCommon = (TCram::_CoreCommon*)CoreData;
                 TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
                 for(Lup = 0; Lup < CoreCommon->PointCount; Lup++){
-                    if(TTE[Lup].OpCode == 3){
-                        E.Value = TTE[Lup].IV;
-                        E.Ks = TTE[Lup].Kd;
-                        E.Kd = E.Ks;
-                        EventQ.push(E);
+                    //if(TTE[Lup].OpCode == 3){
+                        //E.Value = TTE[Lup].IV;
+                        //E.Ks = TTE[Lup].Kd;
+                        //E.Kd = E.Ks;
+                        //EventQ.push(E);
  
-                    }
+                    //}
                 }
             }
 }
@@ -95,7 +95,7 @@ void Simulate::SimBegin(TCram& TCRAM, MCLines& MCT, Machine& MAC) {
     }
     printf("%lu events in total\n%u Through routes\n",loops,Thru);
     printf("%lu core hits and %lu core misses\n", CoreHits, CoreMisses);
-    PrintByOpCode(2, TCRAM);
+    //PrintByOpCode(2, TCRAM);
     
 }
 void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
@@ -165,7 +165,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
             CoreHits++;
             InPoint = LUT[k].idx;
             dTTE = TTE[InPoint];
-            if(dTTE.OpCode == 2){
+            /*if(dTTE.OpCode == 2){
                 Vme = Values[dTTE.oV];
                 float NewValue = Vme + Vs;
                 Values[dTTE.oV] = NewValue;
@@ -187,7 +187,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
                     RES.Type = FIREAWAY;
                     EventQ.push(RES);
                 }
-            }
+            }*/
             
         }
         if(LUT[k].Ks > Ks)
