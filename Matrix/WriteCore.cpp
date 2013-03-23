@@ -17,7 +17,7 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
     _CoreCommon HeadCore;
-    unsigned HeadSize;
+    unsigned HeadSize,X,Y,C,O;
     HeadSize = (sizeof(_CoreCommon));
     TTArray = NULL;
     Values = NULL;
@@ -57,7 +57,11 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     DumpCore(Key, CORE, DEAL, TASK);
                     oKey = CoreKey;
                     CoreID = ((Key&0x0000ffff)>>11) + 1;   //?
-                    fwrite(&StartAddress, 4, 1, Results);
+		    cout<<"CoreID:"<<CoreID<<endl;
+		    //KeyTo(Key,X,Y,C,O);
+		    //Key=iKey->first;
+		    //CoreID = C;
+		    fwrite(&StartAddress, 4, 1, Results);
                     fwrite(&CoreID,4,1,Results);
                     WordCount = LUTSize*sizeof(_LookUp) + 4*PointCount + PointCount*sizeof(_DTTE)+HeadSize;
                     WordCount = (WordCount>>2);
@@ -73,7 +77,8 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(Values, sizeof(float), PointCount, Results);
                     fwrite(Temps, sizeof(float), PointCount, Results);
                     fwrite(counters, sizeof(uint32_t), PointCount, Results);
-		    fwrite(OpCodesA, sizeof(memal), PointCount, Results);
+		    //fwrite(OpCodesA, sizeof(memal), PointCount, Results);
+		    cout<<WordCount<<endl;
 		}
             }
 
@@ -130,16 +135,16 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
         //deal with core entries
         auto iTTE = CORE.CoreEntries.find(Kt);
         TTE = iTTE->second;
-	dTTE.Name = TTE.Name[0];
         dTTE.Kd = TTE.Kd;
-        dTTE.OpCodes = TTE.OpCodes;
+        //dTTE.OpCodes = TTE.OpCodes;
 	dTTE.IV = TTE.IV;
+	dTTE.Temp = TTE.Temp;
         dTTE.oV = TTE.V;
+	dTTE.Name = TTE.Name[0];
 	dTTE.YD = TTE.YD;
 	dTTE.X = TTE.X;
 	dTTE.Y = TTE.Y;
 	dTTE.counter = TTE.counter;
-	dTTE.Temp = TTE.Temp;
         dTTE.Expected = 0;
         dTTE.Arrived = 0;
 
@@ -157,20 +162,18 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     PointCount = idx;
     TTArray = new _DTTE[PointCount];
     Values = new float[PointCount];
-    OpCodesA = new vector<queue<uint32_t>>[PointCount];
+    //OpCodesA = new vector<queue<uint32_t>>[PointCount];
     for(idx = 0; idx < PointCount; idx++){
 	TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
         Temps[idx] = TTArray[idx].Temp;
-        counters[idx] = TTArray[idx].counter;
-	cout<<TTE.Name[0]<<endl;
 	//for(int i=0;i<TTArray[idx].OpCodes.size();i++){
 		//uint32_t fr=TTArray[idx].OpCodes.front();
 		//OpCodesA[idx].push(fr);
 		//TTArray[idx].OpCodes.pop();
 		//TTArray[idx].OpCodes.push(fr);
 	//}
-	OpCodesA[idx] = TTArray[idx].OpCodes;
+	//OpCodesA[idx] = TTArray[idx].OpCodes;
 	TTArray[idx].oV = idx;    }
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];

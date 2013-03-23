@@ -11,8 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include <queue>
-#include <vector>
 #include "MCTables.h"
 #include "Utils.h"
 using namespace std;
@@ -32,15 +30,15 @@ public:
     };
     struct _DTTE{
         uint32_t Kd;
-        vector<queue<uint32_t>> OpCode;
+        //uint32_t OpCode;
         float IV;
-	float Temp;
+        float Temp;
 	char Name;
 	uint32_t YD;
 	uint32_t X;
 	uint32_t Y;
 	uint32_t counter;
-        uint32_t oV;
+	uint32_t oV;
         uint32_t Expected;
         uint32_t Arrived;
     };
@@ -53,7 +51,6 @@ public:
     float *Values;               //Array for the values
     float *Temps;
     uint32_t *counters;
-    vector<queue<uint32_t>> *OpCodesA;
     _LookUp  *LUT;                  //Look up table for incoming
     uint32_t ****TCData;
     uint32_t NX,NY,NC;
