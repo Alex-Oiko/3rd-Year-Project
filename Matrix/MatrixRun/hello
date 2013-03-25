@@ -1,0 +1,384 @@
+This is MatrixRun
+Give me a program root name matey Machine is a Rectangle(0), Torus(1) or Board48(2)? Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 23
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 23
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 19
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 25
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 21
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 25
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 25
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 23
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 23
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 23
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 19
+Reading new core
+Starting address:4198400
+CoreID is 1
+WordCount is 19
+MC tables
+X=0, Y=0, Size=7
+Key = 5, Mask = ffffffff Data = 3
+Key = 1000007, Mask = ffffffff Data = 80
+Key = 1010000, Mask = ffffffff Data = 80
+Key = 1020000, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 80
+Key = ffff7fff, Mask = ffffffff Data = 80
+Key = ffff1fff, Mask = ffffffff Data = 87
+X=0, Y=1, Size=8
+Key = 10005, Mask = ffffffff Data = 3
+Key = 1000007, Mask = ffffffff Data = 80
+Key = 1020000, Mask = ffffffff Data = 20
+Key = 1030000, Mask = ffffffff Data = 80
+Key = 1040000, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 20
+Key = ffff7fff, Mask = ffffffff Data = 20
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=0, Y=2, Size=7
+Key = 20009, Mask = ffffffff Data = 1
+Key = 1030000, Mask = ffffffff Data = 20
+Key = 2000006, Mask = ffffffff Data = 80
+Key = 2050002, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 20
+Key = ffff7fff, Mask = ffffffff Data = 20
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=0, Y=3, Size=6
+Key = 1040000, Mask = ffffffff Data = 20
+Key = 2000006, Mask = ffffffff Data = 80
+Key = 2050002, Mask = ffffffff Data = 20
+Key = ffff3fff, Mask = ffffffff Data = 20
+Key = ffff7fff, Mask = ffffffff Data = 20
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=0, Y=4, Size=0
+X=0, Y=5, Size=0
+X=0, Y=6, Size=0
+X=0, Y=7, Size=0
+X=1, Y=0, Size=9
+Key = 5, Mask = ffffffff Data = 2
+Key = 1000007, Mask = ffffffff Data = e
+Key = 2000006, Mask = ffffffff Data = 80
+Key = 2010004, Mask = ffffffff Data = 80
+Key = 2020004, Mask = ffffffff Data = 80
+Key = 2050002, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 8
+Key = ffff7fff, Mask = ffffffff Data = 8
+Key = ffff1fff, Mask = ffffffff Data = 83
+X=1, Y=1, Size=9
+Key = 10005, Mask = ffffffff Data = 2
+Key = 1000007, Mask = ffffffff Data = 8
+Key = 1010000, Mask = ffffffff Data = 12
+Key = 2010004, Mask = ffffffff Data = 80
+Key = 2020004, Mask = ffffffff Data = 20
+Key = 3000001, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 86
+X=1, Y=2, Size=6
+Key = 1020000, Mask = ffffffff Data = 12
+Key = 2020004, Mask = ffffffff Data = 80
+Key = 3010001, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=1, Y=3, Size=6
+Key = 1030000, Mask = ffffffff Data = 12
+Key = 2010004, Mask = ffffffff Data = 80
+Key = 3000001, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=1, Y=4, Size=7
+Key = 1040000, Mask = ffffffff Data = 11
+Key = 2020004, Mask = ffffffff Data = 80
+Key = 2050002, Mask = ffffffff Data = 30
+Key = 3010001, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=1, Y=5, Size=0
+X=1, Y=6, Size=0
+X=1, Y=7, Size=0
+X=2, Y=0, Size=6
+Key = 2000006, Mask = ffffffff Data = c
+Key = 2030003, Mask = ffffffff Data = 80
+Key = 2040003, Mask = ffffffff Data = 80
+Key = ffff3fff, Mask = ffffffff Data = 8
+Key = ffff7fff, Mask = ffffffff Data = 8
+Key = ffff1fff, Mask = ffffffff Data = 83
+X=2, Y=1, Size=8
+Key = 5, Mask = ffffffff Data = 80
+Key = 20009, Mask = ffffffff Data = 80
+Key = 1000007, Mask = ffffffff Data = 84
+Key = 2010004, Mask = ffffffff Data = 1d
+Key = 2030003, Mask = ffffffff Data = a0
+Key = ffff3fff, Mask = ffffffff Data = 8
+Key = ffff7fff, Mask = ffffffff Data = 8
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=2, Y=2, Size=11
+Key = 5, Mask = ffffffff Data = 4
+Key = 10005, Mask = ffffffff Data = 80
+Key = 20009, Mask = ffffffff Data = a0
+Key = 1000007, Mask = ffffffff Data = 80
+Key = 1010000, Mask = ffffffff Data = 4
+Key = 2000006, Mask = ffffffff Data = c
+Key = 2020004, Mask = ffffffff Data = 1d
+Key = 2040003, Mask = ffffffff Data = a0
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=2, Y=3, Size=10
+Key = 5, Mask = ffffffff Data = 80
+Key = 10005, Mask = ffffffff Data = 4
+Key = 1010000, Mask = ffffffff Data = 80
+Key = 1020000, Mask = ffffffff Data = 80
+Key = 2000006, Mask = ffffffff Data = c
+Key = 2010004, Mask = ffffffff Data = 8
+Key = 2030003, Mask = ffffffff Data = 24
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=2, Y=4, Size=8
+Key = 10005, Mask = ffffffff Data = 80
+Key = 1030000, Mask = ffffffff Data = 80
+Key = 1040000, Mask = ffffffff Data = 80
+Key = 2020004, Mask = ffffffff Data = 8
+Key = 2040003, Mask = ffffffff Data = 24
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 84
+X=2, Y=5, Size=7
+Key = 2000006, Mask = ffffffff Data = 80
+Key = 2030003, Mask = ffffffff Data = 80
+Key = 2040003, Mask = ffffffff Data = 80
+Key = 2050002, Mask = ffffffff Data = 10
+Key = ffff3fff, Mask = ffffffff Data = 10
+Key = ffff7fff, Mask = ffffffff Data = 10
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=2, Y=6, Size=0
+X=2, Y=7, Size=0
+X=3, Y=0, Size=5
+Key = 2010004, Mask = ffffffff Data = 80
+Key = 3000001, Mask = ffffffff Data = 4
+Key = ffff3fff, Mask = ffffffff Data = 8
+Key = ffff7fff, Mask = ffffffff Data = 8
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=3, Y=1, Size=7
+Key = 2010004, Mask = ffffffff Data = 20
+Key = 2020004, Mask = ffffffff Data = 80
+Key = 3000001, Mask = ffffffff Data = c
+Key = 3010001, Mask = ffffffff Data = 4
+Key = ffff3fff, Mask = ffffffff Data = 8
+Key = ffff7fff, Mask = ffffffff Data = 8
+Key = ffff1fff, Mask = ffffffff Data = 80
+X=3, Y=2, Size=2
+Key = 2020004, Mask = ffffffff Data = 20
+Key = 3010001, Mask = ffffffff Data = c
+X=3, Y=3, Size=1
+Key = 3000001, Mask = ffffffff Data = 8
+X=3, Y=4, Size=1
+Key = 3010001, Mask = ffffffff Data = 8
+X=3, Y=5, Size=0
+X=3, Y=6, Size=0
+X=3, Y=7, Size=0
+X=4, Y=0, Size=0
+X=4, Y=1, Size=0
+X=4, Y=2, Size=0
+X=4, Y=3, Size=0
+X=4, Y=4, Size=0
+X=4, Y=5, Size=0
+X=4, Y=6, Size=0
+X=4, Y=7, Size=0
+X=5, Y=0, Size=0
+X=5, Y=1, Size=0
+X=5, Y=2, Size=0
+X=5, Y=3, Size=0
+X=5, Y=4, Size=0
+X=5, Y=5, Size=0
+X=5, Y=6, Size=0
+X=5, Y=7, Size=0
+X=6, Y=0, Size=0
+X=6, Y=1, Size=0
+X=6, Y=2, Size=0
+X=6, Y=3, Size=0
+X=6, Y=4, Size=0
+X=6, Y=5, Size=0
+X=6, Y=6, Size=0
+X=6, Y=7, Size=0
+X=7, Y=0, Size=0
+X=7, Y=1, Size=0
+X=7, Y=2, Size=0
+X=7, Y=3, Size=0
+X=7, Y=4, Size=0
+X=7, Y=5, Size=0
+X=7, Y=6, Size=0
+X=7, Y=7, Size=0
+TCData for (X=0, Y=0, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 22
+LUT
+1000007,0  1010000,0  1020000,0  
+Name:A YD=2 X=0 Y=0
+Kd = 5, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+TCData for (X=0, Y=1, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 22
+LUT
+1000007,0  1030000,0  1040000,0  
+Name:A YD=2 X=0 Y=1
+Kd = 10005, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+TCData for (X=0, Y=2, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2000006,0  2050002,0  
+Name:B YD=1 X=0 Y=0
+Kd = 20009, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 2, Arrived = 0
+TCData for (X=0, Y=3, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 18
+LUT
+2000006,0  
+Name:C YD=1 X=0 Y=0
+Kd = 30008, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 1, Arrived = 0
+TCData for (X=1, Y=0, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 24
+LUT
+2000006,0  2010004,0  2020004,0  2050002,0  
+Name:L YD=1 X=0 Y=0
+Kd = 1000007, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+TCData for (X=1, Y=1, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2010004,0  3000001,0  
+Name:M YD=2 X=0 Y=0
+Kd = 1010000, OpCode = 0, IV = 4.000000, Value = 4.000000, Expected = 2, Arrived = 0
+TCData for (X=1, Y=2, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2020004,0  3010001,0  
+Name:M YD=2 X=0 Y=1
+Kd = 1020000, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 2, Arrived = 0
+TCData for (X=1, Y=3, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2010004,0  3000001,0  
+Name:M YD=2 X=1 Y=0
+Kd = 1030000, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 2, Arrived = 0
+TCData for (X=1, Y=4, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2020004,0  3010001,0  
+Name:M YD=2 X=1 Y=1
+Kd = 1040000, OpCode = 0, IV = 3.000000, Value = 3.000000, Expected = 2, Arrived = 0
+TCData for (X=2, Y=0, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 20
+LUT
+2030003,0  2040003,0  
+Name:N YD=1 X=0 Y=0
+Kd = 2000006, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 2, Arrived = 0
+TCData for (X=2, Y=1, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 24
+LUT
+5,0  20009,0  1000007,0  2030003,0  
+Name:P YD=2 X=0 Y=0
+Kd = 2010004, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+TCData for (X=2, Y=2, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 24
+LUT
+10005,0  20009,0  1000007,0  2040003,0  
+Name:P YD=2 X=0 Y=1
+Kd = 2020004, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+TCData for (X=2, Y=3, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 22
+LUT
+5,0  1010000,0  1020000,0  
+Name:R YD=2 X=0 Y=0
+Kd = 2030003, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 3, Arrived = 0
+TCData for (X=2, Y=4, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 22
+LUT
+10005,0  1030000,0  1040000,0  
+Name:R YD=2 X=0 Y=1
+Kd = 2040003, OpCode = 0, IV = 2.000000, Value = 2.000000, Expected = 3, Arrived = 0
+TCData for (X=2, Y=5, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 22
+LUT
+2000006,0  2030003,0  2040003,0  
+Name:R YD=1 X=0 Y=0
+Kd = 2050002, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+TCData for (X=3, Y=0, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 18
+LUT
+2010004,0  
+Name:X YD=2 X=0 Y=0
+Kd = 3000001, OpCode = 0, IV = 2.000000, Value = 2.000000, Expected = 1, Arrived = 0
+TCData for (X=3, Y=1, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 18
+LUT
+2020004,0  
+Name:X YD=2 X=0 Y=1
+Kd = 3010001, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 1, Arrived = 0

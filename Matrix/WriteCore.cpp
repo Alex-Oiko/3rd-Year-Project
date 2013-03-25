@@ -75,8 +75,8 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(LUT,sizeof(_LookUp), LUTSize, Results);
                     fwrite(TTArray, sizeof(_DTTE), PointCount, Results);
                     fwrite(Values, sizeof(float), PointCount, Results);
-                    fwrite(Temps, sizeof(float), PointCount, Results);
-                    fwrite(counters, sizeof(uint32_t), PointCount, Results);
+                    //fwrite(Temps, sizeof(float), PointCount, Results);
+                    //fwrite(counters, sizeof(uint32_t), PointCount, Results);
 		    //fwrite(OpCodesA, sizeof(memal), PointCount, Results);
 		    cout<<WordCount<<endl;
 		}
@@ -147,7 +147,7 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.counter = TTE.counter;
         dTTE.Expected = 0;
         dTTE.Arrived = 0;
-
+        cout<<"OV:"<<dTTE.oV<<endl;
         //now deal with the lookup table
         auto iKdKs = TASK.KdKs.find(Kt);
         for(;iKdKs!= TASK.KdKs.cend();iKdKs++){
@@ -162,11 +162,14 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     PointCount = idx;
     TTArray = new _DTTE[PointCount];
     Values = new float[PointCount];
+    //counters = new uint32_t[PointCount];
+    Temps = new float[PointCount];
     //OpCodesA = new vector<queue<uint32_t>>[PointCount];
     for(idx = 0; idx < PointCount; idx++){
 	TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
-        Temps[idx] = TTArray[idx].Temp;
+        //Temps[idx] = TTArray[idx].Temp;
+	//counters[idx]=TTArray[idx].counter;
 	//for(int i=0;i<TTArray[idx].OpCodes.size();i++){
 		//uint32_t fr=TTArray[idx].OpCodes.front();
 		//OpCodesA[idx].push(fr);

@@ -21,7 +21,7 @@ public:
     void PrintTCram();
     bool InComing(uint32_t, float , uint32_t);
 
-    struct _CoreCommon{
+    struct _CoreCommon{//Common data amongst all cores?
         uint32_t PointCount;
         uint32_t LUTStart;
         uint32_t LUTCount;
@@ -30,7 +30,6 @@ public:
     };
     struct _DTTE{
         uint32_t Kd;
-        //uint32_t OpCode;
         float IV;
         float Temp;
 	char Name;
