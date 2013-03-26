@@ -32,7 +32,7 @@ private:
     };
     struct _DTTE{
         uint32_t Kd;
-        //vector<queue<uint32_t>> OpCodes;
+        vector<queue<uint32_t>> OpCodes;
         float IV;
 	float Temp;
 	char Name;
@@ -60,3 +60,4 @@ private:
     void DumpCore(unsigned,Core&, Dealer&, Task&);  //Write the core with this Key&0xfffff800 returns the size of the arrays in 32bit words.
 };
 #endif /* defined(__Matrix__WriteCore__) */
+

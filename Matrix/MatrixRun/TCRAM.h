@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <queue>
 #include "MCTables.h"
 #include "Utils.h"
 using namespace std;
@@ -29,7 +31,8 @@ public:
         uint32_t ValuesStart;
     };
     struct _DTTE{
-        uint32_t Kd;
+	uint32_t Kd;
+        vector<queue<uint32_t>> OpCodes; 
         float IV;
         float Temp;
 	char Name;
@@ -56,3 +59,4 @@ public:
 };
 
 #endif /* defined(__MatrixRun__TCRAM__) */
+

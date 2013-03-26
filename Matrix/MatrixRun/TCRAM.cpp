@@ -194,11 +194,15 @@ void TCram::PrintTCram(){
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
                 Temps = new float[sizeof(Values)/sizeof(float)]; 
                 counters = new uint32_t[sizeof(Values)/sizeof(uint32_t)];
-                for(int i = 0; i < PointCount; i++){
+                cout<<"EDWWWWWWWWWWWWWWWWWWWWWWWWWWWW"<<endl;
+		for(int i = 0; i < PointCount; i++){
 		cout<<"Name:"<<TTE[i].Name<<" YD="<<TTE[i].YD<<" X="<<TTE[i].X<<" Y="<<TTE[i].Y<<endl;
                     printf("Kd = %x, OpCode = 0, IV = %f, Value = %f, Temp = %f, Counter = %d, Expected = %d, Arrived = %d\n",TTE[i].Kd, TTE[i].IV,Values[TTE[i].oV],Temps[TTE[i].oV],counters[TTE[i].oV] ,TTE[i].Expected, TTE[i].Arrived);
-                }
+		cout<<"Size of OpCodes is:"<<TTE[i].OpCodes.size()<<endl;
+		printf("\n");
+		}
             }
         }
     }
 }
+
