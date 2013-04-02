@@ -9,12 +9,22 @@ Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
   pages 7--11. Australian Journal of Intelligent Information Processing
   Systems, Vol. 11, No. 1,, 2010.
 
+\bibitem{gerstner2002spiking}
+Wulfram Gerstner and Werner~M Kistler.
+\newblock {\em Spiking neuron models: Single neurons, populations, plasticity}.
+\newblock Cambridge university press, 2002.
+
 \bibitem{navaridas2009understanding}
 Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
   Furber.
 \newblock Understanding the interconnection network of spinnaker.
 \newblock In {\em Proceedings of the 23rd international conference on
   Supercomputing}, pages 286--295. ACM, 2009.
+
+\bibitem{press2007numerical}
+William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
+\newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
+\newblock Cambridge university press, 2007.
 
 \bibitem{sharp2012power}
 Thomas Sharp, Francesco Galluppi, Alexander Rast, and Steve Furber.

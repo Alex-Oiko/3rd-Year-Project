@@ -21,5 +21,20 @@
   year={2010},
   organization={Australian Journal of Intelligent Information Processing Systems, Vol. 11, No. 1,}
 }
+@inproceedings{sharp2011event,
+  title={Event-Driven Simulation of Arbitrary Spiking Neural Networks on SpiNNaker},
+  author={Sharp, Thomas and Plana, Luis A and Galluppi, Francesco and Furber, Steve},
+  booktitle={Neural Information Processing},
+  pages={424--430},
+  year={2011},
+  organization={Springer}
+}
+@book{gerstner2002spiking,
+  title={Spiking neuron models: Single neurons, populations, plasticity},
+  author={Gerstner, Wulfram and Kistler, Werner M},
+  year={2002},
+  publisher={Cambridge university press}
+}
+
 
 
