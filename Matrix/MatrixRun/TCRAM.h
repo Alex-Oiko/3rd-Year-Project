@@ -11,8 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
-#include <queue>
 #include "MCTables.h"
 #include "Utils.h"
 using namespace std;
@@ -23,7 +21,7 @@ public:
     void PrintTCram();
     bool InComing(uint32_t, float , uint32_t);
 
-    struct _CoreCommon{//Common data amongst all cores?
+    struct _CoreCommon{
         uint32_t PointCount;
         uint32_t LUTStart;
         uint32_t LUTCount;
@@ -31,16 +29,16 @@ public:
         uint32_t ValuesStart;
     };
     struct _DTTE{
-	uint32_t Kd;
-        vector<queue<uint32_t>> OpCodes; 
-        float IV;
-        float Temp;
+        uint32_t Kd;
+	uint32_t OpCode;
 	char Name;
 	uint32_t YD;
+        uint32_t Y;
 	uint32_t X;
-	uint32_t Y;
+	float temp;
 	uint32_t counter;
-	uint32_t oV;
+        float IV;
+        uint32_t oV;
         uint32_t Expected;
         uint32_t Arrived;
     };
@@ -51,12 +49,12 @@ public:
     unsigned PointCount, LUTSize;;
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
-    float *Temps;
-    uint32_t *counters;
     _LookUp  *LUT;                  //Look up table for incoming
+    vector<uint32_t> *OpCodesA;
+    uint32_t *counters;
+    float *Temps;
     uint32_t ****TCData;
     uint32_t NX,NY,NC;
 };
 
 #endif /* defined(__MatrixRun__TCRAM__) */
-

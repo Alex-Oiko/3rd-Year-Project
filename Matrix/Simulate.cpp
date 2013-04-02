@@ -51,7 +51,6 @@ void Simulate::UpdateAll(Task& TASK, Dealer& DEAL){
         EventQ.push(E);
     };
     cout<<"\nUPDATE ALL IS FINISHED"<<endl;
-    iterator_counter++;
 }
 
 void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT, Machine& MAC) {
@@ -66,7 +65,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty())
+        if(EventQ.empty()||iterator_counter==4)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -172,14 +171,16 @@ void Simulate::Update(event E, Core& CORE){  //this is the timer interrupt
      	      	break;
      	case 'A':
 		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][0].front()<<endl;
-		CORE.mop[kTTE.V][0].pop();
-     	      	CORE.mop[kTTE.V][0].pop();
+		for(int s=0;s<matrix_size;s++){
+     	      		CORE.mop[kTTE.V][0].pop();
+		}
      	      	cout<<"New OpCode at key 0 is:"<<CORE.mop[kTTE.V][0].front()<<endl;
 	     	break;
      	case 'N':
 		cout<<"Previous OpCode was:"<<CORE.mop[kTTE.V][0].front()<<endl;
-		CORE.mop[kTTE.V][3].pop();
-              	CORE.mop[kTTE.V][3].pop();
+		for(int s=0;s<matrix_size;s++){
+			CORE.mop[kTTE.V][3].pop();
+		}
 	      	cout<<"New OpCode at key 3 is:"<<CORE.mop[kTTE.V][0].front()<<endl;
      	      	break;
      	case 'L':
@@ -447,11 +448,12 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			break;
 		case 13://check end condition
 			cout<<"Checking end cond"<<endl;
+    			iterator_counter++;
 			if(E.Value<1e-10){
 				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
 				cout<<"Results are"<<endl;
 				CORE.PrintByOpCode(16,3);
-				//exit(EXIT_SUCCESS);	
+				exit(EXIT_SUCCESS);	
 			}
 			else{
 				cout<<"Condition failed"<<endl;
@@ -474,10 +476,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			//if(case15_counter>matrix_size){//if the first iteration has passed
-			//	RES.Value=CORE.Mstore[TTE.V];
-			//	EventQ.push(RES);
-			//}
+			if(case15_counter>matrix_size){//if the first iteration has passed
+				RES.Value=CORE.Mstore[TTE.V];
+				EventQ.push(RES);
+			}
 			break;
 	}
     }    

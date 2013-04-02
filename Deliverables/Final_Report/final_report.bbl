@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{davies2010interfacing}
+Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
+  Lester, and Steve~B Furber.
+\newblock Interfacing real-time spiking i/o with the spinnaker neuromimetic
+  architecture.
+\newblock In {\em Proceedings 17th International Conference, ICONIP 2010.},
+  pages 7--11. Australian Journal of Intelligent Information Processing
+  Systems, Vol. 11, No. 1,, 2010.
+
+\bibitem{navaridas2009understanding}
+Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
+  Furber.
+\newblock Understanding the interconnection network of spinnaker.
+\newblock In {\em Proceedings of the 23rd international conference on
+  Supercomputing}, pages 286--295. ACM, 2009.
+
+\bibitem{sharp2012power}
+Thomas Sharp, Francesco Galluppi, Alexander Rast, and Steve Furber.
+\newblock Power-efficient simulation of detailed cortical microcircuits on
+  spinnaker.
+\newblock {\em Journal of Neuroscience Methods}, 2012.
+
+\bibitem{sharp2011event}
+Thomas Sharp, Luis~A Plana, Francesco Galluppi, and Steve Furber.
+\newblock Event-driven simulation of arbitrary spiking neural networks on
+  spinnaker.
+\newblock In {\em Neural Information Processing}, pages 424--430. Springer,
+  2011.
+
+\end{thebibliography}

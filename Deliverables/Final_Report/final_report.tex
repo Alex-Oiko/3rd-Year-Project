@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{amssymb}
+\author{Alexandros-Panagiotis Oikonomou}
+\setlength{\parindent}{15pt}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\begin{LARGE}
+Electronics and Computer Science
+Faculty of Physical and Applied Sciences
+University of Southampton 
+\end{LARGE}
+\\[2cm]
+\begin{large}
+Alexandros-Pana Oikonomou
+\\
+1$^{st}$ May 2013
+\\[2cm]
+Solving the Conjugate Gradient Method in a SpiNNaker Machine
+\\[3.5cm]
+Project Supervisor: Jeff Reeve
+\\Second Examiner: Marcus Breede
+\\[3.5cm]
+A project report submitted for the award of
+\\BSc Computer Science
+\end{large}
+\end{center}
+\end{titlepage}
+\section*{Abstract}
+\pagenumbering{gobble}
+SpiNNaker is an asynchronous, event-driven parallel architecture designed to simulate
+the human brain. It has been designed to operate as a large scale neural network in
+real-time using a System-on-Chip multi core system. Its architecture is different from
+usual parallel computers, since cores use spikes to communicate with each other. That
+way usual pitfalls of parallel computing, such as race conditions and deadlocks are
+avoided. So far the most prominent uses of this architecture have been in
+neuroscience and robotics. The aim of this project is to put into use SpiNNaker's
+architecture and bring it closer to classic computer science problems, while solving
+them optimally. The given algorithm to solve in this project is the conjugate gradient
+method, an iterative way of solving systems linear equations. The algorithm successfully runs on the simulator and reduces the time complexity of the most expensive operations of the algorithm.
+\newpage
+\tableofcontents
+\newpage
+\section*{Acknowledgments and Statement of Originality}
+I would like to thank my supervisor Jeff Reeve for his help and support throughout this project.
+\newpage
+\section{Introduction}
+\pagenumbering{arabic}
+\subsection{Aim}
+The aim of this project is to correctly solve the Conjugate Gradient Method on a SpiNNaker chip, thus using the massive parallelism that this machine offers to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and the scalar product of vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report explains this project and its constituents, any background research done to launch this project, along with designe and implementation choices.
+\subsection{Reasons and Justification}
+\indent
+SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}, which have mainly been used to simulate the neurons of the human brain and in robotics. Examples of these would be using the SpiNNaker chip to simulate thousands of spiking neurons by using over four million synapses\cite{sharp2012power}, or to simulate the neurons of a retina sensor\cite{davies2010interfacing}.
+
+However little work had been done into using the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method had been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
+\subsection{Overview}
+Say something here
+\newpage
+\section{Background}
+\newpage
+\bibliographystyle{plain}
+\bibliography{ref.bib}
+\cite{navaridas2009understanding}
+\cite{sharp2012power}
+\cite{davies2010interfacing}
+\cite{sharp2011event}
+\end{document}

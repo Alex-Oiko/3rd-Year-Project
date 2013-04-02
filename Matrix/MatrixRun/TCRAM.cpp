@@ -153,18 +153,22 @@ bool TCram::ReadData(string TCDataFile){
         Y = XY&0x0FF;
         fread(&CoreCount, 2, 1, TCFile);
         for(C=0;C<CoreCount;C++) {
-            cout<<"Reading new core"<<endl;
-	    fread(&StartAddress, 4, 1, TCFile);
-            cout<<"Starting address:"<<StartAddress<<endl;
-	    fread(&CoreID, 4, 1, TCFile);
-	    cout<<"CoreID is "<<CoreID<<endl;
-	    fread(&WordCount, 4, 1, TCFile);
-	    cout<<"WordCount is "<<WordCount<<endl;
+            fread(&StartAddress, 4, 1, TCFile);
+            fread(&CoreID, 4, 1, TCFile);
+            fread(&WordCount, 4, 1, TCFile);
             TCData[X][Y][CoreID-1] = new uint32_t[WordCount];
             fread(TCData[X][Y][CoreID-1], 4, WordCount, TCFile);
         }
     }
+    OpCodesA = new vector<uint32_t>[17];
+    fread(&OpCodesA[0],sizeof(vector<uint32_t>),17,TCFile);
     fclose(TCFile);
+    for(int i=0;i<17;i++){
+	cout<<"Size of vector:"<<OpCodesA[i].size()<<endl;
+    	for(int f=0;f<OpCodesA[i].size();f++){
+		cout<<"Value is:"<<OpCodesA[i][0]<<endl;
+	}
+    }
     return true;
 }
 
@@ -192,17 +196,13 @@ void TCram::PrintTCram(){
                 puts("");
                 TTE = (_DTTE*)&CoreData[CoreCommon->TTStart];
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
-                Temps = new float[sizeof(Values)/sizeof(float)]; 
-                counters = new uint32_t[sizeof(Values)/sizeof(uint32_t)];
-                cout<<"EDWWWWWWWWWWWWWWWWWWWWWWWWWWWW"<<endl;
+                Temps = new float[17];
+		counters = new uint32_t[17];
+                Values = (float*)&CoreData[CoreCommon->ValuesStart];
 		for(int i = 0; i < PointCount; i++){
-		cout<<"Name:"<<TTE[i].Name<<" YD="<<TTE[i].YD<<" X="<<TTE[i].X<<" Y="<<TTE[i].Y<<endl;
-                    printf("Kd = %x, OpCode = 0, IV = %f, Value = %f, Temp = %f, Counter = %d, Expected = %d, Arrived = %d\n",TTE[i].Kd, TTE[i].IV,Values[TTE[i].oV],Temps[TTE[i].oV],counters[TTE[i].oV] ,TTE[i].Expected, TTE[i].Arrived);
-		cout<<"Size of OpCodes is:"<<TTE[i].OpCodes.size()<<endl;
-		printf("\n");
-		}
+                    printf("Kd = %x, OpCode = %d, Name=%c , YD=%d, Y=%d, X=%d,IV = %f, Value = %f,TTE counter=%d, Temp = %f, counter=%d,Expected = %d, Arrived = %d\n",TTE[i].Kd,TTE[i].OpCode,TTE[i].Name,TTE[i].YD,TTE[i].X, TTE[i].IV,Values[TTE[i].oV],TTE[i].counter,Temps[TTE[i].oV],counters[TTE[i].oV], TTE[i].Expected, TTE[i].Arrived);
+                }
             }
         }
     }
 }
-

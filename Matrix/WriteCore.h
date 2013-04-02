@@ -32,13 +32,13 @@ private:
     };
     struct _DTTE{
         uint32_t Kd;
-        vector<queue<uint32_t>> OpCodes;
-        float IV;
-	float Temp;
-	char Name;
+        uint32_t OpCode;
+        char Name;
 	uint32_t YD;
-	uint32_t X;
 	uint32_t Y;
+	uint32_t X;
+	float IV;
+	float temp;
 	uint32_t counter;
         uint32_t oV;
         uint32_t Expected;
@@ -51,13 +51,10 @@ private:
     unsigned PointCount, LUTSize;;
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
-    float *Temps;		//Array for the Temp values
-    //uint32_t *counters;		//Array for the counters
-    //vector<queue<uint32_t>> *OpCodesA;  //Array for OpCodes
     _LookUp  *LUT;                  //Look up table for incoming
+    vector<uint32_t> *OpCodesA;
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);
     void DumpCore(unsigned,Core&, Dealer&, Task&);  //Write the core with this Key&0xfffff800 returns the size of the arrays in 32bit words.
 };
 #endif /* defined(__Matrix__WriteCore__) */
-
