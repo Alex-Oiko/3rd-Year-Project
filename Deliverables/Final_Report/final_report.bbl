@@ -21,6 +21,10 @@ Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
 \newblock In {\em Proceedings of the 23rd international conference on
   Supercomputing}, pages 286--295. ACM, 2009.
 
+\bibitem{cgm2009lec}
+L.~Olson.
+\newblock Lecture 21 better iterative methods; google and markov chains, 2009.
+
 \bibitem{press2007numerical}
 William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
 \newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
@@ -38,5 +42,10 @@ Thomas Sharp, Luis~A Plana, Francesco Galluppi, and Steve Furber.
   spinnaker.
 \newblock In {\em Neural Information Processing}, pages 424--430. Springer,
   2011.
+
+\bibitem{shewchuk1994introduction}
+Jonathan~Richard Shewchuk.
+\newblock An introduction to the conjugate gradient method without the
+  agonizing pain, 1994.
 
 \end{thebibliography}

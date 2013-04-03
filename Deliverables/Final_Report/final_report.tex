@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \author{Alexandros-Panagiotis Oikonomou}
@@ -87,27 +89,82 @@ A \emph{positive definite} matrix M is a matrix which when multipled by any non-
 
 It is an iterative method, which means it can be applied to sparse systems. A \emph{sparse matrix} is a matrix which is populated primirily with zeros. Its opposite would be a \emph{dense matrix}. It was developed by Magnus Hestenes and Eduard Stiefel and can be used to solve optimization problems\cite{press2007numerical}.
 \subsubsection{The quadratic form}
-In order to explain why the Conjugate Gradient Method can solve problems whose matrix is positive-definite and symmetric a explanation of the quadratic form needs to be presented.
+In order to explain why the Conjugate Gradient Method can solve problems whose matrix is positive-definite and symmetric an explanation of the quadratic form needs to be presented.
 \begin{center}
 \begin{equation}
 f(x)=\frac{1}{2}x^TAx-b^T+c
 \end{equation}
 \end{center}
 
-The gradient f'(x) of the quadratic form would be defined as:
-
+The gradient $\nabla f(x)$ of the quadratic form is a vector field that points in the direction of greates increase of $f(x)$. If we were to take into account the i$^{th}$ component of $\nabla f$.
 \begin{equation}
-f'(x)=\begin{bmatrix}
-\frac{df(x)}{dx_1}\cr
-\frac{df(x)}{dx_2}\cr
-.
-.
-.\cr
-\frac{d(fx)}{d_n}
-\end{bmatrix}
+\begin{split}
+f(x+\psi e_i)= \frac{1}{2} (x+\psi e_i)^TA(x+\psi e_i)-b^T(x+\psi e_i)+c\\
+= \frac{1}{2} (x^TAx+\psi e^T_iAx +x^TA\psi e_i)-b^T(x+\psi e_i)+c
+\end{split}
+\end{equation}
+Taking the definition of a derivative $f(x)$=$\frac{f(a+h)-f(a)}{h}$ we have.
+\begin{equation}
+\frac{f(x+he_i)-f(x)}{h}=\frac{\frac{1}{2}(\psi e^T_iAx+x^TA\psi e_i)-\psi e^T_ib}{h}
+\end{equation}
+Eqaution 3 is the same as the i$^{th}$ component of $\frac{1}{2}$(Ax+A$^T$x)-b
+So we have
+\begin{equation}
+\nabla f =\frac{1}{2}A^Tx+\frac{1}{2}Ax-b
+\end{equation}
+But if A is symmetric, then it is obvious that we have Ax=b at the minimum of $f$
+
+If A is positive negative then $f$ is concave up.
+\subsubsection{Conjugate Gradients}
+So as we said before A mus be symmetric and positive definite. Given a quadratic function 
+as defined in Equation 1, then it turns out that \\-$\nabla f$=b-Ax=r
+
+Most optimization methods look towards a specifin direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
+\begin{equation}
+x_{k+1} = x_k + \alpha p_k
+\end{equation}
+Given Equation 5, $\alpha$ also needs to be chosen so that $f(x_k+\alpha p_k)$ is minimized in the direction of $p_k$
+\begin{equation}
+0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha p_k) = -r^T_{k+1}p_k
 \end{equation}
 
-The gradient(2) is a field that for a given point x, indicates the direction where there is a greatest increase of f(x). As it is know from calculus, in order to minimize f(x) the gradient f'(x) must be set to 0.
+As it is for the method of Steepest Descent, $\alpha$ should be set in a way that $f$ is minimized in the direction $\nabla f$=r
+\begin{equation}
+0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha r_k) = -r^T_{k+1}r_k
+\end{equation}
+We need to pick $\alpha$ so that $\nabla f(x_{k+1})$ and r$_k$ are orthogonal. But since we have that $\nabla f(x_{k+1})$=-r$_{k+1}$ then
+
+\begin{equation}
+\begin{split}
+r^T_{k+1}r_k=0\\
+(b-A(x_k+\alpha r_k)^T)r_k=0\\
+(b-Ax_k)^Tr_k-\alpha(Ar_k)^Tr_k=0\\
+r^T_kr_k=\alpha r^T_kAr_k\\
+\alpha=-\frac{r^T_kr_k}{r^T_kAr_k}
+\end{split}
+\end{equation}
+\subsubsection{The algorithm}
+Combining the optimal value of $\alpha$ and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
+\\
+\begin{algorithmic}
+\STATE r$_0$=b-Ax$_0$
+\STATE p$_0$=r$_0$
+\STATE f=0
+\FOR{f to 1000000}
+\STATE $alpha_f=\frac{r_f ^T*r_f}{p_f ^T*A*p_f}$
+\STATE x$_{f+1}$=x$_f$+alpha$_f$*p$_f$
+\STATE r$_{f+1}$=r$_f$-alpha$_f$*p$_f$*A
+\IF{r$_{f+1}^T$*r$_{f+1}$ is small enough}
+\STATE break
+\ENDIF
+\STATE $beta_f=\frac{r_{f+1} ^T*r_{f+1}}{r_f ^T*r_f}$
+\STATE r$_{f+1}$=r$_{f+1}$+beta$_f$*p$_f$
+\STATE f=f+1
+\ENDFOR
+\end{algorithmic}
+\vspace{20pt}
+Some notes that can be made about this algorithm are that the axis is defined by the eigenvectors of A and that the algorithm takes a conjugate step closest to $r$. Finally, the algorithm guarantees convergeance in at most n steps.\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}
+
 \newpage
 \bibliographystyle{plain}
 \bibliography{ref.bib}
@@ -117,4 +174,6 @@ The gradient(2) is a field that for a given point x, indicates the direction whe
 \cite{sharp2011event}
 \cite{gerstner2002spiking}
 \cite{press2007numerical}
+\cite{shewchuk1994introduction}
+\cite{cgm2009lec}
 \end{document}

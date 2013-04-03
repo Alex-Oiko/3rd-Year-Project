@@ -7,3 +7,5 @@
 \contentsline {subsection}{\numberline {2.2}The SpiNNaker architecture}{3}
 \contentsline {subsection}{\numberline {2.3}The Conjugate Gradient Method}{3}
 \contentsline {subsubsection}{\numberline {2.3.1}The quadratic form}{3}
+\contentsline {subsubsection}{\numberline {2.3.2}Conjugate Gradients}{4}
+\contentsline {subsubsection}{\numberline {2.3.3}The algorithm}{5}
