@@ -51,8 +51,76 @@
   title={Lecture 21 Better Iterative Methods; Google and Markov Chains},
   author={L. Olson},
   year={2009},
-  publisher={Department of Computer Science University of Illinois at Urbana-Champaign}
+  publisher={University of Illinois at Urbana-Champaign}
 }
+@article{o1987parallel,
+  title={Parallel implementation of the block conjugate gradient algorithm},
+  author={O'Leary, Dianne P},
+  journal={Parallel Computing},
+  volume={5},
+  number={1},
+  pages={127--139},
+  year={1987},
+  publisher={Elsevier}
+}
+@article{adams1985m,
+  title={M-step preconditioned conjugate gradient methods},
+  author={Adams, Loyce},
+  journal={SIAM Journal on Scientific and Statistical Computing},
+  volume={6},
+  number={2},
+  pages={452--463},
+  year={1985},
+  publisher={SIAM}
+}
+@article{adams1983m,
+  title={M-step preconditioned conjugate gradient method for parallel computation},
+  author={Adams, Loyce},
+  year={1983},
+  publisher={IEEE Computer Society Press, Silver Spring, MD}
+}
+
+@article{maheswaran1999mcgs,
+  title={MCGS: a modified conjugate gradient squared algorithm for nonsymmetric linear systems},
+  author={Maheswaran, Muthucumaru and Webb, Kevin J and Siegel, Howard Jay},
+  journal={The Journal of Supercomputing},
+  volume={14},
+  number={3},
+  pages={257--280},
+  year={1999},
+  publisher={Springer}
+}
+@inproceedings{yang2001improved,
+  title={The improved conjugate gradient squared (ICGS) method on parallel distributed memory architectures},
+  author={Yang, Laurence Tianruo and Brent, Richard P},
+  booktitle={Parallel Processing Workshops, 2001. International Conference on},
+  pages={161--165},
+  year={2001},
+  organization={IEEE}
+}
+@article{galiano2012gpu,
+  title={GPU-based parallel algorithms for sparse nonlinear systems},
+  author={Galiano, V and Migall{\'o}n, H and Migall{\'o}n, V and Penad{\'e}s, J},
+  journal={Journal of Parallel and Distributed Computing},
+  volume={72},
+  number={9},
+  pages={1098--1105},
+  year={2012},
+  publisher={Elsevier}
+}
+@incollection{wozniak2010parallel,
+  title={Parallel implementation of conjugate gradient method on graphics processors},
+  author={Wozniak, Marcin and Olas, Tomasz and Wyrzykowski, Roman},
+  booktitle={Parallel Processing and Applied Mathematics},
+  pages={125--135},
+  year={2010},
+  publisher={Springer}
+}
+
+
+
+
+
 
 
 

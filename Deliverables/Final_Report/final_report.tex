@@ -5,6 +5,7 @@
 \usepackage{palatino}
 \usepackage{algorithm2e}
 \usepackage{algorithmic}
+\usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \author{Alexandros-Panagiotis Oikonomou}
@@ -54,7 +55,7 @@ I would like to thank my supervisor Jeff Reeve for his help and support througho
 \section{Introduction}
 \pagenumbering{arabic}
 \subsection{Aim}
-The aim of this project is to correctly solve the Conjugate Gradient Method on a SpiNNaker chip, thus using the massive parallelism that this machine offers to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and the scalar product of vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report explains this project and its constituents, any background research done to launch this project, along with designe and implementation choices.
+The aim of this project is to correctly solve the Conjugate Gradient Method\cite{hestenes1952methods} on a SpiNNaker chip, thus using the massive parallelism that this machine offers to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and the scalar product of vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report explains this project and its constituents, any background research done to launch this project, along with designe and implementation choices.
 \subsection{Reasons and Justification}
 \indent
 SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}, which have mainly been used to simulate the neurons of the human brain and in robotics. Examples of these would be using the SpiNNaker chip to simulate thousands of spiking neurons by using over four million synapses\cite{sharp2012power}, or to simulate the neurons of a retina sensor\cite{davies2010interfacing}.
@@ -96,39 +97,37 @@ f(x)=\frac{1}{2}x^TAx-b^T+c
 \end{equation}
 \end{center}
 
-The gradient $\nabla f(x)$ of the quadratic form is a vector field that points in the direction of greates increase of $f(x)$. If we were to take into account the i$^{th}$ component of $\nabla f$.
+The gradient $\nabla f(x)$ of the quadratic form is a vector field that points in the direction of the greatest increase of $f(x)$. If we were to take into account the i$^{th}$ component of $\nabla f$, then.
 \begin{equation}
 \begin{split}
 f(x+\psi e_i)= \frac{1}{2} (x+\psi e_i)^TA(x+\psi e_i)-b^T(x+\psi e_i)+c\\
 = \frac{1}{2} (x^TAx+\psi e^T_iAx +x^TA\psi e_i)-b^T(x+\psi e_i)+c
 \end{split}
 \end{equation}
-Taking the definition of a derivative $f(x)$=$\frac{f(a+h)-f(a)}{h}$ we have.
+Note that e$_i$ is the error affiliated with taking the i$^{th}$ component of $\nabla f$. Now from the definition of a derivative $f(x)$=$\frac{f(a+h)-f(a)}{h}$ and (2) we have.
 \begin{equation}
-\frac{f(x+he_i)-f(x)}{h}=\frac{\frac{1}{2}(\psi e^T_iAx+x^TA\psi e_i)-\psi e^T_ib}{h}
+\frac{f(x+\psi e_i)-f(x)}{\psi}=\frac{\frac{1}{2}(\psi e^T_iAx+x^TA\psi e_i)-\psi e^T_ib}{\psi}
 \end{equation}
-Eqaution 3 is the same as the i$^{th}$ component of $\frac{1}{2}$(Ax+A$^T$x)-b
+(3) is the same as the i$^{th}$ component of $\frac{1}{2}$(Ax+A$^T$x)-b
 So we have
 \begin{equation}
 \nabla f =\frac{1}{2}A^Tx+\frac{1}{2}Ax-b
 \end{equation}
-But if A is symmetric, then it is obvious that we have Ax=b at the minimum of $f$
-
-If A is positive negative then $f$ is concave up.
+But if A is symmetric, then it is obvious that we have $Ax=b$ at the minimum of $f$. In addition if A is positive negative then $f$ is concave up.
 \subsubsection{Conjugate Gradients}
-So as we said before A mus be symmetric and positive definite. Given a quadratic function 
-as defined in Equation 1, then it turns out that \\-$\nabla f$=b-Ax=r
+As mentioned before the matrix A must be symmetric and positive definite for the Conjugate Gradient Method to work. Given a quadratic function 
+as defined in (1), then it turns out that $-\nabla f=b-Ax=r$.
 
-Most optimization methods look towards a specifin direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
+The CGM as well as most optimization methods look towards a specifin direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
 \begin{equation}
 x_{k+1} = x_k + \alpha p_k
 \end{equation}
-Given Equation 5, $\alpha$ also needs to be chosen so that $f(x_k+\alpha p_k)$ is minimized in the direction of $p_k$
+Given (5), $\alpha$ also needs to be chosen so that $f(x_k+\alpha p_k)$ is minimized in the direction of $p_k$
 \begin{equation}
 0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha p_k) = -r^T_{k+1}p_k
 \end{equation}
 
-As it is for the method of Steepest Descent, $\alpha$ should be set in a way that $f$ is minimized in the direction $\nabla f$=r
+As it is for the method of the Steepest Descent, $\alpha$ should be set in a way that $f$ is minimized in the direction $\nabla f=r$
 \begin{equation}
 0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha r_k) = -r^T_{k+1}r_k
 \end{equation}
@@ -143,28 +142,52 @@ r^T_kr_k=\alpha r^T_kAr_k\\
 \alpha=-\frac{r^T_kr_k}{r^T_kAr_k}
 \end{split}
 \end{equation}
+(8) gives the optimal value for $\alpha$.
 \subsubsection{The algorithm}
-Combining the optimal value of $\alpha$ and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
+Combining the optimal value of $\alpha$(8) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
 \\
 \begin{algorithmic}
 \STATE r$_0$=b-Ax$_0$
 \STATE p$_0$=r$_0$
-\STATE f=0
-\FOR{f to 1000000}
-\STATE $alpha_f=\frac{r_f ^T*r_f}{p_f ^T*A*p_f}$
-\STATE x$_{f+1}$=x$_f$+alpha$_f$*p$_f$
-\STATE r$_{f+1}$=r$_f$-alpha$_f$*p$_f$*A
-\IF{r$_{f+1}^T$*r$_{f+1}$ is small enough}
+\STATE k=0
+\FOR{k to 1000000}
+\STATE $alpha_k=\frac{r_k ^T*r_k}{p_k ^T*A*p_k}$
+\STATE x$_{k+1}$=x$_k$+alpha$_k$*p$_k$
+\STATE r$_{k+1}$=r$_k$-alpha$_k$*p$_k$*A
+\IF{r$_{k+1}^T$*r$_{k+1}$ is small enough}
 \STATE break
 \ENDIF
-\STATE $beta_f=\frac{r_{f+1} ^T*r_{f+1}}{r_f ^T*r_f}$
-\STATE r$_{f+1}$=r$_{f+1}$+beta$_f$*p$_f$
-\STATE f=f+1
+\STATE $beta_k=\frac{r_{k+1} ^T*r_{k+1}}{r_k ^T*r_k}$
+\STATE r$_{k+1}$=r$_{k+1}$+beta$_k$*p$_k$
+\STATE k=k+1
 \ENDFOR
 \end{algorithmic}
 \vspace{20pt}
 Some notes that can be made about this algorithm are that the axis is defined by the eigenvectors of A and that the algorithm takes a conjugate step closest to $r$. Finally, the algorithm guarantees convergeance in at most n steps.\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}
 
+Ofcourse there is an error that exists in every step, as mentioned before, but it is minimized in each iteration. The error function would be:
+\begin{equation}
+\begin{vmatrix}
+e_k
+\end{vmatrix}
+\leq 2(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^k
+\begin{vmatrix}
+e_0
+\end{vmatrix}_A
+\end{equation}
+
+In Equation 9 $\kappa$ is the condition number.
+
+Another interesting applicatoin of the Conjugate Gradient Method is that you can apply precondition on it in order to find the solution faster. However, preconditioning is outside of the scope of this project, since it adds a lot more calculation and would need a less general solution.
+\subsubsection{Parallel solutions of the CGM}
+
+Some parallel implementations of the CGM use blocks of the input vectors and matrix and assign them carefully to specific cores, thus letting each core produce output that will be used in the next iteration. These kinds of solutions work better with vector processors, since it allows a processor to complete large vector operations. Depending on how many processors a machine has, parts of the algorithm can continue being sliced to blocks, until the optimal implementation is reached\cite{o1987parallel}.
+
+Some other parallel implementations try to use more specific preconditionings to achieve faster results, but again for the parallel part, they split the input into blocks to distribute it to various cores\cite{adams1985m}\cite{adams1983m}. 
+
+One of the most interesting implementations of the CGM, suggests an improved algorithm named ICGS(Improved Conjugate Gradient Squared), which is based in another already altered version of the CGM\cite{maheswaran1999mcgs}. This implementation computes all vector-matrix  multiplications and inner products concurrently, for each iteration. The communication time between these operations and vector updates has been organised efficiently, so that global communication drops significantly, thus dropping the run time of the algorithm as well\cite{yang2001improved}.
+
+Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These pieces of work use CUDA and various other techniques to accomplish their goal, with some very good results. Ofcourse different GPU models are used, but that just enhances the generality of the solution. Generally though,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
 \newpage
 \bibliographystyle{plain}
 \bibliography{ref.bib}
@@ -176,4 +199,12 @@ Some notes that can be made about this algorithm are that the axis is defined by
 \cite{press2007numerical}
 \cite{shewchuk1994introduction}
 \cite{cgm2009lec}
+\cite{o1987parallel}
+\cite{adams1985m}
+\cite{maheswaran1999mcgs}
+\cite{yang2001improved}
+\cite{adams1983m}
+\cite{galiano2012gpu}
+\cite{wozniak2010parallel}
+\cite{hestenes1952methods}
 \end{document}

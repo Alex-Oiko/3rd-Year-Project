@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [2][-]{subsection.1.1}{Aim}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Reasons and Justification}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Overview}{section.1}
+\BOOKMARK [1][-]{section.2}{Background}{}
+\BOOKMARK [2][-]{subsection.2.1}{The neuron}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{The SpiNNaker architecture}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{The Conjugate Gradient Method}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{The quadratic form}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Conjugate Gradients}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.3}{The algorithm}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Parallel solutions of the CGM}{subsection.2.3}

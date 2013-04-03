@@ -1,4 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{adams1983m}
+Loyce Adams.
+\newblock M-step preconditioned conjugate gradient method for parallel
+  computation.
+\newblock 1983.
+
+\bibitem{adams1985m}
+Loyce Adams.
+\newblock M-step preconditioned conjugate gradient methods.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing},
+  6(2):452--463, 1985.
 
 \bibitem{davies2010interfacing}
 Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
@@ -9,10 +21,26 @@ Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
   pages 7--11. Australian Journal of Intelligent Information Processing
   Systems, Vol. 11, No. 1,, 2010.
 
+\bibitem{galiano2012gpu}
+V~Galiano, H~Migall{\'o}n, V~Migall{\'o}n, and J~Penad{\'e}s.
+\newblock Gpu-based parallel algorithms for sparse nonlinear systems.
+\newblock {\em Journal of Parallel and Distributed Computing},
+  72(9):1098--1105, 2012.
+
 \bibitem{gerstner2002spiking}
 Wulfram Gerstner and Werner~M Kistler.
 \newblock {\em Spiking neuron models: Single neurons, populations, plasticity}.
 \newblock Cambridge university press, 2002.
+
+\bibitem{hestenes1952methods}
+Magnus~Rudolph Hestenes and Eduard Stiefel.
+\newblock Methods of conjugate gradients for solving linear systems, 1952.
+
+\bibitem{maheswaran1999mcgs}
+Muthucumaru Maheswaran, Kevin~J Webb, and Howard~Jay Siegel.
+\newblock Mcgs: a modified conjugate gradient squared algorithm for
+  nonsymmetric linear systems.
+\newblock {\em The Journal of Supercomputing}, 14(3):257--280, 1999.
 
 \bibitem{navaridas2009understanding}
 Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
@@ -20,6 +48,11 @@ Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
 \newblock Understanding the interconnection network of spinnaker.
 \newblock In {\em Proceedings of the 23rd international conference on
   Supercomputing}, pages 286--295. ACM, 2009.
+
+\bibitem{o1987parallel}
+Dianne~P O'Leary.
+\newblock Parallel implementation of the block conjugate gradient algorithm.
+\newblock {\em Parallel Computing}, 5(1):127--139, 1987.
 
 \bibitem{cgm2009lec}
 L.~Olson.
@@ -47,5 +80,19 @@ Thomas Sharp, Luis~A Plana, Francesco Galluppi, and Steve Furber.
 Jonathan~Richard Shewchuk.
 \newblock An introduction to the conjugate gradient method without the
   agonizing pain, 1994.
+
+\bibitem{wozniak2010parallel}
+Marcin Wozniak, Tomasz Olas, and Roman Wyrzykowski.
+\newblock Parallel implementation of conjugate gradient method on graphics
+  processors.
+\newblock In {\em Parallel Processing and Applied Mathematics}, pages 125--135.
+  Springer, 2010.
+
+\bibitem{yang2001improved}
+Laurence~Tianruo Yang and Richard~P Brent.
+\newblock The improved conjugate gradient squared (icgs) method on parallel
+  distributed memory architectures.
+\newblock In {\em Parallel Processing Workshops, 2001. International Conference
+  on}, pages 161--165. IEEE, 2001.
 
 \end{thebibliography}
