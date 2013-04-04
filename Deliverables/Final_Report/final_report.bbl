@@ -63,6 +63,12 @@ William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
 \newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
 \newblock Cambridge university press, 2007.
 
+\bibitem{rosenbloom1956method}
+PC~Rosenbloom.
+\newblock The method of steepest descent.
+\newblock In {\em Proc. of Symp. in Applied Math}, volume~6, pages 127--176,
+  1956.
+
 \bibitem{sharp2012power}
 Thomas Sharp, Francesco Galluppi, Alexander Rast, and Steve Furber.
 \newblock Power-efficient simulation of detailed cortical microcircuits on

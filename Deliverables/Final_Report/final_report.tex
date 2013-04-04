@@ -62,7 +62,7 @@ SpiNNaker is an architecture inspired by the biology of the human brain. Its opt
 
 However little work had been done into using the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method had been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
 \subsection{Overview}
-Say something here
+Give a brief overveiw of what each section contatins
 \newpage
 \section{Background}
 \subsection{The neuron}
@@ -118,47 +118,68 @@ But if A is symmetric, then it is obvious that we have $Ax=b$ at the minimum of 
 As mentioned before the matrix A must be symmetric and positive definite for the Conjugate Gradient Method to work. Given a quadratic function 
 as defined in (1), then it turns out that $-\nabla f=b-Ax=r$.
 
-The CGM as well as most optimization methods look towards a specifin direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
+The CGM, as well as most optimization methods(for example the method of the Steepest Descent\cite{rosenbloom1956method}), look towards a specific direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
 \begin{equation}
 x_{k+1} = x_k + \alpha p_k
 \end{equation}
-Given (5), $\alpha$ also needs to be chosen so that $f(x_k+\alpha p_k)$ is minimized in the direction of $p_k$
-\begin{equation}
-0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha p_k) = -r^T_{k+1}p_k
-\end{equation}
-
-As it is for the method of the Steepest Descent, $\alpha$ should be set in a way that $f$ is minimized in the direction $\nabla f=r$
-\begin{equation}
-0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha r_k) = -r^T_{k+1}r_k
-\end{equation}
-We need to pick $\alpha$ so that $\nabla f(x_{k+1})$ and r$_k$ are orthogonal. But since we have that $\nabla f(x_{k+1})$=-r$_{k+1}$ then
-
+Given (5), $\alpha$ can be deduced from the fact that $e_{k+1}$(the error vector of each iteration) must be orthogonal to p$_k$,  which also means that p$_k$ will never be met again as the solution progresses. Using this we can dedcuce
 \begin{equation}
 \begin{split}
-r^T_{k+1}r_k=0\\
-(b-A(x_k+\alpha r_k)^T)r_k=0\\
-(b-Ax_k)^Tr_k-\alpha(Ar_k)^Tr_k=0\\
-r^T_kr_k=\alpha r^T_kAr_k\\
-\alpha=-\frac{r^T_kr_k}{r^T_kAr_k}
+p^T_ke_{k+1}=0\\
+p^T_k(e_k+\alpha p_k)=0\\
+\alpha = -\frac{p^T_ke_k}{p^T_kp_k}
 \end{split}
 \end{equation}
-(8) gives the optimal value for $\alpha$.
+
+The equation at (6) however is not solvable. The value of $e_k$ is needed in each iteration, which is not computable at that time. To help with that the search directions in each iteration($p_k$) is defined as A-orthogonal in respect to the matrix A, instead of just orthogonal. The definition of A-orthogonal vectors is, given a matrix A, then:
+\begin{equation}
+p^T_kAp_k=0
+\end{equation}
+Given (7), $e_{k+1}$ and $p_k$ must be A-orthogonal. If we wish to find the optimal value for $\alpha$,then the gradient must be set to 0. This leads to the following equation.
+\begin{equation}
+0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha p_k) = -r^T_{k+1}p_k=p^T_kAe_{k+1}
+\end{equation}
+From (6),(7) the equation for $\alpha$ when $e_k$ and $p_k$ are A-orthogonal is
+\begin{equation}
+\begin{split}
+\alpha =-\frac{p^T_kAe_k}{p^T_kAp_k}\\
+=\frac{p^T_kr_k}{p^T_kAp_k}
+\end{split}
+\end{equation}
+
+Another important equation that comes from analysing the error term is
+\begin{equation}
+p^T_kr_k=u^T_kr_k
+\end{equation}
+
+In (10) $u^T_k$ are u vectors that span the vector subspace of the vector field of $p_k$. They are also orthogonal to $r_k$ and $u_{k+1}$ is also orthogonal to all the previous $u$ vectors.
+
+Using (9) and (10) we are able to reach a more accurate value for $\alpha$
+\begin{equation}
+\alpha = \frac{r^T_kr_k}{p^T_kAp_k}
+\end{equation}
+
+Using (9) and (10) and a Gram-Schmidt conjugation we are able to reach and a value for $\beta$
+\begin{equation}
+\beta = \frac{r^T_{k+1}r_{k+1}}{r^T_kr_k}
+\end{equation}
+\newpage
 \subsubsection{The algorithm}
-Combining the optimal value of $\alpha$(8) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
+Combining the optimal value of $\alpha$(8) and $\beta$(9) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
 \\
 \begin{algorithmic}
 \STATE r$_0$=b-Ax$_0$
 \STATE p$_0$=r$_0$
 \STATE k=0
 \FOR{k to 1000000}
-\STATE $alpha_k=\frac{r_k ^T*r_k}{p_k ^T*A*p_k}$
-\STATE x$_{k+1}$=x$_k$+alpha$_k$*p$_k$
-\STATE r$_{k+1}$=r$_k$-alpha$_k$*p$_k$*A
+\STATE $\alpha_k=\frac{r_k ^T*r_k}{p_k ^T*A*p_k}$
+\STATE x$_{k+1}$=x$_k$+$\alpha_k$*p$_k$
+\STATE r$_{k+1}$=r$_k$-$\alpha_k$*p$_k$*A
 \IF{r$_{k+1}^T$*r$_{k+1}$ is small enough}
 \STATE break
 \ENDIF
-\STATE $beta_k=\frac{r_{k+1} ^T*r_{k+1}}{r_k ^T*r_k}$
-\STATE r$_{k+1}$=r$_{k+1}$+beta$_k$*p$_k$
+\STATE $\beta_k=\frac{r_{k+1} ^T*r_{k+1}}{r_k ^T*r_k}$
+\STATE p$_{k+1}$=r$_{k+1}$+$\beta_k$*p$_k$
 \STATE k=k+1
 \ENDFOR
 \end{algorithmic}
@@ -207,4 +228,5 @@ Finally, there are many recent implementations which have used GPU's in order to
 \cite{galiano2012gpu}
 \cite{wozniak2010parallel}
 \cite{hestenes1952methods}
+\cite{rosenbloom1956method}
 \end{document}

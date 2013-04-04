@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  3 APR 2013 19:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  4 APR 2013 19:08
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -403,30 +403,46 @@ l.66 \newpage
 File: Pics/neuron.jpg Graphic file (type jpg)
 
 <use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 147--150
+Overfull \hbox (7.41211pt too wide) in paragraph at lines 121--122
+[]\T1/ppl/m/n/12 The CGM, as well as most op-ti-miza-tion meth-ods(for ex-am-pl
+e the method
+ []
 
+
+Overfull \hbox (23.90605pt too wide) detected at line 141
+[]\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
+\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
+mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
+cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
+/cmr/m/n/12 + \OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@\OML
+/cmm/m/it/12 r[]p[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 p[]Ae[]
  []
 
 [4] [5]
-Overfull \hbox (2.44432pt too wide) in paragraph at lines 188--189
+Underfull \hbox (badness 10000) in paragraph at lines 168--171
+
+ []
+
+[6]
+Overfull \hbox (2.44432pt too wide) in paragraph at lines 209--210
 \T1/ppl/m/n/12 im-proved al-go-rithm named ICGS(Improved Con-ju-gate Gra-di-ent
  Squared),
  []
 
-[6] (./final_report.bbl
-Underfull \hbox (badness 1342) in paragraph at lines 67--71
+[7] (./final_report.bbl
+Underfull \hbox (badness 1342) in paragraph at lines 73--77
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[7]) [8] (./final_report.aux) ) 
+[8]) [9] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6531 strings out of 493848
- 88643 string characters out of 1152824
- 185428 words of memory out of 3000000
- 9629 multiletter control sequences out of 15000+50000
+ 6538 strings out of 493848
+ 88748 string characters out of 1152824
+ 184428 words of memory out of 3000000
+ 9630 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,15n,38p,731b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,15n,38p,731b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8
 r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
 /share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texm
@@ -439,9 +455,9 @@ e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/t
 ype1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino
 /uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (12 pages, 220735 bytes).
+Output written on final_report.pdf (13 pages, 223780 bytes).
 PDF statistics:
- 259 PDF objects out of 1000 (max. 8388607)
- 66 named destinations out of 1000 (max. 500000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
  102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
