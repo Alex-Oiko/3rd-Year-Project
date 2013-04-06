@@ -8,8 +8,16 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{SpiNNaker chip Overview}{subsection.2.2}
 \BOOKMARK [3][-]{subsubsection.2.2.2}{The router}{subsection.2.2}
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Topology}{subsection.2.2}
-\BOOKMARK [2][-]{subsection.2.3}{The Conjugate Gradient Method}{section.2}
-\BOOKMARK [3][-]{subsubsection.2.3.1}{The quadratic form}{subsection.2.3}
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Conjugate Gradients}{subsection.2.3}
-\BOOKMARK [3][-]{subsubsection.2.3.3}{The algorithm}{subsection.2.3}
-\BOOKMARK [3][-]{subsubsection.2.3.4}{Parallel solutions of the CGM}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Packets}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.5}{Routing Tables}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.6}{Bandwidth}{subsection.2.2}
+\BOOKMARK [2][-]{subsection.2.3}{Software creation}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Startup and Local Data Structures}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Program Loading}{subsection.2.3}
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Event Handling}{subsection.2.3}
+\BOOKMARK [2][-]{subsection.2.4}{Notable work using the SpiNNaker architecture}{section.2}
+\BOOKMARK [2][-]{subsection.2.5}{Conjugate Gradient Method}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.5.1}{The quadratic form}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Conjugate Gradients}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.3}{The algorithm}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.4}{Parallel solutions of the CGM}{subsection.2.5}

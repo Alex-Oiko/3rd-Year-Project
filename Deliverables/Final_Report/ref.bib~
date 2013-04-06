@@ -144,7 +144,54 @@
   year={2008},
   organization={IEEE}
 }
+@article{furber2012overview,
+  title={Overview of the spinnaker system architecture},
+  author={Furber, S and Lester, D and Plana, L and Garside, J and Painkras, Eustace and Temple, Steve and Brown, A},
+  year={2012},
+  publisher={IEEE}
+}
+@incollection{bose2005spiking,
+  title={A spiking neural sparse distributed memory implementation for learning and predicting temporal sequences},
+  author={Bose, Joy and Furber, Steve B and Shapiro, Jonathan L},
+  booktitle={Artificial Neural Networks: Biological Inspirations--ICANN 2005},
+  pages={115--120},
+  year={2005},
+  publisher={Springer}
+}
+@article{sharp2012power,
+  title={Power-efficient simulation of detailed cortical microcircuits on SpiNNaker},
+  author={Sharp, Thomas and Galluppi, Francesco and Rast, Alexander and Furber, Steve},
+  journal={Journal of Neuroscience Methods},
+  year={2012},
+  publisher={Elsevier}
+}
+@inproceedings{davies2010interfacing,
+  title={Interfacing real-time spiking I/O with the SpiNNaker neuromimetic Architecture},
+  author={Davies, Sergio and Patterson, Cameron and Galluppi, Francesco and Rast, Alexander D and Lester, David and Furber, Steve B},
+  booktitle={Proceedings 17th International Conference, ICONIP 2010.},
+  pages={7--11},
+  year={2010},
+  organization={Australian Journal of Intelligent Information Processing Systems, Vol. 11, No. 1,}
+}
 
+
+
+@misc{docfile,
+ title={SpiNNaker...},
+ author={Andrew Brown Steve Furber and a host of others...},
+ year={2008},
+ publisher={ask jeff how to cite this or if you can}
+}
+@article{plana2007gals,
+  title={A GALS infrastructure for a massively parallel multiprocessor},
+  author={Plana, Luis A and Furber, Steve B and Temple, Steve and Khan, Mukaram and Shi, Yebin and Wu, Jian and Yang, Shufan},
+  journal={Design \& Test of Computers, IEEE},
+  volume={24},
+  number={5},
+  pages={454--463},
+  year={2007},
+  publisher={IEEE}
+}
 
 
 

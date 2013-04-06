@@ -12,6 +12,13 @@ Loyce Adams.
 \newblock {\em SIAM Journal on Scientific and Statistical Computing},
   6(2):452--463, 1985.
 
+\bibitem{bose2005spiking}
+Joy Bose, Steve~B Furber, and Jonathan~L Shapiro.
+\newblock A spiking neural sparse distributed memory implementation for
+  learning and predicting temporal sequences.
+\newblock In {\em Artificial Neural Networks: Biological Inspirations--ICANN
+  2005}, pages 115--120. Springer, 2005.
+
 \bibitem{davies2010interfacing}
 Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
   Lester, and Steve~B Furber.
@@ -20,6 +27,16 @@ Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
 \newblock In {\em Proceedings 17th International Conference, ICONIP 2010.},
   pages 7--11. Australian Journal of Intelligent Information Processing
   Systems, Vol. 11, No. 1,, 2010.
+
+\bibitem{docfile}
+Andrew Brown~Steve Furber and a~host~of others...
+\newblock Spinnaker..., 2008.
+
+\bibitem{furber2012overview}
+S~Furber, D~Lester, L~Plana, J~Garside, Eustace Painkras, Steve Temple, and
+  A~Brown.
+\newblock Overview of the spinnaker system architecture.
+\newblock 2012.
 
 \bibitem{furber2007neural}
 Steve Furber and Steve Temple.
@@ -75,6 +92,12 @@ Dianne~P O'Leary.
 \bibitem{cgm2009lec}
 L.~Olson.
 \newblock Lecture 21 better iterative methods; google and markov chains, 2009.
+
+\bibitem{plana2007gals}
+Luis~A Plana, Steve~B Furber, Steve Temple, Mukaram Khan, Yebin Shi, Jian Wu,
+  and Shufan Yang.
+\newblock A gals infrastructure for a massively parallel multiprocessor.
+\newblock {\em Design \& Test of Computers, IEEE}, 24(5):454--463, 2007.
 
 \bibitem{press2007numerical}
 William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.

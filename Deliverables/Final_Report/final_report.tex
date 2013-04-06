@@ -58,7 +58,7 @@ I would like to thank my supervisor Jeff Reeve for his help and support througho
 The aim of this project is to correctly solve the Conjugate Gradient Method\cite{hestenes1952methods} on a SpiNNaker chip, thus using the massive parallelism that this machine offers to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and the scalar product of vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report explains this project and its constituents, any background research done to launch this project, along with designe and implementation choices.
 \subsection{Reasons and Justification}
 \indent
-SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}, which have mainly been used to simulate the neurons of the human brain and in robotics. Examples of these would be using the SpiNNaker chip to simulate thousands of spiking neurons by using over four million synapses\cite{sharp2012power}, or to simulate the neurons of a retina sensor\cite{davies2010interfacing}.
+SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}, which have mainly been used to simulate the neurons of the human brain and in robotics.
 
 However little work had been done into using the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method had been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
 \subsection{Overview}
@@ -84,7 +84,7 @@ Given the terms in this section, the name of the SpiNNaker chip is detuctable. I
 \subsection{The SpiNNaker architecture}
 As mentioned before the SpiNNaker architecture is inspired by the biology of the brain, and more specifically, neurons. However, its architecture is not constrained by the biology of the brain, but many techniques to speed up computations are used. It differs from other supercomputers, which  usually have a lot of strong processors with slow network capabilities. The design of the architecture was made with having as priority two concerns. The first one being MIPS(millions of instructions per-second) per mm$^2$. Namely how many instructions can be performed in an area of silicon. The second one was MIPS per watt, which means how many instructions per second can be performed given a fixed amount of energy. Its most optimal configuration will use a million cores and will be able to simulate over a billion neurons\cite{furber2007neural}.
 \subsubsection {SpiNNaker chip Overview}
-The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 18 identical ARM cores, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At startup, in each chip a processor is selected to act as a Monitor processor, with the functionality of performing the management of the given chip's system. The remaining ARM cores perform the calculations for the given problem, with the exception of one which is reserved as a spare, in the emergency of another core having a malfunction\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM which can hold up to 1GB of data\cite{navaridas2009understanding}.
+The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 18 identical ARM cores that run at around 100Mhz each, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At startup, in each chip a processor is selected to act as a Monitor processor, with the functionality of performing the management of the given chip's system. The remaining ARM cores perform the calculations for the given problem, with the exception of one which is reserved as a spare, in the emergency of another core having a malfunction\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM which can hold up to 1GB of data\cite{navaridas2009understanding}.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/chip.png}
 \centering
@@ -112,13 +112,39 @@ In order to have a million cores available for processing a number of SpiNNaker 
 \emph{The SpiNNaker topology\cite{navaridas2009understanding}. This is an example of what an 8x8 would look like.Each circle is a SpiNNake chip and the lines between them are the connectivity.}}
 \end{figure}
 \vspace{20pt}
-Considering Figure 4, it is visible that the topology is viewed by the system as a 2D mesh, with chips having a specific amount of neighbours and specific connections. Any chip is able to communicate directly to 6 other chips. This is also depicted in Figure 3, where the positions of these chips are shown. In general each chip directly communicates with chips that are North, South, West, East ,NorthEast, and Southwest of its respective position. This however does not apply for chips that are in the perimeter of the mesh, since they in some of the positions described above chips will not exist. 
+Considering Figure 4, it is visible that the topology is viewed by the system as a 2D mesh, with chips having a specific amount of neighbours and specific connections. Any chip is able to communicate directly to 6 other chips. This is also depicted in Figure 3, where the positions of these chips are shown. In general each chip directly communicates with chips that are North, South, West, East ,NorthEast, and Southwest of its respective position. This however does not apply for chips that are in the perimeter of the mesh, since they in some of the positions described above chips will not exist\cite{furber2012overview}. 
 
 Returning now to the default routhing mentioned in the previous section, if a packet arrives to a router, and the router does not have an entry for it, a then it will be forwarded to the chip opposite to the one it came from. For example, if a packet comes from the East and the aforementioned condition is met, then it will be forwarded to the West. This helps reduce the size of the routing tables in each chip\cite{khan2008spinnaker}.
 
-In addition to the default routing, the topology also provides for two-hop routes aming neighbor chips, as shown in Figure 4. These routes are named emergency routes and their functionality is to bypass any faulty connections that might exist between connections.
+In addition to the default routing, the topology also provides for two-hop routes aming neighbor chips, as shown in Figure 4. These routes are named emergency routes and their functionality is to bypass any faulty connections that might exist between connections\cite{navaridas2009understanding}\cite{plana2007gals}.
+
+\subsubsection{Packets}
+The packets used in the architecture are all multicast packets. They asynchronous and relatively small. Having multicast packets means that one packet might have many different destinations, and with potentially a million cores, they can have thousands of destinations. For that reason, the packets do not contain the destination(s) they are supposed to reach, but rather only the source. Their size is of around 40 or 70 bits and their transmission is done completely by the hardware of the system, thus having high bandwidth\cite{spinnweb}\cite{navaridas2009understanding}. It is also notable that, when simulating a billion neurons, unique addresses are needed to acknowledge them. Hence 32-bit addresses are used to represent items in the cores. In this architecture, the main packets used can be divided in two types.
+\begin{itemize}
+\item Multicast packets(Type 0). Consists of 32-bit source address, 8 bits of control and 32-bit payload. These types of packets are delivered to processors and usually would contain information for computation
+\item Point-to-point packets(Type 1). Consists of 16-bit source \emph{chip} address, 16-bit target \emph{chip} address, 8-bit control payload and 32-bit payload. It is a command/control packet and is used when the Monitor Processor communicates with the target chip\cite{docfile}
+\end{itemize}
+
+in this project mainly the Type 0 packets have been used.
+\subsubsection{Routing Tables}
+A mention of the routing tables is also important in understanding the architecture. Optimally, one would want for all cores to communicate with all the other cores in the system. However, that would be impractical, since the data structure that would exist in the routing table would have to be enormous.
+
+This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size, since it needs to hold addresses for the routing. The nature the most siginificant bit of the source is written determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
+\subsubsection{Bandwidth}
+Having talked about how the architecture works, it would be a good point to talk about the bandwidth bisection that it offers. Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63K. If we would split the topology in two then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256. Given that each node should carry 25M packets/sec\cite{docfile}\cite{navaridas2009understanding}.
 \newpage
-\subsection{The Conjugate Gradient Method}
+\subsection{Software creation}
+There is a lot that comes when trying to run any kind of software in a SpiNNaker board and this is what this section discusses
+\subsubsection{Startup and Local Data Structures}
+\subsubsection{Program Loading}
+In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. With the static model the network topology, the connections between nodes and the allocation of the hardware is provided explicitely and externally by the user, before the execution of the program. Moreover, data and additional execution information needs to be defined before the program is loaded in the machine. This information is read from an external machine and written again in a fashion that is readable by the machine. This is usually done through binary files. the Host starts the execution of the program, after the 'readable' version is has been loaded to the machine. When the program terminates, or the user wishes to terminate it, then the Host issues a halt command that stops all operations\cite{docfile}.
+
+There is an additional model for loading data in the system called the dynamic model, which would enable the machine to figure the network topology by itself, while running the application. However, this kind of a model is still in low stages\cite{docfile}.
+\subsubsection{Event Handling}
+\subsection{Notable work using the SpiNNaker architecture}
+Most of the notable work done in SpiNNaker machines is simulation of neurons. Each time different sets of neurons would be used to be simulated. An example would be simulating the neurons of the retina, so as to make it possible for a robot to calculate its place\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Another interesting application would be teaching temporal sequences  of discrete symbols, thus making fast and accurate predictions of new sequnces\cite{bose2005spiking}.
+Most of the notable work done in SpiNNaker machines is simulation of neurons. e
+\subsection{Conjugate Gradient Method}
 The conjugate gradient method is an algorithm for the numerical solution of systems of linear eqations of the type Ax=b, those whose matrix is symmetric and positive definite. 
 
 A \emph{symmetric} matrix is a matrix which is equal to its transpose. If A is a symmetric matrix then A=A$^T$. The entries of the matrix are symmetric with respect to the main diagonal, so if an element of the matrix A is a, then a$_{ij}$=a$_{ji}$. 
@@ -268,4 +294,8 @@ Finally, there are many recent implementations which have used GPU's in order to
 \cite{furber2007neural}
 \cite{spinnweb}
 \cite{khan2008spinnaker}
+\cite{docfile}
+\cite{plana2007gals}
+\cite{furber2012overview}
+\cite{bose2005spiking}
 \end{document}

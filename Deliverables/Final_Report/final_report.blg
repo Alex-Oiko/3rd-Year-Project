@@ -4,45 +4,46 @@ The style file: plain.bst
 Database file #1: ref.bib.bib
 Warning--I didn't find a database entry for "rosenbloom1956method"
 Warning--empty journal in adams1983m
-You've used 19 entries,
+Warning--empty journal in furber2012overview
+You've used 23 entries,
             2118 wiz_defined-function locations,
-            609 strings with 7613 characters,
-and the built_in function-call counts, 6846 in all, are:
-= -- 679
-> -- 321
-< -- 6
-+ -- 129
-- -- 108
-* -- 443
-:= -- 1095
-add.period$ -- 59
-call.type$ -- 19
-change.case$ -- 109
+            628 strings with 8365 characters,
+and the built_in function-call counts, 8462 in all, are:
+= -- 830
+> -- 428
+< -- 7
++ -- 173
+- -- 146
+* -- 563
+:= -- 1363
+add.period$ -- 71
+call.type$ -- 23
+change.case$ -- 140
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 264
-empty$ -- 548
-format.name$ -- 108
-if$ -- 1471
+cite$ -- 25
+duplicate$ -- 316
+empty$ -- 655
+format.name$ -- 146
+if$ -- 1802
 int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 17
-newline$ -- 94
-num.names$ -- 38
-pop$ -- 148
+int.to.str$ -- 23
+missing$ -- 20
+newline$ -- 113
+num.names$ -- 46
+pop$ -- 187
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 119
 quote$ -- 0
-skip$ -- 203
+skip$ -- 244
 stack$ -- 0
-substring$ -- 415
-swap$ -- 75
-text.length$ -- 6
+substring$ -- 494
+swap$ -- 87
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
-warning$ -- 1
-while$ -- 66
-width$ -- 21
-write$ -- 199
-(There were 2 warnings)
+type$ -- 88
+warning$ -- 2
+while$ -- 79
+width$ -- 25
+write$ -- 239
+(There were 3 warnings)
