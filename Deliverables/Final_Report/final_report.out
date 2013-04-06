@@ -5,6 +5,9 @@
 \BOOKMARK [1][-]{section.2}{Background}{}
 \BOOKMARK [2][-]{subsection.2.1}{The neuron}{section.2}
 \BOOKMARK [2][-]{subsection.2.2}{The SpiNNaker architecture}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{SpiNNaker chip Overview}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.2}{The router}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Topology}{subsection.2.2}
 \BOOKMARK [2][-]{subsection.2.3}{The Conjugate Gradient Method}{section.2}
 \BOOKMARK [3][-]{subsubsection.2.3.1}{The quadratic form}{subsection.2.3}
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Conjugate Gradients}{subsection.2.3}

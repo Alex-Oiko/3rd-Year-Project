@@ -21,6 +21,11 @@ Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
   pages 7--11. Australian Journal of Intelligent Information Processing
   Systems, Vol. 11, No. 1,, 2010.
 
+\bibitem{furber2007neural}
+Steve Furber and Steve Temple.
+\newblock Neural systems engineering.
+\newblock {\em Journal of the Royal Society interface}, 4(13):193--206, 2007.
+
 \bibitem{galiano2012gpu}
 V~Galiano, H~Migall{\'o}n, V~Migall{\'o}n, and J~Penad{\'e}s.
 \newblock Gpu-based parallel algorithms for sparse nonlinear systems.
@@ -35,6 +40,19 @@ Wulfram Gerstner and Werner~M Kistler.
 \bibitem{hestenes1952methods}
 Magnus~Rudolph Hestenes and Eduard Stiefel.
 \newblock Methods of conjugate gradients for solving linear systems, 1952.
+
+\bibitem{spinnweb}
+http://apt.cs.man.ac.uk/projects/SpiNNaker/.
+\newblock Official website of the spinnaker project.
+
+\bibitem{khan2008spinnaker}
+MM~Khan, DR~Lester, Luis~A Plana, A~Rast, X~Jin, E~Painkras, and Stephen~B
+  Furber.
+\newblock Spinnaker: mapping neural networks onto a massively-parallel chip
+  multiprocessor.
+\newblock In {\em Neural Networks, 2008. IJCNN 2008.(IEEE World Congress on
+  Computational Intelligence). IEEE International Joint Conference on}, pages
+  2849--2856. IEEE, 2008.
 
 \bibitem{maheswaran1999mcgs}
 Muthucumaru Maheswaran, Kevin~J Webb, and Howard~Jay Siegel.
@@ -62,12 +80,6 @@ L.~Olson.
 William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
 \newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
 \newblock Cambridge university press, 2007.
-
-\bibitem{rosenbloom1956method}
-PC~Rosenbloom.
-\newblock The method of steepest descent.
-\newblock In {\em Proc. of Symp. in Applied Math}, volume~6, pages 127--176,
-  1956.
 
 \bibitem{sharp2012power}
 Thomas Sharp, Francesco Galluppi, Alexander Rast, and Steve Furber.

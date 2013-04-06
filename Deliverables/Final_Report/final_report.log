@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  4 APR 2013 19:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  6 APR 2013 14:22
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -399,17 +399,42 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.66 \newpage
-              [1] <Pics/neuron.jpg, id=97, 121.4136pt x 85.0377pt>
+              [1] <Pics/neuron.jpg, id=112, 121.4136pt x 85.0377pt>
 File: Pics/neuron.jpg Graphic file (type jpg)
 
-<use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>] [3]
-Overfull \hbox (7.41211pt too wide) in paragraph at lines 121--122
+<use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>]
+<Pics/chip.png, id=122, 419.5675pt x 399.4925pt>
+File: Pics/chip.png Graphic file (type png)
+ <use Pics/chip.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] <Pics/router.png, id=132, 365.365pt x 244.915pt>
+File: Pics/router.png Graphic file (type png)
+ <use Pics/router.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Pics/topology.png, id=134, 290.08376pt x 289.08pt>
+File: Pics/topology.png Graphic file (type png)
+ <use Pics/topology.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./Pics/chip.png (PNG copy)>] [5 <./Pics/router.png (PNG copy)> <./Pics/topo
+logy.png (PNG copy)>] [6] [7]
+
+LaTeX Warning: Citation `rosenbloom1956method' on page 8 undefined on input lin
+e 157.
+
+
+Overfull \hbox (7.41211pt too wide) in paragraph at lines 157--158
 []\T1/ppl/m/n/12 The CGM, as well as most op-ti-miza-tion meth-ods(for ex-am-pl
 e the method
  []
 
 
-Overfull \hbox (23.90605pt too wide) detected at line 141
+Overfull \hbox (23.90605pt too wide) detected at line 177
 []\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
 \OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
 mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
@@ -418,46 +443,55 @@ cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
 /cmm/m/it/12 r[]p[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 p[]Ae[]
  []
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 168--171
+[8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
 
  []
 
-[6]
-Overfull \hbox (2.44432pt too wide) in paragraph at lines 209--210
+[10]
+Overfull \hbox (2.44432pt too wide) in paragraph at lines 245--246
 \T1/ppl/m/n/12 im-proved al-go-rithm named ICGS(Improved Con-ju-gate Gra-di-ent
  Squared),
  []
 
-[7] (./final_report.bbl
-Underfull \hbox (badness 1342) in paragraph at lines 73--77
+[11] (./final_report.bbl [12]
+Underfull \hbox (badness 1342) in paragraph at lines 85--89
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[8]) [9] (./final_report.aux) ) 
+)
+
+LaTeX Warning: Citation `rosenbloom1956method' on page 13 undefined on input li
+ne 267.
+
+[13] (./final_report.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6538 strings out of 493848
- 88748 string characters out of 1152824
+ 6572 strings out of 493848
+ 89269 string characters out of 1152824
  184428 words of memory out of 3000000
- 9630 multiletter control sequences out of 15000+50000
+ 9648 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,15n,38p,731b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8
-r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/f
-onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.p
-fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/t
-ype1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino
-/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (13 pages, 223780 bytes).
+ 38i,15n,38p,884b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb>
+</usr/share/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf
+-texlive/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on final_report.pdf (17 pages, 591152 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
- 72 named destinations out of 1000 (max. 500000)
- 102 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 323 PDF objects out of 1000 (max. 8388607)
+ 84 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
