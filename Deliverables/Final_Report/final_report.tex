@@ -134,8 +134,23 @@ This architecture supports routing tables of 1024 entries. Each entry is of 32-b
 Having talked about how the architecture works, it would be a good point to talk about the bandwidth bisection that it offers. Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63K. If we would split the topology in two then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256. Given that each node should carry 25M packets/sec\cite{docfile}\cite{navaridas2009understanding}.
 \newpage
 \subsection{Software creation}
-There is a lot that comes when trying to run any kind of software in a SpiNNaker board and this is what this section discusses
-\subsubsection{Startup and Local Data Structures}
+There is a lot that comes when trying to run any kind of software in a SpiNNaker board. The basic devices that are used to run software are three.
+\begin{itemize}
+\item Host Machine, which is mainly used for input and output, and it is the component that the user interacts with to start an application
+\item Monitor Cores. This is the same Monitor core that was discussed previously. Its main use is monitoring and managing the system and the application cores. One of them also communicates with the host, in order to start up the program.
+\item Application Cores, which are used to carry out the computation of the application.\cite{furber2012overview}
+\end{itemize}
+
+At this point it is noteworthy to mention that the programming model of the machine is event-driven, meaning computations occur when specific events take place. More on that will be covered in late sections
+\subsubsection{Startup}
+In order to do the startup the devices mentioned above some kind of software needs to be used. For the Host machine to interact with the main Monitor Core \emph{ybug} is used. It is also used to start applications. Ofcourse ybug does not communicate only with the hardware of the monitor core. There is another software called \emph{scamp}, that works on top of the Monitor Core. It interacts with the ybug and the \emph{sark}, which is a software that is used by the application cores. Sark lets the user to manipulate some hardware parts of a SpiNNaker chip.\cite{spinnweb}
+\subsubsection{Local Data Structures}
+Before the application starts running, some other applications need to be comlpeted first. These include finding the state of the machine, finding a communications tree and sketching out the point-to-point tables.
+
+\paragraph{The state of the machine}
+To discover the state of the machine, each chip checks its cores and the connections between them to check whether any broken links exist. How the algorithm works is that firstly a root node is selected and is marked with a Request(R) token. Each time a core has a R token it sends an Acknowledge(A) label to all the incoming ports. If the labeling is successful, then that incoming port is deemed Good. Otherwise it tries to send an R token to that port and it marks it as Broken.
+\paragraph{Building a communications tree}
+
 \subsubsection{Program Loading}
 In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. With the static model the network topology, the connections between nodes and the allocation of the hardware is provided explicitely and externally by the user, before the execution of the program. Moreover, data and additional execution information needs to be defined before the program is loaded in the machine. This information is read from an external machine and written again in a fashion that is readable by the machine. This is usually done through binary files. the Host starts the execution of the program, after the 'readable' version is has been loaded to the machine. When the program terminates, or the user wishes to terminate it, then the Host issues a halt command that stops all operations\cite{docfile}.
 

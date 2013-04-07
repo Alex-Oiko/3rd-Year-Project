@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  6 APR 2013 19:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  7 APR 2013 14:45
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -399,23 +399,23 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.66 \newpage
-              [1] <Pics/neuron.jpg, id=148, 121.4136pt x 85.0377pt>
+              [1] <Pics/neuron.jpg, id=153, 121.4136pt x 85.0377pt>
 File: Pics/neuron.jpg Graphic file (type jpg)
 
 <use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>]
-<Pics/chip.png, id=158, 419.5675pt x 399.4925pt>
+<Pics/chip.png, id=163, 419.5675pt x 399.4925pt>
 File: Pics/chip.png Graphic file (type png)
  <use Pics/chip.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] <Pics/router.png, id=168, 365.365pt x 244.915pt>
+[3] <Pics/router.png, id=173, 365.365pt x 244.915pt>
 File: Pics/router.png Graphic file (type png)
  <use Pics/router.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pics/topology.png, id=170, 290.08376pt x 289.08pt>
+<Pics/topology.png, id=175, 290.08376pt x 289.08pt>
 File: Pics/topology.png Graphic file (type png)
  <use Pics/topology.png>
 
@@ -431,25 +431,25 @@ File: omsppl.fd
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 124.
 
-[6] [7]
-Overfull \hbox (3.39137pt too wide) in paragraph at lines 140--141
+[6] [7] [8]
+Overfull \hbox (3.39137pt too wide) in paragraph at lines 155--156
 \T1/ppl/m/n/12 With the static model the net-work topol-ogy, the con-nec-tions 
 be-tween nodes
  []
 
-[8] [9]
+[9] [10]
 
-LaTeX Warning: Citation `rosenbloom1956method' on page 10 undefined on input li
-ne 183.
+LaTeX Warning: Citation `rosenbloom1956method' on page 11 undefined on input li
+ne 198.
 
 
-Overfull \hbox (7.41211pt too wide) in paragraph at lines 183--184
+Overfull \hbox (7.41211pt too wide) in paragraph at lines 198--199
 []\T1/ppl/m/n/12 The CGM, as well as most op-ti-miza-tion meth-ods(for ex-am-pl
 e the method
  []
 
 
-Overfull \hbox (23.90605pt too wide) detected at line 203
+Overfull \hbox (23.90605pt too wide) detected at line 218
 []\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
 \OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
 mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
@@ -458,37 +458,37 @@ cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
 /cmm/m/it/12 r[]p[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 p[]Ae[]
  []
 
-[10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
 
  []
 
-[12]
-Overfull \hbox (2.44432pt too wide) in paragraph at lines 271--272
+[13]
+Overfull \hbox (2.44432pt too wide) in paragraph at lines 286--287
 \T1/ppl/m/n/12 im-proved al-go-rithm named ICGS(Improved Con-ju-gate Gra-di-ent
  Squared),
  []
 
-[13] (./final_report.bbl [14]
+[14] (./final_report.bbl [15]
 Underfull \hbox (badness 1342) in paragraph at lines 108--112
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[15])
+[16])
 
-LaTeX Warning: Citation `rosenbloom1956method' on page 16 undefined on input li
-ne 293.
+LaTeX Warning: Citation `rosenbloom1956method' on page 17 undefined on input li
+ne 308.
 
-[16] (./final_report.aux)
+[17] (./final_report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6616 strings out of 493848
- 90005 string characters out of 1152824
+ 6621 strings out of 493848
+ 90072 string characters out of 1152824
  184428 words of memory out of 3000000
- 9674 multiletter control sequences out of 15000+50000
+ 9675 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,15n,38p,905b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -504,9 +504,9 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb>
 </usr/share/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf
 -texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (20 pages, 608433 bytes).
+Output written on final_report.pdf (21 pages, 611996 bytes).
 PDF statistics:
- 399 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 413 PDF objects out of 1000 (max. 8388607)
+ 103 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
