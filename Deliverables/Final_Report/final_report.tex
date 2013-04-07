@@ -148,14 +148,18 @@ In order to do the startup the devices mentioned above some kind of software nee
 Before the application starts running, some other applications need to be comlpeted first. These include finding the state of the machine, finding a communications tree and sketching out the point-to-point tables.
 
 \paragraph{The state of the machine}
-To discover the state of the machine, each chip checks its cores and the connections between them to check whether any broken links exist. How the algorithm works is that firstly a root node is selected and is marked with a Request(R) token. Each time a core has a R token it sends an Acknowledge(A) label to all the incoming ports. If the labeling is successful, then that incoming port is deemed Good. Otherwise it tries to send an R token to that port and it marks it as Broken.
+To discover the state of the machine, each chip checks its cores and the connections between them to check whether any broken links exist. How the algorithm works is that firstly a root node is selected and is marked with a Request(R) token. Each time a core has a R token it sends an Acknowledge(A) label to all the incoming ports. If the labeling is successful, then that incoming port is deemed Good. Otherwise it tries to send an R token to that port and it marks it as Broken\cite{jefflec}.
 \paragraph{Building a communications tree}
+In order to build a communication tree a breadth first tree traversal is used. To achieve that firstly a root node is selected and given the token Forward(F). The root node speaks to neighbour nodes and after giving them the label Child it says to them to also send F tokens to all their neighbours, thus making them parents. Once there are not any more unlabelled nodes, the nodes are instructed to return a Backwards(B) token to their parent nodes. That way the system becomes aware of which nodes communicate with each other. If by any chance two nodes send to each other a B token through the same port, then that port is deemed non communicational and is labelled Unused. The reason for that is to avoid any loops in the system\cite{jefflec}.
+\paragraph{Creating the P2P Tables}
+In order to know to which nodes a packet needs to be sent, the nodes need an ID. Point-to-Point tables are used to list the ID's of nodes, so it knows which port it should follow. At first all nodes are undefined(U). If we were to find the entry for one undefined node then the table would mark its own incoming port and send its port to all other ports.  That way all the other chips in the board would know what port to use to communicate with that node. For the nodes that are on the same chip with that node............If that is done for the all of the nodes in the system, then the P2P table is built\cite{jefflec}. 
 
 \subsubsection{Program Loading}
 In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. With the static model the network topology, the connections between nodes and the allocation of the hardware is provided explicitely and externally by the user, before the execution of the program. Moreover, data and additional execution information needs to be defined before the program is loaded in the machine. This information is read from an external machine and written again in a fashion that is readable by the machine. This is usually done through binary files. the Host starts the execution of the program, after the 'readable' version is has been loaded to the machine. When the program terminates, or the user wishes to terminate it, then the Host issues a halt command that stops all operations\cite{docfile}.
 
 There is an additional model for loading data in the system called the dynamic model, which would enable the machine to figure the network topology by itself, while running the application. However, this kind of a model is still in low stages\cite{docfile}.
 \subsubsection{Event Handling}
+	
 \subsection{Notable work using the SpiNNaker architecture}
 Most of the notable work done in SpiNNaker machines is simulation of neurons. Each time different sets of neurons would be used to be simulated. An example would be simulating the neurons of the retina, so as to make it possible for a robot to calculate its place\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Another interesting application would be teaching temporal sequences  of discrete symbols, thus making fast and accurate predictions of new sequnces\cite{bose2005spiking}.
 Most of the notable work done in SpiNNaker machines is simulation of neurons. e
@@ -313,4 +317,5 @@ Finally, there are many recent implementations which have used GPU's in order to
 \cite{plana2007gals}
 \cite{furber2012overview}
 \cite{bose2005spiking}
+\cite{jefflec}
 \end{document}

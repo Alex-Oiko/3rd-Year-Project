@@ -16,9 +16,10 @@
 \contentsline {subsubsection}{\numberline {2.3.2}Local Data Structures}{8}{subsubsection.2.3.2}
 \contentsline {paragraph}{The state of the machine}{8}{section*.4}
 \contentsline {paragraph}{Building a communications tree}{9}{section*.5}
+\contentsline {paragraph}{Creating the P2P Tables}{9}{section*.6}
 \contentsline {subsubsection}{\numberline {2.3.3}Program Loading}{9}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{9}{subsubsection.2.3.4}
-\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{9}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{10}{subsubsection.2.3.4}
+\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{10}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Conjugate Gradient Method}{10}{subsection.2.5}
 \contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{10}{subsubsection.2.5.1}
 \contentsline {subsubsection}{\numberline {2.5.2}Conjugate Gradients}{11}{subsubsection.2.5.2}

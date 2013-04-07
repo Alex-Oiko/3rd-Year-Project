@@ -158,24 +158,6 @@
   year={2005},
   publisher={Springer}
 }
-@article{sharp2012power,
-  title={Power-efficient simulation of detailed cortical microcircuits on SpiNNaker},
-  author={Sharp, Thomas and Galluppi, Francesco and Rast, Alexander and Furber, Steve},
-  journal={Journal of Neuroscience Methods},
-  year={2012},
-  publisher={Elsevier}
-}
-@inproceedings{davies2010interfacing,
-  title={Interfacing real-time spiking I/O with the SpiNNaker neuromimetic Architecture},
-  author={Davies, Sergio and Patterson, Cameron and Galluppi, Francesco and Rast, Alexander D and Lester, David and Furber, Steve B},
-  booktitle={Proceedings 17th International Conference, ICONIP 2010.},
-  pages={7--11},
-  year={2010},
-  organization={Australian Journal of Intelligent Information Processing Systems, Vol. 11, No. 1,}
-}
-
-
-
 @misc{docfile,
  title={SpiNNaker...},
  author={Andrew Brown Steve Furber and a host of others...},
@@ -192,7 +174,11 @@
   year={2007},
   publisher={IEEE}
 }
-
+@misc{jefflec
+ title={Jeffs lectures},
+ author={Jeff Reeve},
+ year={2012}
+ }
 
 
 
