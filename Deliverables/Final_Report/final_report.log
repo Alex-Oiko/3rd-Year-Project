@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  7 APR 2013 21:09
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  8 APR 2013 15:01
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -437,19 +437,23 @@ Overfull \hbox (3.39137pt too wide) in paragraph at lines 158--159
 be-tween nodes
  []
 
-[9] [10]
+[9] <Pics/event-handling.png, id=234, 667.49374pt x 550.055pt>
+File: Pics/event-handling.png Graphic file (type png)
 
-LaTeX Warning: Citation `rosenbloom1956method' on page 11 undefined on input li
-ne 202.
+<use Pics/event-handling.png> [10 <./Pics/event-handling.png (PNG copy)>]
+[11]
+
+LaTeX Warning: Citation `rosenbloom1956method' on page 12 undefined on input li
+ne 215.
 
 
-Overfull \hbox (7.41211pt too wide) in paragraph at lines 202--203
+Overfull \hbox (7.41211pt too wide) in paragraph at lines 215--216
 []\T1/ppl/m/n/12 The CGM, as well as most op-ti-miza-tion meth-ods(for ex-am-pl
 e the method
  []
 
-[11]
-Overfull \hbox (23.90605pt too wide) detected at line 222
+[12]
+Overfull \hbox (23.90605pt too wide) detected at line 235
 []\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
 \OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
 mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
@@ -458,37 +462,37 @@ cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
 /cmm/m/it/12 r[]p[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 p[]Ae[]
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 249--252
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 262--265
 
  []
 
-[13]
-Overfull \hbox (2.44432pt too wide) in paragraph at lines 290--291
+[14]
+Overfull \hbox (2.44432pt too wide) in paragraph at lines 303--304
 \T1/ppl/m/n/12 im-proved al-go-rithm named ICGS(Improved Con-ju-gate Gra-di-ent
  Squared),
  []
 
-[14] (./final_report.bbl [15]
-Underfull \hbox (badness 1342) in paragraph at lines 112--116
+[15] (./final_report.bbl [16]
+Underfull \hbox (badness 1342) in paragraph at lines 120--124
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[16])
+[17])
 
-LaTeX Warning: Citation `rosenbloom1956method' on page 17 undefined on input li
-ne 312.
+LaTeX Warning: Citation `rosenbloom1956method' on page 18 undefined on input li
+ne 325.
 
-[17] (./final_report.aux)
+[18] (./final_report.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6624 strings out of 493848
- 90103 string characters out of 1152824
+ 6633 strings out of 493848
+ 90286 string characters out of 1152824
  185428 words of memory out of 3000000
- 9676 multiletter control sequences out of 15000+50000
+ 9681 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,15n,38p,905b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -504,9 +508,9 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplb8a.pfb>
 </usr/share/texmf-texlive/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf
 -texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (21 pages, 613854 bytes).
+Output written on final_report.pdf (22 pages, 664165 bytes).
 PDF statistics:
- 419 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
- 213 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 431 PDF objects out of 1000 (max. 8388607)
+ 108 named destinations out of 1000 (max. 500000)
+ 218 words of extra memory for PDF output out of 10000 (max. 10000000)
 

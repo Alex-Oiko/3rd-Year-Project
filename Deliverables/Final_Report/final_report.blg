@@ -5,45 +5,45 @@ Database file #1: ref.bib.bib
 Warning--I didn't find a database entry for "rosenbloom1956method"
 Warning--empty journal in adams1983m
 Warning--empty journal in furber2012overview
-You've used 24 entries,
+You've used 25 entries,
             2118 wiz_defined-function locations,
-            631 strings with 8396 characters,
-and the built_in function-call counts, 8659 in all, are:
-= -- 847
-> -- 435
+            637 strings with 8742 characters,
+and the built_in function-call counts, 9209 in all, are:
+= -- 896
+> -- 483
 < -- 7
-+ -- 176
-- -- 148
-* -- 569
-:= -- 1395
-add.period$ -- 73
-call.type$ -- 24
-change.case$ -- 144
++ -- 195
+- -- 166
+* -- 624
+:= -- 1492
+add.period$ -- 76
+call.type$ -- 25
+change.case$ -- 156
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 323
-empty$ -- 677
-format.name$ -- 148
-if$ -- 1845
+cite$ -- 27
+duplicate$ -- 334
+empty$ -- 704
+format.name$ -- 166
+if$ -- 1948
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 20
-newline$ -- 117
-num.names$ -- 48
-pop$ -- 196
+int.to.str$ -- 25
+missing$ -- 21
+newline$ -- 122
+num.names$ -- 50
+pop$ -- 206
 preamble$ -- 1
-purify$ -- 122
+purify$ -- 133
 quote$ -- 0
-skip$ -- 252
+skip$ -- 259
 stack$ -- 0
-substring$ -- 499
-swap$ -- 88
+substring$ -- 529
+swap$ -- 89
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 92
+type$ -- 96
 warning$ -- 2
-while$ -- 81
-width$ -- 26
-write$ -- 247
+while$ -- 85
+width$ -- 27
+write$ -- 258
 (There were 3 warnings)

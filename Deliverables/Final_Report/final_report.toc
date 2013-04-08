@@ -11,7 +11,7 @@
 \contentsline {subsubsection}{\numberline {2.2.4}Packets}{6}{subsubsection.2.2.4}
 \contentsline {subsubsection}{\numberline {2.2.5}Routing Tables}{6}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Bandwidth}{7}{subsubsection.2.2.6}
-\contentsline {subsection}{\numberline {2.3}Software creation}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}Software}{8}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Startup}{8}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Local Data Structures}{8}{subsubsection.2.3.2}
 \contentsline {paragraph}{The state of the machine}{8}{section*.4}
@@ -19,9 +19,9 @@
 \contentsline {paragraph}{Creating the P2P Tables}{9}{section*.6}
 \contentsline {subsubsection}{\numberline {2.3.3}Program Loading}{9}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{10}{subsubsection.2.3.4}
-\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{10}{subsection.2.4}
-\contentsline {subsection}{\numberline {2.5}Conjugate Gradient Method}{10}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{10}{subsubsection.2.5.1}
-\contentsline {subsubsection}{\numberline {2.5.2}Conjugate Gradients}{11}{subsubsection.2.5.2}
-\contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{13}{subsubsection.2.5.3}
-\contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{13}{subsubsection.2.5.4}
+\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{11}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Conjugate Gradient Method}{11}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{11}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Conjugate Gradients}{12}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{14}{subsubsection.2.5.3}
+\contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{14}{subsubsection.2.5.4}

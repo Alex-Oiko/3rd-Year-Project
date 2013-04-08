@@ -133,7 +133,7 @@ This architecture supports routing tables of 1024 entries. Each entry is of 32-b
 \subsubsection{Bandwidth}
 Having talked about how the architecture works, it would be a good point to talk about the bandwidth bisection that it offers. Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63K. If we would split the topology in two then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256. Given that each node should carry 25M packets/sec\cite{docfile}\cite{navaridas2009understanding}.
 \newpage
-\subsection{Software creation}
+\subsection{Software}
 There is a lot that comes when trying to run any kind of software in a SpiNNaker board. The basic devices that are used to run software are three.
 \begin{itemize}
 \item Host Machine, which is mainly used for input and output, and it is the component that the user interacts with to start an application
@@ -159,6 +159,19 @@ In order to begin running a program some input needs to be provided to the syste
 
 There is an additional model for loading data in the system called the dynamic model, which would enable the machine to figure the network topology by itself, while running the application. However, this kind of a model is still in low stages\cite{docfile}.
 \subsubsection{Event Handling}
+As mentioned before the SpiNNaker architecture's programming model is event-driven. For a function to be executed by a an application core, a certain event needs to occur beforehands. In the context of SpiNNaker there are three events that can cause a function to run.
+\begin{itemize}
+\item Delivery of a packet.
+\item Completion of a DMA transfer.
+\item After a time interval.
+\end{itemize}
+Each of these bullet points qualifies as an event. The programmer cannot really control when these specific events will take place(except in the case of the time interval). What the programmer can control is the what happens when such an event occurs. The functions, in this context referred as callbacks, are written by the programmers, which after a specific event occurs, are given a priority with the kernel(sark). 
+\begin{figure}[h!]
+\includegraphics[width=250pt,height=150pt,scale=2]{Pics/event-handling.png}
+\centering
+\caption{Event-handling. The control and data flow is shown\cite{sharp2011event}}
+\end{figure}
+The types of callbacks can be seperated in two categories. Queueable and non-queueable. In the case of a non-queuable callback, the callback is executed immediately by the system, having the top priority of execution. A queueable callback, which is most common, will be put on an execution queue along with other queueable callbacks. In the case that the queue empties, no callbacks will be executed. It will continue executing callbacks when another event occurs at some point\cite{sharp2011event}\cite{rast2012managing}. 
 	
 \subsection{Notable work using the SpiNNaker architecture}
 Most of the notable work done in SpiNNaker machines is simulation of neurons. Each time different sets of neurons would be used to be simulated. An example would be simulating the neurons of the retina, so as to make it possible for a robot to calculate its place\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Another interesting application would be teaching temporal sequences  of discrete symbols, thus making fast and accurate predictions of new sequnces\cite{bose2005spiking}.
@@ -244,7 +257,7 @@ Using (9) and (10) and a Gram-Schmidt conjugation we are able to reach and a val
 \begin{equation}
 \beta = \frac{r^T_{k+1}r_{k+1}}{r^T_kr_k}
 \end{equation}
-\newpage
+\newpage\cite{rast2012managing}
 \subsubsection{The algorithm}
 Combining the optimal value of $\alpha$(8) and $\beta$(9) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
 \\
@@ -318,4 +331,5 @@ Finally, there are many recent implementations which have used GPU's in order to
 \cite{furber2012overview}
 \cite{bose2005spiking}
 \cite{jefflec}
+\cite{rast2012managing}
 \end{document}

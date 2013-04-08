@@ -174,11 +174,29 @@
   year={2007},
   publisher={IEEE}
 }
-@misc{jefflec
+@misc{jefflec,
  title={Jeffs lectures},
  author={Jeff Reeve},
  year={2012}
  }
+@inproceedings{sharp2011event,
+  title={Event-Driven Simulation of Arbitrary Spiking Neural Networks on SpiNNaker},
+  author={Sharp, Thomas and Plana, Luis A and Galluppi, Francesco and Furber, Steve},
+  booktitle={Neural Information Processing},
+  pages={424--430},
+  year={2011},
+  organization={Springer}
+}
+@article{rast2012managing,
+  title={Managing burstiness and scalability in event-driven models on the SpiNNaker neuromimetic system},
+  author={Rast, Alexander D and Navaridas, Javier and Jin, Xin and Galluppi, Francesco and Plana, Luis A and Miguel-Alonso, Jose and Patterson, Cameron and Luj{\'a}n, Mikel and Furber, Steve},
+  journal={International Journal of Parallel Programming},
+  volume={40},
+  number={6},
+  pages={553--582},
+  year={2012},
+  publisher={Springer}
+}
 
 
 

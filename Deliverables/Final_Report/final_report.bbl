@@ -104,6 +104,14 @@ William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
 \newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
 \newblock Cambridge university press, 2007.
 
+\bibitem{rast2012managing}
+Alexander~D Rast, Javier Navaridas, Xin Jin, Francesco Galluppi, Luis~A Plana,
+  Jose Miguel-Alonso, Cameron Patterson, Mikel Luj{\'a}n, and Steve Furber.
+\newblock Managing burstiness and scalability in event-driven models on the
+  spinnaker neuromimetic system.
+\newblock {\em International Journal of Parallel Programming}, 40(6):553--582,
+  2012.
+
 \bibitem{jefflec}
 Jeff Reeve.
 \newblock Jeffs lectures, 2012.
