@@ -303,6 +303,34 @@ Some other parallel implementations try to use more specific preconditionings to
 One of the most interesting implementations of the CGM, suggests an improved algorithm named ICGS(Improved Conjugate Gradient Squared), which is based in another already altered version of the CGM\cite{maheswaran1999mcgs}. This implementation computes all vector-matrix  multiplications and inner products concurrently, for each iteration. The communication time between these operations and vector updates has been organised efficiently, so that global communication drops significantly, thus dropping the run time of the algorithm as well\cite{yang2001improved}.
 
 Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These pieces of work use CUDA and various other techniques to accomplish their goal, with some very good results. Ofcourse different GPU models are used, but that just enhances the generality of the solution. Generally though,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
+\section{Design}
+As it was stated in the introduction the purpose of this project was to significantly reduce the time that the CGM takes to run, by reducing the time complexity of its most expensive computations. These computations were matrix-vector multplication and inner-product. In this section the basic communication, the matrix-vector multiplication and the flow of the program is considered.
+
+Throughout this section, each core is going to be referred as a node, so as to think the system as a graph. This might help visualising the problem.
+\subsection{Basic communication}
+Using the massive parallelism that the SpiNNaker architecture provides with over a million cores, it was a clear step that each element of the input matrix(A) and vectors(b,r) would be put into a different node. 
+\begin{figure}[h!]
+\includegraphics[width=250pt,height=150pt,scale=2]{Pics/basic.png}
+\centering
+\caption{Basic communication between nodes.}
+\end{figure}
+Considering that choice, it is easy to see that each node would need to receive and send spikes to different node at each time in the same fashion that Figure 6 shows. In that figure node 3 receives packets from nodes 1 and 2 and after some manipulation of the incoming data it sends its results to nodes 4,5. 
+
+If this model is to be used each computation would be completed atomically and if only one computation is needed every time then the complexity at each core would be $O(1)$.
+\subsection{Matrix-Vector Multiplication}
+Using the above model a matrix-vector multiplication would look like Figure 7. 
+\begin{figure}[h!]
+\includegraphics[width=250pt,height=150pt,scale=2]{Pics/mat0mult.png}
+\centering
+\caption{Matrix-vector multiplicatio for A*x.}
+\end{figure}
+
+In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) to display the general overview of this operation in the example of a 3x3 matrix and a 3x1 vector. To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $x$-nodes know to which $A$-nodes they should send based on the connections that was provided beforehands by the user. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. Even though the figure shows that $A$-nodes send their value to next $A$-node in the column, the graph means to show that the $x$-nodes are the ones that are sent. The figure is shown that way for means of clarity. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
+
+Given the figure above, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice, the complexity is larger.
+\subsection{TT Format}
+\subsection{Flow of Program}
+\subsection{Constant nodes}
 \newpage
 \bibliographystyle{plain}
 \bibliography{ref.bib}

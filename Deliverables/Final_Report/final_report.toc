@@ -25,3 +25,9 @@
 \contentsline {subsubsection}{\numberline {2.5.2}Conjugate Gradients}{12}{subsubsection.2.5.2}
 \contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{14}{subsubsection.2.5.3}
 \contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{14}{subsubsection.2.5.4}
+\contentsline {section}{\numberline {3}Design}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}Basic communication}{15}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Matrix-Vector Multiplication}{16}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}TT Format}{17}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Flow of Program}{17}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Constant nodes}{17}{subsection.3.5}
