@@ -325,12 +325,50 @@ Using the above model a matrix-vector multiplication would look like Figure 7.
 \caption{Matrix-vector multiplicatio for A*x.}
 \end{figure}
 
-In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) to display the general overview of this operation in the example of a 3x3 matrix and a 3x1 vector. To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $x$-nodes know to which $A$-nodes they should send based on the connections that was provided beforehands by the user. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. Even though the figure shows that $A$-nodes send their value to next $A$-node in the column, the graph means to show that the $x$-nodes are the ones that are sent. The figure is shown that way for means of clarity. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
+In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an examplee to display the general overview of this operation. In this figure the example of a 3x3 matrix $A$ matix and 3x1 vectors is used for simplicity. To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $x$-nodes know to which $A$-nodes they should send based on the connections that were provided beforehands by the user. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. Even though the figure shows that $A$-nodes send their value to the next $A$-node in the column, the graph means to show that the $x$-nodes are the ones that are sent. The figure is shown that way for means of clarity. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
 
-Given the figure above, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice, the complexity is larger.
-\subsection{TT Format}
-\subsection{Flow of Program}
-\subsection{Constant nodes}
+To demonstrate the above property with an example, in Figure 7 the node $x_0$ sends its value to the $A$ nodes with column 0($A_{0,0} A_{1,0} A_{2,0}$). Once the muliplication in each of these nodes is completed, the result is sent to the respective $r$ node. Again this connection has been provided by the user, but this time the row of the $A$ element is  considered.
+
+Given the figure above, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice as it will be explained later, the complexity is larger.
+\subsection{Program Flow}
+Given what has been discussed so far consider the following Figure 8.
+\begin{figure}[h!]
+\includegraphics[width=500pt,height=150pt,scale=1]{Pics/program_flow.png}
+\centering
+\caption{The program flow in class diagram.}
+\end{figure}
+Figure 8 demonstrates roughly the program flow of the CGM through the SpiNNaker machine. Each node in the figure represents a number of nodes in the machine. Based on the previous section and this diagram the $x$ node in the beginning of the diagram represents 3 actual nodes, if the example of the previous section is to be continued. In the case of A nodes and Ap nodes where there exist $nxn$ nodes, then the one node representds $n^2$ nodes. 
+
+In addition to the input nodes $x,A,b$ it is viewable that there are some more nodes that exist throughout the algorithm. These nodes are helper nodes, without whom the algorithm would not be solvable. A set of nodes that is not found in the CGM algorithm explained previously are Ap nodes. These nodes are used to save the result of the $A*p$ computation and help towards running the algorithm.
+
+Also consider some constant nodes that can be found in Figure 8. These are $\alpha$(alpha in Figure 8),$\beta$,(beta in Figure 8),$rsold$ and $rsnew$. These nodes were used to compute and save constant values that are needed for the computation of the algorithm. The constant $\alpha$ and $\beta$ can be found in the original algorithm too, but this is not the case for $rsold$ and $rsnew$. These constants are used to save the result of the inner product $r^Tr$ in each iteration. Since both $r_k^Tr_k$ and $r_{k+1}^Tr_{k+1}$ are needed in each computation, two variables are used to save their respective result.
+
+Notice that the program flow is quite sequential in the way it executes, so as to avoid bad timed and wron calculation. Even though the flow seems sequential, the algorithm runs in parallel for each calculation. Some cases where the program flow seems to be more parallel is when rsold and rsnew send to many nodes at once. There is no problem of wrong calculation there, because assignement is done in these cases and the nodes invlolved are not used again for a considerable amount of time. In the rsold node this operation is not completed again after the first iteration.
+
+Finally, it should also be mentioned that after the first iteration whatever is done before the loop initiation is not needed, hence any operations existed to handle these events should be removed.
+\subsection{Target Table}
+As mentioned in the Background section each node in the system has a Target Table entry, which helps each node complete various computations by reading its contents. The Target Table entry is customizable, which means it is different for each application. For the Conjugate Gradient Method the Target Tabel entry is as follows.
+\begin{itemize}
+\item unsigned Kd
+\item vector<queue<unsigned>> OpCodes
+\item char Name
+\item usigned YD
+\item unsigned X
+\item unsigned Y
+\item float Value
+\item float Temp
+\item unsigned counter
+\item unsigned V
+\end{itemize}
+
+The Kd identifies the key of the node, which is individual to each node in the system. The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then the Y dimension would be 3 and the X dimension 4. However, in the CGM the matrixes are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. The X and Y variables are there to identify the position of the node in the matrix or vector that it belongs to. The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since they are also saved in main memory so as to have the program change their values when needed. Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in main memory.
+\subsubsection{OpCodes}
+OpCodes in this context stands for operation codes. As in what operation needs to be done at some point. If the program flow is looked thoroughly, it is apparent that some nodes need to do different computations at different points of the algorithm. For example, a $p$ node needs to either store the value of its respective $r$ node in its value, or do a computation such as $\alpha *p$
+\subsection{Justification for Design Choices}
+At this point a justification for some design decisions would be appropriate. The SpiNNaker architecture gives you the choice of having some kind of global variables that would be accessible by all nodes of the system. That feature would be usable considering constant values such as $\alpha$ and $\beta$, but instead nodes were selected to contain and compute these values. The reason for that was the algorithm itself. Better control over computation on certain nodes was provided when having constant nodes. This phenomenon occured because there was certainty that the value would change only when it was supposed to(when a packet would arrive in the node), whether with a global value reading a wrong value was a possibility.
+\section{Implementation}
+\subsection{The Simulator}
+\subsection{Offset}
 \newpage
 \bibliographystyle{plain}
 \bibliography{ref.bib}

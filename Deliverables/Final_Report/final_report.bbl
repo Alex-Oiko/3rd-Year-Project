@@ -116,6 +116,12 @@ Alexander~D Rast, Javier Navaridas, Xin Jin, Francesco Galluppi, Luis~A Plana,
 Jeff Reeve.
 \newblock Jeffs lectures, 2012.
 
+\bibitem{rosenbloom1956method}
+PC~Rosenbloom.
+\newblock The method of steepest descent.
+\newblock In {\em Proc. of Symp. in Applied Math}, volume~6, pages 127--176,
+  1956.
+
 \bibitem{sharp2012power}
 Thomas Sharp, Francesco Galluppi, Alexander Rast, and Steve Furber.
 \newblock Power-efficient simulation of detailed cortical microcircuits on

@@ -2,48 +2,47 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: final_report.aux
 The style file: plain.bst
 Database file #1: ref.bib.bib
-Warning--I didn't find a database entry for "rosenbloom1956method"
 Warning--empty journal in adams1983m
 Warning--empty journal in furber2012overview
-You've used 25 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            637 strings with 8742 characters,
-and the built_in function-call counts, 9209 in all, are:
-= -- 896
-> -- 483
-< -- 7
-+ -- 195
-- -- 166
-* -- 624
-:= -- 1492
-add.period$ -- 76
-call.type$ -- 25
-change.case$ -- 156
+            642 strings with 8828 characters,
+and the built_in function-call counts, 9637 in all, are:
+= -- 941
+> -- 490
+< -- 9
++ -- 199
+- -- 168
+* -- 647
+:= -- 1548
+add.period$ -- 79
+call.type$ -- 26
+change.case$ -- 160
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 334
-empty$ -- 704
-format.name$ -- 166
-if$ -- 1948
+cite$ -- 28
+duplicate$ -- 357
+empty$ -- 745
+format.name$ -- 168
+if$ -- 2049
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 21
-newline$ -- 122
-num.names$ -- 50
-pop$ -- 206
+int.to.str$ -- 26
+missing$ -- 22
+newline$ -- 127
+num.names$ -- 52
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 133
+purify$ -- 136
 quote$ -- 0
-skip$ -- 259
+skip$ -- 280
 stack$ -- 0
-substring$ -- 529
-swap$ -- 89
-text.length$ -- 7
+substring$ -- 567
+swap$ -- 101
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
+type$ -- 100
 warning$ -- 2
-while$ -- 85
-width$ -- 27
-write$ -- 258
-(There were 3 warnings)
+while$ -- 90
+width$ -- 28
+write$ -- 270
+(There were 2 warnings)

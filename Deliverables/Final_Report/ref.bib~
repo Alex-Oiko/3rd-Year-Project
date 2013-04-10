@@ -189,6 +189,20 @@
   year={2012},
   publisher={Springer}
 }
+@misc{interimfurber,
+ title={Jeffs lecturesasdsad},
+ author={Jeff Reevesadsad},
+ year={2012}
+ }
+@inproceedings{rosenbloom1956method,
+  title={The method of steepest descent},
+  author={Rosenbloom, PC},
+  booktitle={Proc. of Symp. in Applied Math},
+  volume={6},
+  pages={127--176},
+  year={1956}
+}
+
 
 
 

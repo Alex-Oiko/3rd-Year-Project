@@ -25,6 +25,10 @@
 \BOOKMARK [1][-]{section.3}{Design}{}
 \BOOKMARK [2][-]{subsection.3.1}{Basic communication}{section.3}
 \BOOKMARK [2][-]{subsection.3.2}{Matrix-Vector Multiplication}{section.3}
-\BOOKMARK [2][-]{subsection.3.3}{TT Format}{section.3}
-\BOOKMARK [2][-]{subsection.3.4}{Flow of Program}{section.3}
-\BOOKMARK [2][-]{subsection.3.5}{Constant nodes}{section.3}
+\BOOKMARK [2][-]{subsection.3.3}{Program Flow}{section.3}
+\BOOKMARK [2][-]{subsection.3.4}{Target Table}{section.3}
+\BOOKMARK [3][-]{subsubsection.3.4.1}{OpCodes}{subsection.3.4}
+\BOOKMARK [2][-]{subsection.3.5}{Justification for Design Choices}{section.3}
+\BOOKMARK [1][-]{section.4}{Implementation}{}
+\BOOKMARK [2][-]{subsection.4.1}{The Simulator}{section.4}
+\BOOKMARK [2][-]{subsection.4.2}{Offset}{section.4}
