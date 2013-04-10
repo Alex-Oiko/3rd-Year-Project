@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  10 APR 2013 17:59
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  10 APR 2013 20:13
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -399,23 +399,23 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.66 \newpage
-              [1] <Pics/neuron.jpg, id=203, 121.4136pt x 85.0377pt>
+              [1] <Pics/neuron.jpg, id=208, 121.4136pt x 85.0377pt>
 File: Pics/neuron.jpg Graphic file (type jpg)
 
 <use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>]
-<Pics/chip.png, id=213, 419.5675pt x 399.4925pt>
+<Pics/chip.png, id=218, 419.5675pt x 399.4925pt>
 File: Pics/chip.png Graphic file (type png)
  <use Pics/chip.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] <Pics/router.png, id=223, 365.365pt x 244.915pt>
+[3] <Pics/router.png, id=228, 365.365pt x 244.915pt>
 File: Pics/router.png Graphic file (type png)
  <use Pics/router.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pics/topology.png, id=225, 290.08376pt x 289.08pt>
+<Pics/topology.png, id=230, 290.08376pt x 289.08pt>
 File: Pics/topology.png Graphic file (type png)
  <use Pics/topology.png>
 
@@ -437,7 +437,7 @@ Overfull \hbox (3.39137pt too wide) in paragraph at lines 158--159
 be-tween nodes
  []
 
-[9] <Pics/event-handling.png, id=284, 667.49374pt x 550.055pt>
+[9] <Pics/event-handling.png, id=289, 667.49374pt x 550.055pt>
 File: Pics/event-handling.png Graphic file (type png)
 
 <use Pics/event-handling.png> [10 <./Pics/event-handling.png (PNG copy)>]
@@ -468,7 +468,7 @@ Overfull \hbox (2.44432pt too wide) in paragraph at lines 303--304
  Squared),
  []
 
-<Pics/basic.png, id=367, 242.9075pt x 159.59625pt>
+<Pics/basic.png, id=372, 242.9075pt x 159.59625pt>
 File: Pics/basic.png Graphic file (type png)
  <use Pics/basic.png>
 Overfull \hbox (0.11502pt too wide) in paragraph at lines 311--318
@@ -476,11 +476,11 @@ Overfull \hbox (0.11502pt too wide) in paragraph at lines 311--318
 e. Considering
  []
 
-[15] <Pics/mat0mult.png, id=380, 414.54875pt x 293.095pt>
+[15] <Pics/mat0mult.png, id=385, 414.54875pt x 293.095pt>
 File: Pics/mat0mult.png Graphic file (type png)
 
 <use Pics/mat0mult.png> [16 <./Pics/basic.png (PNG copy)> <./Pics/mat0mult.png 
-(PNG copy)>] <Pics/program_flow.png, id=387, 1181.41376pt x 323.2075pt>
+(PNG copy)>] <Pics/program_flow.png, id=392, 1181.41376pt x 323.2075pt>
 File: Pics/program_flow.png Graphic file (type png)
 
 <use Pics/program_flow.png>
@@ -497,18 +497,18 @@ Overfull \hbox (1.38696pt too wide) in paragraph at lines 342--343
  are Ap nodes.
  []
 
-[17] [18 <./Pics/program_flow.png (PNG copy)>] [19] [20] (./final_report.bbl
-[21]
+[17] [18 <./Pics/program_flow.png (PNG copy)>] [19] [20] [21]
+(./final_report.bbl [22]
 Underfull \hbox (badness 1342) in paragraph at lines 126--130
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[22]) [23] (./final_report.aux) ) 
+[23]) [24] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6677 strings out of 493848
- 90962 string characters out of 1152824
+ 6680 strings out of 493848
+ 90999 string characters out of 1152824
  185428 words of memory out of 3000000
- 9703 multiletter control sequences out of 15000+50000
+ 9704 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,15n,38p,1113b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -524,9 +524,9 @@ are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-t
 exlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts
 /type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palati
 no/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (27 pages, 761521 bytes).
+Output written on final_report.pdf (28 pages, 765545 bytes).
 PDF statistics:
- 516 PDF objects out of 1000 (max. 8388607)
- 127 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 321 words of extra memory for PDF output out of 10000 (max. 10000000)
 
