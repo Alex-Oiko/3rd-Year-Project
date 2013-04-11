@@ -145,13 +145,14 @@ bool TCram::ReadData(string TCDataFile){
         cout <<TCDataFile + " is the wrong file type matey\n";
         return false;
     }
+    OpCodesA = vector<vector<queue<uint32_t>>>(17);
     fread(&Rtype,1,3,TCFile);
     fread(&ChipCount,4,1,TCFile);
     for(Chip = 0; Chip < ChipCount; Chip++) {
         fread(&XY,2,1,TCFile);
         X = XY >> 8;
         Y = XY&0x0FF;
-        fread(&CoreCount, 2, 1, TCFile);
+	fread(&CoreCount, 2, 1, TCFile);
         for(C=0;C<CoreCount;C++) {
 	    cout<<"New node here"<<endl;
             fread(&StartAddress, 4, 1, TCFile);
@@ -169,9 +170,17 @@ bool TCram::ReadData(string TCDataFile){
 	    cout<<"V number is "<<oV<<endl;
 	    OpCodes = vector<uint32_t>(size);
 	    fread(&OpCodes[0],sizeof(uint32_t),size,TCFile);
-	    for(int k=0;k<OpCodes.size();k++){
-		cout<<"Value is "<<OpCodes[k]<<endl;
+	    queue<uint32_t> data;
+	    vector<queue<uint32_t>> holder;
+	    for(int p=0;p<OpCodes.size();p++){
+		cout<<"Value is "<<OpCodes[p]<<endl;
 	    }
+	    uint32_t counter=1;
+	    for(int f=1;f<OpCodes[0]<f++){
+	        index=OpCodes[1];
+		data.push(OpCodes[f]);
+	   }
+	   holder[index]=data;
 	}
     }
     fclose(TCFile);

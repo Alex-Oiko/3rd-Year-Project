@@ -141,11 +141,10 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	for(int f=0;f<TTE.OpCodes.size();f++){
 		if(TTE.OpCodes[f].front()<17){
 			transOp.resize(transOp.size()+TTE.OpCodes[f].size()+2);
-			cout<<"size is "<<transOp.size()<<endl;
 			valid_qs++;
-			transOp[counter]=f;
-			counter++;
 			transOp[counter]=TTE.OpCodes[f].size();
+			counter++;
+			transOp[counter]=f;
 			counter++;
 			while(!TTE.OpCodes[f].empty()){
 				transOp[counter]=TTE.OpCodes[f].front();

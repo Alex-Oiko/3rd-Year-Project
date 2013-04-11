@@ -1,72 +1,239 @@
 This is MatrixRun
-Give me a program root name matey Machine is a Rectangle(0), Torus(1) or Board48(2)? Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 23
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 23
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 19
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 25
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 21
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 25
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 25
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 23
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 23
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 23
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 19
-Reading new core
-Starting address:4198400
-CoreID is 1
-WordCount is 19
+Give me a program root name matey Machine is a Rectangle(0), Torus(1) or Board48(2)? Core count is 1
+New node here
+size is 9
+number of queues is 2
+V number is 10
+Value is 0
+Value is 4
+Value is 0
+Value is 0
+Value is 6
+Value is 6
+Value is 7
+Value is 1
+Value is 1
+Core count is 1
+New node here
+size is 9
+number of queues is 2
+V number is 11
+Value is 0
+Value is 4
+Value is 0
+Value is 0
+Value is 6
+Value is 6
+Value is 7
+Value is 1
+Value is 1
+Core count is 1
+New node here
+size is 6
+number of queues is 2
+V number is 16
+Value is 2
+Value is 1
+Value is 7
+Value is 6
+Value is 1
+Value is 12
+Core count is 1
+New node here
+size is 3
+number of queues is 1
+V number is 15
+Value is 6
+Value is 1
+Value is 13
+Core count is 1
+New node here
+size is 14
+number of queues is 3
+V number is 14
+Value is 2
+Value is 1
+Value is 7
+Value is 4
+Value is 6
+Value is 0
+Value is 0
+Value is 8
+Value is 8
+Value is 0
+Value is 0
+Value is 6
+Value is 1
+Value is 7
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 0
+Value is 1
+Value is 1
+Value is 1
+Value is 4
+Value is 3
+Value is 1
+Value is 0
+Value is 0
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 1
+Value is 1
+Value is 1
+Value is 1
+Value is 4
+Value is 3
+Value is 1
+Value is 0
+Value is 0
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 2
+Value is 1
+Value is 1
+Value is 1
+Value is 4
+Value is 3
+Value is 1
+Value is 0
+Value is 0
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 3
+Value is 1
+Value is 1
+Value is 1
+Value is 4
+Value is 3
+Value is 1
+Value is 0
+Value is 0
+Core count is 1
+New node here
+size is 5
+number of queues is 1
+V number is 13
+Value is 3
+Value is 3
+Value is 0
+Value is 0
+Value is 5
+Core count is 1
+New node here
+size is 14
+number of queues is 4
+V number is 8
+Value is 3
+Value is 2
+Value is 4
+Value is 14
+Value is 5
+Value is 2
+Value is 1
+Value is 0
+Value is 7
+Value is 1
+Value is 1
+Value is 9
+Value is 1
+Value is 15
+Core count is 1
+New node here
+size is 14
+number of queues is 4
+V number is 9
+Value is 3
+Value is 2
+Value is 4
+Value is 14
+Value is 5
+Value is 2
+Value is 1
+Value is 0
+Value is 7
+Value is 1
+Value is 1
+Value is 9
+Value is 1
+Value is 15
+Core count is 1
+New node here
+size is 10
+number of queues is 2
+V number is 6
+Value is 0
+Value is 4
+Value is 2
+Value is 0
+Value is 0
+Value is 0
+Value is 5
+Value is 2
+Value is 0
+Value is 10
+Core count is 1
+New node here
+size is 10
+number of queues is 2
+V number is 7
+Value is 0
+Value is 4
+Value is 2
+Value is 0
+Value is 0
+Value is 0
+Value is 5
+Value is 2
+Value is 0
+Value is 10
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 12
+Value is 3
+Value is 3
+Value is 5
+Value is 0
+Value is 0
+Value is 6
+Value is 1
+Value is 7
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 4
+Value is 4
+Value is 3
+Value is 0
+Value is 0
+Value is 11
+Value is 16
+Value is 1
+Value is 3
+Core count is 1
+New node here
+size is 8
+number of queues is 2
+V number is 5
+Value is 4
+Value is 3
+Value is 0
+Value is 0
+Value is 11
+Value is 16
+Value is 1
+Value is 3
 MC tables
 X=0, Y=0, Size=7
 Key = 5, Mask = ffffffff Data = 3
@@ -265,120 +432,103 @@ X=7, Y=6, Size=0
 X=7, Y=7, Size=0
 TCData for (X=0, Y=0, C=0)
 LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 22
+TTStart = 11, ValuesStart = 23
 LUT
 1000007,0  1010000,0  1020000,0  
-Name:A YD=2 X=0 Y=0
-Kd = 5, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+Kd = 5, OpCode = 3, Name=A , YD=2, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=3,Expected = 0, Arrived = 695396361
 TCData for (X=0, Y=1, C=0)
 LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 22
+TTStart = 11, ValuesStart = 23
 LUT
 1000007,0  1030000,0  1040000,0  
-Name:A YD=2 X=0 Y=1
-Kd = 10005, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+Kd = 10005, OpCode = 3, Name=A , YD=2, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=3,Expected = 0, Arrived = 695396361
 TCData for (X=0, Y=2, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2000006,0  2050002,0  
-Name:B YD=1 X=0 Y=0
-Kd = 20009, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 2, Arrived = 0
+Kd = 20009, OpCode = 3, Name=B , YD=1, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=0, Y=3, C=0)
 LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 18
+TTStart = 7, ValuesStart = 19
 LUT
 2000006,0  
-Name:C YD=1 X=0 Y=0
-Kd = 30008, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 1, Arrived = 0
+Kd = 30008, OpCode = 3, Name=C , YD=1, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=1,Expected = 0, Arrived = 695396361
 TCData for (X=1, Y=0, C=0)
 LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 24
+TTStart = 13, ValuesStart = 25
 LUT
 2000006,0  2010004,0  2020004,0  2050002,0  
-Name:L YD=1 X=0 Y=0
-Kd = 1000007, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+Kd = 1000007, OpCode = 3, Name=L , YD=1, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=4,Expected = 0, Arrived = 695396361
 TCData for (X=1, Y=1, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2010004,0  3000001,0  
-Name:M YD=2 X=0 Y=0
-Kd = 1010000, OpCode = 0, IV = 4.000000, Value = 4.000000, Expected = 2, Arrived = 0
+Kd = 1010000, OpCode = 3, Name=M , YD=2, Y=0, X=1082130432,IV = 0.000000, Value = 4.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=1, Y=2, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2020004,0  3010001,0  
-Name:M YD=2 X=0 Y=1
-Kd = 1020000, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 2, Arrived = 0
+Kd = 1020000, OpCode = 3, Name=M , YD=2, Y=0, X=1065353216,IV = 0.000000, Value = 1.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=1, Y=3, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2010004,0  3000001,0  
-Name:M YD=2 X=1 Y=0
-Kd = 1030000, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 2, Arrived = 0
+Kd = 1030000, OpCode = 3, Name=M , YD=2, Y=1, X=1065353216,IV = 0.000000, Value = 1.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=1, Y=4, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2020004,0  3010001,0  
-Name:M YD=2 X=1 Y=1
-Kd = 1040000, OpCode = 0, IV = 3.000000, Value = 3.000000, Expected = 2, Arrived = 0
+Kd = 1040000, OpCode = 3, Name=M , YD=2, Y=1, X=1077936128,IV = 0.000000, Value = 3.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=0, C=0)
 LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 20
+TTStart = 9, ValuesStart = 21
 LUT
 2030003,0  2040003,0  
-Name:N YD=1 X=0 Y=0
-Kd = 2000006, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 2, Arrived = 0
+Kd = 2000006, OpCode = 3, Name=N , YD=1, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=2,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=1, C=0)
 LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 24
+TTStart = 13, ValuesStart = 25
 LUT
 5,0  20009,0  1000007,0  2030003,0  
-Name:P YD=2 X=0 Y=0
-Kd = 2010004, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+Kd = 2010004, OpCode = 3, Name=P , YD=2, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=4,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=2, C=0)
 LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 24
+TTStart = 13, ValuesStart = 25
 LUT
 10005,0  20009,0  1000007,0  2040003,0  
-Name:P YD=2 X=0 Y=1
-Kd = 2020004, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 4, Arrived = 0
+Kd = 2020004, OpCode = 3, Name=P , YD=2, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=4,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=3, C=0)
 LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 22
+TTStart = 11, ValuesStart = 23
 LUT
 5,0  1010000,0  1020000,0  
-Name:R YD=2 X=0 Y=0
-Kd = 2030003, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 3, Arrived = 0
+Kd = 2030003, OpCode = 3, Name=R , YD=2, Y=0, X=1065353216,IV = 0.000000, Value = 1.000000,TTE counter=0, Temp = 0.000000, counter=3,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=4, C=0)
 LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 22
+TTStart = 11, ValuesStart = 23
 LUT
 10005,0  1030000,0  1040000,0  
-Name:R YD=2 X=0 Y=1
-Kd = 2040003, OpCode = 0, IV = 2.000000, Value = 2.000000, Expected = 3, Arrived = 0
+Kd = 2040003, OpCode = 3, Name=R , YD=2, Y=0, X=1073741824,IV = 0.000000, Value = 2.000000,TTE counter=0, Temp = 0.000000, counter=3,Expected = 0, Arrived = 695396361
 TCData for (X=2, Y=5, C=0)
 LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 22
+TTStart = 11, ValuesStart = 23
 LUT
 2000006,0  2030003,0  2040003,0  
-Name:R YD=1 X=0 Y=0
-Kd = 2050002, OpCode = 0, IV = 0.000000, Value = 0.000000, Expected = 3, Arrived = 0
+Kd = 2050002, OpCode = 3, Name=R , YD=1, Y=0, X=0,IV = 0.000000, Value = 0.000000,TTE counter=0, Temp = 0.000000, counter=3,Expected = 0, Arrived = 695396361
 TCData for (X=3, Y=0, C=0)
 LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 18
+TTStart = 7, ValuesStart = 19
 LUT
 2010004,0  
-Name:X YD=2 X=0 Y=0
-Kd = 3000001, OpCode = 0, IV = 2.000000, Value = 2.000000, Expected = 1, Arrived = 0
+Kd = 3000001, OpCode = 3, Name=X , YD=2, Y=0, X=1073741824,IV = 0.000000, Value = 2.000000,TTE counter=0, Temp = 0.000000, counter=1,Expected = 0, Arrived = 695396361
 TCData for (X=3, Y=1, C=0)
 LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 18
+TTStart = 7, ValuesStart = 19
 LUT
 2020004,0  
-Name:X YD=2 X=0 Y=1
-Kd = 3010001, OpCode = 0, IV = 1.000000, Value = 1.000000, Expected = 1, Arrived = 0
+Kd = 3010001, OpCode = 3, Name=X , YD=2, Y=0, X=1065353216,IV = 0.000000, Value = 1.000000,TTE counter=0, Temp = 0.000000, counter=1,Expected = 0, Arrived = 695396361
