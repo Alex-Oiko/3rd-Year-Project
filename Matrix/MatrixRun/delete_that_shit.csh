@@ -1,3 +1,3 @@
 #!/bin/csh
 
-rm cgm.SPINNjram cgm.SPINNmcta
+rm ./cgm.SPINNjram ./cgm.SPINNmcta

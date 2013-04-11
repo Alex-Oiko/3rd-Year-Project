@@ -153,22 +153,28 @@ bool TCram::ReadData(string TCDataFile){
         Y = XY&0x0FF;
         fread(&CoreCount, 2, 1, TCFile);
         for(C=0;C<CoreCount;C++) {
+	    cout<<"New node here"<<endl;
             fread(&StartAddress, 4, 1, TCFile);
             fread(&CoreID, 4, 1, TCFile);
             fread(&WordCount, 4, 1, TCFile);
             TCData[X][Y][CoreID-1] = new uint32_t[WordCount];
             fread(TCData[X][Y][CoreID-1], 4, WordCount, TCFile);
-        }
-    }
-    OpCodesA = new vector<uint32_t>[17];
-    fread(&OpCodesA[0],sizeof(vector<uint32_t>),17,TCFile);
-    fclose(TCFile);
-    for(int i=0;i<17;i++){
-	cout<<"Size of vector:"<<OpCodesA[i].size()<<endl;
-    	for(int f=0;f<OpCodesA[i].size();f++){
-		cout<<"Value is:"<<OpCodesA[i][0]<<endl;
+            uint32_t  size=0,valid_qs=0;
+	    fread(&size,sizeof(uint32_t),1,TCFile);
+	    cout<<"size is "<<size<<endl;
+	    fread(&valid_qs,sizeof(uint32_t),1,TCFile);
+	    cout<<"number of queues is "<<valid_qs<<endl;
+	    uint32_t oV=0;
+	    fread(&oV,sizeof(uint32_t),1,TCFile);
+	    cout<<"V number is "<<oV<<endl;
+	    OpCodes = vector<uint32_t>(size);
+	    fread(&OpCodes[0],sizeof(uint32_t),size,TCFile);
+	    for(int k=0;k<OpCodes.size();k++){
+		cout<<"Value is "<<OpCodes[k]<<endl;
+	    }
 	}
     }
+    fclose(TCFile);
     return true;
 }
 

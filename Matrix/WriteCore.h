@@ -52,7 +52,10 @@ private:
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
     _LookUp  *LUT;                  //Look up table for incoming
-    vector<uint32_t> *OpCodesA;
+    uint32_t oV;
+    uint32_t valid_qs;
+    vector<uint32_t> transOp;
+    vector<uint32_t> OpCodesA;
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);
     void DumpCore(unsigned,Core&, Dealer&, Task&);  //Write the core with this Key&0xfffff800 returns the size of the arrays in 32bit words.

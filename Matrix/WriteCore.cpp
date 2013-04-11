@@ -22,7 +22,6 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
     Values = NULL;
     LUTSize = NULL;
     FILE *Results;
-    OpCodesA = new vector<uint32_t>[DEAL.PMAP.size()];
     
     TCram = (RootName+".SPINNjram").c_str();
     Results = fopen(TCram,"wb");
@@ -71,19 +70,19 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(LUT,sizeof(_LookUp), LUTSize, Results);
                     fwrite(TTArray, sizeof(_DTTE), PointCount, Results);
                     fwrite(Values, sizeof(float), PointCount, Results);
+		    unsigned sz=transOp.size();
+		    fwrite(&sz,sizeof(uint32_t),1,Results);
+		    fwrite(&valid_qs,sizeof(uint32_t),1,Results);
+		    fwrite(&oV,sizeof(uint32_t),1,Results);
+		    fwrite(&transOp[0],sizeof(uint32_t),transOp.size(),Results);
+		    transOp.clear();
                 }
             }
 
         }
     }
-    for(int i=0;i<DEAL.PMAP.size();i++){
-	cout<<"Size of vector is:"<<OpCodesA[i].size();
-	for(int f=0;f<OpCodesA[i].size();f++){
-		cout<<"Value is:"<<OpCodesA[i][f]<<endl;
-	}
-    }
-    fwrite(&OpCodesA[0],sizeof(vector<uint32_t>),17,Results);
     fclose(Results);
+    cout<<"Success"<<endl;
 }
 
 unsigned WriteCore::UsedCores(unsigned Key, Dealer& DEAL){
@@ -132,14 +131,35 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
         if ((Kt&CoreMask) > Key)        //PMAP in Key order
             break;
         //deal with core entries
-        auto iTTE = CORE.CoreEntries.find(Kt);
+        valid_qs=0;
+	unsigned counter=0;
+	auto iTTE = CORE.CoreEntries.find(Kt);
         TTE = iTTE->second;
         dTTE.Kd = TTE.Kd;
         dTTE.OpCode = 3;
-	OpCodesA[TTE.V]= vector<uint32_t>(17);
+	cout<<"This node is of type "<<TTE.Name[0]<<endl;
 	for(int f=0;f<TTE.OpCodes.size();f++){
-		OpCodesA[TTE.V][f]=3;
+		if(TTE.OpCodes[f].front()<17){
+			transOp.resize(transOp.size()+TTE.OpCodes[f].size()+2);
+			cout<<"size is "<<transOp.size()<<endl;
+			valid_qs++;
+			transOp[counter]=f;
+			counter++;
+			transOp[counter]=TTE.OpCodes[f].size();
+			counter++;
+			while(!TTE.OpCodes[f].empty()){
+				transOp[counter]=TTE.OpCodes[f].front();
+				TTE.OpCodes[f].pop();
+				counter++;
+			}
+		}
 	}
+	//transOp.resize(transOp.size()-6);
+	cout<<"number of queues in this vector is "<<valid_qs<<endl;
+	for(int p=0;p<transOp.size();p++){
+		cout<<"value is "<<transOp[p]<<endl;
+	}
+	oV=0;
 	dTTE.Name = TTE.Name[0];
 	dTTE.YD = TTE.YD;
 	dTTE.Y = TTE.Y;
@@ -148,7 +168,8 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.counter = TTE.counter;
         dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
-        dTTE.Expected = 0;
+        oV=dTTE.oV;
+	dTTE.Expected = 0;
         dTTE.Arrived = 0;
 
         //now deal with the lookup table

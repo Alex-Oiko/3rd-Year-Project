@@ -452,8 +452,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			if(E.Value<1e-10){
 				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
 				cout<<"Results are"<<endl;
-				CORE.PrintByOpCode(16,3);
-				exit(EXIT_SUCCESS);	
+				//CORE.PrintByOpCode(16,3);
+				//exit(EXIT_SUCCESS);	
 			}
 			else{
 				cout<<"Condition failed"<<endl;
@@ -476,10 +476,10 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			if(case15_counter>matrix_size){//if the first iteration has passed
-				RES.Value=CORE.Mstore[TTE.V];
-				EventQ.push(RES);
-			}
+			//if(case15_counter>matrix_size){//if the first iteration has passed
+			//	RES.Value=CORE.Mstore[TTE.V];
+			//	EventQ.push(RES);
+			//}
 			break;
 	}
     }    

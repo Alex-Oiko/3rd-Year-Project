@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
 #include "MCTables.h"
 #include "Utils.h"
 using namespace std;
@@ -50,7 +51,8 @@ public:
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
     _LookUp  *LUT;                  //Look up table for incoming
-    vector<uint32_t> *OpCodesA;
+    vector<uint32_t> OpCodes;
+    vector<vector<queue<uint32_t>>> OpCodesA;
     uint32_t *counters;
     float *Temps;
     uint32_t ****TCData;
