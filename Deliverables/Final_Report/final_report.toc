@@ -35,4 +35,6 @@
 \contentsline {section}{\numberline {4}Implementation}{21}{section.4}
 \contentsline {subsection}{\numberline {4.1}The Simulator}{21}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Offset}{21}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Second Iteration}{21}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}Second Iteration}{22}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}OpCodes of elements}{22}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Binary files and connections program}{22}{subsection.4.5}
