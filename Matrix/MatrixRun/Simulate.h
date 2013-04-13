@@ -41,10 +41,11 @@ private:
     void LoadFireAll(TCram&);
     unsigned long CoreHits, CoreMisses;
     void InComing(uint32_t, float, uint32_t , TCram&);
-    void PrintByOpCode(unsigned, TCram&);
+    void PrintByOpCode(unsigned,unsigned, TCram&);
 public:
-    void SimBegin( TCram&, MCLines&,Machine&);
-    
+    void SimBegin(TCram&, MCLines&,Machine&);
+    unsigned matrix_size;
+    vector<vector<queue<uint32_t>>> OpCodesA;
 };
 
 #endif /* defined(__MatrixRun__Simulate__) */
