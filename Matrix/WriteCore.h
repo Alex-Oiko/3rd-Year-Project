@@ -37,11 +37,12 @@ private:
 	uint32_t YD;
 	uint32_t Y;
 	uint32_t X;
-	float IV;
 	float temp;
 	uint32_t counter;
+	float IV;
         uint32_t oV;
-        uint32_t Expected;
+        uint32_t V;
+	uint32_t Expected;
         uint32_t Arrived;
     };
     struct _LookUp {

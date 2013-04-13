@@ -167,6 +167,7 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	dTTE.counter = TTE.counter;
         dTTE.IV = TTE.IV;
         dTTE.oV = TTE.V;
+	dTTE.V=TTE.V;
         oV=dTTE.oV;
 	dTTE.Expected = 0;
         dTTE.Arrived = 0;
@@ -188,7 +189,8 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     for(idx = 0; idx < PointCount; idx++){
         TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
-        TTArray[idx].oV = idx;    }
+	TTArray[idx].oV = idx;    
+	}
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];
     _LookUp tLUT;

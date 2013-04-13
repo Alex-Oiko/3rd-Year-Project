@@ -40,6 +40,7 @@ public:
 	uint32_t counter;
         float IV;
         uint32_t oV;
+	uint32_t V;
         uint32_t Expected;
         uint32_t Arrived;
     };

@@ -171,16 +171,31 @@ bool TCram::ReadData(string TCDataFile){
 	    OpCodes = vector<uint32_t>(size);
 	    fread(&OpCodes[0],sizeof(uint32_t),size,TCFile);
 	    queue<uint32_t> data;
-	    vector<queue<uint32_t>> holder;
+	    vector<queue<uint32_t>> holder(17);
 	    for(int p=0;p<OpCodes.size();p++){
 		cout<<"Value is "<<OpCodes[p]<<endl;
 	    }
-	    uint32_t counter=1;
-	    for(int f=1;f<OpCodes[0]<f++){
-	        index=OpCodes[1];
-		data.push(OpCodes[f]);
-	   }
-	   holder[index]=data;
+	    uint32_t counter=0;
+	    uint32_t index=0;
+	    uint32_t q_size=0;
+	    for(int k=0;k<valid_qs;k++){	
+		q_size=OpCodes[counter];
+		cout<<"q_size "<<q_size<<endl;
+		counter++;
+		index=OpCodes[counter];
+		cout<<"index "<<index<<endl;
+		counter++;
+		for(int f=0;f<q_size;f++){
+			cout<<"value is "<<OpCodes[counter]<<endl;
+			data.push(OpCodes[counter]);
+			counter++;
+		}
+		holder[index]=data;
+		while(!data.empty()){
+			data.pop();
+		}
+	    }
+	   OpCodesA[oV]=holder;
 	}
     }
     fclose(TCFile);
@@ -193,6 +208,8 @@ void TCram::PrintTCram(){
     _LookUp *LUT;
     uint32_t PointCount;
     _DTTE *TTE;
+    Temps = new float[17];
+    counters = new uint32_t[17];
     float *Values;
     for(int X = 0; X< NX;X++){
         for(int Y = 0; Y < NY; Y++) {
@@ -211,12 +228,17 @@ void TCram::PrintTCram(){
                 puts("");
                 TTE = (_DTTE*)&CoreData[CoreCommon->TTStart];
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
-                Temps = new float[17];
-		counters = new uint32_t[17];
-                Values = (float*)&CoreData[CoreCommon->ValuesStart];
 		for(int i = 0; i < PointCount; i++){
-                    printf("Kd = %x, OpCode = %d, Name=%c , YD=%d, Y=%d, X=%d,IV = %f, Value = %f,TTE counter=%d, Temp = %f, counter=%d,Expected = %d, Arrived = %d\n",TTE[i].Kd,TTE[i].OpCode,TTE[i].Name,TTE[i].YD,TTE[i].X, TTE[i].IV,Values[TTE[i].oV],TTE[i].counter,Temps[TTE[i].oV],counters[TTE[i].oV], TTE[i].Expected, TTE[i].Arrived);
+		        Temps[TTE[i].V]=Values[TTE[i].oV];
+			counters[TTE[i].V]=0;
+	      		cout<<"Specs for this node are"<<endl;
+			cout<<"Kd="<<TTE[i].Kd<<",TTE OpCode="<<TTE[i].OpCode<<",Name="<<TTE[i].Name<<",oV="<<TTE[i].oV<<",YD="<<TTE[i].YD<<",Y="<<TTE[i].Y<<",X="<<TTE[i].X<<",TTE temp="<<TTE[i].temp<<",TTE counter="<<TTE[i].counter<<",IV="<<TTE[i].IV<<",Expected="<<TTE[i].Expected<<",Arrived="<<TTE[i].Arrived<<",counter="<<counters[TTE[i].V]<<",Temps="<<Temps[TTE[i].V]<<",Values="<<Values[TTE[i].oV]<<endl;
+
+			cout<<"The OpCodes for this node are"<<endl;
+	      		for(int k=0;k<OpCodesA[TTE[i].oV].size();k++){
+				cout<<"For key "<<k<<" front OpCode is "<<OpCodesA[TTE[i].V][k].front()<<endl;	
                 }
+	      }
             }
         }
     }
