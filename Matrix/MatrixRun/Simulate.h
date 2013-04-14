@@ -25,9 +25,9 @@ using namespace std;
  */
 class Simulate{
 private:
-    enum EType{LOADFIRE,UPDATE,DELIVER,FIREAWAY};
+    enum EType{LOADFIRE,UPDATE,DELIVER,FIREAWAY,UPALL};
     struct event{
-        EType Type;     // LOADFIRE UPDATE FIREAWAY
+        EType Type;     // LOADFIRE UPDATE FIREAWAY UPALL
         unsigned Ks;    // source key
         unsigned Kd;    // destination key
         float Value; // fired value
@@ -36,6 +36,7 @@ private:
     queue<event> EventQ;
     void LoadFire(event, TCram&);
     void Update(event, TCram&);
+    void UpdateAll(TCram&);
     void Deliver(event, TCram&);
     unsigned FireAway(event, MCLines&,TCram&,Machine&);
     void LoadFireAll(TCram&);
@@ -46,6 +47,10 @@ public:
     void SimBegin(TCram&, MCLines&,Machine&);
     unsigned matrix_size;
     vector<vector<queue<uint32_t>>> OpCodesA;
+    uint32_t *counters;
+    float *Temps;
+    uint32_t case15_counter;
+    uint32_t iterator_counter;
 };
 
 #endif /* defined(__MatrixRun__Simulate__) */
