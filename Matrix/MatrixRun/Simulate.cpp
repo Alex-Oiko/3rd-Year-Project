@@ -99,7 +99,7 @@ void Simulate::SimBegin(TCram& TCRAM, MCLines& MCT, Machine& MAC) {
     unsigned Thru=0;
     CoreHits = 0;
     CoreMisses = 0;
-    OpCodesA=TCRAM.OpCodesA;
+    //OpCodesA=TCRAM.OpCodesA;
     counters = TCRAM.counters;
     Temps = TCRAM.Temps;
     puts("Starting simulation");

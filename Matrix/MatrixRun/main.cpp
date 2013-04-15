@@ -52,7 +52,7 @@ int main(int argc, const char * argv[])
     MC.PrintMCT();
     TC.PrintTCram();
     Simulate SIM;
-    SIM.SimBegin(TC, MC, MAC);
+    //SIM.SimBegin(TC, MC, MAC);
     //TC.PrintTCram();
     return 0;
 }

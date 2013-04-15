@@ -52,8 +52,9 @@ public:
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
     _LookUp  *LUT;                  //Look up table for incoming
-    vector<uint32_t> OpCodes;
-    vector<vector<queue<uint32_t>>> OpCodesA;
+    //uint32_t *OpCodes;
+    uint32_t holder_size;
+    queue<uint32_t> **OpCodesA;
     uint32_t *counters;
     float *Temps;
     uint32_t ****TCData;

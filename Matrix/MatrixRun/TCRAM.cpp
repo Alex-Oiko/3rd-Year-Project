@@ -115,7 +115,7 @@ uint32_t TCram::Update(uint32_t Kd){
         GPindex = Gpoint->pNextGpoint;
     }
     return Value;
-    
+    i
 }
 
 */
@@ -145,7 +145,11 @@ bool TCram::ReadData(string TCDataFile){
         cout <<TCDataFile + " is the wrong file type matey\n";
         return false;
     }
-    OpCodesA = vector<vector<queue<uint32_t>>>(17);
+    holder_size=17;
+    OpCodesA = new queue<uint32_t>*[holder_size];
+    for(int y=0;y<holder_size;y++){
+	OpCodesA[y]=new queue<uint32_t>[holder_size];
+    }
     fread(&Rtype,1,3,TCFile);
     fread(&ChipCount,4,1,TCFile);
     for(Chip = 0; Chip < ChipCount; Chip++) {
@@ -168,11 +172,12 @@ bool TCram::ReadData(string TCDataFile){
 	    uint32_t oV=0;
 	    fread(&oV,sizeof(uint32_t),1,TCFile);
 	    cout<<"V number is "<<oV<<endl;
-	    OpCodes = vector<uint32_t>(size);
+	    uint32_t OpCodes[size];
+	    //OpCodes = new uint32_t[size];
 	    fread(&OpCodes[0],sizeof(uint32_t),size,TCFile);
 	    queue<uint32_t> data;
-	    vector<queue<uint32_t>> holder(17);
-	    for(int p=0;p<OpCodes.size();p++){
+	    queue<uint32_t> *holder = new queue<uint32_t>[holder_size];
+	    for(int p=0;p<size;p++){
 		cout<<"Value is "<<OpCodes[p]<<endl;
 	    }
 	    uint32_t counter=0;
@@ -195,9 +200,18 @@ bool TCram::ReadData(string TCDataFile){
 			data.pop();
 		}
 	    }
-	   OpCodesA[oV]=holder;
+	    for(int p=0;p<holder_size;p++){
+	   	OpCodesA[oV][p]=holder[p];
+	   	cout<<"front at key "<<p<<" is "<<OpCodesA[oV][p].front()<<endl;
+	   }
 	}
     }
+    /*for(int i=0;i<holder_size;i++){
+    	cout<<"HERERERERERERERERERER.For Node with oV "<<i<<endl;
+	for(int k=0;k<holder_size;k++){
+		cout<<"Value at key "<<k<<" is "<<OpCodesA[i][k].front()<<endl;
+	}
+    }*/
     fclose(TCFile);
     return true;
 }
@@ -208,8 +222,8 @@ void TCram::PrintTCram(){
     _LookUp *LUT;
     uint32_t PointCount;
     _DTTE *TTE;
-    Temps = new float[17];
-    counters = new uint32_t[17];
+    Temps = new float[holder_size];
+    counters = new uint32_t[holder_size];
     float *Values;
     for(int X = 0; X< NX;X++){
         for(int Y = 0; Y < NY; Y++) {
@@ -235,9 +249,9 @@ void TCram::PrintTCram(){
 			cout<<"Kd="<<TTE[i].Kd<<",TTE OpCode="<<TTE[i].OpCode<<",Name="<<TTE[i].Name<<",oV="<<TTE[i].oV<<",YD="<<TTE[i].YD<<",Y="<<TTE[i].Y<<",X="<<TTE[i].X<<",TTE temp="<<TTE[i].temp<<",TTE counter="<<TTE[i].counter<<",IV="<<TTE[i].IV<<",Expected="<<TTE[i].Expected<<",Arrived="<<TTE[i].Arrived<<",counter="<<counters[TTE[i].V]<<",Temps="<<Temps[TTE[i].V]<<",Values="<<Values[TTE[i].oV]<<endl;
 
 			cout<<"The OpCodes for this node are"<<endl;
-	      		for(int k=0;k<OpCodesA[TTE[i].oV].size();k++){
+	      		for(int k=0;k<holder_size;k++){
 				cout<<"For key "<<k<<" front OpCode is "<<OpCodesA[TTE[i].V][k].front()<<endl;	
-                }
+                	}
 	      }
             }
         }
