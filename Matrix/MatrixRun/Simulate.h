@@ -46,7 +46,7 @@ private:
 public:
     void SimBegin(TCram&, MCLines&,Machine&);
     unsigned matrix_size;
-    vector<vector<queue<uint32_t>>> OpCodesA;
+    queue<uint32_t> **OpCodesA;
     uint32_t *counters;
     float *Temps;
     uint32_t case15_counter;

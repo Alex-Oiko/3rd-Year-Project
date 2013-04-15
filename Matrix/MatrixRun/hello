@@ -860,4 +860,982 @@ LUT
 Specs for this node are
 Kd=5,TTE OpCode=3,Name=A,oV=0,YD=2,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=3,Arrived=0,counter=0,Temps=0,Values=0
 The OpCodes for this node are
-For key 0 front OpCode is 1724104753
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 1
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=0, Y=1, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 24
+LUT
+1000007,0  1030000,0  1040000,0  
+Specs for this node are
+Kd=65541,TTE OpCode=3,Name=A,oV=0,YD=2,Y=1,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=3,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 1
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=0, Y=2, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2000006,0  2050002,0  
+Specs for this node are
+Kd=131081,TTE OpCode=3,Name=B,oV=0,YD=1,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=2,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 7
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 12
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=0, Y=3, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 20
+LUT
+2000006,0  
+Specs for this node are
+Kd=196616,TTE OpCode=3,Name=C,oV=0,YD=1,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=1,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 13
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=1, Y=0, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 26
+LUT
+2000006,0  2010004,0  2020004,0  2050002,0  
+Specs for this node are
+Kd=16777223,TTE OpCode=3,Name=L,oV=0,YD=1,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=4,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 7
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 7
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=1, Y=1, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2010004,0  3000001,0  
+Specs for this node are
+Kd=16842752,TTE OpCode=3,Name=M,oV=0,YD=2,Y=0,X=0,TTE temp=4,TTE counter=0,IV=4,Expected=2,Arrived=0,counter=0,Temps=4,Values=4
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 1
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 1
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=1, Y=2, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2020004,0  3010001,0  
+Specs for this node are
+Kd=16908288,TTE OpCode=3,Name=M,oV=0,YD=2,Y=1,X=0,TTE temp=1,TTE counter=0,IV=1,Expected=2,Arrived=0,counter=0,Temps=1,Values=1
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 1
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 1
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=1, Y=3, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2010004,0  3000001,0  
+Specs for this node are
+Kd=16973824,TTE OpCode=3,Name=M,oV=0,YD=2,Y=0,X=1,TTE temp=1,TTE counter=0,IV=1,Expected=2,Arrived=0,counter=0,Temps=1,Values=1
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 1
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 1
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=1, Y=4, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2020004,0  3010001,0  
+Specs for this node are
+Kd=17039360,TTE OpCode=3,Name=M,oV=0,YD=2,Y=1,X=1,TTE temp=3,TTE counter=0,IV=3,Expected=2,Arrived=0,counter=0,Temps=3,Values=3
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 1
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 1
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=0, C=0)
+LUTStart = 5, LUTCount = 2
+TTStart = 9, ValuesStart = 22
+LUT
+2030003,0  2040003,0  
+Specs for this node are
+Kd=33554438,TTE OpCode=3,Name=N,oV=0,YD=1,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=2,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=1, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 26
+LUT
+5,0  20009,0  1000007,0  2030003,0  
+Specs for this node are
+Kd=33619972,TTE OpCode=3,Name=P,oV=0,YD=2,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=4,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 4
+For key 4 front OpCode is 0
+For key 5 front OpCode is 1
+For key 6 front OpCode is 0
+For key 7 front OpCode is 1
+For key 8 front OpCode is 0
+For key 9 front OpCode is 15
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=2, C=0)
+LUTStart = 5, LUTCount = 4
+TTStart = 13, ValuesStart = 26
+LUT
+10005,0  20009,0  1000007,0  2040003,0  
+Specs for this node are
+Kd=33685508,TTE OpCode=3,Name=P,oV=0,YD=2,Y=1,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=4,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 4
+For key 4 front OpCode is 0
+For key 5 front OpCode is 1
+For key 6 front OpCode is 0
+For key 7 front OpCode is 1
+For key 8 front OpCode is 0
+For key 9 front OpCode is 15
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=3, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 24
+LUT
+5,0  1010000,0  1020000,0  
+Specs for this node are
+Kd=33751043,TTE OpCode=3,Name=R,oV=0,YD=2,Y=0,X=0,TTE temp=1,TTE counter=0,IV=1,Expected=3,Arrived=0,counter=0,Temps=1,Values=1
+The OpCodes for this node are
+For key 0 front OpCode is 2
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=4, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 24
+LUT
+10005,0  1030000,0  1040000,0  
+Specs for this node are
+Kd=33816579,TTE OpCode=3,Name=R,oV=0,YD=2,Y=1,X=0,TTE temp=2,TTE counter=0,IV=2,Expected=3,Arrived=0,counter=0,Temps=2,Values=2
+The OpCodes for this node are
+For key 0 front OpCode is 2
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=2, Y=5, C=0)
+LUTStart = 5, LUTCount = 3
+TTStart = 11, ValuesStart = 24
+LUT
+2000006,0  2030003,0  2040003,0  
+Specs for this node are
+Kd=33882114,TTE OpCode=3,Name=R,oV=0,YD=1,Y=0,X=0,TTE temp=0,TTE counter=0,IV=0,Expected=3,Arrived=0,counter=0,Temps=0,Values=0
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 5
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 7
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 0
+TCData for (X=3, Y=0, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 20
+LUT
+2010004,0  
+Specs for this node are
+Kd=50331649,TTE OpCode=3,Name=X,oV=0,YD=2,Y=0,X=0,TTE temp=2,TTE counter=0,IV=2,Expected=1,Arrived=0,counter=0,Temps=2,Values=2
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 3
+TCData for (X=3, Y=1, C=0)
+LUTStart = 5, LUTCount = 1
+TTStart = 7, ValuesStart = 20
+LUT
+2020004,0  
+Specs for this node are
+Kd=50397185,TTE OpCode=3,Name=X,oV=0,YD=2,Y=1,X=0,TTE temp=1,TTE counter=0,IV=1,Expected=1,Arrived=0,counter=0,Temps=1,Values=1
+The OpCodes for this node are
+For key 0 front OpCode is 0
+For key 1 front OpCode is 0
+For key 2 front OpCode is 0
+For key 3 front OpCode is 0
+For key 4 front OpCode is 0
+For key 5 front OpCode is 0
+For key 6 front OpCode is 0
+For key 7 front OpCode is 0
+For key 8 front OpCode is 0
+For key 9 front OpCode is 0
+For key 10 front OpCode is 0
+For key 11 front OpCode is 0
+For key 12 front OpCode is 0
+For key 13 front OpCode is 0
+For key 14 front OpCode is 0
+For key 15 front OpCode is 0
+For key 16 front OpCode is 3
+Starting simulation
+Source {Kd=16842752,Name=X,Offset=1}
+Target {Ks=50331649,Name=M,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is 8
+
+
+Source {Kd=16908288,Name=X,Offset=1}
+Target {Ks=50397185,Name=M,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is 1
+
+
+Source {Kd=16973824,Name=X,Offset=1}
+Target {Ks=50331649,Name=M,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is 2
+
+
+Source {Kd=0,Name=M,Offset=0}
+Target {Ks=16842752,Name=A,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=17039360,Name=X,Offset=1}
+Target {Ks=50397185,Name=M,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is 3
+
+
+Source {Kd=33751040,Name=M,Offset=0}
+Target {Ks=16908288,Name=R,Offset=0}
+Offset 0
+COUNTER 1
+
+
+Source {Kd=33751040,Name=M,Offset=0}
+Target {Ks=16842752,Name=R,Offset=0}
+Offset 0
+COUNTER 2
+new opcode is 0
+R CREATED
+
+
+Source {Kd=0,Name=M,Offset=0}
+Target {Ks=16908288,Name=A,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 6
+
+
+Source {Kd=33816576,Name=M,Offset=0}
+Target {Ks=16973824,Name=R,Offset=0}
+Offset 0
+COUNTER 1
+
+
+Source {Kd=33816576,Name=M,Offset=0}
+Target {Ks=17039360,Name=R,Offset=0}
+Offset 0
+COUNTER 2
+new opcode is 0
+R CREATED
+
+
+Source {Kd=65536,Name=M,Offset=0}
+Target {Ks=16973824,Name=A,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33882112,Name=R,Offset=3}
+Target {Ks=33751043,Name=R,Offset=0}
+Offset 0
+Value is 64
+matrix_size is:2
+
+
+Source {Kd=33619968,Name=R,Offset=3}
+Target {Ks=33751043,Name=P,Offset=0}
+Offset 0
+new opcode is 14
+ASSIGNEMENT DONE HERE
+-8
+
+
+Source {Kd=33882112,Name=R,Offset=3}
+Target {Ks=33816579,Name=R,Offset=0}
+Offset 0
+Value is 73
+matrix_size is:2
+new opcode is 0
+RSOLD/RSNEW CREATED
+Value is 73
+
+
+Source {Kd=65536,Name=M,Offset=0}
+Target {Ks=17039360,Name=A,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 6
+
+
+Source {Kd=33554432,Name=R,Offset=3}
+Target {Ks=33751043,Name=N,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33685504,Name=R,Offset=3}
+Target {Ks=33816579,Name=P,Offset=0}
+Offset 0
+new opcode is 14
+ASSIGNEMENT DONE HERE
+-3
+
+
+Source {Kd=16842752,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is -32
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33619972,Name=L,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=50331648,Name=P,Offset=4}
+Target {Ks=33619972,Name=X,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33554432,Name=R,Offset=3}
+Target {Ks=33816579,Name=N,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 5
+
+
+Source {Kd=16908288,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is -3
+
+
+Source {Kd=16973824,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is -8
+
+
+Source {Kd=0,Name=M,Offset=0}
+Target {Ks=16842752,Name=A,Offset=0}
+Offset 0
+numbah 6 here
+Opcode6
+
+
+Source {Kd=131072,Name=R,Offset=2}
+Target {Ks=33882114,Name=B,Offset=0}
+Offset 0
+Value is EDWWWWWWWWWWWW 73
+ASSIGNEMENT DONE HERE
+
+
+Source {Kd=50397184,Name=P,Offset=4}
+Target {Ks=33685508,Name=X,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33685508,Name=L,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 8
+
+
+Source {Kd=33751040,Name=M,Offset=0}
+Target {Ks=16842752,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=17039360,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is -9
+
+
+Source {Kd=33751040,Name=M,Offset=0}
+Target {Ks=16908288,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33816576,Name=M,Offset=0}
+Target {Ks=16973824,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16777216,Name=R,Offset=2}
+Target {Ks=33882114,Name=L,Offset=0}
+Offset 0
+Value is EDWWWWWWWWWWWW 73
+ASSIGNEMENT DONE HERE
+
+
+Source {Kd=0,Name=M,Offset=0}
+Target {Ks=16908288,Name=A,Offset=0}
+Offset 0
+numbah 6 here
+Opcode6
+new opcode is 0
+value of node is-35
+
+
+Source {Kd=65536,Name=M,Offset=0}
+Target {Ks=16973824,Name=A,Offset=0}
+Offset 0
+numbah 6 here
+Opcode6
+
+
+Source {Kd=33816576,Name=M,Offset=0}
+Target {Ks=17039360,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=65536,Name=M,Offset=0}
+Target {Ks=17039360,Name=A,Offset=0}
+Offset 0
+numbah 6 here
+Opcode6
+new opcode is 0
+value of node is-17
+
+
+Source {Kd=33619968,Name=A,Offset=5}
+Target {Ks=5,Name=P,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is 280
+
+
+Source {Kd=33751040,Name=A,Offset=5}
+Target {Ks=5,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 10
+
+
+Source {Kd=16842752,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33619972,Name=L,Offset=0}
+Offset 0
+ALPHA node here
+Bottom happenning here 280
+
+
+Source {Kd=33685504,Name=A,Offset=5}
+Target {Ks=65541,Name=P,Offset=0}
+Offset 0
+new opcode is 0
+Multiplication happened here
+resValue is 51
+
+
+Source {Kd=50331648,Name=P,Offset=4}
+Target {Ks=33619972,Name=X,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 11
+
+
+Source {Kd=33816576,Name=A,Offset=5}
+Target {Ks=65541,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 10
+
+
+Source {Kd=16973824,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16908288,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=50397184,Name=P,Offset=4}
+Target {Ks=33685508,Name=X,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 11
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33685508,Name=L,Offset=0}
+Offset 0
+ALPHA node here
+Bottom happenning here 331
+rsold in Mstore is 73
+Value is 0.220544
+
+
+Source {Kd=17039360,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33619968,Name=L,Offset=7}
+Target {Ks=16777223,Name=P,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is -1.76435
+
+
+Source {Kd=0,Name=L,Offset=7}
+Target {Ks=16777223,Name=A,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is -7.71903
+
+
+Source {Kd=33685504,Name=L,Offset=7}
+Target {Ks=16777223,Name=P,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is -0.661631
+
+
+Source {Kd=65536,Name=L,Offset=7}
+Target {Ks=16777223,Name=A,Offset=0}
+Offset 0
+new opcode is 1
+Multiplication happened here
+resValue is -3.74924
+
+
+Source {Kd=16842752,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33619972,Name=L,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16908288,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=50331648,Name=P,Offset=4}
+Target {Ks=33619972,Name=X,Offset=0}
+Offset 0
+MAKING AN X NODE HERE!!
+Value is 0.23565
+
+
+Source {Kd=33619968,Name=A,Offset=5}
+Target {Ks=5,Name=P,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=50397184,Name=P,Offset=4}
+Target {Ks=33685508,Name=X,Offset=0}
+Offset 0
+MAKING AN X NODE HERE!!
+Value is 0.338369
+
+
+Source {Kd=16777216,Name=P,Offset=4}
+Target {Ks=33685508,Name=L,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=16973824,Name=P,Offset=4}
+Target {Ks=33619972,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=33685504,Name=A,Offset=5}
+Target {Ks=65541,Name=P,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=33751040,Name=A,Offset=5}
+Target {Ks=5,Name=R,Offset=0}
+Offset 0
+Making r values
+R value is -0.280967
+
+
+Source {Kd=17039360,Name=P,Offset=4}
+Target {Ks=33685508,Name=M,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 1
+
+
+Source {Kd=33816576,Name=A,Offset=5}
+Target {Ks=65541,Name=R,Offset=0}
+Offset 0
+Making r values
+R value is 0.749245
+
+
+Source {Kd=33882112,Name=R,Offset=3}
+Target {Ks=33816579,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 0
+
+
+Source {Kd=33882112,Name=R,Offset=3}
+Target {Ks=33751043,Name=R,Offset=0}
+Offset 0
+opcode is 0 here
+new opcode is 5
+
+
+Source {Kd=33619968,Name=R,Offset=3}
+Target {Ks=33751043,Name=P,Offset=0}
+Offset 0
+ASSIGNING IN TEMP
+
+
+Source {Kd=33685504,Name=R,Offset=3}
+Target {Ks=33816579,Name=P,Offset=0}
+Offset 0
+ASSIGNING IN TEMP
+
+
+Source {Kd=33554432,Name=R,Offset=3}
+Target {Ks=33751043,Name=N,Offset=0}
+Offset 0
+Value is 0.0789423
+matrix_size is:2
+
+
+Source {Kd=33554432,Name=R,Offset=3}
+Target {Ks=33816579,Name=N,Offset=0}
+Offset 0
+Value is 0.64031
+matrix_size is:2
+new opcode is 0
+RSOLD/RSNEW CREATED
+Value is 0.64031
+
+
+Source {Kd=16777216,Name=N,Offset=6}
+Target {Ks=33554438,Name=L,Offset=0}
+Offset 0
+Value is EDWWWWWWWWWWWW 0.64031
+ASSIGNEMENT DONE HERE
+
+
+Source {Kd=131072,Name=N,Offset=6}
+Target {Ks=33554438,Name=B,Offset=0}
+Offset 0
+CREATING BETA HERE
+Value is 0.64031
+
+
+Source {Kd=33882112,Name=N,Offset=6}
+Target {Ks=33554438,Name=R,Offset=0}
+Offset 0
+Value is EDWWWWWWWWWWWW 0.64031
+ASSIGNEMENT DONE HERE
+
+
+Source {Kd=196608,Name=N,Offset=6}
+Target {Ks=33554438,Name=C,Offset=0}
+Offset 0
+Checking end cond
+Condition failed
+
+
+Source {Kd=33685504,Name=B,Offset=9}
+Target {Ks=131081,Name=P,Offset=0}
+Offset 0
+New p value is 0.722931
+
+
+Source {Kd=33619968,Name=B,Offset=9}
+Target {Ks=131081,Name=P,Offset=0}
+Offset 0
+New p value is -0.351138
+
+
+178 events in total
+34 Through routes
+76 core hits and 0 core misses
+Kd = 20009 OpCode = 3 IV = 0 V = 0.64031 Expected 2 Arrived 0
+Kd = 1000007 OpCode = 3 IV = 0 V = 0.64031 Expected 4 Arrived 0

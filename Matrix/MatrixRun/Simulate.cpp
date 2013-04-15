@@ -43,6 +43,7 @@ void Simulate::UpdateAll(TCram& TCRAM){
     TCram::_DTTE *TTE;
     E.Type = UPDATE;
     E.OutLink = 6;
+    cout<<"hello"<<endl;
     for(X= 0; X < TCRAM.NX; X++){
         for(Y=0; Y < TCRAM.NY; Y++){
             for(C = 0; C< TCRAM.NC; C++){
@@ -99,10 +100,12 @@ void Simulate::SimBegin(TCram& TCRAM, MCLines& MCT, Machine& MAC) {
     unsigned Thru=0;
     CoreHits = 0;
     CoreMisses = 0;
-    //OpCodesA=TCRAM.OpCodesA;
+    OpCodesA=TCRAM.OpCodesA;
     counters = TCRAM.counters;
     Temps = TCRAM.Temps;
     puts("Starting simulation");
+    case15_counter=0;
+    iterator_counter=0;
     LoadFireAll(TCRAM);
     while(true){
         if(EventQ.empty())
@@ -146,6 +149,7 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      cout<<"Source {Kd="<<E.Ks<<",Name="<<TTE[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
      //for(int k = 0; k < LUTCount ; k++){
      found = true;
+    cout<<"hello1"<<endl;
      CoreHits++;
      dTTE = TTE[InPoint];
 	switch(dTTE.Name){
@@ -451,6 +455,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 	    		OpCodesA[dTTE.V][Os].push(OpCodesA[dTTE.V][Os].front());
 	    		OpCodesA[dTTE.V][Os].pop();
 			case15_counter++;
+			cout<<case15_counter<<endl;
 			if(case15_counter==matrix_size){//when case15_counter==N 
 				RES.Type=UPALL;
 				EventQ.push(RES);
