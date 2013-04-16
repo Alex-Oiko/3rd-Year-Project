@@ -159,7 +159,7 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      cout<<"hello1"<<endl;
      CoreHits++;
      dTTE = TTE[InPoint];
-	/*switch(dTTE.Name){
+	switch(dTTE.Name){
      		case 'M':
 			cout<<"Previous OpCode was:"<<front(1,dTTE.V)<<endl;
 			pop(1,dTTE.V);
@@ -198,11 +198,11 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      		      	cout<<"New OpCode at key 0 is:"<<front(0,dTTE.V)<<endl;
 	     		break;
 	     	case 'N':
-			cout<<"Previous OpCode was:"<<front(0,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(3,dTTE.V)<<endl;
 			for(int s=0;s<matrix_size;s++){
 				pop(3,dTTE.V);
 			}
-		      	cout<<"New OpCode at key 3 is:"<<front(0,dTTE.V)<<endl;
+		      	cout<<"New OpCode at key 3 is:"<<front(3,dTTE.V)<<endl;
      		      	break;
 	     	case 'L':
 			cout<<"Previous OpCode was:"<<front(2,dTTE.V)<<endl;
@@ -214,7 +214,7 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
 			pop(2,dTTE.V);
 		      	cout<<"New OpCode at key 2 is:"<<front(2,dTTE.V)<<endl;
 		      	break;
-	}*/
+	}
      	cout<<"\n"<<endl;
 	//}
     //}
