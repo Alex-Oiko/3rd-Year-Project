@@ -54,7 +54,7 @@ public:
     _LookUp  *LUT;                  //Look up table for incoming
     //uint32_t *OpCodes;
     uint32_t holder_size;
-    queue<uint32_t> **OpCodesA;
+    uint32_t **OpCodesA;
     uint32_t *counters;
     float *Temps;
     uint32_t ****TCData;

@@ -72,7 +72,6 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(Values, sizeof(float), PointCount, Results);
 		    unsigned sz=transOp.size();
 		    fwrite(&sz,sizeof(uint32_t),1,Results);
-		    fwrite(&valid_qs,sizeof(uint32_t),1,Results);
 		    fwrite(&oV,sizeof(uint32_t),1,Results);
 		    fwrite(&transOp[0],sizeof(uint32_t),transOp.size(),Results);
 		    transOp.clear();
@@ -132,16 +131,22 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
             break;
         //deal with core entries
         valid_qs=0;
-	unsigned counter=0;
+	unsigned counter=1,head=0,tail=0;
 	auto iTTE = CORE.CoreEntries.find(Kt);
         TTE = iTTE->second;
         dTTE.Kd = TTE.Kd;
         dTTE.OpCode = 3;
 	cout<<"This node is of type "<<TTE.Name[0]<<endl;
+	transOp.resize(1);
+	transOp[0]=valid_qs;
 	for(int f=0;f<TTE.OpCodes.size();f++){
 		if(TTE.OpCodes[f].front()<17){
-			transOp.resize(transOp.size()+TTE.OpCodes[f].size()+2);
+			transOp.resize(transOp.size()+TTE.OpCodes[f].size()+4);
 			valid_qs++;
+			transOp[counter]=TTE.OpCodes[f].size();
+			counter++;
+			transOp[counter]=head;
+			counter++;
 			transOp[counter]=TTE.OpCodes[f].size();
 			counter++;
 			transOp[counter]=f;
@@ -153,6 +158,7 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 			}
 		}
 	}
+	transOp[0]=valid_qs;
 	//transOp.resize(transOp.size()-6);
 	cout<<"number of queues in this vector is "<<valid_qs<<endl;
 	for(int p=0;p<transOp.size();p++){
