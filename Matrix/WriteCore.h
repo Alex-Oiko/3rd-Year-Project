@@ -59,6 +59,8 @@ private:
     float *Temps;
     _LookUp  *LUT;                  //Look up table for incoming
     uint32_t oV;
+    uint32_t matrix_size;
+    uint32_t case15_counter;
     uint32_t valid_qs;
     vector<uint32_t> transOp;
     uint32_t *OpCodesA;

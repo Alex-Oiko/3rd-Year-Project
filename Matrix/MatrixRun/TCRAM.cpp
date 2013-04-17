@@ -165,45 +165,6 @@ bool TCram::ReadData(string TCDataFile){
 	    cout<<"WordCount "<<WordCount<<endl;
             TCData[X][Y][CoreID-1] = new uint32_t[WordCount];
             fread(TCData[X][Y][CoreID-1], 4, WordCount, TCFile);
-            /*uint32_t  size=0,valid_qs=0;
-	    fread(&size,sizeof(uint32_t),1,TCFile);
-	    cout<<"size is "<<size<<endl;
-	    uint32_t oV=0;
-	    fread(&oV,sizeof(uint32_t),1,TCFile);
-	    cout<<"V number is "<<oV<<endl;
-	    uint32_t OpCodes[size];
-	    //OpCodes = new uint32_t[size];
-	    fread(&OpCodes[0],sizeof(uint32_t),size,TCFile);
-	    //queue<uint32_t> data;
-	    //queue<uint32_t> *holder = new queue<uint32_t>[holder_size];
-	    for(int p=0;p<size;p++){
-		cout<<"Value is "<<OpCodes[p]<<endl;
-	    }
-	    OpCodesA[oV] = new uint32_t[size];
-	    uint32_t counter=0;
-	    uint32_t index=0;
-	    uint32_t q_size=0;
-	    for(int k=0;k<valid_qs;k++){	
-		q_size=OpCodes[counter];
-		cout<<"q_size "<<q_size<<endl;
-		counter++;
-		index=OpCodes[counter];
-		cout<<"index "<<index<<endl;
-		counter++;
-		for(int f=0;f<q_size;f++){
-			cout<<"value is "<<OpCodes[counter]<<endl;
-			data.push(OpCodes[counter]);
-			counter++;
-		}
-		holder[index]=data;
-		while(!data.empty()){
-			data.pop();
-		}
-	    }
-	    for(int p=0;p<size;p++){
-	   	OpCodesA[oV][p]=OpCodes[p];
-	   	cout<<"front at key "<<p<<" is "<<OpCodesA[oV][p]<<endl;
-	   }*/
 	}
     }
     fclose(TCFile);

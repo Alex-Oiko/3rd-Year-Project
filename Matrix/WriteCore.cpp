@@ -13,6 +13,7 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
     unsigned oKey = (-1)&CoreMask, Key, oChip = (-1)&ChipMask, CoreKey, ChipKey;
     uint32_t NoUsedChips, CoreCount;
     const char *TCram;
+    case15_counter=0;
     const uint32_t StartAddress = 0x0401000;
     uint32_t Rtype = 0x71, XY, CoreID, WordCount;
     _CoreCommon HeadCore;
@@ -186,6 +187,9 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	oV=0;
 	dTTE.Name = TTE.Name[0];
 	dTTE.YD = TTE.YD;
+	if(dTTE.Name=='A')
+		matrix_size=dTTE.YD;
+
 	dTTE.Y = TTE.Y;
 	dTTE.X = TTE.X;
 	dTTE.temp = TTE.Temp;

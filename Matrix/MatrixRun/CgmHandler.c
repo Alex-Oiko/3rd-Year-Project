@@ -316,9 +316,6 @@ void Update(uint32_t ticks, uint32_t unused){
             spin1_send_mc_packet(TTE[Lup].Kd,TTE[Lup].IV,WITH_PAYLOAD); /* Start the Matrix Vector multiply  */
             io_printf (IO_STD, "sent %f from %x\n",TTE[Lup].IV,TTE[Lup].Kd);
         }
-	else if(TTE[Lup].Name=='A'){
-		matrix_size=TTE[Lup].YD;
-	}
     }
 }
 
