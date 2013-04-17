@@ -59,7 +59,7 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(&StartAddress, 4, 1, Results);
                     fwrite(&CoreID,4,1,Results);
 		    cout<<"Point Count "<<PointCount<<endl;
-                    WordCount = LUTSize*sizeof(_LookUp) + 4*3*PointCount + PointCount*sizeof(_DTTE)+HeadSize;
+                    WordCount = LUTSize*sizeof(_LookUp) + 4*3*PointCount + PointCount*sizeof(_DTTE)+HeadSize+4*PointCount*transOp.size();
                     WordCount = (WordCount>>2);
 		    cout<<"Word Count "<<WordCount<<endl;
                     fwrite(&WordCount, 4, 1, Results);
@@ -70,6 +70,7 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     HeadCore.ValuesStart = (HeadSize + LUTSize*sizeof(_LookUp) + PointCount*sizeof(_DTTE))>>2;
 		    HeadCore.CounterStart = HeadCore.ValuesStart + 1;
 		    HeadCore.TempStart=HeadCore.CounterStart+1;
+		    HeadCore.OpCodesStart = HeadCore.TempStart+1;
 		    cout<<"Headsize "<<(HeadSize>>2)<<endl;
 		    cout<<"LUTStart "<<HeadCore.LUTStart<<endl;
 		    cout<<"LUTCount "<<HeadCore.LUTCount<<endl;
@@ -79,6 +80,7 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
 		    cout<<"Values Start "<<HeadCore.ValuesStart<<endl;
 		    cout<<"Counterstart "<<HeadCore.CounterStart<<endl;
 		    cout<<"TempStart "<<HeadCore.TempStart<<endl;
+		    cout<<"OpCodes start "<<HeadCore.OpCodesStart<<endl;
                     fwrite(&HeadCore, HeadSize, 1, Results);
                     fwrite(LUT,sizeof(_LookUp), LUTSize, Results);
                     fwrite(TTArray, sizeof(_DTTE), PointCount, Results);
@@ -87,9 +89,10 @@ void WriteCore::BinaryDump(string RootName, Task& TASK, Dealer& DEAL, Core& CORE
                     fwrite(Temps, sizeof(float), PointCount, Results);
 		    unsigned sz=transOp.size();
 		    cout<<"size "<<sz<<endl;
-		    fwrite(&sz,sizeof(uint32_t),1,Results);
-		    fwrite(&oV,sizeof(uint32_t),1,Results);
-		    fwrite(&transOp[0],sizeof(uint32_t),transOp.size(),Results);
+		    //fwrite(&sz,sizeof(uint32_t),1,Results);
+		    //fwrite(&oV,sizeof(uint32_t),1,Results);
+		    //fwrite(&transOp[0],sizeof(uint32_t),transOp.size(),Results);
+		    fwrite(OpCodesA,sizeof(uint32_t),transOp.size(),Results);
 		    transOp.clear();
                 }
             }
@@ -208,15 +211,21 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
     PointCount = idx;
     TTArray = new _DTTE[PointCount];
     Values = new float[PointCount];
-    //OpCodes = new uint32_t[PointCount];
     counters = new uint32_t[PointCount];
     Temps = new float[PointCount];
+    OpCodesA = new uint32_t[transOp.size()];
     for(idx = 0; idx < PointCount; idx++){
         TTArray[idx] = vTargetTable[idx];
         Values[idx] = TTArray[idx].IV;
 	TTArray[idx].oV = idx;
 	counters[idx] = 0;
 	Temps[idx] = TTArray[idx].IV;
+	//OpCodesA[idx]=new uint32_t[transOp.size()];
+	//OpCodesA[idx]=transOp;
+	for(int i=0;i<transOp.size();i++){
+		OpCodesA[i]=transOp[i];
+		cout<<"Value is "<<OpCodesA[i]<<endl;
+	}
 	}
     LUTSize = (unsigned)TMPLUT.size();
     LUT = new _LookUp[LUTSize];

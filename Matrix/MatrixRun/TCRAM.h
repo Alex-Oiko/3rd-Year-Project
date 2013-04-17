@@ -30,6 +30,7 @@ public:
         uint32_t ValuesStart;
 	uint32_t CounterStart;
 	uint32_t TempStart;
+    	uint32_t OpCodesStart;
     };
     struct _DTTE{
         uint32_t Kd;
@@ -54,7 +55,6 @@ public:
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
     _LookUp  *LUT;                  //Look up table for incoming
-    //uint32_t *OpCodes;
     uint32_t holder_size;
     uint32_t **OpCodesA;
     uint32_t *counters;

@@ -31,7 +31,7 @@ private:
         uint32_t ValuesStart;
         uint32_t CounterStart;
         uint32_t TempStart;
-	//uint32_t OpCodesStart;
+	uint32_t OpCodesStart;
     };
     struct _DTTE{
         uint32_t Kd;
@@ -61,7 +61,7 @@ private:
     uint32_t oV;
     uint32_t valid_qs;
     vector<uint32_t> transOp;
-    uint32_t *OpCodes;
+    uint32_t *OpCodesA;
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);
     void DumpCore(unsigned,Core&, Dealer&, Task&);  //Write the core with this Key&0xfffff800 returns the size of the arrays in 32bit words.

@@ -43,15 +43,12 @@ private:
     unsigned long CoreHits, CoreMisses;
     void InComing(uint32_t, float, uint32_t , TCram&);
     void PrintByOpCode(unsigned,unsigned, TCram&);
-    uint32_t front(uint32_t,uint32_t);
-    uint32_t pop(uint32_t,uint32_t);
-    uint32_t pushandpop(uint32_t,uint32_t);
+    uint32_t front(uint32_t,uint32_t*);
+    uint32_t pop(uint32_t,uint32_t*);
+    uint32_t pushandpop(uint32_t,uint32_t*);
 public:
     void SimBegin(TCram&, MCLines&,Machine&);
     unsigned matrix_size;
-    uint32_t **OpCodesA;
-    uint32_t *counters;
-    float *Temps;
     uint32_t case15_counter;
     uint32_t iterator_counter;
 };

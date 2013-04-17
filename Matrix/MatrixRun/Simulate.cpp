@@ -67,7 +67,7 @@ void Simulate::UpdateAll(TCram& TCRAM){
 void Simulate::LoadFireAll(TCram& TCRAM){
     unsigned X,Y,C,Lup;
     event E;
-    uint32_t *CoreData;
+    uint32_t *CoreData,*OpCodes;
 
     TCram::_CoreCommon *CoreCommon;
     TCram::_DTTE *TTE;
@@ -81,8 +81,9 @@ void Simulate::LoadFireAll(TCram& TCRAM){
                     continue;
                 CoreCommon = (TCram::_CoreCommon*)CoreData;
                 TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
+		OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
 		for(Lup = 0; Lup < CoreCommon->PointCount; Lup++){
-		    if(front(16,TTE[Lup].V)==3){
+		    if(front(16,OpCodes)==3){
 			E.Value = TTE[Lup].IV;
                         E.Ks = TTE[Lup].Kd;
                         E.Kd = E.Ks;
@@ -101,14 +102,7 @@ void Simulate::SimBegin(TCram& TCRAM, MCLines& MCT, Machine& MAC) {
     unsigned Thru=0;
     CoreHits = 0;
     CoreMisses = 0;
-    OpCodesA=TCRAM.OpCodesA;
     puts("Starting simulation");
-    /*for(int i=0;i<17;i++){
-        cout<<"new node here at "<<i<<endl;
-	for(int f=0;f<10;f++){
-		cout<<OpCodesA[i][f]<<endl;
-	}
-    }*/
     case15_counter=0;
     iterator_counter=0;
     LoadFireAll(TCRAM);
@@ -138,7 +132,7 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      uint32_t Xs,Ys,Cs,Os;
      KeyTo(E.Ks,Xs,Ys,Cs,Os);
      uint32_t LUTCount = 0, InPoint;
-     uint32_t *CoreData,*CoreDatas;
+     uint32_t *CoreData,*CoreDatas,*OpCodes;
      float Vme,Res, *Values;
      TCram::_LookUp *LUT;
      TCram::_CoreCommon *CoreCommon;
@@ -151,6 +145,7 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      LUT = (TCram::_LookUp*)&CoreData[CoreCommon->LUTStart];
      TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
      Values = (float*)&CoreData[CoreCommon->ValuesStart];
+     OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
      cout<<"Source {Kd="<<E.Ks<<",Name="<<TTE[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
      //for(int k = 0; k < LUTCount ; k++){
      found = true;
@@ -159,27 +154,27 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
      dTTE = TTE[InPoint];
 	switch(dTTE.Name){
      		case 'M':
-			cout<<"Previous OpCode was:"<<front(1,dTTE.V)<<endl;
-			pop(1,dTTE.V);
-		        cout<<"New OpCode at key 1 is:"<<front(1,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(1,OpCodes)<<endl;
+			pop(1,OpCodes);
+		        cout<<"New OpCode at key 1 is:"<<front(1,OpCodes)<<endl;
      	      		break;
 	     	case 'X':
 			//dont delete anything
         	     	 break;
 	     	case 'R':
         	     	if(Os==2){
-				cout<<"Previous OpCode was:"<<front(3,dTTE.V)<<endl;
-		     		pop(3,dTTE.V);
-				cout<<"New OpCode at key 3 is:"<<front(3,dTTE.V)<<endl;
+				cout<<"Previous OpCode was:"<<front(3,OpCodes)<<endl;
+		     		pop(3,OpCodes);
+				cout<<"New OpCode at key 3 is:"<<front(3,OpCodes)<<endl;
 	     		}
              		else{
-	     			cout<<"Size of OpCodes at key 0 is:"<<front(0,dTTE.V);
+	     			cout<<"Size of OpCodes at key 0 is:"<<front(0,OpCodes);
 			}
              		break;
 	     	case 'P':
-			cout<<"Previous OpCode was:"<<front(3,dTTE.V)<<endl;
-			pop(3,dTTE.V);
-		      	cout<<"New OpCode at key 3 is:"<<front(3,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(3,OpCodes)<<endl;
+			pop(3,OpCodes);
+		      	cout<<"New OpCode at key 3 is:"<<front(3,OpCodes)<<endl;
 			RES.Ks=dTTE.Kd;
 	      		RES.Kd=RES.Ks;
 		      	RES.Type=FIREAWAY;	      
@@ -189,28 +184,28 @@ void Simulate::Update(event E, TCram& TCRAM){  //this is the timer interrupt
 		      	EventQ.push(RES);
      	      		break;
 	     	case 'A':
-			cout<<"Previous OpCode was:"<<front(0,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(0,OpCodes)<<endl;
 			for(int s=0;s<matrix_size;s++){
-     	      			pop(0,dTTE.V);
+     	      			pop(0,OpCodes);
 			}
-     		      	cout<<"New OpCode at key 0 is:"<<front(0,dTTE.V)<<endl;
+     		      	cout<<"New OpCode at key 0 is:"<<front(0,OpCodes)<<endl;
 	     		break;
 	     	case 'N':
-			cout<<"Previous OpCode was:"<<front(3,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(3,OpCodes)<<endl;
 			for(int s=0;s<matrix_size;s++){
-				pop(3,dTTE.V);
+				pop(3,OpCodes);
 			}
-		      	cout<<"New OpCode at key 3 is:"<<front(3,dTTE.V)<<endl;
+		      	cout<<"New OpCode at key 3 is:"<<front(3,OpCodes)<<endl;
      		      	break;
 	     	case 'L':
-			cout<<"Previous OpCode was:"<<front(2,dTTE.V)<<endl;
-			pop(2,dTTE.V);
-		      	cout<<"New OpCode at key 2 is:"<<front(2,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(2,OpCodes)<<endl;
+			pop(2,OpCodes);
+		      	cout<<"New OpCode at key 2 is:"<<front(2,OpCodes)<<endl;
      		      	break;	
 	     	case 'B':
-			cout<<"Previous OpCode was:"<<front(2,dTTE.V)<<endl;
-			pop(2,dTTE.V);
-		      	cout<<"New OpCode at key 2 is:"<<front(2,dTTE.V)<<endl;
+			cout<<"Previous OpCode was:"<<front(2,OpCodes)<<endl;
+			pop(2,OpCodes);
+		      	cout<<"New OpCode at key 2 is:"<<front(2,OpCodes)<<endl;
 		      	break;
 	}
      	cout<<"\n"<<endl;
@@ -263,8 +258,8 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
     KeyTo(Kd, Xd, Yd, Cd, Od);
     KeyTo(Ks,Xs,Ys,Cs,Os);
     uint32_t LUTCount = 0, InPoint;
-    uint32_t *CoreData,*CoreDatas;
-    float Vme,Res, *Values;
+    uint32_t *CoreData,*CoreDatas,*OpCodes,*counters;
+    float Vme,Res, *Values,*Floats,*Temps;
     TCram::_LookUp *LUT;
     TCram::_CoreCommon *CoreCommon,*CoreCommons;
     TCram::_DTTE *TTE, dTTE,*TTEs;
@@ -281,6 +276,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
     Values = (float*)&CoreData[CoreCommon->ValuesStart];
     counters = (uint32_t*)&CoreData[CoreCommon->CounterStart];
     Temps = (float*)&CoreData[CoreCommon->TempStart];
+    OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
     cout<<"Source {Kd="<<Kd<<",Name="<<TTEs[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
     cout<<"Target {"<<"Ks="<<Ks<<",Name="<<TTE[InPoint].Name<<",Offset="<<Od<<"}"<<endl;
     RES.Ks=TTE[InPoint].Kd;
@@ -294,19 +290,18 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
             CoreHits++;
             InPoint = LUT[k].idx;
             dTTE = TTE[InPoint];
-    	    cout<<"V "<<dTTE.V<<endl;
-	    switch(front(Os,dTTE.V)){
+	    switch(front(Os,OpCodes)){
 		case 0:
 			cout<<"opcode is 0 here"<<endl;
-			pushandpop(Os,dTTE.V);
-			cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+			pushandpop(Os,OpCodes);
+			cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 			break;
         	case 1://multiplication but no send
             		Vme = Values[dTTE.oV];
             		Res = Vme*Vs;
             		RES.Value = Res;
-			pushandpop(Os,dTTE.V);
-			cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+			pushandpop(Os,OpCodes);
+			cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 			cout<<"Multiplication happened here"<<endl;
             		cout<<"resValue is "<<Res<<endl;
 			if(dTTE.Name=='A'){
@@ -319,11 +314,11 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
           		Vme = Values[dTTE.oV];
             		Values[dTTE.oV] -=Vs;
 	    		cout<<"COUNTER "<<counters[dTTE.oV]<<"\n";
-	    		cout<<"opcode"<<front(Os,dTTE.V);
+	    		cout<<"opcode"<<front(Os,OpCodes);
 			if(counters[dTTE.oV]==dTTE.YD){
 				RES.Value=Values[dTTE.oV];
-	    			pop(Os,dTTE.V);
-				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+	    			pop(Os,OpCodes);
+				cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 				cout<<"R CREATED"<<endl;
 				counters[dTTE.oV]=0;
 				EventQ.push(RES);
@@ -333,8 +328,8 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			Values[dTTE.oV]=Vs;
 			Temps[dTTE.oV]=Vs;
 			RES.Value=Values[dTTE.oV];
-	    		pushandpop(Os,dTTE.V);
-			cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+	    		pushandpop(Os,OpCodes);
+			cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			cout<<Values[dTTE.oV]<<endl;
 			EventQ.push(RES);
@@ -348,8 +343,8 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			if(counters[dTTE.oV]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=Values[dTTE.oV];
 				counters[dTTE.oV]=0;
-	    			pushandpop(Os,dTTE.V);
-				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+	    			pushandpop(Os,OpCodes);
+				cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 				cout<<"RSOLD/RSNEW CREATED"<<endl;
 				cout<<"Value is "<<Values[dTTE.oV]<<endl;
 				if(dTTE.Name=='N')//so it does not have previous value in other iterations
@@ -362,12 +357,12 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			cout<<"numbah 6 here"<<endl;
 			counters[dTTE.oV]++;
 			Values[dTTE.oV]+=Vs;
-			cout<<"Opcode"<<front(Os,dTTE.V)<<endl;
-	    		pushandpop(Os,dTTE.V);
+			cout<<"Opcode"<<front(Os,OpCodes)<<endl;
+	    		pushandpop(Os,OpCodes);
 			if(counters[dTTE.oV]==dTTE.YD){
 				RES.Value=Values[dTTE.oV];
 				counters[dTTE.oV]=0;
-				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
+				cout<<"new opcode is "<<front(Os,OpCodes)<<endl;
 				cout<<"value of node is"<<Values[dTTE.oV]<<endl;
 				EventQ.push(RES);
 			}
@@ -375,7 +370,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 		case 7://Assignement without send
 			Values[dTTE.oV]=Vs;
 			Temps[dTTE.oV]=Vs;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			cout<<"Value is EDWWWWWWWWWWWW "<<Values[dTTE.oV]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			break;
@@ -385,7 +380,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 
 			counters[dTTE.oV]++;
 			Temps[dTTE.oV]+=Vs;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			cout<<"ALPHA node here"<<endl;
 		 	cout<<"Bottom happenning here "<<Temps[dTTE.oV]<<endl;
 			if(counters[dTTE.oV]==matrix_size){
@@ -406,7 +401,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 		case 10://make new r nodes, basically subtraction
 			cout<<"Making r values"<<endl;
 			Values[dTTE.oV]-=Vs;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			cout<<"R value is "<<Values[dTTE.oV]<<endl;
 			RES.Value=Values[dTTE.oV];
 			EventQ.push(RES);
@@ -414,7 +409,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 		case 11://make new x nodes
 			cout<<"MAKING AN X NODE HERE!!"<<endl;
 			Values[dTTE.oV]+=Vs;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			RES.Value=Values[dTTE.oV];
 			cout<<"Value is "<<Values[dTTE.oV]<<endl;
 			//EventQ.push(RES);
@@ -422,7 +417,7 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 		case 12://make beta
 			cout<<"CREATING BETA HERE"<<endl;
 			Values[dTTE.oV]=Vs/Values[dTTE.oV];
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			RES.Value=Values[dTTE.oV];
 			Values[dTTE.oV]=Vs;//save it as rsold for the next iteration
 			cout<<"Value is "<<Values[dTTE.oV]<<endl;
@@ -444,13 +439,13 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 		case 14://temp assignement only
 			cout<<"ASSIGNING IN TEMP"<<endl;
 			Temps[dTTE.oV]=Vs;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			break;
 		case 15://make new p nodes
 			Values[dTTE.oV]*=Vs;
 			Values[dTTE.oV]+=Temps[dTTE.oV];
 			cout<<"New p value is "<<Values[dTTE.oV]<<endl;
-	    		pushandpop(Os,dTTE.V);
+	    		pushandpop(Os,OpCodes);
 			case15_counter++;
 			cout<<case15_counter<<endl;
 			if(case15_counter==matrix_size){//when case15_counter==N 
@@ -473,54 +468,54 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
         CoreMisses++;
   cout<<"\n"<<endl;
 }
-uint32_t Simulate::front(uint32_t offset,uint32_t V){
+uint32_t Simulate::front(uint32_t offset,uint32_t* OpCodesA){
 	uint32_t pq_size=1,head=0,tail=0,ihead=0;
 	//cout<<OpCodesA[10][0]<<endl;
-	for(int i=0;i<OpCodesA[V][0];i++){
-		if(OpCodesA[V][3+pq_size]==offset){
-			head=OpCodesA[V][1+pq_size];
-			tail=OpCodesA[V][2+pq_size];
+	for(int i=0;i<OpCodesA[0];i++){
+		if(OpCodesA[3+pq_size]==offset){
+			head=OpCodesA[1+pq_size];
+			tail=OpCodesA[2+pq_size];
 			ihead=4+pq_size+head;
-			return OpCodesA[V][ihead];
+			return OpCodesA[ihead];
 		}
 		else
-			pq_size+=OpCodesA[V][pq_size]+4;
+			pq_size+=OpCodesA[pq_size]+4;
 	}
 }
-uint32_t Simulate::pop(uint32_t offset,uint32_t V){
+uint32_t Simulate::pop(uint32_t offset,uint32_t* OpCodesA){
 	uint32_t pq_size=1,head=0,tail=0,value=0,ihead=0;
-	for(int i=0;i<OpCodesA[V][0];i++){
-		if(OpCodesA[V][3+pq_size]==offset){
-			head=OpCodesA[V][1+pq_size];
-			tail=OpCodesA[V][2+pq_size];
+	for(int i=0;i<OpCodesA[0];i++){
+		if(OpCodesA[3+pq_size]==offset){
+			head=OpCodesA[1+pq_size];
+			tail=OpCodesA[2+pq_size];
 			ihead=4+pq_size+head;
 			head++;
 		        tail--;	
-			OpCodesA[V][1+pq_size]=head;
-			OpCodesA[V][2+pq_size]=tail;
-			cout<<"size is "<<OpCodesA[V][pq_size]<<" POP New head is "<<head<<endl;
+			OpCodesA[1+pq_size]=head;
+			OpCodesA[2+pq_size]=tail;
+			cout<<"size is "<<OpCodesA[pq_size]<<" POP New head is "<<head<<endl;
 			return 0;
 		}
 		else
-			pq_size+=OpCodesA[V][pq_size]+4;
+			pq_size+=OpCodesA[pq_size]+4;
 	}
 }
-uint32_t Simulate::pushandpop(uint32_t offset,uint32_t V){
+uint32_t Simulate::pushandpop(uint32_t offset,uint32_t* OpCodesA){
 	uint32_t pq_size=1,head=0,tail=0,value=0;
-	for(int i=0;i<OpCodesA[V][0];i++){
-		if(OpCodesA[V][3+pq_size]==offset){
-			head=OpCodesA[V][1+pq_size];
-			tail=OpCodesA[V][2+pq_size];
+	for(int i=0;i<OpCodesA[0];i++){
+		if(OpCodesA[3+pq_size]==offset){
+			head=OpCodesA[1+pq_size];
+			tail=OpCodesA[2+pq_size];
 			head++;
 			if(head==tail){
-				head=OpCodesA[V][pq_size]-tail;
+				head=OpCodesA[pq_size]-tail;
 			}
-			OpCodesA[V][1+pq_size]=head;
+			OpCodesA[1+pq_size]=head;
 			cout<<"P&P New head is "<<head<<endl;
 			return 0;
 		}
 		else
-			pq_size+=OpCodesA[V][pq_size]+4;
+			pq_size+=OpCodesA[pq_size]+4;
 	}
 }
 
