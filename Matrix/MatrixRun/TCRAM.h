@@ -28,6 +28,8 @@ public:
         uint32_t LUTCount;
         uint32_t TTStart;
         uint32_t ValuesStart;
+	uint32_t CounterStart;
+	uint32_t TempStart;
     };
     struct _DTTE{
         uint32_t Kd;

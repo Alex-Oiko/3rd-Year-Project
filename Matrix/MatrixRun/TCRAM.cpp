@@ -162,6 +162,7 @@ bool TCram::ReadData(string TCDataFile){
             fread(&StartAddress, 4, 1, TCFile);
             fread(&CoreID, 4, 1, TCFile);
             fread(&WordCount, 4, 1, TCFile);
+	    cout<<"WordCount "<<WordCount<<endl;
             TCData[X][Y][CoreID-1] = new uint32_t[WordCount];
             fread(TCData[X][Y][CoreID-1], 4, WordCount, TCFile);
             uint32_t  size=0,valid_qs=0;
@@ -221,9 +222,10 @@ void TCram::PrintTCram(){
     _LookUp *LUT;
     uint32_t PointCount;
     _DTTE *TTE;
-    Temps = new float[holder_size];
-    counters = new uint32_t[holder_size];
-    float *Values;
+    //Temps = new float[holder_size];
+    //counters = new uint32_t[holder_size];
+    float *Values,*Temps;
+    uint32_t *counters;
     for(int X = 0; X< NX;X++){
         for(int Y = 0; Y < NY; Y++) {
             for (int C = 0; C < NC; C++) {
@@ -233,6 +235,7 @@ void TCram::PrintTCram(){
                 printf("TCData for (X=%x, Y=%x, C=%d)\n",X,Y,C);
                 CoreCommon = (_CoreCommon*)CoreData;
                 printf("LUTStart = %d, LUTCount = %d\nTTStart = %d, ValuesStart = %d\n",CoreCommon->LUTStart,CoreCommon->LUTCount, CoreCommon->TTStart, CoreCommon->ValuesStart);
+		//cout<<"Counter Start "<<CoreCommon->CounterStart<<" TempStart "<<CoreCommon->TempStart<<endl;
                 PointCount = CoreCommon->PointCount;
                 puts("LUT");
                 LUT = (_LookUp*)&CoreData[CoreCommon->LUTStart];
@@ -241,11 +244,12 @@ void TCram::PrintTCram(){
                 puts("");
                 TTE = (_DTTE*)&CoreData[CoreCommon->TTStart];
                 Values = (float*)&CoreData[CoreCommon->ValuesStart];
+                counters = (uint32_t*)&CoreData[CoreCommon->CounterStart];
+		Temps = (float*)&CoreData[CoreCommon->TempStart];
 		for(int i = 0; i < PointCount; i++){
-		        Temps[TTE[i].V]=Values[TTE[i].oV];
-			counters[TTE[i].V]=0;
+		        //Temps[TTE[i].V]=Values[TTE[i].oV];
 	      		cout<<"Specs for this node are"<<endl;
-			cout<<"Kd="<<TTE[i].Kd<<",TTE OpCode="<<TTE[i].OpCode<<",Name="<<TTE[i].Name<<",oV="<<TTE[i].oV<<",YD="<<TTE[i].YD<<",Y="<<TTE[i].Y<<",X="<<TTE[i].X<<",TTE temp="<<TTE[i].temp<<",TTE counter="<<TTE[i].counter<<",IV="<<TTE[i].IV<<",Expected="<<TTE[i].Expected<<",Arrived="<<TTE[i].Arrived<<",counter="<<counters[TTE[i].V]<<",Temps="<<Temps[TTE[i].V]<<",Values="<<Values[TTE[i].oV]<<endl;
+			cout<<"Kd="<<TTE[i].Kd<<",TTE OpCode="<<TTE[i].OpCode<<",Name="<<TTE[i].Name<<",oV="<<TTE[i].oV<<",YD="<<TTE[i].YD<<",Y="<<TTE[i].Y<<",X="<<TTE[i].X<<",TTE temp="<<TTE[i].temp<<",TTE counter="<<TTE[i].counter<<",IV="<<TTE[i].IV<<",Expected="<<TTE[i].Expected<<",Arrived="<<TTE[i].Arrived<<",counter="<<counters[TTE[i].oV]<<",Temps="<<Temps[TTE[i].oV]<<",Values="<<Values[TTE[i].oV]<<endl;
 
 			cout<<"The OpCodes for this node are "<<TTE[i].V<<endl;
 	      		for(int k=0;k<10;k++){

@@ -102,8 +102,6 @@ void Simulate::SimBegin(TCram& TCRAM, MCLines& MCT, Machine& MAC) {
     CoreHits = 0;
     CoreMisses = 0;
     OpCodesA=TCRAM.OpCodesA;
-    counters = TCRAM.counters;
-    Temps = TCRAM.Temps;
     puts("Starting simulation");
     /*for(int i=0;i<17;i++){
         cout<<"new node here at "<<i<<endl;
@@ -281,6 +279,8 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
     TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
     TTEs = (TCram::_DTTE*)&CoreDatas[CoreCommons->TTStart];
     Values = (float*)&CoreData[CoreCommon->ValuesStart];
+    counters = (uint32_t*)&CoreData[CoreCommon->CounterStart];
+    Temps = (float*)&CoreData[CoreCommon->TempStart];
     cout<<"Source {Kd="<<Kd<<",Name="<<TTEs[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
     cout<<"Target {"<<"Ks="<<Ks<<",Name="<<TTE[InPoint].Name<<",Offset="<<Od<<"}"<<endl;
     RES.Ks=TTE[InPoint].Kd;
@@ -315,23 +315,23 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			EventQ.push(RES);
 			break;
         	case 2://specific for the creation of r
-	    		counters[dTTE.V]++;
+	    		counters[dTTE.oV]++;
           		Vme = Values[dTTE.oV];
             		Values[dTTE.oV] -=Vs;
-	    		cout<<"COUNTER "<<counters[dTTE.V]<<"\n";
+	    		cout<<"COUNTER "<<counters[dTTE.oV]<<"\n";
 	    		cout<<"opcode"<<front(Os,dTTE.V);
-			if(counters[dTTE.V]==dTTE.YD){
+			if(counters[dTTE.oV]==dTTE.YD){
 				RES.Value=Values[dTTE.oV];
 	    			pop(Os,dTTE.V);
 				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
 				cout<<"R CREATED"<<endl;
-				counters[dTTE.V]=0;
+				counters[dTTE.oV]=0;
 				EventQ.push(RES);
 	    		}
         		break;
 		case 4://assignement
 			Values[dTTE.oV]=Vs;
-			Temps[dTTE.V]=Vs;
+			Temps[dTTE.oV]=Vs;
 			RES.Value=Values[dTTE.oV];
 	    		pushandpop(Os,dTTE.V);
 			cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
@@ -341,13 +341,13 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			break;
 	
 		case 5://constant
-			counters[dTTE.V]++;
+			counters[dTTE.oV]++;
 			Values[dTTE.oV]+=Vs*Vs;
 			cout<<"Value is "<<Values[dTTE.oV]<<endl;
 			cout<<"matrix_size is:"<<matrix_size<<endl;
-			if(counters[dTTE.V]==matrix_size){//no TTE.YD because node size is 1, because it is single node
+			if(counters[dTTE.oV]==matrix_size){//no TTE.YD because node size is 1, because it is single node
 				RES.Value=Values[dTTE.oV];
-				counters[dTTE.V]=0;
+				counters[dTTE.oV]=0;
 	    			pushandpop(Os,dTTE.V);
 				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
 				cout<<"RSOLD/RSNEW CREATED"<<endl;
@@ -360,13 +360,13 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			break;
 		case 6://to create Ap nodes
 			cout<<"numbah 6 here"<<endl;
-			counters[dTTE.V]++;
+			counters[dTTE.oV]++;
 			Values[dTTE.oV]+=Vs;
 			cout<<"Opcode"<<front(Os,dTTE.V)<<endl;
 	    		pushandpop(Os,dTTE.V);
-			if(counters[dTTE.V]==dTTE.YD){
+			if(counters[dTTE.oV]==dTTE.YD){
 				RES.Value=Values[dTTE.oV];
-				counters[dTTE.V]=0;
+				counters[dTTE.oV]=0;
 				cout<<"new opcode is "<<front(Os,dTTE.V)<<endl;
 				cout<<"value of node is"<<Values[dTTE.oV]<<endl;
 				EventQ.push(RES);
@@ -374,25 +374,25 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			break;
 		case 7://Assignement without send
 			Values[dTTE.oV]=Vs;
-			Temps[dTTE.V]=Vs;
+			Temps[dTTE.oV]=Vs;
 	    		pushandpop(Os,dTTE.V);
 			cout<<"Value is EDWWWWWWWWWWWW "<<Values[dTTE.oV]<<endl;
 			cout<<"ASSIGNEMENT DONE HERE"<<endl;
 			break;
 		case 8://create alpha node
-			if(counters[dTTE.V]==0)
-				Temps[dTTE.V]=0;
+			if(counters[dTTE.oV]==0)
+				Temps[dTTE.oV]=0;
 
-			counters[dTTE.V]++;
-			Temps[dTTE.V]+=Vs;
+			counters[dTTE.oV]++;
+			Temps[dTTE.oV]+=Vs;
 	    		pushandpop(Os,dTTE.V);
 			cout<<"ALPHA node here"<<endl;
-		 	cout<<"Bottom happenning here "<<Temps[dTTE.V]<<endl;
-			if(counters[dTTE.V]==matrix_size){
+		 	cout<<"Bottom happenning here "<<Temps[dTTE.oV]<<endl;
+			if(counters[dTTE.oV]==matrix_size){
 				cout<<"rsold in Mstore is "<<Values[dTTE.oV]<<endl;
-				Values[dTTE.oV]=Values[dTTE.oV]/Temps[dTTE.V];
+				Values[dTTE.oV]=Values[dTTE.oV]/Temps[dTTE.oV];
 				RES.Value=Values[dTTE.oV];
-				counters[dTTE.V]=0;
+				counters[dTTE.oV]=0;
 				cout<<"Value is "<<Values[dTTE.oV]<<endl;
 				EventQ.push(RES);
 			}
@@ -443,12 +443,12 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 			break;
 		case 14://temp assignement only
 			cout<<"ASSIGNING IN TEMP"<<endl;
-			Temps[dTTE.V]=Vs;
+			Temps[dTTE.oV]=Vs;
 	    		pushandpop(Os,dTTE.V);
 			break;
 		case 15://make new p nodes
 			Values[dTTE.oV]*=Vs;
-			Values[dTTE.oV]+=Temps[dTTE.V];
+			Values[dTTE.oV]+=Temps[dTTE.oV];
 			cout<<"New p value is "<<Values[dTTE.oV]<<endl;
 	    		pushandpop(Os,dTTE.V);
 			case15_counter++;

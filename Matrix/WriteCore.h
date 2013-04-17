@@ -29,6 +29,9 @@ private:
         uint32_t LUTCount;
         uint32_t TTStart;
         uint32_t ValuesStart;
+        uint32_t CounterStart;
+        uint32_t TempStart;
+	//uint32_t OpCodesStart;
     };
     struct _DTTE{
         uint32_t Kd;
@@ -52,11 +55,13 @@ private:
     unsigned PointCount, LUTSize;;
     _DTTE *TTArray;                 //Array for the target table entries
     float *Values;               //Array for the values
+    uint32_t *counters;
+    float *Temps;
     _LookUp  *LUT;                  //Look up table for incoming
     uint32_t oV;
     uint32_t valid_qs;
     vector<uint32_t> transOp;
-    vector<uint32_t> OpCodesA;
+    uint32_t *OpCodes;
     unsigned UsedCores(unsigned,Dealer&);
     unsigned UsedChips(Dealer&);
     void DumpCore(unsigned,Core&, Dealer&, Task&);  //Write the core with this Key&0xfffff800 returns the size of the arrays in 32bit words.

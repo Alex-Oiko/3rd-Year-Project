@@ -1,5 +1,6 @@
 This is MatrixRun
 Give me a program root name matey Machine is a Rectangle(0), Torus(1) or Board48(2)? New node here
+WordCount 27
 size is 14
 V number is 10
 Value is 2
@@ -31,6 +32,7 @@ front at key 11 is 1
 front at key 12 is 7
 front at key 13 is 1
 New node here
+WordCount 27
 size is 14
 V number is 11
 Value is 2
@@ -62,6 +64,7 @@ front at key 11 is 1
 front at key 12 is 7
 front at key 13 is 1
 New node here
+WordCount 25
 size is 11
 V number is 16
 Value is 2
@@ -87,6 +90,7 @@ front at key 8 is 1
 front at key 9 is 6
 front at key 10 is 12
 New node here
+WordCount 23
 size is 6
 V number is 15
 Value is 1
@@ -102,6 +106,7 @@ front at key 3 is 1
 front at key 4 is 6
 front at key 5 is 13
 New node here
+WordCount 29
 size is 21
 V number is 14
 Value is 3
@@ -147,6 +152,7 @@ front at key 18 is 1
 front at key 19 is 6
 front at key 20 is 7
 New node here
+WordCount 25
 size is 13
 V number is 0
 Value is 2
@@ -176,6 +182,7 @@ front at key 10 is 1
 front at key 11 is 0
 front at key 12 is 0
 New node here
+WordCount 25
 size is 13
 V number is 1
 Value is 2
@@ -205,6 +212,7 @@ front at key 10 is 1
 front at key 11 is 0
 front at key 12 is 0
 New node here
+WordCount 25
 size is 13
 V number is 2
 Value is 2
@@ -234,6 +242,7 @@ front at key 10 is 1
 front at key 11 is 0
 front at key 12 is 0
 New node here
+WordCount 25
 size is 13
 V number is 3
 Value is 2
@@ -263,6 +272,7 @@ front at key 10 is 1
 front at key 11 is 0
 front at key 12 is 0
 New node here
+WordCount 25
 size is 8
 V number is 13
 Value is 1
@@ -282,6 +292,7 @@ front at key 5 is 0
 front at key 6 is 0
 front at key 7 is 5
 New node here
+WordCount 29
 size is 23
 V number is 8
 Value is 4
@@ -331,6 +342,7 @@ front at key 20 is 1
 front at key 21 is 9
 front at key 22 is 15
 New node here
+WordCount 29
 size is 23
 V number is 9
 Value is 4
@@ -380,6 +392,7 @@ front at key 20 is 1
 front at key 21 is 9
 front at key 22 is 15
 New node here
+WordCount 27
 size is 15
 V number is 6
 Value is 2
@@ -413,6 +426,7 @@ front at key 12 is 5
 front at key 13 is 0
 front at key 14 is 10
 New node here
+WordCount 27
 size is 15
 V number is 7
 Value is 2
@@ -446,6 +460,7 @@ front at key 12 is 5
 front at key 13 is 0
 front at key 14 is 10
 New node here
+WordCount 27
 size is 13
 V number is 12
 Value is 2
@@ -475,6 +490,7 @@ front at key 10 is 1
 front at key 11 is 6
 front at key 12 is 7
 New node here
+WordCount 23
 size is 13
 V number is 4
 Value is 2
@@ -504,6 +520,7 @@ front at key 10 is 1
 front at key 11 is 16
 front at key 12 is 3
 New node here
+WordCount 23
 size is 13
 V number is 5
 Value is 2
@@ -729,8 +746,8 @@ X=7, Y=5, Size=0
 X=7, Y=6, Size=0
 X=7, Y=7, Size=0
 TCData for (X=0, Y=0, C=0)
-LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 24
+LUTStart = 6, LUTCount = 3
+TTStart = 12, ValuesStart = 25
 LUT
 1000007,0  1010000,0  1020000,0  
 Specs for this node are
@@ -747,8 +764,8 @@ Value is 6
 Value is 6
 Value is 1
 TCData for (X=0, Y=1, C=0)
-LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 24
+LUTStart = 6, LUTCount = 3
+TTStart = 12, ValuesStart = 25
 LUT
 1000007,0  1030000,0  1040000,0  
 Specs for this node are
@@ -765,8 +782,8 @@ Value is 6
 Value is 6
 Value is 1
 TCData for (X=0, Y=2, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2000006,0  2050002,0  
 Specs for this node are
@@ -783,8 +800,8 @@ Value is 0
 Value is 1
 Value is 6
 TCData for (X=0, Y=3, C=0)
-LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 20
+LUTStart = 6, LUTCount = 1
+TTStart = 8, ValuesStart = 21
 LUT
 2000006,0  
 Specs for this node are
@@ -798,11 +815,11 @@ Value is 6
 Value is 13
 Value is 81
 Value is 0
-Value is 11346320
+Value is 21754256
 Value is 0
 TCData for (X=1, Y=0, C=0)
-LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 26
+LUTStart = 6, LUTCount = 4
+TTStart = 14, ValuesStart = 27
 LUT
 2000006,0  2010004,0  2020004,0  2050002,0  
 Specs for this node are
@@ -819,8 +836,8 @@ Value is 0
 Value is 6
 Value is 4
 TCData for (X=1, Y=1, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2010004,0  3000001,0  
 Specs for this node are
@@ -837,8 +854,8 @@ Value is 0
 Value is 3
 Value is 4
 TCData for (X=1, Y=2, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2020004,0  3010001,0  
 Specs for this node are
@@ -855,8 +872,8 @@ Value is 0
 Value is 3
 Value is 4
 TCData for (X=1, Y=3, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2010004,0  3000001,0  
 Specs for this node are
@@ -873,8 +890,8 @@ Value is 0
 Value is 3
 Value is 4
 TCData for (X=1, Y=4, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2020004,0  3010001,0  
 Specs for this node are
@@ -891,8 +908,8 @@ Value is 0
 Value is 3
 Value is 4
 TCData for (X=2, Y=0, C=0)
-LUTStart = 5, LUTCount = 2
-TTStart = 9, ValuesStart = 22
+LUTStart = 6, LUTCount = 2
+TTStart = 10, ValuesStart = 23
 LUT
 2030003,0  2040003,0  
 Specs for this node are
@@ -909,8 +926,8 @@ Value is 5
 Value is 48
 Value is 0
 TCData for (X=2, Y=1, C=0)
-LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 26
+LUTStart = 6, LUTCount = 4
+TTStart = 14, ValuesStart = 27
 LUT
 5,0  20009,0  1000007,0  2030003,0  
 Specs for this node are
@@ -927,8 +944,8 @@ Value is 2
 Value is 0
 Value is 2
 TCData for (X=2, Y=2, C=0)
-LUTStart = 5, LUTCount = 4
-TTStart = 13, ValuesStart = 26
+LUTStart = 6, LUTCount = 4
+TTStart = 14, ValuesStart = 27
 LUT
 10005,0  20009,0  1000007,0  2040003,0  
 Specs for this node are
@@ -945,8 +962,8 @@ Value is 2
 Value is 0
 Value is 2
 TCData for (X=2, Y=3, C=0)
-LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 24
+LUTStart = 6, LUTCount = 3
+TTStart = 12, ValuesStart = 25
 LUT
 5,0  1010000,0  1020000,0  
 Specs for this node are
@@ -963,8 +980,8 @@ Value is 0
 Value is 0
 Value is 2
 TCData for (X=2, Y=4, C=0)
-LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 24
+LUTStart = 6, LUTCount = 3
+TTStart = 12, ValuesStart = 25
 LUT
 10005,0  1030000,0  1040000,0  
 Specs for this node are
@@ -981,8 +998,8 @@ Value is 0
 Value is 0
 Value is 2
 TCData for (X=2, Y=5, C=0)
-LUTStart = 5, LUTCount = 3
-TTStart = 11, ValuesStart = 24
+LUTStart = 6, LUTCount = 3
+TTStart = 12, ValuesStart = 25
 LUT
 2000006,0  2030003,0  2040003,0  
 Specs for this node are
@@ -999,8 +1016,8 @@ Value is 0
 Value is 1
 Value is 0
 TCData for (X=3, Y=0, C=0)
-LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 20
+LUTStart = 6, LUTCount = 1
+TTStart = 8, ValuesStart = 21
 LUT
 2010004,0  
 Specs for this node are
@@ -1017,8 +1034,8 @@ Value is 11
 Value is 1
 Value is 0
 TCData for (X=3, Y=1, C=0)
-LUTStart = 5, LUTCount = 1
-TTStart = 7, ValuesStart = 20
+LUTStart = 6, LUTCount = 1
+TTStart = 8, ValuesStart = 21
 LUT
 2020004,0  
 Specs for this node are
@@ -1088,18 +1105,15 @@ Source {Kd=33751040,Name=M,Offset=0}
 Target {Ks=16908288,Name=R,Offset=0}
 Offset 0
 V 6
-COUNTER 1
+COUNTER 3
 opcode2
 
 Source {Kd=33751040,Name=M,Offset=0}
 Target {Ks=16842752,Name=R,Offset=0}
 Offset 0
 V 6
-COUNTER 2
-opcode2size is 3 POP New head is 1
-new opcode is 0
-R CREATED
-
+COUNTER 4
+opcode2
 
 Source {Kd=0,Name=M,Offset=0}
 Target {Ks=16908288,Name=A,Offset=0}
@@ -1114,18 +1128,15 @@ Source {Kd=33816576,Name=M,Offset=0}
 Target {Ks=16973824,Name=R,Offset=0}
 Offset 0
 V 7
-COUNTER 1
+COUNTER 4
 opcode2
 
 Source {Kd=33816576,Name=M,Offset=0}
 Target {Ks=17039360,Name=R,Offset=0}
 Offset 0
 V 7
-COUNTER 2
-opcode2size is 3 POP New head is 1
-new opcode is 0
-R CREATED
-
+COUNTER 5
+opcode2
 
 Source {Kd=65536,Name=M,Offset=0}
 Target {Ks=16973824,Name=A,Offset=0}
@@ -1134,36 +1145,6 @@ V 11
 opcode is 0 here
 P&P New head is 1
 new opcode is 0
-
-
-Source {Kd=33882112,Name=R,Offset=3}
-Target {Ks=33751043,Name=R,Offset=0}
-Offset 3
-V 12
-Value is 64
-matrix_size is:2
-
-
-Source {Kd=33619968,Name=R,Offset=3}
-Target {Ks=33751043,Name=P,Offset=0}
-Offset 3
-V 8
-P&P New head is 1
-new opcode is 14
-ASSIGNEMENT DONE HERE
--8
-
-
-Source {Kd=33882112,Name=R,Offset=3}
-Target {Ks=33816579,Name=R,Offset=0}
-Offset 3
-V 12
-Value is 73
-matrix_size is:2
-P&P New head is 1
-new opcode is 0
-RSOLD/RSNEW CREATED
-Value is 73
 
 
 Source {Kd=65536,Name=M,Offset=0}
@@ -1175,464 +1156,10 @@ P&P New head is 2
 new opcode is 6
 
 
-Source {Kd=33554432,Name=R,Offset=3}
-Target {Ks=33751043,Name=N,Offset=0}
-Offset 3
-V 13
-opcode is 0 here
-P&P New head is 1
-new opcode is 0
-
-
-Source {Kd=33685504,Name=R,Offset=3}
-Target {Ks=33816579,Name=P,Offset=0}
-Offset 3
-V 9
-P&P New head is 1
-new opcode is 14
-ASSIGNEMENT DONE HERE
--3
-
-
-Source {Kd=16842752,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 0
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is -32
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33619972,Name=L,Offset=0}
-Offset 4
-V 14
-opcode is 0 here
-P&P New head is 1
-new opcode is 0
-
-
-Source {Kd=50331648,Name=P,Offset=4}
-Target {Ks=33619972,Name=X,Offset=0}
-Offset 4
-V 4
-opcode is 0 here
-P&P New head is 1
-new opcode is 0
-
-
-Source {Kd=33554432,Name=R,Offset=3}
-Target {Ks=33816579,Name=N,Offset=0}
-Offset 3
-V 13
-opcode is 0 here
-P&P New head is 2
-new opcode is 5
-
-
-Source {Kd=16908288,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 1
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is -3
-
-
-Source {Kd=16973824,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 2
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is -8
-
-
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16842752,Name=A,Offset=0}
-Offset 0
-V 10
-numbah 6 here
-Opcode6
-P&P New head is 3
-
-
-Source {Kd=131072,Name=R,Offset=2}
-Target {Ks=33882114,Name=B,Offset=0}
-Offset 2
-V 16
-P&P New head is 0
-Value is EDWWWWWWWWWWWW 73
-ASSIGNEMENT DONE HERE
-
-
-Source {Kd=50397184,Name=P,Offset=4}
-Target {Ks=33685508,Name=X,Offset=0}
-Offset 4
-V 5
-opcode is 0 here
-P&P New head is 1
-new opcode is 0
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33685508,Name=L,Offset=0}
-Offset 4
-V 14
-opcode is 0 here
-P&P New head is 2
-new opcode is 8
-
-
-Source {Kd=33751040,Name=M,Offset=0}
-Target {Ks=16842752,Name=R,Offset=0}
-Offset 0
-V 6
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=17039360,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 3
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is -9
-
-
-Source {Kd=33751040,Name=M,Offset=0}
-Target {Ks=16908288,Name=R,Offset=0}
-Offset 0
-V 6
-opcode is 0 here
-P&P New head is 3
-new opcode is 0
-
-
-Source {Kd=33816576,Name=M,Offset=0}
-Target {Ks=16973824,Name=R,Offset=0}
-Offset 0
-V 7
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=16777216,Name=R,Offset=2}
-Target {Ks=33882114,Name=L,Offset=0}
-Offset 2
-V 14
-P&P New head is 0
-Value is EDWWWWWWWWWWWW 73
-ASSIGNEMENT DONE HERE
-
-
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16908288,Name=A,Offset=0}
-Offset 0
-V 10
-numbah 6 here
-Opcode6
-P&P New head is 0
-new opcode is 0
-value of node is-35
-
-
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16973824,Name=A,Offset=0}
-Offset 0
-V 11
-numbah 6 here
-Opcode6
-P&P New head is 3
-
-
-Source {Kd=33816576,Name=M,Offset=0}
-Target {Ks=17039360,Name=R,Offset=0}
-Offset 0
-V 7
-opcode is 0 here
-P&P New head is 3
-new opcode is 0
-
-
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=17039360,Name=A,Offset=0}
-Offset 0
-V 11
-numbah 6 here
-Opcode6
-P&P New head is 0
-new opcode is 0
-value of node is-17
-
-
-Source {Kd=33619968,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
-Offset 5
-V 8
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is 280
-
-
-Source {Kd=33751040,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
-Offset 5
-V 6
-opcode is 0 here
-new opcode is 255625024
-
-
-Source {Kd=16842752,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 0
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33619972,Name=L,Offset=0}
-Offset 4
-V 14
-P&P New head is 3
-ALPHA node here
-Bottom happenning here 280
-
-
-Source {Kd=33685504,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
-Offset 5
-V 9
-P&P New head is 1
-new opcode is 0
-Multiplication happened here
-resValue is 51
-
-
-Source {Kd=503k31648,Name=P,Offset=4}
-Target {Ks=33619972,Name=X,Offset=0}
-Offset 4
-V 4
-opcode is 0 here
-P&P New head is 2
-new opcode is 11
-
-
-Source {Kd=33816576,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
-Offset 5
-V 7
-opcode is 0 here
-new opcode is 11
-
-
-Source {Kd=16973824,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 2
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=16908288,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 1
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=50397184,Name=P,Offset=4}
-Target {Ks=33685508,Name=X,Offset=0}
-Offset 4
-V 5
-opcode is 0 here
-P&P New head is 2
-new opcode is 11
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33685508,Name=L,Offset=0}
-Offset 4
-V 14
-P&P New head is 4
-ALPHA node here
-Bottom happenning here 331
-rsold in Mstore is 73
-Value is 0.220544
-
-
-Source {Kd=17039360,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 3
-opcode is 0 here
-P&P New head is 2
-new opcode is 0
-
-
-Source {Kd=33619968,Name=L,Offset=7}
-Target {Ks=16777223,Name=P,Offset=0}
-Offset 7
-V 8
-P&P New head is 0
-new opcode is 1
-Multiplication happened here
-resValue is -1.76435
-
-
-Source {Kd=0,Name=L,Offset=7}
-Target {Ks=16777223,Name=A,Offset=0}
-Offset 7
-V 10
-P&P New head is 0
-new opcode is 1
-Multiplication happened here
-resValue is -7.71903
-
-
-Source {Kd=33685504,Name=L,Offset=7}
-Target {Ks=16777223,Name=P,Offset=0}
-Offset 7
-V 9
-P&P New head is 0
-new opcode is 1
-Multiplication happened here
-resValue is -0.661631
-
-
-Source {Kd=65536,Name=L,Offset=7}
-Target {Ks=16777223,Name=A,Offset=0}
-Offset 7
-V 11
-P&P New head is 0
-new opcode is 1
-Multiplication happened here
-resValue is -3.74924
-
-
-Source {Kd=16842752,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 0
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33619972,Name=L,Offset=0}
-Offset 4
-V 14
-opcode is 0 here
-P&P New head is 5
-new opcode is 0
-
-
-Source {Kd=16908288,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 1
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=50331648,Name=P,Offset=4}
-Target {Ks=33619972,Name=X,Offset=0}
-Offset 4
-V 4
-MAKING AN X NODE HERE!!
-P&P New head is 0
-Value is 0.23565
-
-
-Source {Kd=33619968,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
-Offset 5
-V 8
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=50397184,Name=P,Offset=4}
-Target {Ks=33685508,Name=X,Offset=0}
-Offset 4
-V 5
-MAKING AN X NODE HERE!!
-P&P New head is 0
-Value is 0.338369
-
-
-Source {Kd=16777216,Name=P,Offset=4}
-Target {Ks=33685508,Name=L,Offset=0}
-Offset 4
-V 14
-opcode is 0 here
-P&P New head is 0
-new opcode is 0
-
-
-Source {Kd=16973824,Name=P,Offset=4}
-Target {Ks=33619972,Name=M,Offset=0}
-Offset 4
-V 2
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=33685504,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
-Offset 5
-V 9
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=33751040,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
-Offset 5
-V 6
-opcode is 0 here
-new opcode is 1
-
-
-Source {Kd=17039360,Name=P,Offset=4}
-Target {Ks=33685508,Name=M,Offset=0}
-Offset 4
-V 3
-opcode is 0 here
-P&P New head is 0
-new opcode is 1
-
-
-Source {Kd=33816576,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
-Offset 5
-V 7
-opcode is 0 here
-new opcode is 1
-
-
-151 events in total
-25 Through routes
-64 core hits and 0 core misses
-Kd = 2010004 OpCode = 3 IV = 0 V = -8 Expected 4 Arrived 0
-Kd = 2020004 OpCode = 3 IV = 0 V = -3 Expected 4 Arrived 0
-Kd = 3000001 OpCode = 3 IV = 2 V = 0.23565 Expected 1 Arrived 0
-Kd = 3010001 OpCode = 3 IV = 1 V = 0.338369 Expected 1 Arrived 0
+33 events in total
+7 Through routes
+12 core hits and 0 core misses
+Kd = 2010004 OpCode = 3 IV = 0 V = 0 Expected 4 Arrived 0
+Kd = 2020004 OpCode = 3 IV = 0 V = 0 Expected 4 Arrived 0
+Kd = 3000001 OpCode = 3 IV = 2 V = 2 Expected 1 Arrived 0
+Kd = 3010001 OpCode = 3 IV = 1 V = 1 Expected 1 Arrived 0
