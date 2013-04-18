@@ -397,6 +397,8 @@ However, if that practice is avoided then this problem will not occur. In additi
 As mentioned before, after the first iteration some operations must not be completed again, so as to not distrupt the completion of the algorithm. These operations are the ones that are left from the "Loop Initiation" line in Figure 7. To accomplish that a special callback(function) was written. This function would be called only once throughout the run time of the program once all remaining packets had arrived at the $p$ nodes(See last node in Figure 8). That function would issue commands to all the nodes in the system, making them remove at least one OpCode from one of the queues, based on the type of element it is. Again the name of the element was considered to make that decision.
 \subsection{Input files}
 In order to simulate and run a program an input file would have to be put on the first simulator, so as to process the data and write the binary files. Hence a file format was invented to comply with the specification of this project. An example of the input file is shown in Appendix(5.1). At the Values section, the elements of matrixes, vectors and constant nodes are described. The names, dimensions inside the brackets and actual values are specified. The OpCodes for each type of element are also viewable. They are the integers next to the dimensions of each matrix,vector. The first integer is the key and all the others are actual OpCodes. Different queues are seperated with a semicolon. In the Connections section, the connections between nodes are specified. In the first development stages of the project, they were carried out by hand, but in the end a program was written to produce them.
+\subsection{Layout of OpCodes}
+To find the exact OpCode that must go into each position in the queue, the program flow and the algorithm were taken into account. Since the packets in the network are multicast, sometimes packets will arrive to a certain node that are not needed at that point and time. Also, given the connectivity of the nodes the incoming packets from one offset might be more than one. For example, when $A$-nodes send information to $r$-nodes, they will also arrive to $Ap$-nodes. At that point, $Ap$ nodes should have a 0 OpCode(Just put the front OpCode in the back) n-times, where n is the dimension of the vector. This is because packets from 2 $A$-nodes will arrive into a single $Ap$ node. If this outline was to be shown for all the nodes during the runtime of the algorithm, the outline of the OpCodes would be the one in Appendix 5.2.
 \subsection{Implementation OpCodes}
 As explained before, the SpiNNaker architecture does not support any libraries that would help form a queue, which is pivotal to the design analyzed previously. In addition to that, the contents of the binary files are read one at a time, so an STL queue would not be readable. Finally, SpiNNaker cannot read serialised data, so serialisation was not a valid option either.
 
@@ -413,6 +415,9 @@ Considering all the aforementioned parameters, it was decided that the vector of
 The number of queues(1) would exist only once in each array, so as to know how many different queues exist. The information from 2-6 is the information that the array would need to simulate one queue. This information would be repeated in each array, depending on how many queues existed. The size and the key would appear only once in each simulated queue, whereas the data consists of the actual OpCodes that each node would look into to execute the next operation. The Key is the index that the vector would look using the offset of the incoming packet. Finally, the Head and Tail woudl act as pointers to the first and the last element of the queue respectively.
 
 Given the above format, three functions were also implemented to do operations on that array and more precisely in the simulated queues in that array. These were front(),pop() and pushandpop(). Depending on the offset of the source key of the arrived packet the front() function would show the first integer on the simulated queue, pop() would remove the OpCode in the front position from the queue and pushandpop() would put the OpCode in the first position in the back of the queue. When using pop(), the OpCodes is not actually removed, but rather the tail is reduce, so as to not be able to access it again.
+\section{Testing}
+\section{Evaluation}
+\section{Conclusion}
 
 \newpage
 \bibliographystyle{plain}
@@ -488,5 +493,18 @@ L[0]>A[0] A[1] P[0] P[1]\\
 N[0]>B[0] RO[1] CH[1] L[1]\\
 B[0]>P[0] P[1]\\
 END CONNECTIONS\\
-
+\subsection{Outline of OpCodes}
+n is the YD dimension of the MX1 matrix. When you see nx, it means n x's must be put there. For example if YD=2 and x=0 the OpCodes would actually be .../0/0/....
+MX1->1/1;4/1/0/0
+X->4/0/0/11;16/3
+R->0/2/n0/0;5/0/10
+P->3/4/14;5/1/0;7/1;9/15
+A->0/n0/n6;7/1
+RO->3/5/n0
+N->3/n0/5
+L->2/7;4/n0/n8/n0;6/7
+CH->6;13
+B->2/7;6/12
+\subsection{Project Brief}
+\subsection{Gantt Charts}
 \end{document}
