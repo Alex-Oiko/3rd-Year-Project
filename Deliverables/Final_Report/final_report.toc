@@ -33,8 +33,10 @@
 \contentsline {subsubsection}{\numberline {3.4.1}OpCodes}{20}{subsubsection.3.4.1}
 \contentsline {subsection}{\numberline {3.5}Justification for Design Choices}{21}{subsection.3.5}
 \contentsline {section}{\numberline {4}Implementation}{21}{section.4}
-\contentsline {subsection}{\numberline {4.1}The Simulator}{21}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Offset}{21}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.1}Simulators//mb put it in testing}{21}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Offset}{22}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Second Iteration}{22}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}OpCodes of elements}{22}{subsection.4.4}
-\contentsline {subsection}{\numberline {4.5}Binary files and connections program}{22}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.4}Input files}{23}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Implementation OpCodes}{23}{subsection.4.5}
+\contentsline {section}{\numberline {5}Appendix}{27}{section.5}
+\contentsline {subsection}{\numberline {5.1}Example Input file}{27}{subsection.5.1}

@@ -365,9 +365,9 @@ As mentioned in the Background section each node in the system has a Target Tabl
 
 The Kd identifies the key of the node, which is individual to each node in the system. The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then the Y dimension would be 3 and the X dimension 4. However, in the CGM the matrixes are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. The X and Y variables are there to identify the position of the node in the matrix or vector that it belongs to. The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since they are also saved in main memory so as to have the program change their values when needed. Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in main memory.
 \subsubsection{OpCodes}
-OpCodes in this context stands for operation codes, as in what operation needs to be done at some point. Throughout the algorithm different kinds of operations are done. Be it addition,multiplication, subtraction etc., different operations need to be completed at different points of the program. Thus an unsigned integer has been used to identify these operations upon the arrival of a packet. So for example, 1 would be used to identify addition, 2 for multiplication etc. 
+OpCodes in this context stands for operation codes, as in what operation needs to be done at some point. Throughout the algorithm different kinds of operations are done. Be it addition,multiplication, subtraction etc., different operations need to be completed at different points of the program. Thus an unsigned integer is used to identify these operations upon the arrival of a packet. So for example, 1 would be used to identify addition, 2 for multiplication etc. The operation would be specified after the node went through a series of cases in a switch statement that would be checked against the OpCode.
 
-If the program flow is looked thoroughly, it is apparent that some nodes need to do different computations at different points of the algorithm. For example, a $p$ node needs to either store the value of its respective $r$ node in its value, or do a computation such as $\alpha *p$. These are two completely different operations that need to be accounted for. Given the above argument the easy solution would be to use a vector to save all the operations that need to be done and after the current operation is completed, put it in the back of the vector, since CGM is an iterative algorithm and some computations need to be repeated.
+If the program flow is looked thoroughly, it is apparent that some nodes need to do different computations at different points of the algorithm. For example, a $p$ node needs to either store the value of its respective $r$ node in its value, or do a computation such as $\alpha *p$. These are two completely different operations that need to be accounted for. Given the above argument the easy solution would be to use a vector to save all the operations that need to be done and after reading the first element of the vector and completing the respective operation , put it in the back of the vector, since CGM is an iterative algorithm and some computations need to be repeated.
 
 However, just a vector would not work. Consider the following. Based on the connectivity $\alpha$ can receive packets from both $r$-nodes and $p$-nodes. Also $r$ nodes send their values to $p$ nodes. There is a chance that packets from $p$ nodes reach the $\alpha$ node sooner than $r$ nodes do. In the case of $p$ nodes arriving, the operation would be do nothing, since that information is not needed at that point and in the case $r$ nodes arriving to find the inner product.  This sequence of events cannot be forseen and with just a vector to represent the OpCodes wrong calculation will be completed.
 
@@ -380,7 +380,13 @@ At this point a justification for some design decisions would be appropriate. Th
 Another important design decision was the use of the vector of queues data structure. Given the iterative nature of the algorithm, following a model such as the one described has proved really easy to use and program. There existed an option of using a graph of nodes with multiple connections used, but that option was deemed too complicated, with the option of not even being manageable given this algorithm. However, it might have worked for other algorithms that do not require iterations to find solutions and do not have many steps.
 \section{Implementation}
 In this section some implementation details that were used in the program are going to be outlined. More specifically a description of the simulators used will be given and how the keys for the queues mentioned in the design section were generated. In addition, the iterations after the first one will be described as well as the general specification of the OpCodes for each node.
-\subsection{The Simulator}
+\subsection{Simulators//mb put it in testing}
+To test the implementation of the program simulators of the SpiNNaker chip were used. These were supplied by the supervisor of this project and were written in the C++ language. 
+
+The main development and testing of this algorithm was made in the first simulator. In that simulator the programmer had the ability to use STL(Standard Template Library), which helped towards abstracting the problem and leaving out some implementation details. It would also write out the binary files that the second simulator and the actual machine would use. The simulator however was configured to comply better with the specification of this project.
+
+The second simulator was much less flexible towards using data structures, since it had to simulate much better the reaction of a SpiNNaker chip, when data and a program was loaded to it. It read the same binary files that the SpiNNaker machine would read for data and the event handlers written for it resembled the actual event handlers much more.
+
 \subsection{Offset}
 As mentioned previously in the Design section, the vector of queues of integers(OpCodes) uses a key to identify which kind of node a packet has arrived from. This key is generated by the offset of the core that the element is allocated in. The specific offset for each element is allocated at the time that all keys are generated. A switch statement was used to distinguish the nodes by name and then switch the offset according to the name. 
 
@@ -389,8 +395,25 @@ Since each core can theoretically have more than one elements allocated to it, r
 However, if that practice is avoided then this problem will not occur. In addition to that, the solution to this problem has been designed so as to allocate one element of whatever type to only \emph{one} core, so as to achieve the highest speedup possible. Hence putting more than one elements to a core would not compy with the overall logic of this project.
 \subsection{Second Iteration}
 As mentioned before, after the first iteration some operations must not be completed again, so as to not distrupt the completion of the algorithm. These operations are the ones that are left from the "Loop Initiation" line in Figure 7. To accomplish that a special callback(function) was written. This function would be called only once throughout the run time of the program once all remaining packets had arrived at the $p$ nodes(See last node in Figure 8). That function would issue commands to all the nodes in the system, making them remove at least one OpCode from one of the queues, based on the type of element it is. Again the name of the element was considered to make that decision.
-\subsection{OpCodes of elements}
-\subsection{Binary files and connections program}
+\subsection{Input files}
+In order to simulate and run a program an input file would have to be put on the first simulator, so as to process the data and write the binary files. Hence a file format was invented to comply with the specification of this project. An example of the input file is shown in Appendix(5.1). At the Values section, the elements of matrixes, vectors and constant nodes are described. The names, dimensions inside the brackets and actual values are specified. The OpCodes for each type of element are also viewable. They are the integers next to the dimensions of each matrix,vector. The first integer is the key and all the others are actual OpCodes. Different queues are seperated with a semicolon. In the Connections section, the connections between nodes are specified. In the first development stages of the project, they were carried out by hand, but in the end a program was written to produce them.
+\subsection{Implementation OpCodes}
+As explained before, the SpiNNaker architecture does not support any libraries that would help form a queue, which is pivotal to the design analyzed previously. In addition to that, the contents of the binary files are read one at a time, so an STL queue would not be readable. Finally, SpiNNaker cannot read serialised data, so serialisation was not a valid option either.
+
+Considering all the aforementioned parameters, it was decided that the vector of queues of unisgned integers, would be impemented using only an array. To successfully translate the vector of queues data structure the following format was selected.
+
+\begin{enumerate}
+\item Number of queues.
+\item Size of next queue.
+\item Head
+\item Tail
+\item Key.
+\item Data.
+\end{enumerate}
+The number of queues(1) would exist only once in each array, so as to know how many different queues exist. The information from 2-6 is the information that the array would need to simulate one queue. This information would be repeated in each array, depending on how many queues existed. The size and the key would appear only once in each simulated queue, whereas the data consists of the actual OpCodes that each node would look into to execute the next operation. The Key is the index that the vector would look using the offset of the incoming packet. Finally, the Head and Tail woudl act as pointers to the first and the last element of the queue respectively.
+
+Given the above format, three functions were also implemented to do operations on that array and more precisely in the simulated queues in that array. These were front(),pop() and pushandpop(). Depending on the offset of the source key of the arrived packet the front() function would show the first integer on the simulated queue, pop() would remove the OpCode in the front position from the queue and pushandpop() would put the OpCode in the first position in the back of the queue. When using pop(), the OpCodes is not actually removed, but rather the tail is reduce, so as to not be able to access it again.
+
 \newpage
 \bibliographystyle{plain}
 \bibliography{ref.bib}
@@ -420,4 +443,50 @@ As mentioned before, after the first iteration some operations must not be compl
 \cite{bose2005spiking}
 \cite{jefflec}
 \cite{rast2012managing}
+\section{Appendix}
+\subsection{Example Input file}
+BEGIN VALUES\\
+MX1[2,2] 1/1;4/1/0/0\\
+4.0 1.0\\
+1.0 3.0\\
+X[2] 16/3;4/0/0/11\\
+2.0 1.0\\
+R[2] 0/2/0/0/0;5/0/10\\
+1.0 2.0\\
+P[2] 3/4/14;5/1/0;7/1;9/15\\
+0.0 0.0\\
+A[2] 0/0/0/6/6;7/1\\
+0.0 0.0\\
+RO[1] 3/5/0/0;6/7\\
+0.0\\
+N[1] 3/0/0/5\\
+0.0\\
+L[1] 2/7;4/0/0/8/8/0/0;6/7\\
+0.0\\
+CH[1] 6/13\\
+0.0\\
+B[1] 2/7;6/12\\
+0.0\\
+END VALUES\\
+BEGIN OVERLAYS\\
+END OVERLAYS\\
+BEGIN CONNECTIONS\\
+X[0]>MX1[0,0] MX1[1,0]\\
+X[1]>MX1[0,1] MX1[1,1]\\
+MX1[0,0]>R[0] A[0]\\
+MX1[0,1]>R[0] A[0]\\
+MX1[1,0]>R[1] A[1]\\
+MX1[1,1]>R[1] A[1]\\
+R[0]>P[0] RO[0] N[0]\\
+R[1]>P[1] RO[0] N[1]\\
+RO[0]>L[0] B[0]\\
+P[0]>MX1[0,0] MX1[1,0] X[0] L[0]\\
+P[1]>MX1[0,1] MX1[1,1] X[1] L[0]\\
+A[0]>R[0] P[0]\\
+A[1]>R[1] P[1]\\
+L[0]>A[0] A[1] P[0] P[1]\\
+N[0]>B[0] RO[1] CH[1] L[1]\\
+B[0]>P[0] P[1]\\
+END CONNECTIONS\\
+
 \end{document}
