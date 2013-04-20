@@ -1,19 +1,16 @@
 \relax 
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
-\providecommand\HyField@AuxAddToFields[1]{}
+\ifx\hyper@anchor\@undefined
+\global \let \oldcontentsline\contentsline
+\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global \let \oldnewlabel\newlabel
+\gdef \newlabel#1#2{\newlabelxx{#1}#2}
+\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\let \contentsline\oldcontentsline
+\let \newlabel\oldnewlabel}
+\else
+\global \let \hyper@last\relax 
+\fi
+
 \citation{hestenes1952methods}
 \citation{navaridas2009understanding}
 \citation{sharp2011event}
@@ -95,9 +92,10 @@
 \citation{wozniak2010parallel}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Design}{15}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Basic communication}{15}{subsection.3.1}}
+\citation{basicinterim}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Basic communication between nodes.}}{16}{figure.6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Matrix-Vector Multiplication}{16}{subsection.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Matrix-vector multiplicatio for A*x.}}{16}{figure.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Matrix-vector multiplicatio for A*x.\cite  {basicinterim}}}{16}{figure.7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Program Flow}{17}{subsection.3.3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The program flow in class diagram.}}{18}{figure.8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Target Table}{19}{subsection.3.4}}
@@ -115,32 +113,33 @@
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{25}{section.7}}
 \bibstyle{plain}
 \bibdata{ref.bib}
-\bibcite{adams1983m}{1}
-\bibcite{adams1985m}{2}
-\bibcite{bose2005spiking}{3}
-\bibcite{davies2010interfacing}{4}
-\bibcite{docfile}{5}
-\bibcite{furber2012overview}{6}
-\bibcite{furber2007neural}{7}
-\bibcite{galiano2012gpu}{8}
-\bibcite{gerstner2002spiking}{9}
-\bibcite{hestenes1952methods}{10}
-\bibcite{spinnweb}{11}
-\bibcite{khan2008spinnaker}{12}
-\bibcite{maheswaran1999mcgs}{13}
-\bibcite{navaridas2009understanding}{14}
-\bibcite{o1987parallel}{15}
-\bibcite{cgm2009lec}{16}
-\bibcite{plana2007gals}{17}
-\bibcite{press2007numerical}{18}
-\bibcite{rast2012managing}{19}
-\bibcite{jefflec}{20}
-\bibcite{rosenbloom1956method}{21}
-\bibcite{sharp2012power}{22}
-\bibcite{sharp2011event}{23}
-\bibcite{shewchuk1994introduction}{24}
-\bibcite{wozniak2010parallel}{25}
-\bibcite{yang2001improved}{26}
+\bibcite{basicinterim}{1}
+\bibcite{adams1983m}{2}
+\bibcite{adams1985m}{3}
+\bibcite{bose2005spiking}{4}
+\bibcite{davies2010interfacing}{5}
+\bibcite{docfile}{6}
+\bibcite{furber2012overview}{7}
+\bibcite{furber2007neural}{8}
+\bibcite{galiano2012gpu}{9}
+\bibcite{gerstner2002spiking}{10}
+\bibcite{hestenes1952methods}{11}
+\bibcite{spinnweb}{12}
+\bibcite{khan2008spinnaker}{13}
+\bibcite{maheswaran1999mcgs}{14}
+\bibcite{navaridas2009understanding}{15}
+\bibcite{o1987parallel}{16}
+\bibcite{cgm2009lec}{17}
+\bibcite{plana2007gals}{18}
+\bibcite{press2007numerical}{19}
+\bibcite{rast2012managing}{20}
+\bibcite{jefflec}{21}
+\bibcite{rosenbloom1956method}{22}
+\bibcite{sharp2012power}{23}
+\bibcite{sharp2011event}{24}
+\bibcite{shewchuk1994introduction}{25}
+\bibcite{wozniak2010parallel}{26}
+\bibcite{yang2001improved}{27}
 \citation{navaridas2009understanding}
 \citation{sharp2012power}
 \citation{davies2010interfacing}
@@ -166,9 +165,10 @@
 \citation{furber2012overview}
 \citation{bose2005spiking}
 \citation{jefflec}
+\citation{basicinterim}
 \citation{rast2012managing}
 \@writefile{toc}{\contentsline {section}{\numberline {8}Appendix}{28}{section.8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Example Input file}{28}{subsection.8.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{29}{subsection.8.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Project Brief}{29}{subsection.8.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Gantt Charts}{29}{subsection.8.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Project Brief}{30}{subsection.8.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Gantt Charts}{30}{subsection.8.4}}

@@ -189,11 +189,7 @@
   year={2012},
   publisher={Springer}
 }
-@misc{interimfurber,
- title={Jeffs lecturesasdsad},
- author={Jeff Reevesadsad},
- year={2012}
- }
+
 @inproceedings{rosenbloom1956method,
   title={The method of steepest descent},
   author={Rosenbloom, PC},

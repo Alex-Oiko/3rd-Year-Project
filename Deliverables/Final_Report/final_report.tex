@@ -322,7 +322,7 @@ Using the above model a matrix-vector multiplication would look like Figure 7.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/mat0mult.png}
 \centering
-\caption{Matrix-vector multiplicatio for A*x.}
+\caption{Matrix-vector multiplicatio for A*x.\cite{basicinterim}}
 \end{figure}
 
 In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an examplee to display the general overview of this operation. In this figure the example of a 3x3 matrix $A$ matix and 3x1 vectors is used for simplicity. To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $x$-nodes know to which $A$-nodes they should send based on the connections that were provided beforehands by the user. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. Even though the figure shows that $A$-nodes send their value to the next $A$-node in the column, the graph means to show that the $x$-nodes are the ones that are sent. The figure is shown that way for means of clarity. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
@@ -416,7 +416,9 @@ The number of queues(1) would exist only once in each array, so as to know how m
 
 Given the above format, three functions were also implemented to do operations on that array and more precisely in the simulated queues in that array. These were front(),pop() and pushandpop(). Depending on the offset of the source key of the arrived packet the front() function would show the first integer on the simulated queue, pop() would remove the OpCode in the front position from the queue and pushandpop() would put the OpCode in the first position in the back of the queue. When using pop(), the OpCodes is not actually removed, but rather the tail is reduce, so as to not be able to access it again.
 \section{Testing}
+Maybe draw up some tests and say their results
 \section{Evaluation}
+
 \section{Conclusion}
 
 \newpage
@@ -447,6 +449,7 @@ Given the above format, three functions were also implemented to do operations o
 \cite{furber2012overview}
 \cite{bose2005spiking}
 \cite{jefflec}
+\cite{basicinterim}
 \cite{rast2012managing}
 \section{Appendix}
 \subsection{Example Input file}
@@ -495,16 +498,16 @@ B[0]>P[0] P[1]\\
 END CONNECTIONS\\
 \subsection{Outline of OpCodes}
 n is the YD dimension of the MX1 matrix. When you see nx, it means n x's must be put there. For example if YD=2 and x=0 the OpCodes would actually be .../0/0/....
-MX1->1/1;4/1/0/0
-X->4/0/0/11;16/3
-R->0/2/n0/0;5/0/10
-P->3/4/14;5/1/0;7/1;9/15
-A->0/n0/n6;7/1
-RO->3/5/n0
-N->3/n0/5
-L->2/7;4/n0/n8/n0;6/7
-CH->6;13
-B->2/7;6/12
+MX1->1/1;4/1/0/0\\
+X->4/0/0/11;16/3\\
+R->0/2/n0/0;5/0/10\\
+P->3/4/14;5/1/0;7/1;9/15\\
+A->0/n0/n6;7/1\\
+RO->3/5/n0;6/7\\
+N->3/n0/5\\
+L->2/7;4/n0/n8/n0;6/7\\
+CH->6;13\\
+B->2/7;6/12\\
 \subsection{Project Brief}
 \subsection{Gantt Charts}
 \end{document}

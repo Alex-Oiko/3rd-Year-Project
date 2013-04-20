@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{basicinterim}
+Furber S.~Brown A.
+\newblock Pragmatic many core computing interim report, 2012.
+
 \bibitem{adams1983m}
 Loyce Adams.
 \newblock M-step preconditioned conjugate gradient method for parallel

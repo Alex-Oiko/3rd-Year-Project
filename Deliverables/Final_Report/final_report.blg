@@ -1,49 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: final_report.aux
 The style file: plain.bst
 Database file #1: ref.bib.bib
 Warning--empty journal in adams1983m
 Warning--empty journal in furber2012overview
-You've used 26 entries,
+You've used 27 entries,
             2118 wiz_defined-function locations,
-            642 strings with 8828 characters,
-and the built_in function-call counts, 9637 in all, are:
-= -- 941
-> -- 490
+            645 strings with 8902 characters,
+and the built_in function-call counts, 9834 in all, are:
+= -- 958
+> -- 497
 < -- 9
-+ -- 199
-- -- 168
-* -- 647
-:= -- 1548
-add.period$ -- 79
-call.type$ -- 26
-change.case$ -- 160
++ -- 202
+- -- 170
+* -- 653
+:= -- 1580
+add.period$ -- 81
+call.type$ -- 27
+change.case$ -- 164
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 357
-empty$ -- 745
-format.name$ -- 168
-if$ -- 2049
+cite$ -- 29
+duplicate$ -- 364
+empty$ -- 767
+format.name$ -- 170
+if$ -- 2092
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 27
 missing$ -- 22
-newline$ -- 127
-num.names$ -- 52
-pop$ -- 212
+newline$ -- 131
+num.names$ -- 54
+pop$ -- 221
 preamble$ -- 1
-purify$ -- 136
+purify$ -- 139
 quote$ -- 0
-skip$ -- 280
+skip$ -- 288
 stack$ -- 0
-substring$ -- 567
-swap$ -- 101
+substring$ -- 572
+swap$ -- 102
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 100
+type$ -- 104
 warning$ -- 2
-while$ -- 90
-width$ -- 28
-write$ -- 270
+while$ -- 92
+width$ -- 29
+write$ -- 278
 (There were 2 warnings)
