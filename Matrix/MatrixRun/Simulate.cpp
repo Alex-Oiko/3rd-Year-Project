@@ -83,6 +83,7 @@ void Simulate::LoadFireAll(TCram& TCRAM){
                 TTE = (TCram::_DTTE*)&CoreData[CoreCommon->TTStart];
 		OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
 		for(Lup = 0; Lup < CoreCommon->PointCount; Lup++){
+		    cout<<"NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA "<<TTE[Lup].Name<<" with front()"<<front(16,OpCodes)<<endl;
 		    if(front(16,OpCodes)==3){
 			E.Value = TTE[Lup].IV;
                         E.Ks = TTE[Lup].Kd;
@@ -452,10 +453,10 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			//if(case15_counter>matrix_size){//if the first iteration has passed
-			//	RES.Value=Values[dTTE.oV];
-			//	EventQ.push(RES);
-			//}
+			if(case15_counter>matrix_size){//if the first iteration has passed
+				RES.Value=Values[dTTE.oV];
+				EventQ.push(RES);
+			}
 			break;
 		}
 
@@ -481,6 +482,7 @@ uint32_t Simulate::front(uint32_t offset,uint32_t* OpCodesA){
 		else
 			pq_size+=OpCodesA[pq_size]+4;
 	}
+	return -1;
 }
 uint32_t Simulate::pop(uint32_t offset,uint32_t* OpCodesA){
 	uint32_t pq_size=1,head=0,tail=0,value=0,ihead=0;

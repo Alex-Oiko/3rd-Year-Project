@@ -102,6 +102,7 @@ uint32_t front(uint32_t offset,uint32_t* OpCodesA){
 		else
 			pq_size+=OpCodesA[pq_size]+4;
 	}
+	return -1;
 }
 uint32_t pop(uint32_t offset,uint32_t* OpCodesA){
 	uint32_t pq_size=1,head=0,tail=0,value=0,ihead=0;

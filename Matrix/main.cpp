@@ -77,13 +77,13 @@ int main(int argc, const char * argv[])
         Simulate SIM;
         SIM.SimBegin(TASK, DEAL, CORE, MCT, MAC);
     }
-    //cout << "Write binaries(1) or not(0)? ";
-    //cin >> WriteOut;
-    //if(WriteOut){
-    //	MCT.WriteMC(inFile);
-    //    WriteCore WC;
-    //	WC.BinaryDump(inFile, TASK, DEAL, CORE, MCT);
-    //}
+    cout << "Write binaries(1) or not(0)? ";
+    cin >> WriteOut;
+    if(WriteOut){
+    	MCT.WriteMC(inFile);
+        WriteCore WC;
+    	WC.BinaryDump(inFile, TASK, DEAL, CORE, MCT);
+    }
 
     return 0;
 }

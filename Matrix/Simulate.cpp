@@ -61,11 +61,12 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     CoreHits = 0;
     CoreMisses = 0;
     case15_counter=0;
+    end=0;
     CORE.AllocateStorage(TASK);
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty())
+        if(EventQ.empty()||end==1)
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -454,7 +455,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
 				cout<<"Results are"<<endl;
 				CORE.PrintByOpCode(16,3);
-				exit(EXIT_SUCCESS);
+				end=1;
+				return;
 			}
 			else{
 				cout<<"Condition failed"<<endl;
@@ -478,12 +480,9 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				EventQ.push(RES);
 			}
 			if(case15_counter>matrix_size){//if the first iteration has passed
-				cout<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"<<endl;
 				RES.Value=CORE.Mstore[TTE.V];
 				EventQ.push(RES);
 			}
-			CORE.PrintByOpCode(3,5);
-			CORE.PrintByOpCode(2,7);
 			break;
 	}
     }    

@@ -49,6 +49,7 @@ public:
     unsigned matrix_size;
     unsigned iterator_counter;
     unsigned case15_counter;
+    unsigned end;
 };
 
 
