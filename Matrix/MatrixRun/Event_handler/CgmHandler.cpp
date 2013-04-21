@@ -128,7 +128,7 @@ uint32_t pushandpop(uint32_t offset,uint32_t* OpCodesA){
 			head=OpCodesA[1+pq_size];
 			tail=OpCodesA[2+pq_size];
 			head++;
-			if(head==tail){
+			if(head==OpCodesA[pq_size]){
 				head=OpCodesA[pq_size]-tail;
 			}
 			OpCodesA[1+pq_size]=head;

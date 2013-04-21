@@ -159,7 +159,8 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	cout<<"This node is of type "<<TTE.Name[0]<<endl;
 	transOp.resize(1);
 	transOp[0]=valid_qs;
-	for(int f=0;f<TTE.OpCodes.size();f++){
+	for(int f=0;f<TTE.OpCodes.size()-1;f++){
+		cout<<"Front at key "<<f<<" is "<<TTE.OpCodes[f].front()<<endl;
 		if(TTE.OpCodes[f].front()<17){
 			transOp.resize(transOp.size()+TTE.OpCodes[f].size()+4);
 			valid_qs++;
@@ -181,9 +182,9 @@ void WriteCore::DumpCore(unsigned Key, Core& CORE, Dealer& DEAL, Task& TASK){
 	transOp[0]=valid_qs;
 	//transOp.resize(transOp.size()-6);
 	cout<<"number of queues in this vector is "<<valid_qs<<endl;
-	for(int p=0;p<transOp.size();p++){
-		cout<<"value is "<<transOp[p]<<endl;
-	}
+	//for(int p=0;p<transOp.size();p++){
+	//	cout<<"value is "<<transOp[p]<<endl;
+	//}
 	oV=0;
 	dTTE.Name = TTE.Name[0];
 	dTTE.YD = TTE.YD;

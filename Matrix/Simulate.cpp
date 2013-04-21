@@ -26,7 +26,8 @@ void Simulate::LoadFireAll(Task& TASK, Dealer& DEAL, Core& CORE){
         auto iTTE = CORE.CoreEntries.find(E.Ks);
         TTE = iTTE->second;
         if(CORE.mop[TTE.V][16].front() == 3){
-            E.Value = TTE.IV;
+            cout<<TTE.Name[0]<<endl;
+	    E.Value = TTE.IV;
             E.Kd = E.Ks;
 	    CORE.mop[TTE.V][16].push(CORE.mop[TTE.V].at(16).front());
 	    CORE.mop[TTE.V][16].pop();

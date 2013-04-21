@@ -278,8 +278,8 @@ void Simulate::InComing(uint32_t Ks, float Vs, uint32_t Kd, TCram& TCRAM){
     counters = (uint32_t*)&CoreData[CoreCommon->CounterStart];
     Temps = (float*)&CoreData[CoreCommon->TempStart];
     OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
-    cout<<"Source {Kd="<<Kd<<",Name="<<TTEs[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
-    cout<<"Target {"<<"Ks="<<Ks<<",Name="<<TTE[InPoint].Name<<",Offset="<<Od<<"}"<<endl;
+    cout<<"Source {Ks="<<Ks<<",Name="<<TTEs[InPoint].Name<<",Offset="<<Os<<"}"<<endl;
+    cout<<"Target {"<<"Kd="<<Kd<<",Name="<<TTE[InPoint].Name<<",Offset="<<Od<<"}"<<endl;
     RES.Ks=TTE[InPoint].Kd;
     RES.Kd=RES.Ks;
     RES.Type=FIREAWAY;
@@ -495,7 +495,7 @@ uint32_t Simulate::pop(uint32_t offset,uint32_t* OpCodesA){
 		        tail--;	
 			OpCodesA[1+pq_size]=head;
 			OpCodesA[2+pq_size]=tail;
-			cout<<"size is "<<OpCodesA[pq_size]<<" POP New head is "<<head<<endl;
+			cout<<"size is "<<OpCodesA[pq_size]<<" POP New head is "<<head<<" and POP new tail is "<<tail<<endl;
 			return 0;
 		}
 		else
@@ -509,11 +509,12 @@ uint32_t Simulate::pushandpop(uint32_t offset,uint32_t* OpCodesA){
 			head=OpCodesA[1+pq_size];
 			tail=OpCodesA[2+pq_size];
 			head++;
-			if(head==tail){
+			if(head==OpCodesA[pq_size]){
+				cout<<"head==tail here"<<endl;
 				head=OpCodesA[pq_size]-tail;
 			}
 			OpCodesA[1+pq_size]=head;
-			cout<<"P&P New head is "<<head<<endl;
+			cout<<"P&P New head is "<<head<<" and tail is "<<tail<<endl;
 			return 0;
 		}
 		else

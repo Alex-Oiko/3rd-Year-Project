@@ -644,1110 +644,1163 @@ NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA M with front()4294967295
 NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA N with front()4294967295
 NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA R with front()4294967295
 NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA X with front()3
-Source {Kd=16781312,Name=X,Offset=1}
-Target {Ks=12289,Name=M,Offset=0}
+Source {Ks=12289,Name=X,Offset=1}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 14
 
 
-Source {Kd=16844800,Name=X,Offset=1}
-Target {Ks=12289,Name=M,Offset=0}
+Source {Ks=12289,Name=X,Offset=1}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -7
 
 
-Source {Kd=71680,Name=X,Offset=1}
-Target {Ks=12289,Name=M,Offset=0}
+Source {Ks=12289,Name=X,Offset=1}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -7
 
 
-Source {Kd=16846848,Name=X,Offset=1}
-Target {Ks=77825,Name=M,Offset=0}
+Source {Ks=77825,Name=X,Offset=1}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -8
 
 
-Source {Kd=4096,Name=X,Offset=1}
-Target {Ks=77825,Name=M,Offset=0}
+Source {Ks=77825,Name=X,Offset=1}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=69632,Name=X,Offset=1}
-Target {Ks=16852993,Name=M,Offset=0}
+Source {Ks=16852993,Name=X,Offset=1}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -5
 
 
-Source {Kd=6144,Name=X,Offset=1}
-Target {Ks=16852993,Name=M,Offset=0}
+Source {Ks=16852993,Name=X,Offset=1}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16779264,Name=X,Offset=1}
-Target {Ks=16852993,Name=M,Offset=0}
+Source {Ks=16852993,Name=X,Offset=1}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 10
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16844800,Name=R,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 COUNTER 1
 opcode2
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=71680,Name=R,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 COUNTER 1
 opcode2
 
-Source {Kd=16783360,Name=X,Offset=1}
-Target {Ks=77825,Name=M,Offset=0}
+Source {Ks=77825,Name=X,Offset=1}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 1
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 16
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=4096,Name=A,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 6
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=69632,Name=A,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 6
 new opcode is 0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16781312,Name=R,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 COUNTER 1
 opcode2
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16844800,Name=A,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 6
 new opcode is 0
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=16783360,Name=A,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 6
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16846848,Name=A,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 6
 new opcode is 0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16846848,Name=R,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 COUNTER 2
 opcode2
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=4096,Name=R,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 COUNTER 2
 opcode2
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=69632,Name=R,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 COUNTER 3
-opcode2size is 5 POP New head is 1
+opcode2size is 5 POP New head is 1 and POP new tail is 4
 new opcode is 0
 R CREATED
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=6144,Name=A,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 6
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=6144,Name=R,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 COUNTER 2
 opcode2
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16779264,Name=R,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 COUNTER 3
-opcode2size is 5 POP New head is 1
+opcode2size is 5 POP New head is 1 and POP new tail is 4
 new opcode is 0
 R CREATED
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16779264,Name=A,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 6
 new opcode is 6
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16781312,Name=A,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 6
 new opcode is 6
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=71680,Name=A,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 6
 new opcode is 6
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=16850947,Name=N,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=16783360,Name=R,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 COUNTER 3
-opcode2size is 5 POP New head is 1
+opcode2size is 5 POP New head is 1 and POP new tail is 4
 new opcode is 0
 R CREATED
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=10243,Name=R,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 Value is 81
 matrix_size is:3
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=10243,Name=N,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=73728,Name=R,Offset=3}
-Target {Ks=10243,Name=P,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 3
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 14
 ASSIGNEMENT DONE HERE
 -9
 
 
-Source {Kd=8192,Name=R,Offset=3}
-Target {Ks=16850947,Name=P,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 3
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 14
 ASSIGNEMENT DONE HERE
 1
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=16850947,Name=R,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 Value is 82
 matrix_size is:3
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 9
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=75779,Name=N,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 5
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 9
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=71680,Name=R,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 2
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -1
 
 
-Source {Kd=16785408,Name=R,Offset=3}
-Target {Ks=75779,Name=P,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 3
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 14
 ASSIGNEMENT DONE HERE
 -8
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=75779,Name=R,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 Value is 146
 matrix_size is:3
-P&P New head is 1
+P&P New head is 1 and tail is 4
 new opcode is 0
 RSOLD/RSNEW CREATED
 Value is 146
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -18
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16844800,Name=R,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=69632,Name=A,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 6
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=6144,Name=A,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 6
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=6144,Name=R,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -16
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16844800,Name=A,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 6
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=71680,Name=A,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 6
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16779264,Name=R,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16779264,Name=A,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 6
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=69632,Name=R,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 8
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=16783360,Name=A,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 6
 new opcode is 0
 value of node is-7
 
 
-Source {Kd=16842752,Name=R,Offset=2}
-Target {Ks=16787458,Name=B,Offset=0}
+Source {Ks=16787458,Name=R,Offset=2}
+Target {Kd=16842752,Name=B,Offset=0}
 Offset 2
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 146
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16781312,Name=R,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 9
 new opcode is 8
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=4096,Name=A,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 6
 new opcode is 0
 value of node is11
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 56
 
 
-Source {Kd=67584,Name=R,Offset=2}
-Target {Ks=16787458,Name=L,Offset=0}
+Source {Ks=16787458,Name=R,Offset=2}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 2
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 146
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16781312,Name=A,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 6
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16846848,Name=A,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 6
 new opcode is 0
 value of node is-11
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16846848,Name=R,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=4096,Name=R,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 11
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=16783360,Name=R,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 99
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 4
+P&P New head is 4 and tail is 9
 ALPHA node here
 Bottom happenning here 99
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 5
+P&P New head is 5 and tail is 9
 ALPHA node here
 Bottom happenning here 110
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 6
+P&P New head is 6 and tail is 9
 ALPHA node here
 Bottom happenning here 166
 rsold in Mstore is 146
 Value is 0.879518
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=65536,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -9.6747
 
 
-Source {Kd=73728,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -7.91566
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=0,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 9.6747
 
 
-Source {Kd=8192,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 0.879518
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 7
+P&P New head is 7 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16777216,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -6.15663
 
 
-Source {Kd=16785408,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -7.03614
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is 0.674699
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is -0.915663
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -8.6747
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is 5.87952
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=16850947,Name=N,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 75.2504
 matrix_size is:3
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=10243,Name=R,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=10243,Name=N,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 75.7056
 matrix_size is:3
 
 
-Source {Kd=73728,Name=R,Offset=3}
-Target {Ks=10243,Name=P,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -1.84337
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 9
 new opcode is 0
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is 0.963855
 
 
-Source {Kd=8192,Name=R,Offset=3}
-Target {Ks=16850947,Name=P,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=16850947,Name=R,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=75779,Name=N,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 79.1036
 matrix_size is:3
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 4
 new opcode is 0
 RSOLD/RSNEW CREATED
 Value is 79.1036
 
 
-Source {Kd=16785408,Name=R,Offset=3}
-Target {Ks=75779,Name=P,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=75779,Name=R,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 4
 new opcode is 5
 
 
-Source {Kd=16842752,Name=N,Offset=6}
-Target {Ks=16848902,Name=B,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=16842752,Name=B,Offset=0}
 Offset 6
 CREATING BETA HERE
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is 79.1036
 
 
-Source {Kd=67584,Name=N,Offset=6}
-Target {Ks=16848902,Name=L,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 79.1036
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=2048,Name=N,Offset=6}
-Target {Ks=16848902,Name=C,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=2048,Name=C,Offset=0}
 Offset 6
 Checking end cond
 Condition failed
 
 
-Source {Kd=16787456,Name=N,Offset=6}
-Target {Ks=16848902,Name=R,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 79.1036
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=73728,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 9
 New p value is -4.20155
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 1
 
 
-Source {Kd=8192,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 9
 New p value is -8.13289
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 2
 
 
-Source {Kd=16785408,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 9
 New p value is -6.17782
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 3
 
 
@@ -1756,9 +1809,9 @@ UpdateAll finished. Node counter is 173
 Source {Kd=5,Name=A,Offset=5}
 hello1
 Previous OpCode was:0
-size is 6 POP New head is 1
-size is 6 POP New head is 2
-size is 6 POP New head is 3
+size is 6 POP New head is 1 and POP new tail is 5
+size is 6 POP New head is 2 and POP new tail is 4
+size is 6 POP New head is 3 and POP new tail is 3
 New OpCode at key 0 is:6
 
 
@@ -1769,21 +1822,21 @@ hello1
 Source {Kd=4096,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=6144,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=8196,Name=P,Offset=4}
 hello1
 Previous OpCode was:4
-size is 2 POP New head is 1
+size is 2 POP New head is 1 and POP new tail is 1
 New OpCode at key 3 is:14
 Firing p with value-8.13289
 
@@ -1799,37 +1852,37 @@ hello1
 Source {Kd=65541,Name=A,Offset=5}
 hello1
 Previous OpCode was:0
-size is 6 POP New head is 1
-size is 6 POP New head is 2
-size is 6 POP New head is 3
+size is 6 POP New head is 1 and POP new tail is 5
+size is 6 POP New head is 2 and POP new tail is 4
+size is 6 POP New head is 3 and POP new tail is 3
 New OpCode at key 0 is:6
 
 
 Source {Kd=67591,Name=L,Offset=7}
 hello1
 Previous OpCode was:7
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 2 is:9
 
 
 Source {Kd=69632,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=71680,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=73732,Name=P,Offset=4}
 hello1
 Previous OpCode was:4
-size is 2 POP New head is 1
+size is 2 POP New head is 1 and POP new tail is 1
 New OpCode at key 3 is:14
 Firing p with value-4.20155
 
@@ -1845,37 +1898,37 @@ hello1
 Source {Kd=16777221,Name=A,Offset=5}
 hello1
 Previous OpCode was:0
-size is 6 POP New head is 1
-size is 6 POP New head is 2
-size is 6 POP New head is 3
+size is 6 POP New head is 1 and POP new tail is 5
+size is 6 POP New head is 2 and POP new tail is 4
+size is 6 POP New head is 3 and POP new tail is 3
 New OpCode at key 0 is:6
 
 
 Source {Kd=16779264,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=16781312,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=16783360,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=16785412,Name=P,Offset=4}
 hello1
 Previous OpCode was:4
-size is 2 POP New head is 1
+size is 2 POP New head is 1 and POP new tail is 1
 New OpCode at key 3 is:14
 Firing p with value-6.17782
 
@@ -1883,37 +1936,37 @@ Firing p with value-6.17782
 Source {Kd=16787458,Name=R,Offset=2}
 hello1
 Previous OpCode was:5
-size is 4 POP New head is 1
+size is 4 POP New head is 1 and POP new tail is 3
 New OpCode at key 3 is:0
 
 
 Source {Kd=16842761,Name=B,Offset=9}
 hello1
 Previous OpCode was:7
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 2 is:1
 
 
 Source {Kd=16844800,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=16846848,Name=M,Offset=0}
 hello1
 Previous OpCode was:1
-size is 1 POP New head is 1
+size is 1 POP New head is 1 and POP new tail is 0
 New OpCode at key 1 is:3
 
 
 Source {Kd=16848902,Name=N,Offset=6}
 hello1
 Previous OpCode was:0
-size is 4 POP New head is 1
-size is 4 POP New head is 2
-size is 4 POP New head is 3
+size is 4 POP New head is 1 and POP new tail is 3
+size is 4 POP New head is 2 and POP new tail is 2
+size is 4 POP New head is 3 and POP new tail is 1
 New OpCode at key 3 is:5
 
 
@@ -1925,1974 +1978,2049 @@ Source {Kd=16852993,Name=X,Offset=1}
 hello1
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 4.20155
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -12.3556
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -16.2658
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 8.13289
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 4.20155
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=71680,Name=R,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 6.17782
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=16783360,Name=A,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 3
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=69632,Name=A,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 3
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=6144,Name=A,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 3
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=6144,Name=R,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -8.40311
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16844800,Name=R,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 9
 new opcode is 8
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=4096,Name=A,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 4
+P&P New head is 4 and tail is 3
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16779264,Name=R,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16779264,Name=A,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 3
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=69632,Name=R,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16844800,Name=A,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 6
+P&P New head is 6 and tail is 3
 new opcode is 1
 value of node is-12.0642
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=71680,Name=A,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 6
+P&P New head is 6 and tail is 3
 new opcode is 1
 value of node is-8.15409
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16846848,Name=A,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 5
+P&P New head is 5 and tail is 3
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16846848,Name=R,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=4096,Name=R,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=16783360,Name=R,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16781312,Name=R,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 98.1171
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 50.3745
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16781312,Name=A,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 numbah 6 here
 Opcode6
-P&P New head is 6
+P&P New head is 6 and tail is 3
 new opcode is 1
 value of node is5.90761
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -24.8211
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 4
+P&P New head is 4 and tail is 9
 ALPHA node here
 Bottom happenning here 98.1171
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 5
+P&P New head is 5 and tail is 9
 ALPHA node here
 Bottom happenning here 73.296
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 6
+P&P New head is 6 and tail is 9
 ALPHA node here
 Bottom happenning here 123.67
 rsold in Mstore is 79.1036
 Value is 0.639633
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=65536,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is 3.7787
 
 
-Source {Kd=73728,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -2.68745
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=0,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -7.71668
 
 
-Source {Kd=8192,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -5.20206
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 7
+P&P New head is 7 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16777216,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -5.21562
 
 
-Source {Kd=16785408,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -3.95153
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -3.104
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is -3.60311
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -0.958024
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is 0.677455
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=16850947,Name=N,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 0.917809
 matrix_size is:3
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=10243,Name=R,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=10243,Name=N,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 10.5526
 matrix_size is:3
 
 
-Source {Kd=73728,Name=R,Offset=3}
-Target {Ks=10243,Name=P,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 2
+P&P New head is 2 and tail is 1
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is 3.37224
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 9
 new opcode is 0
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is -2.98768
 
 
-Source {Kd=8192,Name=R,Offset=3}
-Target {Ks=16850947,Name=P,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 2
+P&P New head is 2 and tail is 1
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=16850947,Name=R,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=75779,Name=N,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 Value is 21.9246
 matrix_size is:3
-P&P New head is 4
+P&P New head is 4 and tail is 1
 new opcode is 0
 RSOLD/RSNEW CREATED
 Value is 21.9246
 
 
-Source {Kd=16785408,Name=R,Offset=3}
-Target {Ks=75779,Name=P,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 3
 ASSIGNING IN TEMP
-P&P New head is 2
+P&P New head is 2 and tail is 1
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=75779,Name=R,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16842752,Name=N,Offset=6}
-Target {Ks=16848902,Name=B,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=16842752,Name=B,Offset=0}
 Offset 6
 CREATING BETA HERE
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is 21.9246
 
 
-Source {Kd=67584,Name=N,Offset=6}
-Target {Ks=16848902,Name=L,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 21.9246
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=2048,Name=N,Offset=6}
-Target {Ks=16848902,Name=C,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=2048,Name=C,Offset=0}
 Offset 6
 Checking end cond
 Condition failed
 
 
-Source {Kd=16787456,Name=N,Offset=6}
-Target {Ks=16848902,Name=R,Offset=0}
+Source {Ks=16848902,Name=N,Offset=6}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 6
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 Value is EDWWWWWWWWWWWW 21.9246
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=73728,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 9
 New p value is -4.26852
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 4
 
 
-Source {Kd=8192,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 9
 New p value is -3.21217
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 5
 
 
-Source {Kd=16785408,Name=B,Offset=9}
-Target {Ks=16842761,Name=P,Offset=0}
+Source {Ks=16842761,Name=B,Offset=9}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 9
 New p value is 1.65998
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 6
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 4.26852
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 3.31996
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 4.26852
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=71680,Name=R,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -6.42433
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 3.21217
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -1.65998
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=16783360,Name=A,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
-P&P New head is 7
+P&P New head is 7 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -8.53703
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16844800,Name=R,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=69632,Name=A,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
-P&P New head is 7
+P&P New head is 7 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=6144,Name=A,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 3
 new opcode is 1
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=6144,Name=R,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 9
 new opcode is 8
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=4096,Name=A,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
-P&P New head is 7
+P&P New head is 7 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16844800,Name=A,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=71680,Name=A,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
-P&P New head is 9
+P&P New head is 9 and tail is 3
 new opcode is 7
 Multiplication happened here
 resValue is 0
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16779264,Name=R,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16779264,Name=A,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
-P&P New head is 9
+P&P New head is 9 and tail is 3
 new opcode is 7
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=69632,Name=R,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16846848,Name=A,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 3
 new opcode is 1
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16846848,Name=R,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=4096,Name=R,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=16783360,Name=R,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16781312,Name=R,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 4
+P&P New head is 4 and tail is 9
 ALPHA node here
 Bottom happenning here 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16781312,Name=A,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
-P&P New head is 9
+P&P New head is 9 and tail is 3
 new opcode is 7
 Multiplication happened here
 resValue is -0
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -0.958024
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 5
+P&P New head is 5 and tail is 9
 ALPHA node here
 Bottom happenning here 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
-P&P New head is 6
+P&P New head is 6 and tail is 9
 ALPHA node here
 Bottom happenning here 0
 rsold in Mstore is 21.9246
 Value is inf
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 11
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is 3.37224
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=16850947,Name=N,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 5
+P&P New head is 5 and tail is 1
 new opcode is 0
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=65536,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=73728,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -inf
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -3.104
 
 
-Source {Kd=8192,Name=R,Offset=3}
-Target {Ks=16850947,Name=P,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 3
 COUNTER 1
 opcode2
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=16850947,Name=R,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=0,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=8192,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -inf
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 7
+P&P New head is 7 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=75779,Name=N,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 6
+P&P New head is 6 and tail is 1
 new opcode is 0
 
 
-Source {Kd=16777216,Name=L,Offset=7}
-Target {Ks=67591,Name=A,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16785408,Name=L,Offset=7}
-Target {Ks=67591,Name=P,Offset=0}
+Source {Ks=67591,Name=L,Offset=7}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 7
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 1
 new opcode is 1
 Multiplication happened here
 resValue is inf
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=73732,Name=L,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 8
+P&P New head is 8 and tail is 9
 new opcode is 0
 
 
-Source {Kd=71680,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=71680,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is -inf
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=10243,Name=R,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=10243,Name=N,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 7
+P&P New head is 7 and tail is 1
 new opcode is 209
 
 
-Source {Kd=73728,Name=R,Offset=3}
-Target {Ks=10243,Name=P,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 3
 COUNTER 1
 opcode2
 
-Source {Kd=16785408,Name=R,Offset=3}
-Target {Ks=75779,Name=P,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 3
 COUNTER 1
 opcode2
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=75779,Name=R,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=6144,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=6144,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is -inf
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16844800,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16844800,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=12288,Name=P,Offset=4}
-Target {Ks=73732,Name=X,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=12288,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=71680,Name=R,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16783360,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16783360,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 new opcode is 1
 
 
-Source {Kd=16779264,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16779264,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16852992,Name=P,Offset=4}
-Target {Ks=8196,Name=X,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=16852992,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=8196,Name=L,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 9
 new opcode is 0
 
 
-Source {Kd=69632,Name=P,Offset=4}
-Target {Ks=8196,Name=M,Offset=0}
+Source {Ks=8196,Name=P,Offset=4}
+Target {Kd=69632,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16781312,Name=P,Offset=4}
-Target {Ks=73732,Name=M,Offset=0}
+Source {Ks=73732,Name=P,Offset=4}
+Target {Kd=16781312,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16844800,Name=R,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 2
 new opcode is 10
 
 
-Source {Kd=16846848,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=16846848,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=4096,Name=P,Offset=4}
-Target {Ks=16785412,Name=M,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=4096,Name=M,Offset=0}
 Offset 4
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=16783360,Name=A,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
-P&P New head is 10
+P&P New head is 10 and tail is 3
 Value is EDWWWWWWWWWWWW -nan
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 9
 new opcode is 0
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 MAKING AN X NODE HERE!!
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 3
 Value is inf
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=69632,Name=A,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
-P&P New head is 10
+P&P New head is 10 and tail is 3
 Value is EDWWWWWWWWWWWW -nan
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=6144,Name=A,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
-P&P New head is 11
+P&P New head is 11 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=6144,Name=R,Offset=0}
+Source {Ks=6144,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16844800,Name=A,Offset=0}
+Source {Ks=16844800,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
-P&P New head is 10
+P&P New head is 10 and tail is 3
 Value is EDWWWWWWWWWWWW -nan
 ASSIGNEMENT DONE HERE
 
 
-Source {Kd=16777216,Name=M,Offset=0}
-Target {Ks=71680,Name=A,Offset=0}
+Source {Ks=71680,Name=M,Offset=0}
+Target {Kd=16777216,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 12
+P&P New head is 12 and tail is 3
 new opcode is 0
 
 
-Source {Kd=67584,Name=P,Offset=4}
-Target {Ks=16785412,Name=L,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=67584,Name=L,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 9
 new opcode is 8
 
 
-Source {Kd=77824,Name=P,Offset=4}
-Target {Ks=16785412,Name=X,Offset=0}
+Source {Ks=16785412,Name=P,Offset=4}
+Target {Kd=77824,Name=X,Offset=0}
 Offset 4
 opcode is 0 here
-P&P New head is 1
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=4096,Name=A,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
-P&P New head is 11
+P&P New head is 11 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=16779264,Name=R,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=0,Name=M,Offset=0}
-Target {Ks=16779264,Name=A,Offset=0}
+Source {Ks=16779264,Name=M,Offset=0}
+Target {Kd=0,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 12
+P&P New head is 12 and tail is 3
 new opcode is 0
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=69632,Name=R,Offset=0}
+Source {Ks=69632,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16785408,Name=A,Offset=5}
-Target {Ks=16777221,Name=P,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=16785408,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16781312,Name=R,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 3
+P&P New head is 3 and tail is 4
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16846848,Name=A,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
-P&P New head is 11
+P&P New head is 11 and tail is 3
 new opcode is 0
 Multiplication happened here
 resValue is -nan
 
 
-Source {Kd=10240,Name=M,Offset=0}
-Target {Ks=16846848,Name=R,Offset=0}
+Source {Ks=16846848,Name=M,Offset=0}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=16850944,Name=M,Offset=0}
-Target {Ks=4096,Name=R,Offset=0}
+Source {Ks=4096,Name=M,Offset=0}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=8192,Name=A,Offset=5}
-Target {Ks=5,Name=P,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=75776,Name=M,Offset=0}
-Target {Ks=16783360,Name=R,Offset=0}
+Source {Ks=16783360,Name=M,Offset=0}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 4
 new opcode is 0
 
 
-Source {Kd=65536,Name=M,Offset=0}
-Target {Ks=16781312,Name=A,Offset=0}
+Source {Ks=16781312,Name=M,Offset=0}
+Target {Kd=65536,Name=A,Offset=0}
 Offset 0
 opcode is 0 here
-P&P New head is 12
+P&P New head is 12 and tail is 3
 new opcode is 0
 
 
-Source {Kd=73728,Name=A,Offset=5}
-Target {Ks=65541,Name=P,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 5
 opcode is 0 here
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 new opcode is 1
 
 
-Source {Kd=16850944,Name=A,Offset=5}
-Target {Ks=5,Name=R,Offset=0}
+Source {Ks=5,Name=A,Offset=5}
+Target {Kd=16850944,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -nan
 
 
-Source {Kd=75776,Name=A,Offset=5}
-Target {Ks=16777221,Name=R,Offset=0}
+Source {Ks=16777221,Name=A,Offset=5}
+Target {Kd=75776,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -nan
 
 
-Source {Kd=10240,Name=A,Offset=5}
-Target {Ks=65541,Name=R,Offset=0}
+Source {Ks=65541,Name=A,Offset=5}
+Target {Kd=10240,Name=R,Offset=0}
 Offset 5
 Making r values
-P&P New head is 0
+head==tail here
+P&P New head is 0 and tail is 2
 R value is -nan
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=16850947,Name=N,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 
 
-Source {Kd=8192,Name=R,Offset=3}
-Target {Ks=16850947,Name=P,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=8192,Name=P,Offset=0}
 Offset 3
 COUNTER 2
 opcode2
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=16850947,Name=R,Offset=0}
+Source {Ks=16850947,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=75779,Name=N,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=10243,Name=R,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 1
+head==tail here
+P&P New head is 1 and tail is 3
 new opcode is 0
 
 
-Source {Kd=16848896,Name=R,Offset=3}
-Target {Ks=10243,Name=N,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=16848896,Name=N,Offset=0}
 Offset 3
 
 
-Source {Kd=73728,Name=R,Offset=3}
-Target {Ks=10243,Name=P,Offset=0}
-Offset 3
-COUNTER 2
-opcode2
-
-Source {Kd=16785408,Name=R,Offset=3}
-Target {Ks=75779,Name=P,Offset=0}
+Source {Ks=10243,Name=R,Offset=3}
+Target {Kd=73728,Name=P,Offset=0}
 Offset 3
 COUNTER 2
 opcode2
 
-Source {Kd=16787456,Name=R,Offset=3}
-Target {Ks=75779,Name=R,Offset=0}
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16785408,Name=P,Offset=0}
+Offset 3
+COUNTER 2
+opcode2
+
+Source {Ks=75779,Name=R,Offset=3}
+Target {Kd=16787456,Name=R,Offset=0}
 Offset 3
 opcode is 0 here
-P&P New head is 2
+P&P New head is 2 and tail is 3
 new opcode is 0
 
 
