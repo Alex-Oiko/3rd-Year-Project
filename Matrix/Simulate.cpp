@@ -65,7 +65,7 @@ void Simulate::SimBegin(Task& TASK, Dealer& DEAL, Core& CORE, MakeMCTables& MCT,
     puts("Starting simulation");
     LoadFireAll(TASK, DEAL,CORE);
     while(true){
-        if(EventQ.empty()||iterator_counter==4)
+        if(EventQ.empty())
             break;
         E = EventQ.front();
         //printf("Event type = %d, %lu more events to go\n",E.Type, EventQ.size());
@@ -335,6 +335,7 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 	    			CORE.mop[TTE.V][Offset].pop();
 				cout<<"new opcode is "<<CORE.mop[TTE.V][Offset].front()<<endl;
 				cout<<"R CREATED"<<endl;
+				cout<<"Value is "<<CORE.Mstore[TTE.V]<<endl;
 				CORE.Mcounter[TTE.V]=0;
 				EventQ.push(RES);
 	    		}
@@ -452,8 +453,8 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 			if(E.Value<1e-10){
 				cout<<"END CONDITION TRUE..........TERMINATING"<<endl;
 				cout<<"Results are"<<endl;
-				//CORE.PrintByOpCode(16,3);
-				//exit(EXIT_SUCCESS);	
+				CORE.PrintByOpCode(16,3);
+				exit(EXIT_SUCCESS);
 			}
 			else{
 				cout<<"Condition failed"<<endl;
@@ -476,10 +477,13 @@ void Simulate::Deliver(event E, Core& CORE){    //this is the MC packet arrival 
 				RES.Type=UPALL;
 				EventQ.push(RES);
 			}
-			//if(case15_counter>matrix_size){//if the first iteration has passed
-			//	RES.Value=CORE.Mstore[TTE.V];
-			//	EventQ.push(RES);
-			//}
+			if(case15_counter>matrix_size){//if the first iteration has passed
+				cout<<"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"<<endl;
+				RES.Value=CORE.Mstore[TTE.V];
+				EventQ.push(RES);
+			}
+			CORE.PrintByOpCode(3,5);
+			CORE.PrintByOpCode(2,7);
 			break;
 	}
     }    

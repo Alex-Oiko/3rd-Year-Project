@@ -78,7 +78,7 @@ int main(){
         cout<<"Cool thanks"<<endl;
         cout<<"Please give a file name "<<endl;
         cin>>file;
-	wsfile = file +"1.mx";
+	wsfile = file + file[0]+".mx";
         file = file + ".mx";
 	ifile.open(file,ios::in);
         if(ifile.fail()){
@@ -90,7 +90,7 @@ int main(){
 		 wfile<<"BEGIN VALUES"<<endl;
 		 while(!ifile.eof()){
 		 	getline(ifile,line);
-		 	if(isdigit(line[0])){
+		 	if(isdigit(line[0])||line[0]=='-'){
 				wfile<<line<<endl;
 			}
 			else{
