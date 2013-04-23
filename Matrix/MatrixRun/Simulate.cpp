@@ -84,7 +84,8 @@ void Simulate::LoadFireAll(TCram& TCRAM){
 		OpCodes = (uint32_t*)&CoreData[CoreCommon->OpCodesStart];
 		for(Lup = 0; Lup < CoreCommon->PointCount; Lup++){
 		    cout<<"NAMEW AAAAAAAAAAAAAAAAAAAAAAAAAA "<<TTE[Lup].Name<<" with front()"<<front(16,OpCodes)<<endl;
-		    if(front(16,OpCodes)==3){
+		    if(TTE[Lup].Name=='X'){
+			cout<<"hello"<<endl;
 			E.Value = TTE[Lup].IV;
                         E.Ks = TTE[Lup].Kd;
                         E.Kd = E.Ks;
