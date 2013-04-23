@@ -52,7 +52,7 @@
  */
 
 extern uint virt_cpu;
-
+uint32_t matrix_size=2,case15_counter=0;
 /*
  *Structure of the TCRAM
  */
@@ -86,8 +86,6 @@ typedef struct {
     uint32_t Ks;
     uint32_t idx;
 } _LookUp;
-
-uint32_t matrix_size=2,case15_counter=0;
 
 
 uint32_t front(uint32_t offset,uint32_t* OpCodesA){
