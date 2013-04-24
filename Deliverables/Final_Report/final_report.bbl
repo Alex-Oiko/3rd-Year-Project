@@ -32,6 +32,12 @@ Sergio Davies, Cameron Patterson, Francesco Galluppi, Alexander~D Rast, David
   pages 7--11. Australian Journal of Intelligent Information Processing
   Systems, Vol. 11, No. 1,, 2010.
 
+\bibitem{davies2011maintaining}
+Sergio Davies, Alexander~D Rast, Francesco Galluppi, and Steve~B Furber.
+\newblock Maintaining real-time synchrony on spinnaker.
+\newblock In {\em Proceedings of the 8th ACM International Conference on
+  Computing Frontiers}, page~15. ACM, 2011.
+
 \bibitem{docfile}
 Andrew Brown~Steve Furber and a~host~of others...
 \newblock Spinnaker..., 2008.
@@ -65,6 +71,14 @@ Magnus~Rudolph Hestenes and Eduard Stiefel.
 \bibitem{spinnweb}
 http://apt.cs.man.ac.uk/projects/SpiNNaker/.
 \newblock Official website of the spinnaker project.
+
+\bibitem{jin2010algorithm}
+Xin Jin, Francesco Galluppi, Cameron Patterson, Alexander Rast, Sergio Davies,
+  Steve Temple, and Steve Furber.
+\newblock Algorithm and software for simulation of spiking neural networks on
+  the multi-chip spinnaker system.
+\newblock In {\em Neural Networks (IJCNN), The 2010 International Joint
+  Conference on}, pages 1--8. IEEE, 2010.
 
 \bibitem{khan2008spinnaker}
 MM~Khan, DR~Lester, Luis~A Plana, A~Rast, X~Jin, E~Painkras, and Stephen~B
@@ -107,6 +121,19 @@ Luis~A Plana, Steve~B Furber, Steve Temple, Mukaram Khan, Yebin Shi, Jian Wu,
 William~H Press, Saul~A Teukolsky, William~T Vetterling, and Brian~P Flannery.
 \newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
 \newblock Cambridge university press, 2007.
+
+\bibitem{rast2012event}
+AD~Rast, LA~Plana, SR~Welbourne, and SB~Furber.
+\newblock Event-driven mlp implementation on neuromimetic hardware.
+\newblock In {\em Neural Networks (IJCNN), The 2012 International Joint
+  Conference on}, pages 1--8. IEEE, 2012.
+
+\bibitem{rast2011event}
+Alexander Rast, Francesco Galluppi, Sergio Davies, Luis~A Plana, Thomas Sharp,
+  and Steve Furber.
+\newblock An event-driven model for the spinnaker virtual synaptic channel.
+\newblock In {\em Neural Networks (IJCNN), The 2011 International Joint
+  Conference on}, pages 1967--1974. IEEE, 2011.
 
 \bibitem{rast2012managing}
 Alexander~D Rast, Javier Navaridas, Xin Jin, Francesco Galluppi, Luis~A Plana,

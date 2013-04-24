@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.4.14)  23 APR 2013 15:44
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.4.9)  24 APR 2013 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,14 +505,20 @@ File: Pics/event-handling.png Graphic file (type png)
 <use Pics/event-handling.png>
 Package pdftex.def Info: Pics/event-handling.png used on input line 170.
 (pdftex.def)             Requested size: 1334.98425pt x 1100.1073pt.
- [10 <./Pics/event-handling.png>] [11]
-Overfull \hbox (7.41211pt too wide) in paragraph at lines 216--217
+ [10 <./Pics/event-handling.png>]
+Overfull \hbox (36.56024pt too wide) in paragraph at lines 178--179
+\T1/ppl/m/n/12 neu-rons. Var-i-ous sim-u-la-tions would use dif-fer-ent kinds o
+f neurons[[]][[]][[]][[]].
+ []
+
+[11]
+Overfull \hbox (7.41211pt too wide) in paragraph at lines 217--218
 []\T1/ppl/m/n/12 The CGM, as well as most op-ti-miza-tion meth-ods(for ex-am-pl
 e the method
  []
 
 [12]
-Overfull \hbox (23.90605pt too wide) detected at line 236
+Overfull \hbox (23.90605pt too wide) detected at line 237
 []\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
 \OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
 mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
@@ -522,94 +528,87 @@ cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 263--266
+Underfull \hbox (badness 10000) in paragraph at lines 264--267
 
  []
 
 [14]
-Overfull \hbox (2.44432pt too wide) in paragraph at lines 304--305
+Overfull \hbox (2.44432pt too wide) in paragraph at lines 305--306
 \T1/ppl/m/n/12 im-proved al-go-rithm named ICGS(Improved Con-ju-gate Gra-di-ent
  Squared),
  []
 
-<Pics/basic.png, id=434, 242.9075pt x 159.59625pt>
+[15] <Pics/basic.png, id=454, 242.9075pt x 159.59625pt>
 File: Pics/basic.png Graphic file (type png)
  <use Pics/basic.png>
-Package pdftex.def Info: Pics/basic.png used on input line 314.
+Package pdftex.def Info: Pics/basic.png used on input line 316.
 (pdftex.def)             Requested size: 485.81378pt x 319.19168pt.
 
-Overfull \hbox (0.11502pt too wide) in paragraph at lines 312--319
+Overfull \hbox (0.11502pt too wide) in paragraph at lines 314--321
 \T1/ppl/m/n/12 ma-trix(A) and vec-tors(b,r) would be put into a dif-fer-ent nod
 e. Considering
  []
 
-[15] <Pics/mat0mult.png, id=447, 414.54875pt x 293.095pt>
+<Pics/mat0mult.png, id=455, 414.54875pt x 293.095pt>
 File: Pics/mat0mult.png Graphic file (type png)
-
-<use Pics/mat0mult.png>
-Package pdftex.def Info: Pics/mat0mult.png used on input line 324.
+ <use Pics/mat0mult.png>
+Package pdftex.def Info: Pics/mat0mult.png used on input line 326.
 (pdftex.def)             Requested size: 829.09546pt x 586.18854pt.
- [16 <./Pics/basic.png> <./Pics/mat0mult.png>]
-<Pics/program_flow.png, id=456, 1181.41376pt x 323.2075pt>
-File: Pics/program_flow.png Graphic file (type png)
-
-<use Pics/program_flow.png>
-Package pdftex.def Info: Pics/program_flow.png used on input line 337.
-(pdftex.def)             Requested size: 1181.41087pt x 323.20671pt.
-
-Overfull \hbox (109.99406pt too wide) in paragraph at lines 337--339
- [][] 
- []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[16 <./Pics/basic.png>]
+<Pics/program_flow.png, id=462, 1181.41376pt x 323.2075pt>
+File: Pics/program_flow.png Graphic file (type png)
 
-Overfull \hbox (1.38696pt too wide) in paragraph at lines 343--344
-\T1/ppl/m/n/12 that is not found in the CGM al-go-rithm ex-plained pre-vi-ously
- are Ap nodes.
+<use Pics/program_flow.png>
+Package pdftex.def Info: Pics/program_flow.png used on input line 339.
+(pdftex.def)             Requested size: 1181.41087pt x 323.20671pt.
+
+Overfull \hbox (109.99406pt too wide) in paragraph at lines 339--341
+ [][] 
  []
 
-[17] [18 <./Pics/program_flow.png>] [19] [20] [21]
-Overfull \hbox (2.08363pt too wide) in paragraph at lines 387--388
+[17 <./Pics/mat0mult.png>] [18 <./Pics/program_flow.png>] [19] [20] [21]
+Overfull \hbox (2.08363pt too wide) in paragraph at lines 397--398
 \T1/ppl/m/n/12 out the bi-nary files that the sec-ond sim-u-la-tor and the ac-t
 ual ma-chine would
  []
 
-[22] [23] [24] [25] (./final_report.bbl [26]
-Underfull \hbox (badness 1342) in paragraph at lines 130--134
+[22] [23] [24] [25] (./final_report.bbl [26] [27]
+Underfull \hbox (badness 1342) in paragraph at lines 157--161
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
-[27])
-Underfull \hbox (badness 10000) in paragraph at lines 457--500
+)
+Underfull \hbox (badness 10000) in paragraph at lines 470--513
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 501--512
+[28] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 514--525
 
  []
 
-[29]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 514.
- [30]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 514.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 527.
+[30]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 527.
  (./final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 527.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 527.
 Package rerunfilecheck Info: File `final_report.out' has not changed.
 (rerunfilecheck)             Checksum: A9760CF4FF57E1A94B13CD763681FF4C;3038.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 514.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 527.
  ) 
 Here is how much of TeX's memory you used:
- 7664 strings out of 493485
- 107029 string characters out of 3143526
- 210160 words of memory out of 3000000
- 10715 multiletter control sequences out of 15000+200000
+ 7672 strings out of 493485
+ 107183 string characters out of 3143527
+ 210315 words of memory out of 3000000
+ 10719 multiletter control sequences out of 15000+200000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 29i,15n,30p,1113b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,15n,30p,1350b,435s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -623,10 +622,10 @@ s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (35 pages, 802914 bytes).
+Output written on final_report.pdf (35 pages, 805872 bytes).
 PDF statistics:
- 629 PDF objects out of 1000 (max. 8388607)
- 564 compressed objects within 6 object streams
- 153 named destinations out of 1000 (max. 500000)
+ 641 PDF objects out of 1000 (max. 8388607)
+ 576 compressed objects within 6 object streams
+ 157 named destinations out of 1000 (max. 500000)
  409 words of extra memory for PDF output out of 10000 (max. 10000000)
 
