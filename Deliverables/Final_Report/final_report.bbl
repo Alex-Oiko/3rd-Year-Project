@@ -102,6 +102,10 @@ Javier Navaridas, Mikel Luj{\'a}n, Jose Miguel-Alonso, Luis~A Plana, and Steve
 \newblock In {\em Proceedings of the 23rd international conference on
   Supercomputing}, pages 286--295. ACM, 2009.
 
+\bibitem{git_repo}
+Alexandros Oikonomou.
+\newblock Github repository where the implementation files are kept., 2012.
+
 \bibitem{o1987parallel}
 Dianne~P O'Leary.
 \newblock Parallel implementation of the block conjugate gradient algorithm.

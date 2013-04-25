@@ -1,19 +1,16 @@
 \relax 
-\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
-\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
-\global\let\oldcontentsline\contentsline
-\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global\let\oldnewlabel\newlabel
-\gdef\newlabel#1#2{\newlabelxx{#1}#2}
-\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\ifx\hyper@anchor\@undefined
-\let\contentsline\oldcontentsline
-\let\newlabel\oldnewlabel
-\fi}
-\fi}
-\global\let\hyper@last\relax 
-\gdef\HyperFirstAtBeginDocument#1{#1}
-\providecommand\HyField@AuxAddToFields[1]{}
+\ifx\hyper@anchor\@undefined
+\global \let \oldcontentsline\contentsline
+\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global \let \oldnewlabel\newlabel
+\gdef \newlabel#1#2{\newlabelxx{#1}#2}
+\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\let \contentsline\oldcontentsline
+\let \newlabel\oldnewlabel}
+\else
+\global \let \hyper@last\relax 
+\fi
+
 \citation{hestenes1952methods}
 \citation{navaridas2009understanding}
 \citation{sharp2011event}
@@ -90,13 +87,13 @@
 \citation{cgm2009lec}
 \citation{o1987parallel}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{14}{subsubsection.2.5.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{14}{subsubsection.2.5.4}}
 \citation{adams1985m}
 \citation{adams1983m}
 \citation{maheswaran1999mcgs}
 \citation{yang2001improved}
 \citation{galiano2012gpu}
 \citation{wozniak2010parallel}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{15}{subsubsection.2.5.4}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Design}{15}{section.3}}
 \citation{basicinterim}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Basic communication}{16}{subsection.3.1}}
@@ -113,11 +110,12 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Offset}{22}{subsection.4.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Second Iteration}{23}{subsection.4.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Input files}{23}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Layout of OpCodes}{23}{subsection.4.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Implementation OpCodes}{24}{subsection.4.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Implementation OpCodes}{24}{subsection.4.5}}
+\citation{git_repo}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Connections and OpCodes programs}{25}{subsection.4.6}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Testing}{25}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{25}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{25}{section.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{26}{section.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{26}{section.7}}
 \bibstyle{plain}
 \bibdata{ref.bib}
 \bibcite{basicinterim}{1}
@@ -137,20 +135,21 @@
 \bibcite{khan2008spinnaker}{15}
 \bibcite{maheswaran1999mcgs}{16}
 \bibcite{navaridas2009understanding}{17}
-\bibcite{o1987parallel}{18}
-\bibcite{cgm2009lec}{19}
-\bibcite{plana2007gals}{20}
-\bibcite{press2007numerical}{21}
-\bibcite{rast2012event}{22}
-\bibcite{rast2011event}{23}
-\bibcite{rast2012managing}{24}
-\bibcite{jefflec}{25}
-\bibcite{rosenbloom1956method}{26}
-\bibcite{sharp2012power}{27}
-\bibcite{sharp2011event}{28}
-\bibcite{shewchuk1994introduction}{29}
-\bibcite{wozniak2010parallel}{30}
-\bibcite{yang2001improved}{31}
+\bibcite{git_repo}{18}
+\bibcite{o1987parallel}{19}
+\bibcite{cgm2009lec}{20}
+\bibcite{plana2007gals}{21}
+\bibcite{press2007numerical}{22}
+\bibcite{rast2012event}{23}
+\bibcite{rast2011event}{24}
+\bibcite{rast2012managing}{25}
+\bibcite{jefflec}{26}
+\bibcite{rosenbloom1956method}{27}
+\bibcite{sharp2012power}{28}
+\bibcite{sharp2011event}{29}
+\bibcite{shewchuk1994introduction}{30}
+\bibcite{wozniak2010parallel}{31}
+\bibcite{yang2001improved}{32}
 \citation{navaridas2009understanding}
 \citation{sharp2012power}
 \citation{davies2010interfacing}
@@ -181,8 +180,10 @@
 \citation{rast2012event}
 \citation{davies2011maintaining}
 \citation{jin2010algorithm}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Appendix}{29}{section.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Example Input file}{29}{subsection.8.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{30}{subsection.8.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Project Brief}{30}{subsection.8.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Gantt Charts}{30}{subsection.8.4}}
+\citation{git_repo}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Appendix}{30}{section.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Example Input file}{30}{subsection.8.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{31}{subsection.8.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Test examples}{31}{subsection.8.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Project Brief}{35}{subsection.8.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Gantt Charts}{35}{subsection.8.5}}
