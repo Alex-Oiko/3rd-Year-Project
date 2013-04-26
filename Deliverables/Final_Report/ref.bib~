@@ -235,7 +235,7 @@
   organization={IEEE}
 }
 @misc{git_repo,
- title={Github repository where the implementation files are kept. },
+ title={Github repository where the implementation files are kept. Link is: https://github.com/Alex-Oiko/3rd-Year-Project},
  author={Alexandros Oikonomou},
  year={2012}
  }
