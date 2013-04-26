@@ -450,8 +450,19 @@ The actual testing was made by using different kinds of matrices, with different
 
 All of the tests worked in both of the simulators successfully, while producing the correct and expected output. Throughout the testing phase there were no problems with corrupted binary files.
 \section{Evaluation}
+In general the design and implementation that has been proposed and tested throughout this project has been proven to be robust and scalable. Using the data structure of vector of queues provides a solution not only for the solution of the Conjugate Gradient Method, but also other algorithms that might be similar to this one. Using the proposed design, a programmer could implement other algorithms by sketching out a program flow similar to Figure 8, and then finding the connections between the nodes. In addition, using the proposed design offers the advanatge of few and understandable connections between nodes that can be easily produced using a simple program.
 
+One disantvantage of the design is the additional complexity that it adds in each computation from $O(1)$ to $O(4)$. However this is not a dramatic increase and will not reduce the speedup dramatically. In addition, creating a customised vector of queues of integers using an array might prove to be complex if used for some other algorithms. However, if the design proposed in the Implementation section of this project is followed, then the task might prove to be easier.
+
+One improvement that this project could have benefitted from is running the algorithm in a SpiNNaker chip to see if it would work in the actual machine as good as it would have in the simulators. Having tested that, by using the SpiNNaker chips, the practical speedup that the architecture provides could have been found and compared to the sequential implementation of the algorithm, as well as other parallel implementations. Unfortunately, the time available with a SpiNNaker board was limited and in addition to that there was a malfunction to the board.
+
+In addition, more testing could have been carried in the simulators out throughout this project to make sure whether the algorithm could scale to matrices with very high dimensions i.e. a 400x400 sparse matrix. The tests that were carried out do indicate that a correct solution would have been produced, but doing the actual testing would improve upon the validity of the solution.
+
+In the event handler it is visible that there are around 13 different operations that can be carried out by all the nodes. This number could be reduced from 13 to 11 or 10, by optimising some of the operations that each case does. During the implementation stage, a higher number of operations was chosen in order to test each operation's validity more atomically.
+
+The hardest part of this project was coming up with an efficient way of doing operations in each node, while preserving a low time complexity in each computation and also producing the correct result. The vector of queues of integers that was selected to represent OpCodes, while using the Offset of each incoming packet's source address as a key to the OpCodes. One of the easier tasks of this project was the creation of the programs to automatically produce the OpCodes for each node and the connections between them.
 \section{Conclusion}
+In conclusion, this project achieved the goal that was outlined in the project brief by finding a solution to the algorithm using the SpiNNaker architecture. It took advantage of the massive parallelism that the architecture provides and was able to dramatically reduce the time complexity of the most expensive operations of the algorithm. The matrix-vector multimplication was reduced from $O(N^2)$ to $O(4) + log_2(N) + O(4)$ and the inner product from $O(N)$ to $O(4)$. 
 
 \newpage
 \bibliographystyle{plain}

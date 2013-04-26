@@ -41,10 +41,10 @@
 \contentsline {subsection}{\numberline {4.6}Connections and OpCodes programs}{25}{subsection.4.6}
 \contentsline {section}{\numberline {5}Testing}{25}{section.5}
 \contentsline {section}{\numberline {6}Evaluation}{26}{section.6}
-\contentsline {section}{\numberline {7}Conclusion}{26}{section.7}
-\contentsline {section}{\numberline {8}Appendix}{30}{section.8}
-\contentsline {subsection}{\numberline {8.1}Example Input file}{30}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{31}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Test examples}{31}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Project Brief}{35}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}Gantt Charts}{35}{subsection.8.5}
+\contentsline {section}{\numberline {7}Conclusion}{27}{section.7}
+\contentsline {section}{\numberline {8}Appendix}{31}{section.8}
+\contentsline {subsection}{\numberline {8.1}Example Input file}{31}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{32}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Test examples}{32}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}Project Brief}{36}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Gantt Charts}{36}{subsection.8.5}
