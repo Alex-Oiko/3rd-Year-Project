@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  26 APR 2013 14:55
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  26 APR 2013 20:14
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -550,31 +550,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 622--702
 
  []
 
-[34] [35] [36] (./final_report.aux) ) 
+[34] [35] [36]
+<Gantt_Charts/Final_Gantt1.png, id=591, 587.19376pt x 1487.5575pt>
+File: Gantt_Charts/Final_Gantt1.png Graphic file (type png)
+
+<use Gantt_Charts/Final_Gantt1.png>
+
+LaTeX Warning: Float too large for page by 3.01247pt on input line 721.
+
+<Gantt_Charts/Final_Gantt2.png, id=592, 587.19376pt x 1827.82875pt>
+File: Gantt_Charts/Final_Gantt2.png Graphic file (type png)
+
+<use Gantt_Charts/Final_Gantt2.png>
+
+LaTeX Warning: Float too large for page by 139.11856pt on input line 727.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37] [38 <./Gantt_Charts/Final_Gantt1.png (PNG copy)>] [39 <./Gantt_Charts/Fina
+l_Gantt2.png (PNG copy)>] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6734 strings out of 493848
- 91647 string characters out of 1152824
+ 6748 strings out of 493848
+ 91983 string characters out of 1152824
  186428 words of memory out of 3000000
- 9722 multiletter control sequences out of 15000+50000
+ 9730 multiletter control sequences out of 15000+50000
  23297 words of font info for 59 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  38i,15n,38p,1350b,427s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/
-base/8r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/f
-onts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/pa
-latino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplri8a.pf
-b>
-Output written on final_report.pdf (41 pages, 802115 bytes).
+{/usr/share/texmf-texlive/fonts
+/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
+f-texlive/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/t
+ype1/urw/palatino/uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino
+/uplri8a.pfb>
+Output written on final_report.pdf (44 pages, 875213 bytes).
 PDF statistics:
- 670 PDF objects out of 1000 (max. 8388607)
- 165 named destinations out of 1000 (max. 500000)
- 417 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 686 PDF objects out of 1000 (max. 8388607)
+ 168 named destinations out of 1000 (max. 500000)
+ 427 words of extra memory for PDF output out of 10000 (max. 10000000)
 
