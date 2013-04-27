@@ -30,12 +30,13 @@
 \BOOKMARK [3][-]{subsubsection.3.4.1}{OpCodes}{subsection.3.4}
 \BOOKMARK [2][-]{subsection.3.5}{Justification for Design Choices}{section.3}
 \BOOKMARK [1][-]{section.4}{Implementation}{}
-\BOOKMARK [2][-]{subsection.4.1}{Simulators//mb put it in testing}{section.4}
+\BOOKMARK [2][-]{subsection.4.1}{Simulators}{section.4}
 \BOOKMARK [2][-]{subsection.4.2}{Offset}{section.4}
 \BOOKMARK [2][-]{subsection.4.3}{Second Iteration}{section.4}
 \BOOKMARK [2][-]{subsection.4.4}{Input files}{section.4}
 \BOOKMARK [2][-]{subsection.4.5}{Implementation OpCodes}{section.4}
 \BOOKMARK [2][-]{subsection.4.6}{Connections and OpCodes programs}{section.4}
+\BOOKMARK [2][-]{subsection.4.7}{SpiNNaker Event Handler}{section.4}
 \BOOKMARK [1][-]{section.5}{Testing}{}
 \BOOKMARK [1][-]{section.6}{Evaluation}{}
 \BOOKMARK [1][-]{section.7}{Conclusion}{}

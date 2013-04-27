@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
+\usepackage[parfill]{parskip}
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
 \usepackage{algorithm2e}
@@ -9,7 +10,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \author{Alexandros-Panagiotis Oikonomou}
-\setlength{\parindent}{15pt}
+\setlength{\parindent}{0pt}
 \begin{document}
 \begin{titlepage}
 \begin{center}
@@ -130,6 +131,7 @@ In this project Type 0 packets have mainly been used.
 A mention of the routing tables is also important in understanding the architecture. Optimally, one would want for all cores to communicate with all the other cores in the system. However, that would be impractical, since the data structure to hold the entries for the routing table would have to be enormous.
 
 This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size, since it needs to hold addresses for the routing. The nature of the most siginificant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
+
 \subsubsection{Bandwidth}
 Having discussed the architecture and its network, a mention of the bandwidth bisection that is offered will be outlined here. Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63K. If we would split the topology in two then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256. Given that each node should carry 25M packets. This would offer more possible connections and would achieve more and faster results.\cite{docfile}\cite{navaridas2009understanding}.
 \newpage
@@ -171,6 +173,8 @@ Each of these bullet points qualifies as an event. The programmer cannot control
 \centering
 \caption{Event-handling. The control and data flow is shown\cite{sharp2011event}}
 \end{figure}
+
+The kernel is responsible for allocating resources and processors to the tasks that are triggered by the events, so as to execute the callbacks. Following events, control over the processors is given to the scheduler that queues tasks. When the scheduler finishes it gives processor time to the dispatcher that dequeues tasks and instructs specific cores to execute them. This whole process is depicted in Figure 5.
 
 The types of callbacks can be seperated in two categories. Queueable and non-queueable. In the case of a non-queuable callback, the callback is executed immediately by the system, having the top priority of execution. A queueable callback, which is most common, will be put on an execution queue along with other queueable callbacks. In the case that the queue empties, no callbacks will be executed. It will continue executing callbacks when another event occurs at some point\cite{sharp2011event}\cite{rast2012managing}. 
 	
@@ -395,12 +399,12 @@ The SpiNNaker architecture gives you the choice of having global variables that 
 Another important design decision was the use of the vector of queues data structure. Given the iterative nature of the algorithm, following a model such as the one described has proved be very usable and simple and program. There existed an option of using a graph of nodes with multiple connections used, but that option was deemed too complicated, with the possibility of not even being implementable given the nature of this algorithm. However, it might have worked for other algorithms that do not require iterations to find solutions and did not involve many steps.
 \section{Implementation}
 In this section some implementation details are going to be outlined. More specifically a description of the simulators used, the process that the keys were generated. In addition, the iterations after the first one will be described as well as the general specification of the OpCodes for each node.
-\subsection{Simulators//mb put it in testing}
+\subsection{Simulators}
 To test the implementation of the program simulators of the SpiNNaker chip were used. These were supplied by the supervisor of this project and were written in the C++ language. 
 
-The main development and testing of this algorithm was made in the first simulator. In that simulator the programmer had the ability to use STL(Standard Template Library), which helped towards abstracting the problem and leaving out some implementation details. It would also write out the binary files that the second simulator and the actual machine would use. The simulator however was configured to comply better with the specification of this project.
+The main development of this algorithm was made in the first simulator. In this simulator the programmer had the ability to use STL(Standard Template Library), which helped towards abstracting the problem and leaving out some implementation details. It would also write out the binary files that the second simulator and the actual machine would use. The simulator however was configured to comply better with the specification of this project.
 
-The second simulator was much less flexible towards using data structures, since it had to simulate much better the reaction of a SpiNNaker chip, when data and a program was loaded to it. It read the same binary files that the SpiNNaker machine would read for data and the event handlers written for it resembled the actual event handlers much more.
+The second simulator was much less flexible towards using data structures, since it had to simulate much better the reaction of a SpiNNaker chip, when data and a program was loaded to it. It read the same binary files that the SpiNNaker machine would read for data and the event handlers written for it resembled the event handlers for the SpiNNaker machine much more.
 
 \subsection{Offset}
 As mentioned in the Design section, the vector of queues of integers(OpCodes) uses a key to identify which kind of node a packet has arrived from. In order to generate the key 4 elements are used. These are
@@ -443,6 +447,8 @@ A Connections C++ program was written to create the connections between nodes an
 An OpCodes C++ program was written to produce  the operation codes for each node and also add it to the .mx input file. To create this program the general layout of OpCodes in Appendix 8.2 was used.
 
 Combining these two programs, most of the input file is written automatically. All the user needs to do is insert the dimensions of the input vectors and matrix correctly and their corresponding values. These programs made the testing phase easier.
+\subsection{SpiNNaker Event Handler}
+Towards the end of the project the event handler for a SpiNNaker board was created. This event handler resembled highly the ones created for the simulators, with the difference of having only one timer event handler instead of two. The reason for that is that only one timer event handler is allowed. The handler was written in C and it used functions from the SpiNNaker API to send messages, trigger the timer function and start off the program in the machine. A 2x2 SpiNNaker board containing 64 cores was used to test the algorithm and according binary files were produce to match it.
 \section{Testing}
 The testing phase of the algorithm took place in both of the simulators. This needed to be done because not only should the result of the algorithm had to be verified, but also because corruption of binary files is also a possibility that needed to be tested. In addition to that, the implementation queue needed to be tested.
 
