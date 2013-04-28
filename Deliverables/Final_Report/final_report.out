@@ -19,7 +19,7 @@
 \BOOKMARK [2][-]{subsection.2.4}{Notable work using the SpiNNaker architecture}{section.2}
 \BOOKMARK [2][-]{subsection.2.5}{Conjugate Gradient Method}{section.2}
 \BOOKMARK [3][-]{subsubsection.2.5.1}{The quadratic form}{subsection.2.5}
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Conjugate Gradients}{subsection.2.5}
+\BOOKMARK [3][-]{subsubsection.2.5.2}{Conjugate Gradientspress2007numericalshewchuk1994introductioncgm2009lec}{subsection.2.5}
 \BOOKMARK [3][-]{subsubsection.2.5.3}{The algorithm}{subsection.2.5}
 \BOOKMARK [3][-]{subsubsection.2.5.4}{Parallel solutions of the CGM}{subsection.2.5}
 \BOOKMARK [1][-]{section.3}{Design}{}
@@ -27,8 +27,8 @@
 \BOOKMARK [2][-]{subsection.3.2}{Matrix-Vector Multiplication}{section.3}
 \BOOKMARK [2][-]{subsection.3.3}{Program Flow}{section.3}
 \BOOKMARK [2][-]{subsection.3.4}{Target Table}{section.3}
-\BOOKMARK [3][-]{subsubsection.3.4.1}{OpCodes}{subsection.3.4}
-\BOOKMARK [2][-]{subsection.3.5}{Justification for Design Choices}{section.3}
+\BOOKMARK [2][-]{subsection.3.5}{OpCodes}{section.3}
+\BOOKMARK [2][-]{subsection.3.6}{Justification for Design Choices}{section.3}
 \BOOKMARK [1][-]{section.4}{Implementation}{}
 \BOOKMARK [2][-]{subsection.4.1}{Simulators}{section.4}
 \BOOKMARK [2][-]{subsection.4.2}{Offset}{section.4}

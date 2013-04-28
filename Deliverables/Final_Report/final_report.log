@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  27 APR 2013 18:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.2)  28 APR 2013 15:27
 entering extended mode
  %&-line parsing enabled.
 **final_report.tex
@@ -412,7 +412,7 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.67 \newpage
-              [1] <Pics/neuron.jpg, id=276, 121.4136pt x 85.0377pt>
+              [1] <Pics/neuron.jpg, id=282, 121.4136pt x 85.0377pt>
 File: Pics/neuron.jpg Graphic file (type jpg)
 
 <use Pics/neuron.jpg> [2 <./Pics/neuron.jpg>]
@@ -421,17 +421,17 @@ Overfull \hbox (10.25536pt too wide) in paragraph at lines 82--83
 -hed through spikes,
  []
 
-<Pics/chip.png, id=287, 419.5675pt x 399.4925pt>
+<Pics/chip.png, id=293, 419.5675pt x 399.4925pt>
 File: Pics/chip.png Graphic file (type png)
  <use Pics/chip.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] <Pics/router.png, id=296, 365.365pt x 244.915pt>
+[3] <Pics/router.png, id=302, 365.365pt x 244.915pt>
 File: Pics/router.png Graphic file (type png)
  <use Pics/router.png>
 [4 <./Pics/chip.png (PNG copy)>]
-<Pics/topology.png, id=304, 290.08376pt x 289.08pt>
+<Pics/topology.png, id=310, 290.08376pt x 289.08pt>
 File: Pics/topology.png Graphic file (type png)
  <use Pics/topology.png>
 
@@ -452,7 +452,7 @@ Overfull \hbox (3.39137pt too wide) in paragraph at lines 160--161
 be-tween nodes
  []
 
-[9] <Pics/event-handling.png, id=359, 667.49374pt x 550.055pt>
+[9] <Pics/event-handling.png, id=365, 667.49374pt x 550.055pt>
 File: Pics/event-handling.png Graphic file (type png)
 
 <use Pics/event-handling.png>
@@ -479,135 +479,149 @@ OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )$\T1/ppl/m/n/12 =$[]$ and (2
  []
 
 [12]
-Overfull \hbox (23.90605pt too wide) detected at line 241
-[]\OT1/cmr/m/n/12 0 = []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]
-\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/c
-mm/m/it/12 x[]\OT1/cmr/m/n/12 )[][]\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 = \OMS/
-cmsy/m/n/12 ^^@\OML/cmm/m/it/12 r[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1
-/cmr/m/n/12 + \OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@\OML
-/cmm/m/it/12 r[]p[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 p[]Ae[]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 217.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 217.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ifnextchar' on input line 217.
+
+[13]
+Overfull \hbox (32.00984pt too wide) detected at line 248
+[][] \OT1/cmr/m/n/12 = [](\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/
+12 p[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 Ap[] \OT1/cmr/m/n/12 + [][\OML/cmm/m
+/it/12 p[]A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[] \OT1/cmr/m/n/12 + \OML/cmm/m/i
+t/12 p[]\OT1/cmr/m/n/12 )][] + \OML/cmm/m/it/12 b[]p[] \OT1/cmr/m/n/12 = (\OML
+/cmm/m/it/12 x[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p[]\OT1/cmr/m/n/12 )[]\OML
+/cmm/m/it/12 Ap[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 b[]p[]
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 268--271
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 304--307
 
  []
 
-[15] [16] <Pics/basic.png, id=464, 242.9075pt x 159.59625pt>
+[15] [16] [17] <Pics/basic.png, id=479, 242.9075pt x 159.59625pt>
 File: Pics/basic.png Graphic file (type png)
 
 <use Pics/basic.png>
-Overfull \hbox (0.11502pt too wide) in paragraph at lines 320--327
+Overfull \hbox (0.11502pt too wide) in paragraph at lines 345--352
 \T1/ppl/m/n/12 ma-trix(A) and vec-tors(b,r) would be put into a dif-fer-ent nod
 e. Considering
  []
 
-[17 <./Pics/basic.png (PNG copy)>]
-<Pics/mat0mult.png, id=470, 414.54875pt x 293.095pt>
+<Pics/mat0mult.png, id=480, 414.54875pt x 293.095pt>
 File: Pics/mat0mult.png Graphic file (type png)
  <use Pics/mat0mult.png>
-Overfull \hbox (16.84052pt too wide) in paragraph at lines 337--338
+[18 <./Pics/basic.png (PNG copy)>]
+Overfull \hbox (16.84052pt too wide) in paragraph at lines 362--363
 []\T1/ppl/m/n/12 In Fig-ure 7 the first matrix-vector mul-ti-pli-ca-tion of the
  al-go-rithm is used($\OML/cmm/m/it/12 Ax \OT1/cmr/m/n/12 =
  []
 
-[18 <./Pics/mat0mult.png (PNG copy)>]
-Overfull \hbox (31.94858pt too wide) in paragraph at lines 339--340
+
+Overfull \hbox (31.94858pt too wide) in paragraph at lines 364--365
 []\T1/ppl/m/n/12 In Fig-ure 7 the node $\OML/cmm/m/it/12 x[]$ \T1/ppl/m/n/12 se
 nds its value to the $\OML/cmm/m/it/12 A$ \T1/ppl/m/n/12 nodes with col-umn 0($
 \OML/cmm/m/it/12 A[]A[]A[]$\T1/ppl/m/n/12 ).
  []
 
-<Pics/program_flow.png, id=478, 1181.41376pt x 323.2075pt>
+[19 <./Pics/mat0mult.png (PNG copy)>]
+<Pics/program_flow.png, id=493, 1181.41376pt x 323.2075pt>
 File: Pics/program_flow.png Graphic file (type png)
 
 <use Pics/program_flow.png>
-Overfull \hbox (109.99406pt too wide) in paragraph at lines 345--347
+Overfull \hbox (109.99406pt too wide) in paragraph at lines 370--372
  [][] 
  []
 
-[19 <./Pics/program_flow.png (PNG copy)>]
-Overfull \hbox (13.03925pt too wide) in paragraph at lines 359--360
+[20 <./Pics/program_flow.png (PNG copy)>]
+Overfull \hbox (13.03925pt too wide) in paragraph at lines 384--385
 \T1/ppl/m/n/12 rithm what-ever op-er-a-tion ex-ists be-fore the loop ini-ti-a-t
 ion is not needed. 
  []
 
-[20] [21] [22]
-Overfull \hbox (19.08824pt too wide) in paragraph at lines 401--402
+[21] [22] [23]
+Overfull \hbox (19.08824pt too wide) in paragraph at lines 426--427
 \T1/ppl/m/n/12 scribed as well as the gen-eral spec-i-fi-ca-tion of the Op-Code
 s for each node. 
  []
 
-[23]
-Overfull \hbox (20.31139pt too wide) in paragraph at lines 410--411
+[24]
+Overfull \hbox (20.31139pt too wide) in paragraph at lines 435--436
 \T1/ppl/m/n/12 As men-tioned in the De-sign sec-tion, the vec-tor of queues of 
 in-te-gers(OpCodes)
  []
 
-[24]
-Overfull \hbox (7.14742pt too wide) in paragraph at lines 425--426
+[25]
+Overfull \hbox (7.14742pt too wide) in paragraph at lines 450--451
 \T1/ppl/m/n/12 They are the in-te-gers next to the di-men-sions of each ma-trix
 /vector/consant.
  []
 
-[25] [26] [27] [28]
-Overfull \hbox (0.75137pt too wide) in paragraph at lines 471--472
+[26] [27] [28] [29]
+Overfull \hbox (0.75137pt too wide) in paragraph at lines 496--497
 \T1/ppl/m/n/12 In con-clu-sion, this project achieved the goal that was out-lin
 ed in the project
  []
 
-[29] [30] (./final_report.bbl [31] [32]
+[30] (./final_report.bbl [31] [32]
 Underfull \hbox (badness 1342) in paragraph at lines 162--166
 []\T1/ppl/m/n/12 Thomas Sharp, Francesco Galluppi, Alexan-der Rast, and Steve
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 509--552
+Underfull \hbox (badness 10000) in paragraph at lines 534--577
 
  []
 
 [33] [34]
-Underfull \hbox (badness 10000) in paragraph at lines 553--564
+Underfull \hbox (badness 10000) in paragraph at lines 578--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--619
+Underfull \hbox (badness 10000) in paragraph at lines 590--644
 
  []
 
 [35] [36]
-Underfull \hbox (badness 10000) in paragraph at lines 628--708
+Underfull \hbox (badness 10000) in paragraph at lines 653--733
 
  []
 
 [37] [38] [39]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 721.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 746.
  (/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<Gantt_Charts/Final_Gantt1.png, id=610, 587.19376pt x 1487.5575pt>
+<Gantt_Charts/Final_Gantt1.png, id=622, 587.19376pt x 1487.5575pt>
 File: Gantt_Charts/Final_Gantt1.png Graphic file (type png)
 
 <use Gantt_Charts/Final_Gantt1.png>
 
-LaTeX Warning: Float too large for page by 3.01247pt on input line 727.
+LaTeX Warning: Float too large for page by 3.01247pt on input line 752.
 
-<Gantt_Charts/Final_Gantt2.png, id=611, 587.19376pt x 1827.82875pt>
+<Gantt_Charts/Final_Gantt2.png, id=623, 587.19376pt x 1827.82875pt>
 File: Gantt_Charts/Final_Gantt2.png Graphic file (type png)
 
 <use Gantt_Charts/Final_Gantt2.png>
 
-LaTeX Warning: Float too large for page by 139.11856pt on input line 733.
+LaTeX Warning: Float too large for page by 139.11856pt on input line 758.
 
 
-Overfull \hbox (0.93243pt too wide) in paragraph at lines 721--734
+Overfull \hbox (0.93243pt too wide) in paragraph at lines 746--759
 \T1/ppl/m/n/12 To find bet-ter res-o-lu-tion pic-tures of the gantt chart see:[
 ]$\T1/pcr/m/n/12 https : / / github .
  []
 
 
-Overfull \hbox (14.69983pt too wide) in paragraph at lines 721--734
+Overfull \hbox (14.69983pt too wide) in paragraph at lines 746--759
 \T1/pcr/m/n/12 com / Alex-[]Oiko / 3rd-[]Year-[]Project / tree / master / Deliv
 erables /
  []
@@ -621,13 +635,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [40] [41 <./Gantt_Charts/Final_Gantt1.png (PNG copy)>] [42 <./Gantt_Charts/Fina
 l_Gantt2.png (PNG copy)>] (./final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6791 strings out of 493848
- 92627 string characters out of 1152824
+ 6798 strings out of 493848
+ 92710 string characters out of 1152824
  186440 words of memory out of 3000000
- 9762 multiletter control sequences out of 15000+50000
+ 9763 multiletter control sequences out of 15000+50000
  23918 words of font info for 61 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,15n,38p,1350b,411s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,16n,40p,1350b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts
 /enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
 /cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -641,9 +655,9 @@ r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
 f-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/urw/palatino/uplb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/
 uplr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (47 pages, 893286 bytes).
+Output written on final_report.pdf (47 pages, 901384 bytes).
 PDF statistics:
- 711 PDF objects out of 1000 (max. 8388607)
- 172 named destinations out of 1000 (max. 500000)
+ 724 PDF objects out of 1000 (max. 8388607)
+ 178 named destinations out of 1000 (max. 500000)
  435 words of extra memory for PDF output out of 10000 (max. 10000000)
 

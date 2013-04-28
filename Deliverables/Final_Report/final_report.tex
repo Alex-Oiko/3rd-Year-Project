@@ -213,57 +213,93 @@ So we have
 \begin{equation}
 \nabla f =\frac{1}{2}A^Tx+\frac{1}{2}Ax-b
 \end{equation}
-But if A is symmetric, then it is apparent that we have $Ax=b$ at the minimum of $f$. In addition if A is positive negative then $f$ is concave up.
-\subsubsection{Conjugate Gradients}
-As mentioned before the matrix A must be symmetric and positive definite for the Conjugate Gradient Method to work. Given a quadratic function 
-as defined in (1), then it turns out that $-\nabla f=b-Ax=r$.
+But if A is symmetric, then it is apparent that we have $Ax=b$ at the minimum of $f$. In addition if A is positive negative then $f$ is concave up. 
+\subsubsection{Conjugate Gradients\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}}
+If we were to consider the original function of the quadratic form(1), then in order to apply optimisation, what needs to be done is to find the minimum of (1). If the minimum of this function is found, then minima can be found for quadratic functions with $n$ variables.
 
-The CGM, as well as most optimization methods(for example the method of the Steepest Descent\cite{rosenbloom1956method}), look towards a specific direction everytime they are to move to a correct position and try to look for the best step given their gradient and direction
+As it is for most optimisation techniques(for example the method Steepest Descent\cite{rosenbloom1956method}) the algorithm searches for a directions for the next step of $x$. 
+
 \begin{equation}
-x_{k+1} = x_k + \alpha p_k
+x_{k+1}=x_k+\alpha p_k
 \end{equation}
-In (5) $\alpha$ needs to minimise the equation $f$, in order to get the best possible step.
+
+It would be useful to point out that since a $A$ is symmetric and positive definite, then if we have two search directions $p_f$ and $p_{l}$ which are conjugate with respect to $A$, then the following equation is satisfied.\cite{rast2012managing}
+\begin{equation}
+p_fAp_l=0, f\neq l
+\end{equation}
+
+Considering (5), a number of conjugate direction $p_1,p_2,...,p_{k}$ and an initial $x_1$, then by minimising $f(x)$ with $p_1$, a new point will be obtained which will be $x_2$. If this procedure is followed until $x_k$ and $p_k$ are reached, then the point $x_k$ will be the minimum of $f(x)$. This would denote:
+
+\begin{equation}
+\nabla f_k=\nabla f(x_k)=x_k^TA+b
+\end{equation}
+
+Equation (7) is deduced by taking the derivative of (1). Again by considering Equation (5), it is clear that the factor $\alpha$ cannot be random, but rather should optimise Equation (5). It should also be mentioned that $\alpha$ is a constant for each iteration and not for the entirety of the algorithm i.e. has a different value for each iteration. Given the above information it is deductable that $\alpha$ minimises $f(\alpha)$, which means the following.
+\begin{equation}
+min \alpha \to f(x_k+\alpha p_k)
+\end{equation}
+If Equation (8) is applied to (1), then
+\begin{equation}
+f(x_k+\alpha p_k)=\frac{1}{2}(x_k+\alpha p_k)^TA(x_k+\alpha p_k)+b^T(x_k+\alpha p_k) + c
+\end{equation}
+In order to minimise $\alpha$ the derivative with respect to $\alpha$ needs to be derived
+\begin{equation}
+\frac{df(x_k+\alpha p_k)}{d\alpha}=\frac{1}{2}(x_k+\alpha p_k)^TAp_k+\frac{1}{2}[p_k^TA(x_k+\alpha p_k)]^T+b^Tp_k=(x_k+\alpha p_k)^TAp_k+b^Tp_k
+\end{equation}
+
+To deduce the optimal(minimal) vale for $\alpha$, the derivative calculated in Equation (10) needs to be equated to 0.
 \begin{equation}
 \begin{split}
-p^T_ke_{k+1}=0\\
-p^T_k(e_k+\alpha p_k)=0\\
-\alpha = -\frac{p^T_ke_k}{p^T_kp_k}
+(x_k+\alpha p_k)^TAp_k+b^Tp_k=0\\
+x_k^TAp_k+\alpha p_k^TAp_k+b^Tp_k=0\\
+\alpha p_k^TAp_k=-x_k^TAp_k-b^Tp_k\\
 \end{split}
 \end{equation}
 
-The equation at (6) however is not solvable. The value of $e_k$ is needed in each iteration, which is not computable at that time. To help with that the search directions in each iteration($p_k$) is defined as A-orthogonal in respect to the matrix A, instead of just orthogonal. The definition of A-orthogonal vectors is, given a matrix A, then:
+It was mentioned before that for the needs of this algorithm $A$ is a symmetric matrix among other properties. If this is and Equation (7) are taken into account, then Equation 11 becomes
 \begin{equation}
-p^T_kAp_k=0
+\alpha p_k^TAp_k=-p_k^T\nabla f_k
 \end{equation}
-Given (7), $e_{k+1}$ and $p_k$ must be A-orthogonal. If we wish to find the optimal value for $\alpha$,then the gradient must be set to 0. This leads to the following equation.
+Solving for $\alpha$ yields the following equation
 \begin{equation}
-0=\frac{d}{d\alpha}f(x_{k+1})=\nabla f(x_{k+1})^T\frac{d}{d\alpha}x_{k+1} = -r^T_{k+1}\frac{d}{d\alpha}(x_k + \alpha p_k) = -r^T_{k+1}p_k=p^T_kAe_{k+1}
+\alpha =-\frac{p_k^T\nabla f_K}{p_k^TAp_k}
 \end{equation}
-From (6),(7) the equation for $\alpha$ when $e_k$ and $p_k$ are A-orthogonal is
+Equation 13 yields the value for $\alpha$ that helps towards finding the the next step for $x_k$. However a valid step is needed for the search direction of $p_{k+1}$ as well. In the Conjugate Gradient Method this step is represented as follows.
+\begin{equation}
+p_{k+1}=-\nabla f_{k+1}+\beta p_k
+\end{equation}
+In Equation (14) $\beta$ shows the deflection of the search direction with respect to the steepest descent direction. It is also noteworthy to mention that $p_{k+1}$ and $p_k$ are conjugate in respect to $A$. Combining the process to find $\alpha$ described above and Equation (6) we get the following equation for $\beta$.
 \begin{equation}
 \begin{split}
-\alpha =-\frac{p^T_kAe_k}{p^T_kAp_k}\\
-=\frac{p^T_kr_k}{p^T_kAp_k}
+(-\nabla f_{k+1}+\beta p_k)^TAp_k=0\\
+\beta = \frac{\nabla f_{k+1}^TAp_k}{p_k^TAp_k}
 \end{split}
 \end{equation}
 
-Another important equation that comes from analysing the error term is
+Having completed the equations for $\alpha$ and $\beta$ the most important calculations for the algorithm are completed. However their equations are not really handy for the final algorithm, which means they could be improved in order to have easier and faster calculations. In order to do that consider Equations (5) and (7).
 \begin{equation}
-p^T_kr_k=u^T_kr_k
+\begin{split}
+p_k=\frac{x_k+1-x_k}{\alpha},Equation (5) altered\\
+Ap_k=\frac{Ax_k+1-Ax_k}{\alpha}, multiplying A\\
+Ap_k=\frac{\nabla f_{k+1}-\nabla f_k}{\alpha}, Equation (7) applied
+\end{split}
 \end{equation}
-
-In (10) $u^T_k$ are u vectors that span the vector subspace of the vector field of $p_k$. They are also orthogonal to $r_k$ and $u_{k+1}$ is also orthogonal to all the previous $u$ vectors.
-
-Using (9) and (10) we are able to reach a more accurate value for $\alpha$
+Multiplying $\nabla f_k$ with the previous step of Equation (14) the following equation is derived.
 \begin{equation}
-\alpha = \frac{r^T_kr_k}{p^T_kAp_k}
+p_k^T\nabla f_k=-\nabla f_k^T\nabla f_k+\beta p_{k-1}^T\nabla f_k
 \end{equation}
-
-Using (9) and (10) and a Gram-Schmidt conjugation we are able to reach and a value for $\beta$
+One condition that was made previously was that $\frac{df}{d\alpha}=0$ make $p_k$ and $\nabla f_{k+1}$ orthogonal. If this is applied to (17), then the following equation is deduced.
 \begin{equation}
-\beta = \frac{r^T_{k+1}r_{k+1}}{r^T_kr_k}
+p_k^T\nabla f_k=-\nabla f_k^T\nabla f_k
 \end{equation}
-\newpage\cite{rast2012managing}
+With Equation (18) the final form of $\alpha$ and $\beta$ can be deduced
+\begin{equation}
+\begin{split}
+\alpha = \frac{\nabla f_k^T\nabla f_k}{p_k^TAp_k}\\
+\beta=\frac{\nabla f_{k+1}^T\nabla f_{k+1}}{\nabla f_K^T\nabla f_k}
+\end{split}
+\end{equation}
+As far as $\beta$'s final equation is concerned, its value is deduced by considering the fact that $\nabla f_{k+1}^T \nabla f_k=0$
 \subsubsection{The algorithm}
 Combining the optimal value of $\alpha$(8) and $\beta$(9) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
 \\
@@ -284,20 +320,9 @@ Combining the optimal value of $\alpha$(8) and $\beta$(9) and a good step direct
 \ENDFOR
 \end{algorithmic}
 \vspace{20pt}
-Some notes that can be made about this algorithm are that the axis is defined by the eigenvectors of A and that the algorithm takes a conjugate step closest to $r$. Finally, the algorithm guarantees convergeance in at most n steps.\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}
+The difference between the values of $\alpha$ and $\beta$ in the algorithm and the ones in the previous section is that $\nabla f_{n}$ has been replaced with $r_n$. In this case these two values are equal, since the $r$ vector is deduced by evaluating the first derivative of the quadratic form.
 
-Ofcourse there is an error that exists in every step, as mentioned before, but it is minimized in each iteration. The error function would be:
-\begin{equation}
-\begin{vmatrix}
-e_k
-\end{vmatrix}
-\leq 2(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1})^k
-\begin{vmatrix}
-e_0
-\end{vmatrix}_A
-\end{equation}
-
-In Equation 9 $\kappa$ is the condition number.
+It should also be noted that the analysis given in the quadratic form section enables the Conjugate Gradient method to solve systems of linear equations, but it is from analysing the quadratic form's properties that we get the values of $\alpha$ and $\beta$\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}
 
 Another interesting applicatoin of the Conjugate Gradient Method is that you can apply precondition on it in order to find the solution faster. However, preconditioning is outside of the scope of this project, since it adds a lot more calculation and would need a less general solution.
 
@@ -381,7 +406,7 @@ The X and Y variables are there to identify the position of the node in the matr
 The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since their values cannot be changed trhoughout the program in the Target Table. 
 
 Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in each core depending on the node that it belongs.
-\subsubsection{OpCodes}
+\subsection{OpCodes}
 OpCodes in this context stands for operation codes, as in what operation needs to be done at any point in a specific node. Throughout the algorithm different kinds of operations are done. Be it addition,multiplication, subtraction etc., different operations need to be completed at different points of the program. Thus an unsigned integer is used to identify these operations upon the arrival of a packet. So for example, 1 would be used to identify addition, 2 for multiplication etc. The operation would be specified after the node went through a series of cases in a switch statement that would be checked against the OpCode that the node specified.
 
 If the program flow is looked thoroughly, it is apparent that some nodes need to do different computations at different points of the algorithm. For example, a $p$ node needs to either store the value of its respective $r$ node, or do a computation such as $\alpha *p$. These are two completely different operations that need to be accounted for. Given that the easy solution would be to use a vector to save all the operations that need to be done and after reading the first element of the vector and completing the respective operation , put it in the back of the vector, since CGM is an iterative algorithm and some computations need to be repeated.
