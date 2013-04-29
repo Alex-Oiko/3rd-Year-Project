@@ -175,9 +175,10 @@
   publisher={IEEE}
 }
 @misc{jefflec,
- title={Jeffs lectures},
+ title={Large Scale Distributed Systems Lectures.},
  author={Jeff Reeve},
- year={2012}
+ year={2012},
+ journal={https://secure.ecs.soton.ac.uk/notes/comp3019/jsrnotes/. Getting BIMPA Started}
  }
 @article{rast2012managing,
   title={Managing burstiness and scalability in event-driven models on the SpiNNaker neuromimetic system},

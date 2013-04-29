@@ -40,13 +40,13 @@ A project report submitted for the award of
 SpiNNaker is an asynchronous, event-driven parallel architecture designed to simulate
 the human brain. It has been designed to operate as a large scale neural network in
 real-time using a System-on-Chip multi core system. Its architecture is different from
-usual parallel computers, since cores use spikes to communicate with each other. That
+usual parallel computers, since cores use spikes(packets) to communicate with each other. That
 way usual pitfalls of parallel computing, such as race conditions and deadlocks are
 avoided. So far the most prominent uses of this architecture have been in
 neuroscience and robotics. The aim of this project is to put into use SpiNNaker's
 architecture and bring it closer to classic computer science problems, while solving
-them optimally. The algorithm to solve in this project is the conjugate gradient
-method, an iterative way of solving systems linear equations. The algorithm successfully runs on the simulator and reduces the time complexity of the most expensive operations of the algorithm.
+them optimally. The algorithm to solve is the conjugate gradient
+method, an iterative way of solving systems of linear equations. The algorithm successfully runs on the simulator and reduces the time complexity of the most expensive operations of the algorithm.
 \newpage
 \tableofcontents
 \newpage
@@ -56,20 +56,20 @@ I would like to thank my supervisor Jeff Reeve for his help and support througho
 \section{Introduction}
 \pagenumbering{arabic}
 \subsection{Aim}
-The aim of this project is to correctly solve the Conjugate Gradient Method\cite{hestenes1952methods} on a SpiNNaker chip, thus using the massive parallelism that this machine provides to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and the scalar product of vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report provides a detailed analysis of this project and its constitutes, the background research done to launch this project, along with design and implementation choices.
+The aim of this project is to solve the Conjugate Gradient Method\cite{hestenes1952methods} on a SpiNNaker chip, thus using the massive parallelism that this architecture provides to reduce the time complexity of the aforementioned algorithm. This is accomplished by reducing the time complexity of the most expensive operations of the algorithm which are matrix-vector multiplication and scalar products between vectors. The complexity is reduced dramatically, due to the abundant number of cores provided from the architecture. This report provides a detailed analysis of this project and its constitutes, the background research done to launch this project, along with design and implementation choices.
 \subsection{Reasons and Justification}
 \indent
-SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}, which have mainly been used to simulate the neurons of the human brain and in some cases, robotics.
+SpiNNaker is an architecture inspired by the biology of the human brain. Its optimal configuration has over a million cores\cite{navaridas2009understanding}. This architecture has mainly been used to simulate the neurons of the human brain and in some cases, robotics.
 
-However little work had been done into putting the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method had been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
+However little work had been done into putting the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method has been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
 \subsection{Overview}
-This report starts off by giving a detailed analysis of the SpiNNaker architecture and its constitutes, and the Conjugate Gradient Method.It continues by outlining the design and the tools used to solve the given problem and provides an in-depth examination of the implementation issues and solutions. It ends with a critical evaluation and conclusion.
+This report starts off by giving a detailed analysis of the SpiNNaker architecture and its constitutes, and the Conjugate Gradient Method.It continues by outlining the design and the tools used to solve the given problem and provides an in-depth examination of the implementation issues and solutions. It involves a short description of the testing that was completed and it ends with a critical evaluation and conclusion.
 \newpage
 \section{Background}
 \subsection{The neuron}
 To make the explanation of the SpiNNaker architecture smoother, the design from which the SpiNNaker chip was inspired will be outlined. This is no other than the human neuron.
 
-The human neuron is an electrically excitable cell that processes and transmits information through electrical and chemical signals. Its basic costitutes are the the soma, the dendrites and the axon. The soma is the body of the neuron. A dendrite receives signals from the soma of the neuron that it belongs to, or other neurons. The dendrite extends for hundreds of micrometers and branches multiple times, thus forming a dendritic tree, which connects with other neurons axons. The axon is used to transmit signals to other neurons and it extends from the soma of the neuron to a dendrite. All human neurons have only one axon. Given the above analysis the dendrites could be described as the inputs of a neuron
+The human neuron is an electrically excitable cell that processes and transmits information through electrical and chemical signals. Its basic costitutes are the the soma, the dendrites and the axon. The soma is the body of the neuron. A dendrite receives signals from the soma of the neuron that it belongs to, or other neurons. It extends for hundreds of micrometers and branches multiple times throughout the body, thus forming a dendritic tree, which connects with other neurons axons. The axon is used to transmit signals to other neurons and it extends from the soma of the neuron to a dendrite. All human neurons have only one axon. Given the above analysis the dendrites could be described as the inputs of a neuron.
 \\[0.5cm]
 \begin{figure}[h!]
 \includegraphics[width=300pt,height=200pt,scale=2]{Pics/neuron.jpg}
@@ -77,15 +77,15 @@ The human neuron is an electrically excitable cell that processes and transmits 
 \caption{A neuron}
 \end{figure}
 
-One of the most important parts of the neuron structure is the synapse. The synapse is where the contact happens between the axon of a neuron and the dendrite or the soma of another. It is where information from one neuron is transmitted to the other. When a set of neurons are connected with each other through synapses, then they create a neural network.
+One of the most important parts of the neuron structure is the synapse. The synapse is where the contact between the axon of a neuron and the dendrite or the soma of another neuron happens. It is where information from one neuron is transmitted to the other. When a set of neurons are connected with each other through synapses they create a neural network.
 
 Finally, the communication between neurons is accomplihed through spikes, which are either chemichal or electrical\cite{gerstner2002spiking}.
 
 Given the terms in this section, the name of the SpiNNaker chip is deductable. It stands for Spi(king)N(eural)N(etwork) architecture.
 \subsection{The SpiNNaker architecture}
-As mentioned before the SpiNNaker architecture is inspired by the biology of the brain, and more specifically, neurons. However, its architecture is not constrained by the biology of the brain, but many techniques to speed up computation are used. It differs from other supercomputers, which  usually have a lot of strong processors with slow network capabilities. The design of the architecture was made with two concerns as its main priority. The first one being MIPS(millions of instructions per-second) per mm$^2$. Namely how many instructions can be performed in an area of silicon. The second one was MIPS per watt, which means how many instructions per second can be performed given a fixed amount of energy. Its most optimal configuration will use a million cores and will be able to simulate over a billion neurons\cite{furber2007neural}.
+As mentioned before the SpiNNaker architecture is inspired by the biology of the brain, and more specifically, neurons. However, its architecture is not constrained by the biology of the brain, but many techniques to speed up computations are used. It differs from other supercomputers, which  usually have a number of strong processors with slow network capabilities. The design of the architecture was made with two concerns as its main priority. The first one being MIPS(millions of instructions per-second) per mm$^2$. Namely how many instructions can be performed in an area of silicon. The second one was MIPS per watt, which means how many instructions per second can be performed given a fixed amount of energy. Its most optimal configuration will use a million cores and will be able to simulate over a billion neurons\cite{furber2007neural}.
 \subsubsection {SpiNNaker chip Overview}
-The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 18 identical ARM cores that run at around 100Mhz each, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At startup, in each chip a processor is selected to act as a Monitor processor, with the task of performing the management of the given chip's system. The remaining ARM cores perform the calculations for the given problem, with the exception of one which is reserved as a spare. The spare processor exists for the emergency of another core having a malfunction\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM which can hold up to 1GB of data\cite{navaridas2009understanding}.
+The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 20 identical ARM cores that run at around 100Mhz each, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At startup, in each chip a processor is selected to act as a Monitor processor, with the task of performing the management of the given chip's system. The remaining ARM cores perform the calculations for the given problem, with the exception of one which is reserved as a spare. The spare processor exists for the emergency of another core having a malfunction, so in the end 18 cores are available for computation in each chip\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM which can hold up to 1GB of data\cite{navaridas2009understanding}.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/chip.png}
 \centering
@@ -94,9 +94,9 @@ The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main componen
 \subsubsection{The router}
 As mentioned before the architecture supports low-delay communication, with less powerful processors, than those used in most supercomputers. To accomplish that, the system uses asynchronous multicast packets to communicate between cores. This is done through the router which lies in each chip.
 
-The router exists as the part of the NoC and its primary role is to direct packets that arrive and packets that are sent or need to be forwarded. The router has 20 ports for the ARM cores that are located in the given chip and is able to forward one packet at a time. The router works faster than a transmission port, which results into the router being most of the time lightly used. It is designed to support point-to-point communication, using small packets. The use of multicast packets helps to reduce the amount of packets that exist in the network at any given moment. To even further enhance the quickness of the network, the architecture supports default routing. This means that not all connections need to exist in the routing tables, in order to have the packets forwarded to their eventual diestination. This concept will be explained in more depth in the next section.
+The router exists as the part of the NoC(Network-on-Chip) and its primary role is to direct packets that arrive and packets that are sent or need to be forwarded to other neighbouring chips. The router has 20 ports for the ARM cores that are located in the given chip and is able to forward one packet at a time. The router works faster than a transmission port, which results into the router being most of the time lightly used. It is designed to support point-to-point communication, using small packets. The use of multicast packets helps to reduce the amount of packets that exist in the network at any given moment. To even further enhance the quickness of the network, the architecture supports default routing. This means that not all connections need to sit in the routing tables, in order to have the packets forwarded to their eventual diestination. This concept will be explained in more depth in the next section.
 
-The functionality of the router is pretty simple. When a packet arrives from the input port, then the router will try to send it to an output port. If there is a problem during transmission, then the router will keep trying to send it and after a while it will try the emergency route(also explained in the next section). If the emergency route still does not work and a certain amount of time has passed, then the packet will be dropped. To implement this, the time of delivery of a packet is stored in the header of each packet.
+The functionality of the router is pretty simple. When a packet arrives from the input port, then the router will try to send it to an output port. If there is a problem during transmission, then the router will keep trying to send it and after a while it will try the emergency route(also explained in the next section). If the emergency route still does not work and a certain amount of time has passed, then the packet will be dropped. To implement the time passing, the time of delivery of a packet is stored in the header of each packet.
 
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/router.png}
@@ -105,59 +105,70 @@ The functionality of the router is pretty simple. When a packet arrives from the
 \end{figure}
 To further understand this concept, the topology of the system needs to be considered.
 \subsubsection{Topology}
-In order to have a million cores available for processing a number of SpiNNaker chips need to be connected and work efficiently as a whole. To reach that goal an effective topology is important.
+In order to have a million cores available for processing a number of SpiNNaker chips needs to be connected and work efficiently as a whole. To reach that goal an effective topology is important.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=250pt,scale=2]{Pics/topology.png}
 \centering
 \caption{
-\emph{The SpiNNaker topology\cite{navaridas2009understanding}. This is an example of what an 8x8 would look like.Each circle is a SpiNNake chip and the lines between them are the connectivity.}}
+\emph{The SpiNNaker topology\cite{navaridas2009understanding}. This is an example of what an 8x8 board would look like.Each circle is a SpiNNake chip and the lines between them are the connectivity.}}
 \end{figure}
-\vspace{20pt}
-Considering Figure 4, it is visible that the topology is viewed by the system as a 2D mesh, with chips having a fixed amount of neighbours and specific base connections. Any chip is able to communicate directly to 6 other chips. This is also depicted in Figure 3, where the positions of these chips are shown. In general each chip can directly communicate with chips that are located North, South, West, East ,NorthEast, and Southwest of its respective position. This however does not apply for chips that are in the perimeter of the mesh, since in some of the positions described above, some neighbouring chips will not exist\cite{furber2012overview}. 
 
-Returning now to the default routing mentioned in the previous section, if a packet arrives to a router, and the router does not have an entry for it, a then it will be forwarded to the chip opposite to the one it came from. For example, if a packet comes from the East and the aforementioned condition is met, then it will be forwarded to the West. This helps reduce the size of the routing tables in each chip\cite{khan2008spinnaker}.
+Considering Figure 4, it is visible that the topology is viewed by the system as a 2D mesh, with chips having a fixed amount of neighbours and specific base connections. Any chip is able to communicate directly to 6 other chips. This is also depicted in Figure 3, where the positions of these chips are shown. In general each chip can directly communicate with chips that are located North, South, West, East ,NorthEast, and Southwest of its respective position. This however does not apply for chips that lie in the perimeter of the mesh, since in some of the positions described above, some neighbouring chips will not exist\cite{furber2012overview}. 
 
-In addition to the default routing, the topology also provides for two-hop routes among neighbor chips, as shown in Figure 4. These routes are named emergency routes and their functionality is to bypass any faulty connections that might exist between connections\cite{navaridas2009understanding}\cite{plana2007gals}.
+Returning now to the default routing mentioned in the previous section, if a packet arrives to a router, and the router does not have an entry for it, then it will be forwarded to the chip opposite to the one it came from. For example, if a packet comes from the East and the aforementioned rule is applied, then it will be forwarded to the West. This helps reduce the size of the routing tables in each chip\cite{khan2008spinnaker}.
+
+In addition to the default routing, the topology also provides two-hop routes among neighbor chips, as shown in Figure 4. These routes are named emergency routes and their functionality is to bypass any faulty connections that might exist between connections\cite{navaridas2009understanding}\cite{plana2007gals}.
 
 \subsubsection{Packets}
-The packets used in the architecture are all multicast packets. They are asynchronous and relatively small. Having multicast packets means that one packet might have many different destinations, and with potentially a million cores, they can have thousands of destinations. For that reason, the packets do not contain the destination(s) they are supposed to reach, but rather only the source. Their size is of around 40 or 70 bits and their transmission is done completely by the hardware of the system, thus achieving high bandwidth\cite{spinnweb}\cite{navaridas2009understanding}. It is also notable that, when simulating a billion neurons, unique addresses are needed to acknowledge them. Hence 32-bit addresses are used to represent items in the cores. In this architecture, the main packets used can be divided in two types.
+The packets(spikes) used in the SpiNNaker architecture are all multicas. They are asynchronous and relatively small. Having multicast packets means that one packet might have many different destinations, and with potentially a million cores, they can have thousands of destinations. For that reason, the packets do not contain the destination(s) they are supposed to reach, but rather only the source. The transmission of the packets is done completely by the hardware of the system, thus achieving high bandwidth\cite{spinnweb}\cite{navaridas2009understanding}. It is also notable that, when simulating a billion neurons, unique addresses are needed to acknowledge each neuron. Hence 32-bit addresses are used to represent items in the cores. In this architecture, the main packets used can be divided in two types.
 \begin{itemize}
-\item Multicast packets(Type 0). Consists of 32-bit source address, 8 bits of control and 32-bit payload. These types of packets are delivered to processors and usually would contain information for computation
-\item Point-to-point packets(Type 1). Consists of 16-bit source \emph{chip} address, 16-bit target \emph{chip} address, 8-bit control payload and 32-bit payload. It is a command/control packet and is used when the Monitor Processor communicates with the target chip\cite{docfile}
+\item Multicast packets(Type 0). Consists of 32-bit source address, 8 bits of control and 32-bit payload. These types of packets are delivered to processors and would usually contain information for computation
+\item Point-to-point packets(Type 1). Consists of 16-bit source \emph{chip} address, 16-bit target \emph{chip} address, 8-bit control payload and 32-bit payload. These types of packets are command/control packets and are used when the Monitor Processor communicates with the target chip\cite{docfile}
 \end{itemize}
 
 In this project Type 0 packets have mainly been used.
 \subsubsection{Routing Tables}
-A mention of the routing tables is also important in understanding the architecture. Optimally, one would want for all cores to communicate with all the other cores in the system. However, that would be impractical, since the data structure to hold the entries for the routing table would have to be enormous.
+A mention of the routing tables is also important in understanding the architecture. Optimally, one would want for all cores to communicate with all the other cores in the system. However, that would be impractical, since the data structure to hold the entries would have to be enormous.
 
-This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size, since it needs to hold addresses for the routing. The nature of the most siginificant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
+This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size. Notice that the size of each entry is the same size of the addresses of elements in cores. The nature of the most siginificant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
 
 \subsubsection{Bandwidth}
-Having discussed the architecture and its network, a mention of the bandwidth bisection that is offered will be outlined here. Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63K. If we would split the topology in two then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256. Given that each node should carry 25M packets. This would offer more possible connections and would achieve more and faster results.\cite{docfile}\cite{navaridas2009understanding}.
-\newpage
+Having discussed the architecture and its network, a mention of the bandwidth bisection that is available will be outlined here. 
+
+Assuming the optimal configuration of the SpiNNaker architecture with a million cores, then it is safe to assume that the number of chips that will be used, would be around 63.000(63K). If we would split the topology in two parts(a right and a left one) then the optimal goal would be to have all the neurons of one half connected to at least one neuron in the other half, so as to achive more connections. That way, the bandwidth in the border would be 6.4G packets/sec. Another safe assumption is that the 2D mesh for this machine would be 256x256.\cite{docfile}\cite{navaridas2009understanding}.
+
+Allocating the board in the fashion that was just described, the SpiNNaker machine is able to achieve an abundance of connections, with fast travelling packets and high bandwidth.
 \subsection{Software}
-There is a lot that comes when trying to run any kind of software in a SpiNNaker board. The basic devices that are used to run software are three.
+There is a lot that comes when trying to run any kind of software in a SpiNNaker board. The basic devices that are used to run a program are three.
 \begin{itemize}
-\item Host Machine, which is mainly used for input and output, and it is the component that the user interacts with to start an application
-\item Monitor Cores. This is the same Monitor core that was discussed previously. Its main use is monitoring and managing the system and the application cores. One of them also communicates with the host, in order to start up the program.
-\item Application Cores, which are used to carry out the computation of the application.\cite{furber2012overview}
+\item Host Machine. This machine is mainly used for input and output, and it is the component that the user interacts with to start an application
+\item Monitor Cores. These are the same Monitor cores that were discussed previously. Their main use is monitoring and managing the system and the application cores. One of them also communicates with the host, in order to start up the program.
+\item Application Cores. These cores are used to carry out the computation of the application.\cite{furber2012overview}
 \end{itemize}
 
 At this point it is noteworthy to mention that the programming model of the machine is event-driven, meaning computations occur when specific events take place. More on that will be covered in later sections
 \subsubsection{Startup}
-In order to do the startup and interact with the aforementioned devices some kind of software needs to be used. For the Host machine to interact with the main Monitor Core \emph{ybug} is used. It is also used to start applications. Ofcourse ybug does not communicate only with the hardware of the monitor core. There is another software called \emph{scamp}, that works on top of the Monitor Core. It interacts with the ybug and the \emph{sark}, which is a software that is used by the application cores. Sark lets the user to manipulate some hardware parts of a SpiNNaker chip.\cite{spinnweb}
+In order to do the startup and interact with the devices mentioned in the previous section some kind of software needs to be used.
+
+For the Host machine to interact with the main Monitor Core \emph{ybug} is used. The same software is used to start applications. Ofcourse ybug does not communicate only with the hardware of the monitor core. 
+
+There is another software design called \emph{scamp}, that works on top of the Monitor Core. It interacts with the \emph{ybug} and the \emph{sark}, which is a software that is used by the application cores. 
+
+Sark lets the user to manipulate some hardware parts of a SpiNNaker chip.\cite{spinnweb}
 \subsubsection{Local Data Structures}
-Before the application starts running, startup applications need to be run first. These include finding the state of the machine, finding a communications tree for the cores and chips and sketching out the point-to-point tables.
+Before the user program starts running, startup applications need to be run first. These include finding the state of the machine, finding a communications tree for the cores and chips and sketching out the point-to-point tables.
 
 \paragraph{The state of the machine}
 To discover the state of the machine, each chip checks its cores and the connections between them to check whether any broken links exist. The algorithm starts by selecting a root node and marking it with a Request(R) token. Each time a core has an R token it sends an Acknowledge(A) label down to the incoming port and labels it Good. After that it finds all unlabelled ports that are connected to it and sends them an R token while labelling them Broken. If the port that just received the R token does not go through the process that the root node went through it remains Broken and the system knows it will not work. Otherwise it will send an A token and will be deemed Good.\cite{jefflec}.
 \paragraph{Building a communications tree}
-In order to build a communication tree a breadth first tree traversal is used. To achieve that, a root core is selected and given the token Forward(F) at first. The root core communicates with the neighbouring cores and after giving them the label Child it instructs them to also send F tokens to all their neighbouring cores, thus making them both a Parent and a Child. Once there are not any more unlabelled cores, the nodes are instructed to return a Backwards(B) token to their parent nodes. That way the system becomes aware of which nodes communicate with each other. If by any chance two cores send to each other a B token through the same port, then that port is deemed non communicational and is labelled Unused. The reason for that is to avoid any loops in the system\cite{jefflec}. Considering that the communication between cores is built as a tree it is deductable that the theoretical complexity of sending a packet from one core to another one is $log_2(N)$. This is the same complexity that a tree has when searching for a node inside its structure.
+In order to build a communication tree a breadth first tree traversal is used. To achieve that, a root core is selected and given the token Forward(F) at first. The root core communicates with the neighbouring cores and after giving them the label Child it instructs them to also send F tokens to all their neighbouring cores, thus making them both a Parent and a Child. Once there are not any more unlabelled cores, the nodes are instructed to return a Backwards(B) token to their parent nodes. That way the system becomes aware of which nodes communicate with each other. If by any chance two cores send to each other a B token through the same port, then that port is deemed non communicational and is labelled Unused. The reason for that is to avoid any loops in the system\cite{jefflec}. Considering that the communication between cores is built as a tree it is deductable that the theoretical complexity of sending a packet from one core to another one is $log_2(N)$. This is the same complexity that a tree has when searching for a node inside its structure. It should also be pointed out that the tree is not saved somewhere in the system, but rather that is how the router in each table and the P2P tables view the connections.
 \paragraph{Creating the P2P Tables}
 Cores need ID's in order to have packets sent correctly to certain destinations. Point-to-Point tables are used to list the ID's of nodes, so the packets know which ports they should follow. At first all nodes are undefined(U). If we were to examine one entry for the P2P Table, then the algorithm would go as follows. If a core is undefined and does not have an ID yet, then an incoming port is assigned to it. Then it sends its ID down to all the other ports, except the incoming one, so other cores will know where pakcets arrive from. If the core has already been given an ID, then all that the core does is send its ID to other cores. If that algorithm is carried out for all the cores in the system, then all the cores in the SpiNNaker board are reckognised\cite{jefflec}.
 
 \subsubsection{Program Loading}
-In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. With the static model the network topology, the connections between nodes and the allocation of the hardware is provided explicitely and externally by the user, before the execution of the program. Moreover, data and additional execution information needs to be defined before the program is loaded in the machine. This information is read from an external machine and written again in a fashion that is readable by the machine in the form of binary files. The Host starts the execution of the program, after the 'readable' version has been loaded to the machine. When the program terminates, or the user wishes to terminate it, then the Host issues a halt command to stop all operations\cite{docfile}.
+In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. 
+
+With the static model the network topology, the connections between nodes and the allocation of the hardware is provided explicitely and externally by the user before the execution of the program. Moreover, data and additional execution information needs to be defined before the program is loaded in the machine. This information is read from an external machine and written again in a fashion that is readable by the machine in the form of binary files. The Host starts the execution of the program, after the readable by the machine version has been loaded to the machine. When the program terminates, or the user wishes to terminate it, then the Host issues a halt command to stop all operations\cite{docfile}.
 
 There is an additional model for loading data in the system called the dynamic model, which would enable the machine to figure the network topology by itself, while running the application. However, this kind of a model is still in primary stages\cite{docfile}.
 \subsubsection{Event Handling}
@@ -179,16 +190,16 @@ The kernel is responsible for allocating resources and processors to the tasks t
 The types of callbacks can be seperated in two categories. Queueable and non-queueable. In the case of a non-queuable callback, the callback is executed immediately by the system, having the top priority of execution. A queueable callback, which is most common, will be put on an execution queue along with other queueable callbacks. In the case that the queue empties, no callbacks will be executed. It will continue executing callbacks when another event occurs at some point\cite{sharp2011event}\cite{rast2012managing}. 
 	
 \subsection{Notable work using the SpiNNaker architecture}
-Most of the notable work done in SpiNNaker machines is simulation of neurons. Various simulations would use different kinds of neurons\cite{rast2012event}\cite{rast2011event}\cite{davies2011maintaining}\cite{jin2010algorithm}. One of the most interesting examples is simulating the neurons of the retina, so as to make it possible for a robot to calculate its place\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Finally, another intriguing application is teaching the neurons temporal sequences  of discrete symbols by using a test data set, thus making fast and accurate predictions of new sequences\cite{bose2005spiking}.
+Most of the notable work done in SpiNNaker machines is simulation of neurons. Various simulations would use different kinds of neurons\cite{rast2012event}\cite{rast2011event}\cite{davies2011maintaining}\cite{jin2010algorithm}. One of the most interesting examples is simulating the neurons of the retina, so as to make it possible for a robot to calculate its place in a room\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Finally, another intriguing application is teaching the neurons temporal sequences  of discrete symbols by using a test data set, thus making fast and accurate predictions of new sequences\cite{bose2005spiking}.
 
 \subsection{Conjugate Gradient Method}
-The Conjugate Gradient Method is an algorithm for the numerical solution of systems of linear eqations of the type Ax=b, those whose matrix is symmetric and positive definite. 
+The Conjugate Gradient Method(CGM) is an algorithm for the numerical solution of systems of linear eqations of the type Ax=b; those whose matrix is symmetric and positive definite. 
 
 A \emph{symmetric} matrix is a matrix which is equal to its transpose. If A is a symmetric matrix then $A=A^T$. The entries of the matrix are symmetric with respect to the main diagonal, so if an element of the matrix A is a, then $a_{ij}=a_{ji}$. 
 
 A \emph{positive definite} matrix M is a matrix which when multipled by any non-zero vector z and its transpose $z^T$, is always positive. In short the relationship that needs to be satisfied is $zMz^T$>0
 
-It is an iterative method, which means it can be applied to sparse systems. A \emph{sparse matrix} is a matrix which is populated primirily with zeros. Its opposite would be a \emph{dense matrix}. The algorithm was developed by Magnus Hestenes and Eduard Stiefel and can be used to solve optimization problems\cite{press2007numerical}.
+The CGM is an iterative method, which means it can be applied to sparse systems. A \emph{sparse matrix} is a matrix which is populated primirily with zeros. Its opposite would be a \emph{dense matrix}. The algorithm was developed by Magnus Hestenes and Eduard Stiefel and can be used to solve optimization problems\cite{press2007numerical}.
 \subsubsection{The quadratic form}
 In order to explain why the Conjugate Gradient Method can solve problems whose matrix can only be positive-definite and symmetric an explanation of the quadratic form needs to be presented. The following explanation will also outline the reason why this algorithm is used in optimisation problems too.
 \begin{center}
@@ -197,7 +208,7 @@ f(x)=\frac{1}{2}x^TAx-b^T+c
 \end{equation}
 \end{center}
 
-The gradient $\nabla f(x)$ of the quadratic form is a vector field that points in the direction of the greatest increase of $f(x)$. If we were to take into account the i$^{th}$ component of $\nabla f$, then.
+The gradient $\nabla f(x)$ of the quadratic form(1) is a vector field that points in the direction of the greatest increase of $f(x)$. If we were to take into account the i$^{th}$ component of $\nabla f$, then.
 \begin{equation}
 \begin{split}
 f(x+\psi e_i)= \frac{1}{2} (x+\psi e_i)^TA(x+\psi e_i)-b^T(x+\psi e_i)+c\\
@@ -208,16 +219,16 @@ Note that e$_i$ is the error affiliated with taking the i$^{th}$ component of $\
 \begin{equation}
 \frac{f(x+\psi e_i)-f(x)}{\psi}=\frac{\frac{1}{2}(\psi e^T_iAx+x^TA\psi e_i)-\psi e^T_ib}{\psi}
 \end{equation}
-(3) is the same as the i$^{th}$ component of $\frac{1}{2}$(Ax+A$^T$x)-b
+Equation (3) is the same as the i$^{th}$ component of $\frac{1}{2}$(Ax+A$^T$x)-b
 So we have
 \begin{equation}
 \nabla f =\frac{1}{2}A^Tx+\frac{1}{2}Ax-b
 \end{equation}
 But if A is symmetric, then it is apparent that we have $Ax=b$ at the minimum of $f$. In addition if A is positive negative then $f$ is concave up. 
 \subsubsection{Conjugate Gradients\cite{press2007numerical}\cite{shewchuk1994introduction}\cite{cgm2009lec}}
-If we were to consider the original function of the quadratic form(1), then in order to apply optimisation, what needs to be done is to find the minimum of (1). If the minimum of this function is found, then minima can be found for quadratic functions with $n$ variables.
+If we were to consider the original function of the quadratic form(1), then in order to apply optimisation, what needs to be done is to find the minimum of Equation (1).If the process and results are correct then minima can be found for quadratic functions with $n$ variables.
 
-As it is for most optimisation techniques(for example the method Steepest Descent\cite{rosenbloom1956method}) the algorithm searches for a directions for the next step of $x$. 
+As it is for most optimisation techniques(for example the method Steepest Descent\cite{rosenbloom1956method}) the algorithm searches for a direction $p_k$ for the next step of $x$ in each iteration. The same goes for he CGM.
 
 \begin{equation}
 x_{k+1}=x_k+\alpha p_k
@@ -228,13 +239,13 @@ It would be useful to point out that since a $A$ is symmetric and positive defin
 p_fAp_l=0, f\neq l
 \end{equation}
 
-Considering (5), a number of conjugate direction $p_1,p_2,...,p_{k}$ and an initial $x_1$, then by minimising $f(x)$ with $p_1$, a new point will be obtained which will be $x_2$. If this procedure is followed until $x_k$ and $p_k$ are reached, then the point $x_k$ will be the minimum of $f(x)$. This would denote:
+Consider (5), a number of conjugate direction $p_1,p_2,...,p_{k}$ and an initial $x_1$. By minimising $f(x)$ with $p_1$, a new point will be obtained which will be $x_2$. If this procedure is followed until $x_k$ and $p_k$ are reached, then the point $x_k$ will be the minimum of $f(x)$. This would denote:
 
 \begin{equation}
 \nabla f_k=\nabla f(x_k)=x_k^TA+b
 \end{equation}
 
-Equation (7) is deduced by taking the derivative of (1). Again by considering Equation (5), it is clear that the factor $\alpha$ cannot be random, but rather should optimise Equation (5). It should also be mentioned that $\alpha$ is a constant for each iteration and not for the entirety of the algorithm i.e. has a different value for each iteration. Given the above information it is deductable that $\alpha$ minimises $f(\alpha)$, which means the following.
+Equation (7) is deduced by taking the derivative from Equation (1). Again by considering Equation (5), it is clear that the factor $\alpha$ cannot be random, but rather should be optimised, in order to achieve results faster. More specifically, it should optimise Equation (5). It should also be mentioned that $\alpha$ is a constant for each iteration and not for the entirety of the algorithm i.e. has a different value for each iteration. Given the above information it is deductible that $\alpha$ must minimise $f(\alpha)$, which means the following.
 \begin{equation}
 min \alpha \to f(x_k+\alpha p_k)
 \end{equation}
@@ -264,11 +275,11 @@ Solving for $\alpha$ yields the following equation
 \begin{equation}
 \alpha =-\frac{p_k^T\nabla f_K}{p_k^TAp_k}
 \end{equation}
-Equation 13 yields the value for $\alpha$ that helps towards finding the the next step for $x_k$. However a valid step is needed for the search direction of $p_{k+1}$ as well. In the Conjugate Gradient Method this step is represented as follows.
+Equation (13) forms the value for $\alpha$ that helps towards finding the the next step for $x_k$. However a valid step is needed for the search direction of $p_{k+1}$ as well. In the Conjugate Gradient Method this step is represented as follows.
 \begin{equation}
 p_{k+1}=-\nabla f_{k+1}+\beta p_k
 \end{equation}
-In Equation (14) $\beta$ shows the deflection of the search direction with respect to the steepest descent direction. It is also noteworthy to mention that $p_{k+1}$ and $p_k$ are conjugate in respect to $A$. Combining the process to find $\alpha$ described above and Equation (6) we get the following equation for $\beta$.
+In Equation (14) $\beta p_k$ shows the deflection of the search direction with respect to the steepest descent direction. It is also noteworthy to mention that $p_{k+1}$ and $p_k$ are conjugate in respect to $A$. Combining the process to find $\alpha$ described above and Equation (6) we get the following equation for $\beta$.
 \begin{equation}
 \begin{split}
 (-\nabla f_{k+1}+\beta p_k)^TAp_k=0\\
@@ -301,7 +312,7 @@ With Equation (18) the final form of $\alpha$ and $\beta$ can be deduced
 \end{equation}
 As far as $\beta$'s final equation is concerned, its value is deduced by considering the fact that $\nabla f_{k+1}^T \nabla f_k=0$
 \subsubsection{The algorithm}
-Combining the optimal value of $\alpha$(8) and $\beta$(9) and a good step direction for p$_k$ the Conjugate Gradient Method is formed as follows
+Combining the optimal value of $\alpha$(8) and $\beta$(9) and a step direction for $p_k$ the Conjugate Gradient Method is formed as follows
 \\
 \begin{algorithmic}
 \STATE r$_0$=b-Ax$_0$
@@ -335,7 +346,7 @@ Some other parallel implementations try to use more specific preconditionings to
 
 One of the most interesting implementations of the CGM, suggests an improved algorithm named ICGS(Improved Conjugate Gradient Squared), which is based in another already altered version of the CGM\cite{maheswaran1999mcgs}. This implementation computes all vector-matrix  multiplications and inner products concurrently, for each iteration. The communication time between these operations and vector updates has been organised efficiently, so that global communication drops significantly, thus dropping the run time of the algorithm as well\cite{yang2001improved}.
 
-Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These techniques use CUDA as their main tool and various other techniques to accomplish their goal with some very good results. Solutions in different GPU models exist but that just enhances the generality of the solution using a GPU architecture. Generally though,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
+Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These techniques use CUDA as their main tool and various other techniques to accomplish their goal with some very good results. Solutions in different GPU models exist but that just enhances the generality of the solution. Generally though,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
 \section{Design}
 As it was stated in the introduction the purpose of this project was to significantly reduce the time that the CGM takes to run, by reducing the time complexity of its most expensive computations. These computations were matrix-vector multplication and inner-products. In this section the basic communication, the matrix-vector multiplication and the flow of the program is considered. In addition to that the contents of the Target Tables are shown, along with the way the event handlers decide what operation to do, namely the Operation Codes. The section finishes, by discussing some of the design choices that were made. 
 
@@ -492,6 +503,7 @@ In addition, more testing could have been carried in the simulators out througho
 In the event handler it is visible that there are around 13 different operations that can be carried out by all the nodes. This number could be reduced from 13 to 11 or 10, by optimising some of the operations that each case does. During the implementation stage, a higher number of operations was chosen in order to test each operation's validity more atomically.
 
 The hardest part of this project was coming up with an efficient way of doing operations in each node, while preserving a low time complexity in each computation and also producing the correct result. The vector of queues of integers that was selected to represent OpCodes, while using the Offset of each incoming packet's source address as a key to the OpCodes. One of the easier tasks of this project was the creation of the programs to automatically produce the OpCodes for each node and the connections between them.
+\subsubsection{Future Work}
 \section{Conclusion}
 In conclusion, this project achieved the goal that was outlined in the project brief by finding a solution to the algorithm using the SpiNNaker architecture. It took advantage of the massive parallelism that the architecture provides and was able to dramatically reduce the time complexity of the most expensive operations of the algorithm. The matrix-vector multimplication was reduced from $O(N^2)$ to $O(4) + log_2(N) + O(4)$ and the inner product from $O(N)$ to $O(4)$. 
 

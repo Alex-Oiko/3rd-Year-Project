@@ -1,16 +1,19 @@
 \relax 
-\ifx\hyper@anchor\@undefined
-\global \let \oldcontentsline\contentsline
-\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global \let \oldnewlabel\newlabel
-\gdef \newlabel#1#2{\newlabelxx{#1}#2}
-\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\let \contentsline\oldcontentsline
-\let \newlabel\oldnewlabel}
-\else
-\global \let \hyper@last\relax 
-\fi
-
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
 \citation{press2007numerical}
 \citation{shewchuk1994introduction}
 \citation{cgm2009lec}
@@ -31,9 +34,9 @@
 \citation{spinnweb}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}The SpiNNaker architecture}{3}{subsection.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}SpiNNaker chip Overview}{3}{subsubsection.2.2.1}}
-\citation{navaridas2009understanding}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The SpiNNaker chip\cite  {spinnweb}}}{4}{figure.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}The router}{4}{subsubsection.2.2.2}}
+\citation{navaridas2009understanding}
 \citation{navaridas2009understanding}
 \citation{navaridas2009understanding}
 \citation{furber2012overview}
@@ -44,7 +47,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.3}Topology}{5}{subsubsection.2.2.3}}
 \citation{spinnweb}
 \citation{navaridas2009understanding}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  \emph  {The SpiNNaker topology\cite  {navaridas2009understanding}. This is an example of what an 8x8 would look like.Each circle is a SpiNNake chip and the lines between them are the connectivity.}}}{6}{figure.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  \emph  {The SpiNNaker topology\cite  {navaridas2009understanding}. This is an example of what an 8x8 board would look like.Each circle is a SpiNNake chip and the lines between them are the connectivity.}}}{6}{figure.4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.4}Packets}{6}{subsubsection.2.2.4}}
 \citation{docfile}
 \citation{docfile}
@@ -54,20 +57,20 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.6}Bandwidth}{7}{subsubsection.2.2.6}}
 \citation{furber2012overview}
 \citation{spinnweb}
-\citation{jefflec}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Software}{8}{subsection.2.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Startup}{8}{subsubsection.2.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Local Data Structures}{8}{subsubsection.2.3.2}}
 \citation{jefflec}
 \citation{jefflec}
-\citation{docfile}
+\citation{jefflec}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Local Data Structures}{9}{subsubsection.2.3.2}}
 \@writefile{toc}{\contentsline {paragraph}{The state of the machine}{9}{section*.4}}
 \@writefile{toc}{\contentsline {paragraph}{Building a communications tree}{9}{section*.5}}
-\@writefile{toc}{\contentsline {paragraph}{Creating the P2P Tables}{9}{section*.6}}
 \citation{docfile}
-\citation{sharp2011event}
+\citation{docfile}
+\@writefile{toc}{\contentsline {paragraph}{Creating the P2P Tables}{10}{section*.6}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Program Loading}{10}{subsubsection.2.3.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{10}{subsubsection.2.3.4}}
+\citation{sharp2011event}
 \citation{sharp2011event}
 \citation{rast2012managing}
 \citation{rast2012event}
@@ -78,8 +81,8 @@
 \citation{sharp2012power}
 \citation{bose2005spiking}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Event-handling. The control and data flow is shown\cite  {sharp2011event}}}{11}{figure.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{11}{subsection.2.4}}
 \citation{press2007numerical}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{12}{subsection.2.4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Conjugate Gradient Method}{12}{subsection.2.5}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{12}{subsubsection.2.5.1}}
 \citation{press2007numerical}
@@ -91,8 +94,8 @@
 \citation{press2007numerical}
 \citation{shewchuk1994introduction}
 \citation{cgm2009lec}
-\citation{o1987parallel}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{16}{subsubsection.2.5.3}}
+\citation{o1987parallel}
 \citation{adams1985m}
 \citation{adams1983m}
 \citation{maheswaran1999mcgs}
@@ -100,29 +103,30 @@
 \citation{galiano2012gpu}
 \citation{wozniak2010parallel}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{17}{subsubsection.2.5.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Design}{17}{section.3}}
 \citation{basicinterim}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Design}{18}{section.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Basic communication}{18}{subsection.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Basic communication between nodes.}}{18}{figure.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Basic communication between nodes.}}{19}{figure.6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Matrix-Vector Multiplication}{19}{subsection.3.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Matrix-vector multiplicatio for A*x.\cite  {basicinterim}}}{19}{figure.7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Program Flow}{20}{subsection.3.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The program flow in class diagram.}}{20}{figure.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Target Table}{21}{subsection.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}OpCodes}{22}{subsection.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The program flow in class diagram.}}{21}{figure.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Target Table}{22}{subsection.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}OpCodes}{23}{subsection.3.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Justification for Design Choices}{24}{subsection.3.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation}{24}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Simulators}{24}{subsection.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Implementation}{25}{section.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Simulators}{25}{subsection.4.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Offset}{25}{subsection.4.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Second Iteration}{26}{subsection.4.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Input files}{26}{subsection.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Implementation OpCodes}{26}{subsection.4.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Connections and OpCodes programs}{27}{subsection.4.6}}
-\citation{git_repo}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Implementation OpCodes}{27}{subsection.4.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Connections and OpCodes programs}{28}{subsection.4.6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.7}SpiNNaker Event Handler}{28}{subsection.4.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Testing}{28}{section.5}}
+\citation{git_repo}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Testing}{29}{section.5}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{29}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{30}{section.7}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.0.1}Future Work}{31}{subsubsection.6.0.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{31}{section.7}}
 \bibstyle{plain}
 \bibdata{ref.bib}
 \bibcite{basicinterim}{1}
@@ -188,10 +192,10 @@
 \citation{davies2011maintaining}
 \citation{jin2010algorithm}
 \citation{git_repo}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Appendix}{34}{section.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Example Input file}{34}{subsection.8.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{35}{subsection.8.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Test examples}{35}{subsection.8.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Project Brief}{39}{subsection.8.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Appendix}{35}{section.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Example Input file}{35}{subsection.8.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{36}{subsection.8.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Test examples}{36}{subsection.8.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}Project Brief}{40}{subsection.8.4}}
 \citation{git_repo}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Gantt Charts}{40}{subsection.8.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Gantt Charts}{41}{subsection.8.5}}
