@@ -132,6 +132,7 @@ A mention of the routing tables is also important in understanding the architect
 
 This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size. Notice that the size of each entry is the same size of the addresses of elements in cores. The nature of the most significant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
 
+In addition to the routing tables, another trait of the SpiNNaker architecture are the Target Table entries. These tables exist for each element in a core and contain information about that element. They are customizable for every program and they help the programmer since they are readable by the cores during run time. 
 \subsubsection{Bandwidth}
 Having discussed the architecture and its network, a mention of the bandwidth bisection that is available will be outlined here. 
 

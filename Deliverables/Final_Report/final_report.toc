@@ -12,16 +12,16 @@
 \contentsline {subsubsection}{\numberline {2.2.5}Routing Tables}{7}{subsubsection.2.2.5}
 \contentsline {subsubsection}{\numberline {2.2.6}Bandwidth}{7}{subsubsection.2.2.6}
 \contentsline {subsection}{\numberline {2.3}Software}{8}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Startup}{8}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.1}Start up}{8}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Local Data Structures}{9}{subsubsection.2.3.2}
 \contentsline {paragraph}{The state of the machine}{9}{section*.4}
 \contentsline {paragraph}{Building a communications tree}{9}{section*.5}
 \contentsline {paragraph}{Creating the P2P Tables}{10}{section*.6}
 \contentsline {subsubsection}{\numberline {2.3.3}Program Loading}{10}{subsubsection.2.3.3}
-\contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{10}{subsubsection.2.3.4}
+\contentsline {subsubsection}{\numberline {2.3.4}Event Handling}{11}{subsubsection.2.3.4}
 \contentsline {subsection}{\numberline {2.4}Notable work using the SpiNNaker architecture}{12}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Conjugate Gradient Method}{12}{subsection.2.5}
-\contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{12}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1}The quadratic form}{13}{subsubsection.2.5.1}
 \contentsline {subsubsection}{\numberline {2.5.2}Conjugate Gradients\cite {press2007numerical}\cite {shewchuk1994introduction}\cite {cgm2009lec}}{13}{subsubsection.2.5.2}
 \contentsline {subsubsection}{\numberline {2.5.3}The algorithm}{16}{subsubsection.2.5.3}
 \contentsline {subsubsection}{\numberline {2.5.4}Parallel solutions of the CGM}{17}{subsubsection.2.5.4}
@@ -34,14 +34,14 @@
 \contentsline {subsection}{\numberline {3.6}Justification for Design Choices}{24}{subsection.3.6}
 \contentsline {section}{\numberline {4}Implementation}{25}{section.4}
 \contentsline {subsection}{\numberline {4.1}Simulators}{25}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Offset}{25}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.2}Offset}{26}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Second Iteration}{26}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Input files}{26}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.4}Input files}{27}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Implementation OpCodes}{27}{subsection.4.5}
 \contentsline {subsection}{\numberline {4.6}Connections and OpCodes programs}{28}{subsection.4.6}
-\contentsline {subsection}{\numberline {4.7}SpiNNaker Event Handler}{28}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.7}SpiNNaker Event Handler}{29}{subsection.4.7}
 \contentsline {section}{\numberline {5}Testing}{29}{section.5}
-\contentsline {section}{\numberline {6}Evaluation}{29}{section.6}
+\contentsline {section}{\numberline {6}Evaluation}{30}{section.6}
 \contentsline {section}{\numberline {7}Conclusion}{31}{section.7}
 \contentsline {section}{\numberline {8}Appendix}{35}{section.8}
 \contentsline {subsection}{\numberline {8.1}Example Input file}{35}{subsection.8.1}
