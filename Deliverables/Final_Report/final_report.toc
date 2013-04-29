@@ -42,11 +42,10 @@
 \contentsline {subsection}{\numberline {4.7}SpiNNaker Event Handler}{28}{subsection.4.7}
 \contentsline {section}{\numberline {5}Testing}{29}{section.5}
 \contentsline {section}{\numberline {6}Evaluation}{29}{section.6}
-\contentsline {subsubsection}{\numberline {6.0.1}Future Work}{31}{subsubsection.6.0.1}
 \contentsline {section}{\numberline {7}Conclusion}{31}{section.7}
 \contentsline {section}{\numberline {8}Appendix}{35}{section.8}
 \contentsline {subsection}{\numberline {8.1}Example Input file}{35}{subsection.8.1}
 \contentsline {subsection}{\numberline {8.2}Outline of OpCodes}{36}{subsection.8.2}
 \contentsline {subsection}{\numberline {8.3}Test examples}{36}{subsection.8.3}
-\contentsline {subsection}{\numberline {8.4}Project Brief}{40}{subsection.8.4}
-\contentsline {subsection}{\numberline {8.5}Gantt Charts}{41}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.4}Project Brief}{38}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Gantt Charts}{39}{subsection.8.5}

@@ -401,7 +401,7 @@ As mentioned in the Background section each node in the system has a Target Tabl
 \item unsigned Kd
 \item vector<queue<unsigned>> OpCodes
 \item char Name
-\item unsigned YD
+\item usigned YD
 \item unsigned X
 \item unsigned Y
 \item float Value

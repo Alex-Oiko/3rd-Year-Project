@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.4.12)  29 APR 2013 15:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.4.12)  29 APR 2013 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,7 +452,7 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.67 \newpage
-              [1] <Pics/neuron.jpg, id=289, 121.4136pt x 85.0377pt>
+              [1] <Pics/neuron.jpg, id=284, 121.4136pt x 85.0377pt>
 File: Pics/neuron.jpg Graphic file (type jpg)
 
 <use Pics/neuron.jpg>
@@ -464,7 +464,7 @@ Overfull \hbox (10.25536pt too wide) in paragraph at lines 82--83
 -hed through spikes,
  []
 
-<Pics/chip.png, id=300, 419.5675pt x 399.4925pt>
+<Pics/chip.png, id=295, 419.5675pt x 399.4925pt>
 File: Pics/chip.png Graphic file (type png)
  <use Pics/chip.png>
 Package pdftex.def Info: Pics/chip.png used on input line 90.
@@ -473,13 +473,13 @@ Package pdftex.def Info: Pics/chip.png used on input line 90.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4 <./Pics/chip.png>] <Pics/router.png, id=315, 365.365pt x 244.915pt>
+[3] [4 <./Pics/chip.png>] <Pics/router.png, id=310, 365.365pt x 244.915pt>
 File: Pics/router.png Graphic file (type png)
 
 <use Pics/router.png>
 Package pdftex.def Info: Pics/router.png used on input line 102.
 (pdftex.def)             Requested size: 730.72821pt x 489.82877pt.
- <Pics/topology.png, id=317, 290.08376pt x 289.08pt>
+ <Pics/topology.png, id=312, 290.08376pt x 289.08pt>
 File: Pics/topology.png Graphic file (type png)
 
 <use Pics/topology.png>
@@ -516,7 +516,7 @@ Overfull \hbox (3.39137pt too wide) in paragraph at lines 171--172
 s be-tween nodes
  []
 
-[10] <Pics/event-handling.png, id=377, 667.49374pt x 550.055pt>
+[10] <Pics/event-handling.png, id=372, 667.49374pt x 550.055pt>
 File: Pics/event-handling.png Graphic file (type png)
 
 <use Pics/event-handling.png>
@@ -586,7 +586,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 315--318
 
  []
 
-[16] [17] <Pics/basic.png, id=486, 242.9075pt x 159.59625pt>
+[16] [17] <Pics/basic.png, id=481, 242.9075pt x 159.59625pt>
 File: Pics/basic.png Graphic file (type png)
 
 <use Pics/basic.png>
@@ -601,7 +601,7 @@ e. Considering
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pics/mat0mult.png, id=487, 414.54875pt x 293.095pt>
+<Pics/mat0mult.png, id=482, 414.54875pt x 293.095pt>
 File: Pics/mat0mult.png Graphic file (type png)
  <use Pics/mat0mult.png>
 Package pdftex.def Info: Pics/mat0mult.png used on input line 368.
@@ -620,7 +620,7 @@ nds its value to the $\OML/cmm/m/it/12 A$ \T1/ppl/m/n/12 nodes with col-umn 0($
 \OML/cmm/m/it/12 A[]A[]A[]$\T1/ppl/m/n/12 ).
  []
 
-<Pics/program_flow.png, id=503, 1181.41376pt x 323.2075pt>
+<Pics/program_flow.png, id=498, 1181.41376pt x 323.2075pt>
 File: Pics/program_flow.png Graphic file (type png)
 
 <use Pics/program_flow.png>
@@ -640,36 +640,19 @@ Overfull \hbox (13.03925pt too wide) in paragraph at lines 397--398
 ion is not needed. 
  []
 
-[21 <./Pics/program_flow.png>] [22] [23]
-Overfull \hbox (19.08824pt too wide) in paragraph at lines 439--440
-\T1/ppl/m/n/12 scribed as well as the gen-eral spec-i-fi-ca-tion of the Op-Code
-s for each node. 
- []
-
-[24]
-Overfull \hbox (20.31139pt too wide) in paragraph at lines 448--449
-\T1/ppl/m/n/12 As men-tioned in the De-sign sec-tion, the vec-tor of queues of 
-in-te-gers(OpCodes)
- []
-
-[25]
-Overfull \hbox (7.14742pt too wide) in paragraph at lines 463--464
+[21 <./Pics/program_flow.png>] [22] [23] [24] [25]
+Overfull \hbox (7.14742pt too wide) in paragraph at lines 465--466
 \T1/ppl/m/n/12 They are the in-te-gers next to the di-men-sions of each ma-trix
 /vector/consant.
  []
 
-[26] [27] [28] [29]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 508.
-
-
-Overfull \hbox (0.75137pt too wide) in paragraph at lines 510--511
+[26] [27] [28] [29] [30]
+Overfull \hbox (0.75137pt too wide) in paragraph at lines 511--512
 \T1/ppl/m/n/12 In con-clu-sion, this project achieved the goal that was out-lin
 ed in the project
  []
 
-[30] [31] (./final_report.bbl [32] [33]
+[31] (./final_report.bbl [32] [33]
 Underfull \hbox (badness 10000) in paragraph at lines 152--156
 []\T1/ppl/m/n/12 Jeff Reeve.  Large scale dis-tributed sys-tems lec-tures.
  []
@@ -680,59 +663,54 @@ Underfull \hbox (badness 1342) in paragraph at lines 164--168
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 548--591
+Underfull \hbox (badness 10000) in paragraph at lines 549--592
 
  []
 
 [34] [35]
-Underfull \hbox (badness 10000) in paragraph at lines 592--603
+Underfull \hbox (badness 10000) in paragraph at lines 593--604
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--658
+Underfull \hbox (badness 10000) in paragraph at lines 605--659
 
  []
 
-[36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 667--747
-
- []
-
-[38] [39] [40]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 760.
+[36] [37] [38]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 671.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<Gantt_Charts/Final_Gantt1.png, id=638, 587.19376pt x 1487.5575pt>
+<Gantt_Charts/Final_Gantt1.png, id=624, 587.19376pt x 1487.5575pt>
 File: Gantt_Charts/Final_Gantt1.png Graphic file (type png)
 
 <use Gantt_Charts/Final_Gantt1.png>
-Package pdftex.def Info: Gantt_Charts/Final_Gantt1.png used on input line 764.
+Package pdftex.def Info: Gantt_Charts/Final_Gantt1.png used on input line 675.
 (pdftex.def)             Requested size: 234.87334pt x 595.01247pt.
 
 
-LaTeX Warning: Float too large for page by 3.01247pt on input line 766.
+LaTeX Warning: Float too large for page by 3.01247pt on input line 677.
 
-<Gantt_Charts/Final_Gantt2.png, id=639, 587.19376pt x 1827.82875pt>
+<Gantt_Charts/Final_Gantt2.png, id=625, 587.19376pt x 1827.82875pt>
 File: Gantt_Charts/Final_Gantt2.png Graphic file (type png)
 
 <use Gantt_Charts/Final_Gantt2.png>
-Package pdftex.def Info: Gantt_Charts/Final_Gantt2.png used on input line 770.
+Package pdftex.def Info: Gantt_Charts/Final_Gantt2.png used on input line 681.
 (pdftex.def)             Requested size: 234.87334pt x 731.11856pt.
 
 
-LaTeX Warning: Float too large for page by 139.11856pt on input line 772.
+LaTeX Warning: Float too large for page by 139.11856pt on input line 683.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 773.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 684.
 
-Overfull \hbox (0.93243pt too wide) in paragraph at lines 760--773
+Overfull \hbox (0.93243pt too wide) in paragraph at lines 671--684
 \T1/ppl/m/n/12 To find bet-ter res-o-lu-tion pic-tures of the gantt chart see:[
 ]$\T1/pcr/m/n/12 https : / / github .
  []
 
 
-Overfull \hbox (14.69983pt too wide) in paragraph at lines 760--773
+Overfull \hbox (14.69983pt too wide) in paragraph at lines 671--684
 \T1/pcr/m/n/12 com / Alex-[]Oiko / 3rd-[]Year-[]Project / tree / master / Deliv
 erables /
  []
@@ -743,21 +721,21 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[41] [42 <./Gantt_Charts/Final_Gantt1.png>] [43 <./Gantt_Charts/Final_Gantt2.pn
+[39] [40 <./Gantt_Charts/Final_Gantt1.png>] [41 <./Gantt_Charts/Final_Gantt2.pn
 g>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 773.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 684.
  (./final_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 773.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 773.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 684.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 684.
 Package rerunfilecheck Info: File `final_report.out' has not changed.
-(rerunfilecheck)             Checksum: 4E552E6173FEECAFBC4FBC6F89DF7F8C;3275.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 773.
+(rerunfilecheck)             Checksum: 73FEF51E437AE3DA3083B66DD0396B9E;3209.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 684.
  ) 
 Here is how much of TeX's memory you used:
- 7750 strings out of 493485
- 108456 string characters out of 3143526
- 210370 words of memory out of 3000000
- 10763 multiletter control sequences out of 15000+200000
+ 7746 strings out of 493485
+ 108402 string characters out of 3143526
+ 210367 words of memory out of 3000000
+ 10762 multiletter control sequences out of 15000+200000
  23918 words of font info for 61 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  29i,16n,32p,1274b,419s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -775,10 +753,10 @@ hare/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplri8a.pfb>
-Output written on final_report.pdf (48 pages, 907299 bytes).
+Output written on final_report.pdf (46 pages, 904602 bytes).
 PDF statistics:
- 742 PDF objects out of 1000 (max. 8388607)
- 659 compressed objects within 7 object streams
- 180 named destinations out of 1000 (max. 500000)
- 443 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 729 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 435 words of extra memory for PDF output out of 10000 (max. 10000000)
 
