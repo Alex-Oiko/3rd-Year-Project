@@ -359,7 +359,7 @@ Using the massive parallelism that the SpiNNaker architecture provides with over
 \centering
 \caption{Basic communication between nodes.}
 \end{figure}
-Considering that choice, it is easy to see that each node would need to receive and send spikes to a number of other nodes at any given time, in the same fashion that Figure 6 shows. In Figure 6 node 3 receives packets from nodes 1 and 2 and after some manipulation of the incoming data it sends its results to nodes 4,5. 
+Considering that choice, it is easy to see that each node would need to receive and send spikes to a number of other nodes at any given time, in the same fashion that Figure 6 shows. In Figure 6 node 3 receives packets from nodes 1 and 2 and after some manipulation of the incoming data it sends its results to nodes 4 and 5. 
 
 If this model is to be used each computation would be completed atomically and if only one computation is needed every time then the complexity at each core would be $O(1)$.
 \subsection{Matrix-Vector Multiplication}
@@ -367,14 +367,16 @@ Using the above model a matrix-vector multiplication would look like Figure 7.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/mat0mult.png}
 \centering
-\caption{Matrix-vector multiplicatio for A*x.\cite{basicinterim}}
+\caption{Matrix-vector multiplicatio for A*x. A nodes send the result to the respective r node, not the next A node\cite{basicinterim}}
 \end{figure}
 
-In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an examplee to display the general overview of this operation. In this figure the example of a 3x3 $A$ matix and 3x1 vectors is used for simplicity. Also assume that the respective element of the vector $b$ is already there, waiting to complete the calculation for $r$, once the multiplication is over. To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $A$ nodes know which packets they should receive. because the connections between nodes have been provided externally by the user. The packets from $x$ reach the $A$ nodes because they are multicast. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. The figure shows without precision that $A$-nodes send their value to the next $A$-node in the column. This has been done for means of clarity, but what the graph means to show is the $x$ nodes sending their value down the line. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
+In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an examplee to display the general overview of the multiplication operation. In this figure the example of a 3x3 $A$ matix and 3x1 vectors is used for simplicity. Also assume that the respective element of the vector $b$ has been already placed in the respective $r$ node, waiting to complete the calculation for $r$, once the multiplication is over. 
+
+To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $A$ nodes know which packets they should receive, because the connections between nodes have been provided externally by the user. The packets from $x$ reach the $A$ nodes because they are multicast. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. The figure shows without precision that $A$-nodes send their value to the next $A$-node in the column. This has been done for means of clarity, but what the graph means to show is the $x$ nodes send their value down the line. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
 
 In Figure 7 the node $x_0$ sends its value to the $A$ nodes with column 0($A_{0,0} A_{1,0} A_{2,0}$). Once the muliplication in each of these nodes is completed, the result is sent to the $r_0$ node. The same holds for the other two sets of $A$ nodes and their respective $r$ node. 
 
-Given the figure above, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and the tme it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice as it will be explained later, the complexity is larger.
+Given Figure 7, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and the time it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice as it will be explained later, the complexity is larger.
 \subsection{Program Flow}
 Given what has been discussed so far consider the following figure.
 \begin{figure}[h!]
@@ -410,11 +412,11 @@ As mentioned in the Background section each node in the system has a Target Tabl
 
 The Kd identifies the key of the node, which is individual to each node in the system. 
 
-The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then the Y dimension would be 4 and the X dimension 3. However, in the CGM the matrixes are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. 
+The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then the Y dimension would be 4 and the X dimension 3. However, in the CGM the matrices are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. 
 
 The X and Y variables are there to identify the position of the node in the matrix or vector that it belongs to. 
 
-The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since their values cannot be changed trhoughout the program in the Target Table. 
+The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since their values cannot be changed throughout the program in the Target Table. 
 
 Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in each core depending on the node that it belongs.
 \subsection{OpCodes}
