@@ -1,0 +1,5 @@
+-Configured Simulator 1 contains the source files of the 1st simulator. There are some changes with the original simulator supplied by the supervisor.
+
+-Configured Simulator 2 containts the source files of the 2nd simulator. There are some changes with the original simulator supplied by the supervisor, but they are mainly in the Simulator.cpp file(Event Handler file)
+
+-Connections and OpCodes program. Contains the source files for producing the Connections and the OpCodes for any file, along with some raw input .mx files as examples.
