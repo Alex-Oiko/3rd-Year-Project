@@ -1,4 +1,5 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,twosided]{article}
+\usepackage[a4paper]{geometry}
 \usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage[parfill]{parskip}
@@ -63,13 +64,13 @@ SpiNNaker is an architecture inspired by the biology of the human brain. Its opt
 
 However little work had been done into putting the SpiNNaker architecture to solve classic computer science problems. That is why a problem such as the Conjugate Gradient Method has been proposed, which is a very common solution to optimization problems. In addition to that, the SpiNNaker architecture offers new parallel programming paradigms, that escape some common parallel programming pitfalls such as race conditions, deadlocks, mutual exclusion etc\cite{sharp2011event}.
 \subsection{Overview}
-This report starts off by giving a detailed analysis of the SpiNNaker architecture and its constitutes, and the Conjugate Gradient Method.It continues by outlining the design and the tools used to solve the given problem and provides an in-depth examination of the implementation issues and solutions. It involves a short description of the testing that was completed and it ends with a critical evaluation and conclusion.
+This report starts off by giving a detailed analysis of the SpiNNaker architecture and its constitutes, and the Conjugate Gradient Method. It continues by outlining the design and the tools used to solve the given problem and provides an in-depth examination of the implementation issues and solutions. It involves a short description of the testing that was completed and it ends with a critical evaluation and conclusion.
 \newpage
 \section{Background}
 \subsection{The neuron}
 To make the explanation of the SpiNNaker architecture smoother, the design from which the SpiNNaker chip was inspired will be outlined. This is no other than the human neuron.
 
-The human neuron is an electrically excitable cell that processes and transmits information through electrical and chemical signals. Its basic constitutes are the the soma, the dendrites and the axon. The soma is the body of the neuron. A dendrite receives signals from the soma of the neuron that it belongs to, or other neurons. It extends for hundreds of micrometers and branches multiple times throughout the body, thus forming a dendritic tree, which connects with other neurons axons. The axon is used to transmit signals to other neurons and it extends from the soma of the neuron to a dendrite. All human neurons have only one axon. Given the above analysis the dendrites could be described as the inputs of a neuron.
+The human neuron is an electrically excitable cell that processes and transmits information through electrical and chemical signals. Its basic constitutes are the the soma, the dendrites and the axon. The soma is the body of the neuron. A dendrite receives signals from the soma of the neuron that it belongs to, or other neurons. It extends for hundreds of micrometers and branches multiple times throughout the body, thus forming a dendritic tree, which connects with other neurons' axons. The axon is used to transmit signals to other neurons and it extends from the soma of the neuron to a dendrite. All human neurons have only one axon. Given the above analysis the dendrites could be described as the inputs of a neuron.
 \\[0.5cm]
 \begin{figure}[h!]
 \includegraphics[width=300pt,height=200pt,scale=2]{Pics/neuron.jpg}
@@ -83,29 +84,29 @@ Finally, the communication between neurons is accomplished through spikes, which
 
 Given the terms in this section, the name of the SpiNNaker chip is deductible. It stands for Spi(king)N(eural)N(etwork) architecture.
 \subsection{The SpiNNaker architecture}
-As mentioned before the SpiNNaker architecture is inspired by the biology of the brain, and more specifically, neurons. However, its architecture is not constrained by the biology of the brain, but many techniques to speed up computations are used. It differs from other supercomputers, which  usually have a number of strong processors with slow network capabilities. The design of the architecture was made with two concerns as its main priority. The first one being MIPS(millions of instructions per-second) per mm$^2$. Namely how many instructions can be performed in an area of silicon. The second one was MIPS per watt, which means how many instructions per second can be performed given a fixed amount of energy. Its most optimal configuration will use a million cores and will be able to simulate over a billion neurons\cite{furber2007neural}.
+As mentioned before the SpiNNaker architecture is inspired by the biology of the human brain, and more specifically, neurons. However, its architecture is not constrained by the biology of the brain, but many techniques to speed up computation are used. It differs from other supercomputers, which  usually have a number of strong processors with slow network capabilities. The design of the architecture was made with two concerns as its main priority. The first one being MIPS(millions of instructions per-second) per mm$^2$. Namely how many instructions can be performed in an area of silicon. The second one was MIPS per watt, which means how many instructions per second can be performed given a fixed amount of energy. Its most optimal configuration will use a million cores and will be able to simulate over a billion neurons\cite{furber2007neural}.
 \subsubsection {SpiNNaker chip Overview}
-The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 20 identical ARM cores that run at around 100MHz each, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At start up, in each chip a processor is selected to act as a Monitor processor, with the task of performing the management of the given chip's system. The remaining ARM cores perform the calculations for the given problem, with the exception of one which is reserved as a spare. The spare processor exists for the emergency of another core having a malfunction, so in the end 18 cores are available for computation in each chip\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM which can hold up to 1GB of data\cite{navaridas2009understanding}.
+The heart of the SpiNNaker architecture is the SpiNNaker chip. Its main components are 20 identical ARM cores that run at around 100MHz each, a router, a system NoC(Network-on-Chip) which connects to the router of the chip and a 128 MB SDRAM. At start up, in each chip a processor is selected to act as a Monitor processor, with the task of performing the management of the chip's system. The remaining ARM cores perform the calculations for the program, with the exception of one which is reserved as a spare. The spare processor exists in the emergency of another core having a malfunction, so in the end 18 cores are available for computation in each chip\cite{furber2007neural}. Each core has the ability to hold 32KB of instructions and 64KB of data. Since this is not enough space, all other data is saved in the SDRAM\cite{navaridas2009understanding}.
 \begin{figure}[h!]
-\includegraphics[width=250pt,height=150pt,scale=2]{Pics/chip.png}
+\includegraphics[width=250pt,height=250pt,scale=2]{Pics/chip.png}
 \centering
 \caption{The SpiNNaker chip\cite{spinnweb}}
 \end{figure}
 \subsubsection{The router}
 As mentioned before the architecture supports low-delay communication, with less powerful processors, than those used in most supercomputers. To accomplish that, the system uses asynchronous multicast packets to communicate between cores. This is done through the router which lies in each chip.
 
-The router exists as the part of the NoC(Network-on-Chip) and its primary role is to direct packets that arrive and packets that are sent or need to be forwarded to other neighbouring chips. The router has 20 ports for the ARM cores that are located in the given chip and is able to forward one packet at a time. The router works faster than a transmission port, which results into the router being most of the time lightly used. It is designed to support point-to-point communication, using small packets. The use of multicast packets helps to reduce the amount of packets that exist in the network at any given moment. To even further enhance the quickness of the network, the architecture supports default routing. This means that not all connections need to sit in the routing tables, in order to have the packets forwarded to their eventual destination. This concept will be explained in more depth in the next section.
+The router exists as the part of the NoC(Network-on-Chip) and its primary role is to direct packets that arrive and packets that are sent or need to be forwarded to other neighbouring chips. The router has 20 ports for the ARM cores that are located in the chip and is able to forward one packet at a time. The router works faster than a transmission port, which results into the router being most of the time lightly used. It is designed to support point-to-point communication, using small packets. The use of multicast packets helps to reduce the amount of packets that exist in the network at any given moment. To even further enhance the quickness of the network, the architecture supports default routing. This means that not all connections need to sit in the routing tables, in order to have the packets forwarded to their eventual destination. This concept will be explained in more depth in the next section.
 
-The functionality of the router is pretty simple. When a packet arrives from the input port, then the router will try to send it to an output port. If there is a problem during transmission, then the router will keep trying to send it and after a while it will try the emergency route(also explained in the next section). If the emergency route still does not work and a certain amount of time has passed, then the packet will be dropped. To implement the time passing, the time of delivery of a packet is stored in the header of each packet.
+The functionality of the router is pretty simple. When a packet arrives from the input port, then the router will try to send it to an output port. If there is a problem during transmission, then the router will keep trying to send it and after a while it will try the emergency route(also explained in the next section). If the emergency route still does not work and a certain amount of time has passed, then the packet will be dropped. To implement the time feature, the time of delivery of a packet is stored in the header of each packet.
 
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=150pt,scale=2]{Pics/router.png}
 \centering
 \caption{The router\cite{navaridas2009understanding}}
 \end{figure}
-To further understand this concept, the topology of the system needs to be considered.
+To further understand these concepts, the topology of the system needs to be considered.
 \subsubsection{Topology}
-In order to have a million cores available for processing a number of SpiNNaker chips needs to be connected and work efficiently as a whole. To reach that goal an effective topology is important.
+In order to have a million cores available for processing a number of SpiNNaker chips need to be connected and work efficiently as a whole. To reach that goal an effective topology is important.
 \begin{figure}[h!]
 \includegraphics[width=250pt,height=250pt,scale=2]{Pics/topology.png}
 \centering
@@ -120,7 +121,7 @@ Returning now to the default routing mentioned in the previous section, if a pac
 In addition to the default routing, the topology also provides two-hop routes among neighbor chips, as shown in Figure 4. These routes are named emergency routes and their functionality is to bypass any faulty connections that might exist between connections\cite{navaridas2009understanding}\cite{plana2007gals}.
 
 \subsubsection{Packets}
-The packets(spikes) used in the SpiNNaker architecture are all multicast. They are asynchronous and relatively small. Having multicast packets means that one packet might have many different destinations, and with potentially a million cores, they can have thousands of destinations. For that reason, the packets do not contain the destination(s) they are supposed to reach, but rather only the source. The transmission of the packets is done completely by the hardware of the system, thus achieving high bandwidth\cite{spinnweb}\cite{navaridas2009understanding}. It is also notable that, when simulating a billion neurons, unique addresses are needed to acknowledge each neuron. Hence 32-bit addresses are used to represent items in the cores. In this architecture, the main packets used can be divided in two types.
+The packets(spikes) used in the SpiNNaker architecture are all multicast. They are asynchronous and relatively small. Having multicast packets means that one packet might have many different destinations, and with potentially a million cores, they can have thousands of destinations. For that reason, the packets do not contain the destination(s) they are supposed to reach, but rather only the source. The transmission of the packets is done completely by the hardware of the system, thus achieving high bandwidth\cite{spinnweb}\cite{navaridas2009understanding}. It is also notable that, when simulating a billion neurons, unique addresses are needed to acknowledge each neuron. Hence 32-bit addresses are used to represent different elements in the cores. In this architecture, the main packets used can be divided in two types.
 \begin{itemize}
 \item Multicast packets(Type 0). Consists of 32-bit source address, 8 bits of control and 32-bit payload. These types of packets are delivered to processors and would usually contain information for computation
 \item Point-to-point packets(Type 1). Consists of 16-bit source \emph{chip} address, 16-bit target \emph{chip} address, 8-bit control payload and 32-bit payload. These types of packets are command/control packets and are used when the Monitor Processor communicates with the target chip\cite{docfile}
@@ -130,7 +131,7 @@ In this project Type 0 packets have mainly been used.
 \subsubsection{Routing Tables}
 A mention of the routing tables is also important in understanding the architecture. Optimally, one would want for all cores to communicate with all the other cores in the system. However, that would be impractical, since the data structure to hold the entries would have to be enormous.
 
-This architecture supports routing tables of 1024 entries. Each entry is of 32-bit size. Notice that the size of each entry is the same size of the addresses of elements in cores. The nature of the most significant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
+Instead, this architecture supports routing tables of 1024 entries. Each entry is of 32-bit size. Notice that the size of each entry is the same size of the addresses of elements in cores. The nature of the most significant bit of the source determines if a particular packet is for distributing locally to the cores, or if it should be linked and forwarded to other chips\cite{docfile}.
 
 In addition to the routing tables, another trait of the SpiNNaker architecture are the Target Table entries. These tables exist for each element in a core and contain information about that element. They are customizable for every program and they help the programmer since they are readable by the cores during run time. 
 \subsubsection{Bandwidth}
@@ -151,7 +152,7 @@ At this point it is noteworthy to mention that the programming model of the mach
 \subsubsection{Start up}
 In order to do the start up and interact with the devices mentioned in the previous section some kind of software needs to be used.
 
-For the Host machine to interact with the main Monitor Core \emph{ybug} is used. The same software is used to start applications. Of course ybug does not communicate only with the hardware of the monitor core. 
+For the Host machine to interact with the main Monitor Core \emph{ybug} is used. The same software is used to start applications. Of course ybug does not communicate only with the hardware of the monitor core, but also with other pieces of software in the system. 
 
 There is another software design called \emph{scamp}, that works on top of the Monitor Core. It interacts with the \emph{ybug} and the \emph{sark}, which is a software that is used by the application cores. 
 
@@ -162,9 +163,9 @@ Before the user program starts running, start up applications need to be run fir
 \paragraph{The state of the machine}
 To discover the state of the machine, each chip checks its cores and the connections between them to check whether any broken links exist. The algorithm starts by selecting a root node and marking it with a Request(R) token. Each time a core has an R token it sends an Acknowledge(A) label down to the incoming port and labels it Good. After that it finds all unlabelled ports that are connected to it and sends them an R token while labelling them Broken. If the port that just received the R token does not go through the process that the root node went through it remains Broken and the system knows it will not work. Otherwise it will send an A token and will be deemed Good.\cite{jefflec}.
 \paragraph{Building a communications tree}
-In order to build a communication tree a breadth first tree traversal is used. To achieve that, a root core is selected and given the token Forward(F) at first. The root core communicates with the neighbouring cores and after giving them the label Child it instructs them to also send F tokens to all their neighbouring cores, thus making them both a Parent and a Child. Once there are not any more unlabelled cores, the nodes are instructed to return a Backwards(B) token to their parent nodes. That way the system becomes aware of which nodes communicate with each other. If by any chance two cores send to each other a B token through the same port, then that port is deemed non communicational and is labelled Unused. The reason for that is to avoid any loops in the system\cite{jefflec}. Considering that the communication between cores is built as a tree it is deductible that the theoretical complexity of sending a packet from one core to another one is $log_2(N)$. This is the same complexity that a tree has when searching for a node inside its structure. It should also be pointed out that the tree is not saved somewhere in the system, but rather that is how the router in each table and the P2P tables view the connections.
+In order to build a communication tree a breadth first tree traversal is used. To achieve that, a root core is selected and given the token Forward(F) at first. The root core communicates with the neighbouring cores and after giving them the label Child it instructs them to also send F tokens to all their neighbouring cores, thus making them both a Parent and a Child. Once there are not any more unlabelled cores, the nodes are instructed to return a Backwards(B) token to their parent nodes. That way the system becomes aware of which nodes communicate with each other. If by any chance two cores send to each other a B token through the same port, then that port is deemed non communicational and is labelled Unused. The reason for that is to avoid any loops in the system\cite{jefflec}. Considering that the communication between cores is built as a tree it is deductible that the theoretical complexity of sending a packet from one core to another one is $log_2(N)$. This is the same complexity that a tree has when searching for a node inside its structure. It should also be pointed out that the tree is not saved somewhere in the system, but rather that is how the routing tables and the P2P tables view the connections.
 \paragraph{Creating the P2P Tables}
-Cores need ID's in order to have packets sent correctly to certain destinations. Point-to-Point tables are used to list the ID's of nodes, so the packets know which ports they should follow. At first all nodes are undefined(U). If we were to examine one entry for the P2P Table, then the algorithm would go as follows. If a core is undefined and does not have an ID yet, then an incoming port is assigned to it. Then it sends its ID down to all the other ports, except the incoming one, so other cores will know where packets arrive from. If the core has already been given an ID, then all that the core does is send its ID to other cores. If that algorithm is carried out for all the cores in the system, then all the cores in the SpiNNaker board are recognized\cite{jefflec}.
+Cores need ID's in order to have packets sent correctly to certain destinations. Point-to-Point tables are used to list the ID's of nodes, so the packets know which ports they should follow. At first all nodes are undefined(U). If we were to examine one entry for the P2P Table, then the algorithm would go as follows. If a core is undefined and does not have an ID yet, then an incoming port is assigned to it. Then it sends its ID down to all the other ports, except the incoming one, so other cores will know where packets arrive from. If the core has already been given an ID, then all that the core does is send its ID to other cores. If that algorithm is carried out for all the cores in the system, then all the cores in the SpiNNaker board are recognizable\cite{jefflec}.
 
 \subsubsection{Program Loading}
 In order to begin running a program some input needs to be provided to the system. The way this is currently done is by using the static model. 
@@ -181,17 +182,17 @@ As mentioned before the SpiNNaker architecture's programming model is event-driv
 \end{itemize}
 Each of these bullet points qualifies as an event. The programmer cannot control when these specific events will take place(except in the case of the time interval). What the programmer can control is what happens when such an event occurs. The functions, in this context referred to as callbacks, are written by the programmers, which after a specific event occurs, are given a priority with the kernel(sark) in order to be executed. 
 \begin{figure}[h!]
-\includegraphics[width=250pt,height=150pt,scale=2]{Pics/event-handling.png}
+\includegraphics[width=300pt,height=250pt,scale=2]{Pics/event-handling.png}
 \centering
-\caption{Event-handling. The control and data flow is shown\cite{sharp2011event}}
+\caption{Event-handling. The control and data\cite{sharp2011event}.}
 \end{figure}
 
-The kernel is responsible for allocating resources and processors to the tasks that are triggered by the events, so as to execute the callbacks. Following events, control over the processors is given to the scheduler that queues tasks. When the scheduler finishes it gives processor time to the dispatcher that dequeues tasks and instructs specific cores to execute them. This whole process is depicted in Figure 5.
+The kernel is responsible for allocating resources and processors to the tasks that are triggered by the events. Following events, control over the processors is given to the scheduler that queues tasks. When the scheduler finishes it gives processor time to the dispatcher that dequeues tasks and instructs specific cores to execute them. This whole process is depicted in Figure 5.
 
 The types of callbacks can be separated in two categories. Queueable and non-queueable. In the case of a non-queuable callback, the callback is executed immediately by the system, having the top priority of execution. A queueable callback, which is most common, will be put on an execution queue along with other queueable callbacks. In the case that the queue empties, no callbacks will be executed. It will continue executing callbacks when another event occurs at some point\cite{sharp2011event}\cite{rast2012managing}. 
 	
 \subsection{Notable work using the SpiNNaker architecture}
-Most of the notable work done in SpiNNaker machines is simulation of neurons. Various simulations would use different kinds of neurons\cite{rast2012event}\cite{rast2011event}\cite{davies2011maintaining}\cite{jin2010algorithm}. One of the most interesting examples is simulating the neurons of the retina, so as to make it possible for a robot to calculate its place in a room\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Finally, another intriguing application is teaching the neurons temporal sequences  of discrete symbols by using a test data set, thus making fast and accurate predictions of new sequences\cite{bose2005spiking}.
+Most of the notable work done in SpiNNaker machines is simulation of neurons. Various applications would simulate different kinds of neurons\cite{rast2012event}\cite{rast2011event}\cite{davies2011maintaining}\cite{jin2010algorithm}. One of the most interesting examples is simulating the neurons of the retina, so as to make it possible for a robot to calculate its place in a room\cite{davies2010interfacing}. Another one would be simulating thousands of spiking neurons using four million synapses\cite{sharp2012power}. Finally, another intriguing application is teaching the neurons temporal sequences  of discrete symbols by using a test data set, thus making fast and accurate predictions of new sequences\cite{bose2005spiking}.
 
 \subsection{Conjugate Gradient Method}
 The Conjugate Gradient Method(CGM) is an algorithm for the numerical solution of systems of linear equations of the type Ax=b; those whose matrix is symmetric and positive definite. 
@@ -345,9 +346,9 @@ Some parallel implementations of the CGM use blocks(parts) of the input vectors 
 
 Some other parallel implementations try to use more specific preconditioning to achieve faster results, but again for the parallel part, they split the input into blocks to distribute it to various cores\cite{adams1985m}\cite{adams1983m}. 
 
-One of the most interesting implementations of the CGM, suggests an improved algorithm named ICGS(Improved Conjugate Gradient Squared), which is based in another already altered version of the CGM\cite{maheswaran1999mcgs}. This implementation computes all vector-matrix  multiplications and inner products concurrently, for each iteration. The communication time between these operations and vector updates has been organized efficiently, so that global communication drops significantly, thus dropping the run time of the algorithm as well\cite{yang2001improved}.
+One of the most interesting implementations of the CGM, suggests an improved algorithm named ICGS(Improved Conjugate Gradient Squared), which is based in another already altered version of the CGM\cite{maheswaran1999mcgs}. This implementation computes all vector-matrix  multiplications and inner products concurrently for each iteration. The communication time between these operations and vector updates has been organized efficiently, so that global communication drops significantly, thus dropping the run time of the algorithm as well\cite{yang2001improved}.
 
-Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These techniques use CUDA as their main tool and various other techniques to accomplish their goal with some very good results. Solutions in different GPU models exist but that just enhances the generality of the solution. Generally though,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
+Finally, there are many recent implementations which have used GPU's in order to solve the Conjugate Gradient Method efficiently. These techniques use CUDA as their main tool and various other techniques to accomplish their goal while achieving very good results. Solutions in different GPU models exist but that just enhances the generality of the solution. Generally,as is for most parallel implementations of the CGM, the most used technique is reducing the time it takes to compute the matrix-vector multiplication and inner products, thus reducing the time of the algorithm overall\cite{galiano2012gpu}\cite{wozniak2010parallel}.
 \section{Design}
 As it was stated in the introduction the purpose of this project was to significantly reduce the time that the CGM takes to run, by reducing the time complexity of its most expensive computations. These computations were matrix-vector multiplication and inner-products. In this section the basic communication, the matrix-vector multiplication and the flow of the program is considered. In addition to that the contents of the Target Tables are shown, along with the way the event handlers decide what operation to do, namely the Operation Codes. The section finishes, by discussing some of the design choices that were made. 
 
@@ -360,9 +361,9 @@ Using the massive parallelism that the SpiNNaker architecture provides with over
 \centering
 \caption{Basic communication between nodes.}
 \end{figure}
-Considering that choice, it is easy to see that each node would need to receive and send spikes to a number of other nodes at any given time, in the same fashion that Figure 6 shows. In Figure 6 node 3 receives packets from nodes 1 and 2 and after some manipulation of the incoming data it sends its results to nodes 4 and 5. 
+Considering that choice, it is apparent that each node would need to receive and send spikes to a number of other nodes at any given time, in the same fashion that Figure 6 shows. In Figure 6 node 3 receives packets from nodes 1 and 2 and after some manipulation of the incoming data it sends its results to nodes 4 and 5. 
 
-If this model is to be used each computation would be completed atomically and if only one computation is needed every time then the complexity at each core would be $O(1)$.
+If this model is to be used each computation would be completed atomically and if only one computation is needed in each node then the complexity at each core would be $O(1)$.
 \subsection{Matrix-Vector Multiplication}
 Using the above model a matrix-vector multiplication would look like Figure 7. 
 \begin{figure}[h!]
@@ -371,13 +372,13 @@ Using the above model a matrix-vector multiplication would look like Figure 7.
 \caption{Matrix-vector multiplication for A*x. A nodes send the result to the respective r node, not the next A node\cite{basicinterim}}
 \end{figure}
 
-In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an example to display the general overview of the multiplication operation. In this figure the example of a 3x3 $A$ matrix and 3x1 vectors is used for simplicity. Also assume that the respective element of the vector $b$ has been already placed in the respective $r$ node, waiting to complete the calculation for $r$, once the multiplication is over. 
+In Figure 7 the first matrix-vector multiplication of the algorithm is used($Ax=r$) as an example to display the general overview of the multiplication operation. In this figure the example of a 3x3 $A$ matrix and 3x1 vectors is used for simplicity. Also assume that the respective element of the vector $b$ has already been placed in the respective $r$ node, waiting to complete the calculation for $r$, once the multiplication is over. 
 
-To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $A$ nodes know which packets they should receive, because the connections between nodes have been provided externally by the user. The packets from $x$ reach the $A$ nodes because they are multicast. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. The figure shows without precision that $A$-nodes send their value to the next $A$-node in the column. This has been done for means of clarity, but what the graph means to show is the $x$ nodes send their value down the line. The same applies for when a $A$-node, after having completed the multiplication, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
+To do the calculation, the $x$-nodes send a packet with their value to the respective $A$-nodes, where the multiplication part is completed. The $A$ nodes know which packets they should receive, because the connections between nodes have been provided externally by the user. The packets from $x$ reach the $A$ nodes because they are multicast. The column of the element in the matrix is considered to identify which $x$ nodes should be received by the $A$-nodes. The figure shows without precision that $A$-nodes send their value to the next $A$-node in the column. This has been done for means of clarity, but what the graph means to show is $x$ nodes sending their value down the line. The same applies for when a $A$-node, after having completed the multiplication part of the calculation, sends the result to its respective $r$-node. Each time a packet arrives in the $r$-node an addition occurs, so as to complete the additive part of the multiplication. 
 
-In Figure 7 the node $x_0$ sends its value to the $A$ nodes with column 0($A_{0,0} A_{1,0} A_{2,0}$). Once the multiplication in each of these nodes is completed, the result is sent to the $r_0$ node. The same holds for the other two sets of $A$ nodes and their respective $r$ node. 
+In Figure 7 the node $x_0$ sends its value to the $A$ nodes with column 0($A_{0,0} A_{1,0} A_{2,0}$). Once the multiplication in each of these nodes is completed, the result is sent to the $r_0$ node. The same holds for the other two sets of $A$ nodes and their respective $r$ nodes. 
 
-Given Figure 7, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and the time it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to occur is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice as it will be explained later, the complexity is larger.
+Given Figure 7, it is clear that the multiplication in each $A$-node is done in $O(1)$. The same applies for the addition in the $r$-nodes, since there is some delay from the time the packet is sent and the time it arrives. Considering the communication tree built and discussed in section 2.3.2, the overall time-complexity for a matrix-vector multiplication to complete is $O(1)+log_2(N)+O(1)$. However, this is an optimal time-complexity that requires only one computation in each node. In practice as it will be explained later, the complexity is larger.
 \subsection{Program Flow}
 Given what has been discussed so far consider the following figure.
 \begin{figure}[h!]
@@ -385,19 +386,19 @@ Given what has been discussed so far consider the following figure.
 \centering
 \caption{The program flow in class diagram.}
 \end{figure}
-Figure 8 demonstrates the program flow of the CGM through the SpiNNaker machine. Each node in the figure represents a number of nodes during run time. If the example from the previous section is continued(a 3x3 matrix) the $x$ node in the beginning of Figure 8 represents 3 actual nodes. The $A$ node in Figure 8, represents $n^2$ nodes, since it has $nxn$ dimensions.
+Figure 8 demonstrates the program flow of the CGM through the SpiNNaker machine. Each node in the figure represents a number of nodes during run time. If the example from the previous section is continued(a 3x3 matrix) the $x$ node in the beginning of Figure 8 represents 3 actual nodes. The $A$ node in Figure 8, represents $N^2$(9 in the example) nodes, since it has $N$x$N$ dimensions.
 
-In addition to the input nodes $x,A,b$ it is viewable that there are some more nodes that exist throughout the algorithm. These nodes are helper nodes, without whom the algorithm would not be solvable in this context. A set of nodes that is not found in the CGM algorithm explained previously are Ap nodes. These nodes are used to save the result of the $A*p$ computation and help towards running the algorithm.
+In addition to the input nodes $x,A,b$ it is viewable that there are some additional nodes that exist throughout the algorithm. These nodes are helper nodes, without whom the algorithm would not be solvable in this context. A set of nodes that is not found in the CGM algorithm explained previously are Ap nodes. These nodes are used to save the result of the $A*p$ computation and help towards running the algorithm.
 
-Some constant nodes that can be found in Figure 8 are also noteworthy. These are $\alpha$(alpha in Figure 8),$\beta$,(beta in Figure 8),$rsold$ and $rsnew$. These nodes were used to compute and save constant values that are needed for the computation of the algorithm. The constant $\alpha$ and $\beta$ can be found in the original algorithm which means their existence is clear, but this is not the case for $rsold$ and $rsnew$. These constants are used to save the result of the inner product $r^Tr$ in each iteration. Since both $r_k$ and $r_{k+1}$ are needed in each computation, two variables are used to save their respective result.
+Some constant nodes that can be found in Figure 8 are also noteworthy. These are $\alpha$(alpha in Figure 8),$\beta$,(beta in Figure 8),$rsold$ and $rsnew$. These nodes were used to compute and save constant values that are needed for the computation of the algorithm. The constants $\alpha$ and $\beta$ can be found in the original algorithm, but this is not the case for $rsold$ and $rsnew$. These constants are used to save the result of the inner product $r^Tr$ in each iteration. Since both $r_k$ and $r_{k+1}$ are needed in each computation, two variables are used to save their respective result.
 
 Notice that the program flow is quite sequential in the way it executes, so as to avoid bad timing, which will result in wrong computations. Even though the flow seems sequential, the algorithm runs in parallel for each calculation. Some cases where the program flow seems to be more parallel is when rsold and rsnew send to many different kinds of nodes at once.
 
-Another point of interest would be that there is not a node of type $b$ in Figure 8, which from the definition of the algorithm is seemingly an input node. It was decided that it would be best to place the $b$ node values immediately to the $r$ nodes, so as to speedup the calculation, save space and cores, and reduce complexity. This step is allowed by the calculation, since $r$ nodes at the beginning of the algorithm are initialized to 0.
+Another point of interest would be that there is not a node of type $b$ in Figure 8, which from the definition of the algorithm is seemingly an input node. It was decided that it would be best to place the $b$ node values immediately to the $r$ nodes, so as to speedup the calculation, save space and cores, and reduce the overall complexity. This step is allowed by the calculation, since $r$ nodes at the beginning of the algorithm are initialized to 0.
 
 Finally, it should also be mentioned that after the first iteration of the algorithm whatever operation exists before the loop initiation is not needed.
 \subsection{Target Table}
-As mentioned in the Background section each node in the system has a Target Table entry, which helps each node complete various computations by reading its contents. The Target Table entry is customizable for each application. For the Conjugate Gradient Method the Target Table entry is as follows.
+As mentioned in the Background section each node in the system has a Target Table entry, which helps each node complete various computations by reading its contents. For the Conjugate Gradient Method the Target Table entry is as follows.
 \begin{itemize}
 \item unsigned Kd
 \item vector<queue<unsigned>> OpCodes
@@ -413,23 +414,23 @@ As mentioned in the Background section each node in the system has a Target Tabl
 
 The Kd identifies the key of the node, which is individual to each node in the system. 
 
-The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then the Y dimension would be 4 and the X dimension 3. However, in the CGM the matrices are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. 
+The Name identifies the type of which the node belongs to. The YD variable is the Y dimension of the element. For example, if the algorithm could take as input a 4x3 matrix, then its Y dimension would be 4 and its X dimension 3. However, in the CGM the matrices are symmetric and the vectors have as an X dimension 1, so XD would be redundant to add in the table. 
 
 The X and Y variables are there to identify the position of the node in the matrix or vector that it belongs to. 
 
 The floats Value,Temp and unsigned counter are the original values of Value,Temp and counter, which are mainly there to show that these kinds of variables exist and are used for each node. Their position in the table is not vital, since their values cannot be changed throughout the program in the Target Table. 
 
-Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in each core depending on the node that it belongs.
+Finally, there is the variable V, which is used to identify the position of the variables Value,Temp,counter and OpCodes in each core's data depending on the node that it belongs.
 \subsection{OpCodes}
 OpCodes in this context stands for operation codes, as in what operation needs to be done at any point in a node. Throughout the algorithm different kinds of operations are done. Be it addition,multiplication, subtraction etc., different operations need to be completed at different points of the program. Thus an unsigned integer is used to identify these operations upon the arrival of a packet. So for example, 1 would be used to identify addition, 2 for multiplication etc. The operation would be carried out after the node went through a series of cases in a switch statement that would be checked against the OpCode.
 
 If the program flow is looked thoroughly, it is apparent that some nodes need to do different computations at different points of the algorithm. For example, a $p$ node needs to either store the value of its respective $r$ node, or do a computation such as $\alpha *p$. These are two completely different operations that need to be accounted for. Given that, the easy solution would be to use a vector to save all the operations that need to be done and after reading the first element of the vector and completing the respective operation , put it in the back of the vector, since CGM is an iterative algorithm and some computations need to be repeated.
 
-However, just a vector would not work. Consider the following. Based on the general connectivity between nodes the $\alpha$ node can receive packets from both $r$-nodes and $p$-nodes. That means that just before the loop initiates on Figure 8, the $\alpha$ node will receive packets from both $r$-nodes and $p$ nodes. In addition to that, $r$ nodes send their values to $p$ nodes. There is a chance that packets from $p$ nodes will reach the $\alpha$ node sooner than $r$ nodes do. In the case of $p$ nodes arriving, the operation would be to do nothing, since that information is not needed at that point and in the case of $r$ nodes arriving to compute the inner product.  This sequence of events cannot be foreseen and with just a vector to represent the OpCodes the wrong calculation is to be expected.
+However, just a vector would not work. Consider the following. Based on the general connectivity between nodes the $\alpha$ node can receive packets from both $r$-nodes and $p$-nodes. That means that just before the loop initiates on Figure 8, the $\alpha$ node will receive packets from both $r$-nodes and $p$ nodes. In addition to that, $r$ nodes send their values to $p$ nodes. There is a chance that packets from $p$ nodes will reach the $\alpha$ node sooner than $r$ nodes do. In the case of $p$ nodes arriving, the operation would be to do nothing, since that information is not needed at that point and in the case of $r$ nodes arriving to compute the inner product.  This sequence of events cannot be foreseen and with just a vector to represent the OpCodes the wrong calculation is to be expected. This behaviour is observed for most of the nodes in the algorithm.
 
 Thus the choice of a vector of queues was made. With this data structure, the index of the vector is selected to act as a key to find the type of the node that the packet came from. Each type of node has a distinguished offset in the source address that will make it identifiable to the vector. For example, nodes from matrix A have an offset of 0. Once the offset is read by the vector, a queue will come up. The front integer of the queue will be the operation that needs to be carried out at that point for the packet that had just arrived. Afterwards, in the same fashion as with the vector, the front OpCode of the queue will be placed in the back of the respective queue for the next iteration.
 
-By using this data structure it is apparent that the time complexity at each core has increased, because more operations take place. However, using this specific data structure does not increase the complexity dramatically. The operator for accessing a vector is $O(1)$. The same applies for each of the following actions: looking at the front value of the queue, popping it from the front of the queue and pushing it in the back of the queue. Considering this the time complexity at each core has a small increase totalling $O(4)$.
+By using this data structure it is apparent that the time complexity at each core has increased, because more operations to handle the queue take place. However, using this specific data structure does not increase the complexity dramatically. The operator for accessing a vector is $O(1)$. The same applies for each of the following actions: looking at the front value of the queue, popping it from the front of the queue and pushing it in the back of the queue. Considering this the time complexity at each core has a small increase totalling $O(4)$.
 \subsection{Justification for Design Choices}
 At this point a justification for some design decisions would be appropriate. 
 
@@ -437,13 +438,13 @@ The SpiNNaker architecture gives you the choice of having global variables that 
 
 Another important design decision was the use of the vector of queues data structure. Given the iterative nature of the algorithm, following a model such as the one described has proved be very usable and simple to program. There existed an option of using a graph of nodes with multiple connections used, but that option was deemed too complicated, with the possibility of not even being implementable given the nature of this algorithm. However, it might have worked for other algorithms that do not require iterations to find solutions and do not involve many steps.
 \section{Implementation}
-In this section some implementation details are going to be outlined. More specifically a description of the simulators used and the process that the keys for the vector of queues were generated. In addition, the iterations after the first iterations will be described as well as the general specification of the OpCodes for each node.
+In this section some implementation details are going to be outlined. More specifically a description of the simulators used and the process that the keys for the vector of queues were generated. In addition, the iterations after the first iteration will be described as well as the general specification of the OpCodes for each node.
 \subsection{Simulators}
 To implement and test this algorithm simulators of the SpiNNaker chip were used. These were supplied by the supervisor of this project and were written in the C++ language. 
 
-The main development of this algorithm was made in the first simulator. In this simulator the programmer had the ability to use STL(Standard Template Library), which helped towards abstracting the problem and leaving out some implementation details. The same simulator would also write out the binary files that the second simulator and the actual machine would use. The simulator however was configured to comply better with the specification of this project.
+The main development of this algorithm was made in the first simulator. In this simulator the programmer had the ability to use STL(Standard Template Library), which helped towards abstracting the problem and leaving out some implementation details. The same simulator would also write out the binary files that the second simulator and the actual machine would use. This simulator was configured to comply better with the specification of this project.
 
-The second simulator was much less flexible towards using data structures, since it had to simulate much better the functionality of a SpiNNaker chip, when data and a program was loaded to it. It read the same binary files that the SpiNNaker machine would read for data and the event handlers written for it resembled the event handlers for the SpiNNaker machine much more.
+The second simulator was much less flexible towards using data structures, since it had to simulate much better the functionality of a SpiNNaker chip, when data and a program was loaded to it. It read the same binary files that the SpiNNaker machine would read and the event handlers written for it resembled the event handlers for the SpiNNaker machine much more.
 
 \subsection{Offset}
 As mentioned in the Background section, each node has an 32-bit address-key. In order to generate the key 4 elements are used. These are
@@ -461,11 +462,11 @@ Since each core can theoretically have more than one nodes allocated to it, rede
 
 However, if that practice is avoided then this problem will not occur. In addition to that, the solution to this problem has been designed so as to allocate one node of whatever type to only \emph{one} core, so as to achieve the highest speedup possible. Hence putting more than one elements to a core would not comply with the overall design of this project.
 \subsection{Second Iteration}
-As mentioned before, after the first iteration some operations must not be completed again, so as to not disrupt the completion of the algorithm. These operations are the ones that are left from the "Loop Initiation" line in Figure 7. To accomplish that a special callback(function) was written. This function would be called only once throughout the run time of the program once all remaining packets had arrived at the $p$ nodes(See last node in Figure 8) after the end of the first iteration. That function would issue commands to all the nodes in the system, making them remove at least one OpCode from one of the queues, based on the type of element it is. Again the name of the element was considered to make that decision.
+As mentioned before, after the first iteration some operations must not be completed again, so as to not disrupt the completion of the algorithm. These operations are the ones that are left from the "Loop Initiation" line in Figure 7. To accomplish that a special callback(function) was written. This function would be called only once throughout the run time of the program once all remaining packets had arrived at the $p$ nodes(See last node in Figure 8) after the end of the first iteration. That function would issue commands to all the nodes in the system, making them remove at least one OpCode from one of the queues, based on the type of element it is. The name of the element was considered to make that decision.
 \subsection{Input files}
-In order to simulate and run a program an input file would have to be put on the first simulator, so as to process the data and write the binary files. Hence a file format was invented to comply with the specification of this project. An example of the input file is shown in Appendix(8.1). At the Values section, the elements of matrices, vectors and constant nodes are described. The names, dimensions inside the brackets and actual values are specified. The OpCodes for each type of element are also viewable. They are the integers next to the dimensions of each matrix/vector/constant. The first integer is the key and all the others are actual OpCodes. Different queues are separated with a semicolon. In the Connections section, the connections between nodes are specified. The general layout for the OpCodes for any size matrix  is shown in Appendix 8.2.
+In order to simulate and run a program an input file would have to be put on the first simulator, so as to process the data and write the binary files. Hence a file format was invented to comply with the specification of this project. An example of the input file is shown in Appendix(8.1). At the Values section, the elements of matrices, vectors and constant nodes are described. The names, dimensions inside the brackets and actual values are specified. The OpCodes for each type of element are also visible. They are the integers next to the dimensions of each matrix/vector/constant. The first integer is the key and all the others are actual OpCodes. Different queues are separated with a semicolon. In the Connections section, the connections between nodes are specified. The general layout for the OpCodes for any size matrix  is shown in Appendix 8.2.
 \subsection{Implementation OpCodes}
-As explained before, the SpiNNaker architecture does not support any libraries that would help form a queue data structure, which, as a step, is pivotal to the design analyzed previously. In addition to that, the contents of the binary files are read one at a time, so an STL queue would not be readable from them. Finally, SpiNNaker cannot read serialized data, so serialization was not a valid option either.
+As explained before, the SpiNNaker architecture does not support any libraries that would help form a queue data structure which is pivotal to the design analyzed previously. In addition to that, the contents of the binary files are read one at a time, so an STL queue would not be readable from them. Finally, SpiNNaker cannot read serialized data, so serialization was not a valid option either.
 
 Considering all the aforementioned parameters, it was decided that the vector of queues of unsigned integers, would be implemented using only an array. To successfully translate the vector of queues of integers data structure the following format was selected.
 
@@ -477,9 +478,9 @@ Considering all the aforementioned parameters, it was decided that the vector of
 \item Key.
 \item Data.
 \end{enumerate}
-The number of queues(1) would exist only once in each array, so as to know how many different queues exist. The information from 2-6 is the information that the array would need to simulate one queue. This information would be repeated in each array, depending on how many queues existed. The size and the key would appear only once in each simulated queue, whereas the data consists of the actual OpCodes that each node would look into to execute the next operation. The Key is the index that the vector would look using the offset of the incoming packet. Finally, the Head and Tail would act as pointers to the first and the last element of the queue respectively, so as to execute queue like operations.
+The number of queues(1) would exist only once in each array, so as to know how many different queues exist. The information from 2-6 is the information that the array would need to simulate one queue. This information would be repeated in each array, depending on how many queues existed. The size and the key would appear only once in each simulated queue. The data consists of the actual OpCodes(integers) that each node would look into to execute the next operation. The Key is the index that the vector would look using the offset of the incoming packet. Finally, the Head and Tail would act as pointers to the first and the last element of the queue respectively, so as to execute queue like operations.
 
-Given the above format, three functions were also implemented to do operations on that array and more precisely in the simulated queues in that array. These were front(),pop() and pushandpop(). Depending on the offset of the source key of the arrived packet the front() function would show the first integer on the simulated queue, pop() would remove the OpCode in the front position from the queue and pushandpop() would put the OpCode in the first position in the back of the queue. When using pop(), the OpCodes is not actually removed, but rather the tail is reduce, so as to not be able to access it again.
+Given the above format, three functions were also implemented to do operations on that array and more precisely in the simulated queues in that array. These were front(),pop() and pushandpop(). Depending on the offset of the source key of the arrived packet the front() function would show the first integer on the simulated queue, pop() would remove the OpCode in the front position from the queue and pushandpop() would put the OpCode in the first position in the back of the queue. When using pop(), the OpCodes is not actually removed, but rather the tail is reduce, so as to make the queue unable to access it again.
 \subsection{Connections and OpCodes programs}
 In addition to the implementation of the algorithm, two additional programs were constructed in order to create the input files quickly and without errors. 
 
@@ -487,29 +488,36 @@ A Connections C++ program was written to create the connections between nodes an
 
 An OpCodes C++ program was written to produce  the operation codes for each node and also add it to the .mx input file. To create this program the general layout of OpCodes in Appendix 8.2 was used.
 
-Combining these two programs, most of the input file is written automatically. All the user needs to do is insert the dimensions of the input vectors and matrix correctly and their corresponding values. These programs made the testing phase easier.
+Combining these two programs, most of the input file is written automatically. All the user needs to do is insert the values and dimensions of the input vectors and matrix correctly.
 \subsection{SpiNNaker Event Handler}
-Towards the end of the project the event handler for a SpiNNaker board was created. This event handler resembled highly the ones created for the simulators, with the difference of having only one timer event handler instead of two. The reason for that is that only one timer event handler is allowed. The handler was written in C and it used functions from the SpiNNaker API to send messages, trigger the timer function and start off the program in the machine. A 2x2 SpiNNaker board containing 64 cores was used to test the algorithm and according binary files were produce to match it.
+Towards the end of the project the event handler for a SpiNNaker machine was created. This event handler resembled highly the ones created for the simulators, with the difference of having only one timer event function instead of two. The reason for that is that only one timer event handler is allowed. The handler was written in C and it used functions from the SpiNNaker API to send messages, trigger the timer function and start off the program in the machine. A 2x2 SpiNNaker board containing 64 cores was used to test the algorithm and according binary files were produce to match it.
 \section{Testing}
-The testing phase of the algorithm took place in both of the simulators. This needed to be done because not only should the result of the algorithm had to be verified, but also because corruption of binary files is also a possibility that needed to be tested. In addition to that, the implementation queue needed to be tested.
+The testing phase of the algorithm took place in both of the simulators. This needed to be done because not only did the result of the algorithm had to be verified, but also because corruption of binary files was also a possibility. In addition to that, the functionality of the implementation queue needed to be tested.
 
-The actual testing was made by using different kinds of matrices, with different values and different sizes. This was done to test whether the solution of the algorithm was scalable and robust. The results from the simulators were cross referenced with the results from a sequential implementation of the algorithm to check their validity. An example of the test made and their results are shown in Appendix 8.3. More examples can be found in the Git-hub repository where most implementation files are saved\cite{git_repo}.
+The actual testing was made by using different sets of matrices, with different values and different sizes. This was done to test whether the solution of the algorithm was scalable and robust. The results from the simulators were cross referenced with the results from a sequential implementation of the algorithm to check their validity. An example of the test made and their results are shown in Appendix 8.3. More examples can be found in the Git-hub repository where most implementation files are saved\cite{git_repo}.
 
 All of the tests compiled in both of the simulators, while also producing the correct output. Throughout the testing phase there were no problems with corrupted binary files.
 \section{Evaluation}
-In general the design and implementation that has been proposed and tested throughout this project has been proven to be robust and scalable. Using the data structure of vector of queues provides a solution not only for the Conjugate Gradient Method, but also other algorithms that might be similar to this one. Using the proposed design, a programmer could implement other algorithms by sketching out a program flow similar to Figure 8, and then finding the connections between the nodes. In addition, using the proposed design offers the advantage of few and understandable connections between nodes that can be easily produced using a simple program.
+In general the design and implementation that has been proposed and tested throughout this project has been proven to be robust and scalable. The data structure of vector of queues could provide a solution not only for the Conjugate Gradient Method, but also for other algorithms that might be similar to this one. Using the proposed design, a programmer could implement other algorithms by sketching out a program flow similar to Figure 8, and then finding the connections between the nodes. In addition, using the proposed design offers the advantage of few and understandable connections between nodes that can be easily produced using a simple program.
 
 One disadvantage of the design is the additional complexity that it adds in each computation from $O(1)$ to $O(4)$. However this is not a dramatic increase and will not reduce the speedup dramatically. In addition, creating a customized vector of queues of integers using an array might prove to be complex if used for some other algorithms. However, if the design proposed in the Implementation section of this project is followed, then the task might prove to be easier.
 
-One improvement that this project could have benefited from is running the algorithm in a SpiNNaker chip to see if it would work in the actual machine as well as it did in the simulators. Having tested that, by using the SpiNNaker chips, the practical speedup that the architecture provides could have been found and compared to the sequential implementation of the algorithm, as well as other parallel implementations. Unfortunately, the time available with a SpiNNaker board was limited and in addition to that there was a malfunction to the board.
+One improvement that this project could have benefited from is running the algorithm in a SpiNNaker chip to see if it would work in the actual machine as well as it did in the simulators. Having tested that, by using the SpiNNaker chips, the practical speedup that the architecture provides could have been found and compared to the sequential implementation of the algorithm, as well as other parallel implementations. Unfortunately, the time available with a SpiNNaker board was limited and in addition to that there was a malfunction to the board during testing time.
 
-In addition, more testing could have been carried in the simulators out throughout this project to make sure whether the algorithm could scale to matrices with very high dimensions i.e. a 400x400 sparse matrix. The tests that were carried out do indicate that a correct solution would have been produced, but doing the actual testing would improve upon the validity of the solution.
+Moreover, more testing could have been carried out in the simulators throughout this project to make sure whether the algorithm could scale to matrices with very high dimensions i.e. a 400x400 sparse matrix. The tests that were carried out do indicate that a correct solution would have been produced, but doing the actual testing would improve upon the validity of the solution.
 
 In the event handler it is visible that there are around 13 different operations that can be carried out by all the nodes. This number could be reduced from 13 to 11 or 10, by optimizing some of the operations that each case does. During the implementation stage, a higher number of operations was chosen in order to test each operation's validity more atomically.
 
 The hardest part of this project was coming up with an efficient way of doing operations in each node, while preserving a low time complexity in each computation and also producing the correct result. The vector of queues of integers that was selected to represent OpCodes, while using the Offset of each incoming packet's source address as a key to the OpCodes. One of the easier tasks of this project was the creation of the programs to automatically produce the OpCodes for each node and the connections between them.
+\subsection{Future Work}
+In the future, attempting experiments to verify the complexity of the packet sending would be very useful. In this project $log(N)$ is assumed because of the way the connections are built. However, experiments could indicate the actual time complexity, which would make the validity of the complexity achieved in this project much more accurate.
+
+In addition, it would be very interesting to test the design proposed in this report applied to other algorithms and applications. It would be intriguing to discover if it scales to other computer science problemes, or even neural simulations.
+
+Finally, it would be possible to see the queue data structure that was implemented by using an array have even more optimal operations.
+
 \section{Conclusion}
-In conclusion, this project achieved the goal that was outlined in the project brief by finding a solution to the algorithm using the SpiNNaker architecture. It took advantage of the massive parallelism that the architecture provides and was able to dramatically reduce the time complexity of the most expensive operations of the algorithm. The matrix-vector multiplication was reduced from $O(N^2)$ to $O(4) + log_2(N) + O(4)$ and the inner product from $O(N)$ to $O(4)$. 
+In conclusion, this project achieved the goal that was outlined in the project brief by finding a solution to the Conjugate Gradient Method algorithm using the SpiNNaker architecture. It took advantage of the massive parallelism that the architecture provides and was able to dramatically reduce the time complexity of the most expensive operations of the algorithm. The matrix-vector multiplication was reduced from $O(N^2)$ to $O(4) + log_2(N) + O(4)$ and the inner product from $O(N)$ to $O(4)$. 
 
 \newpage
 \bibliographystyle{plain}
@@ -546,7 +554,7 @@ In conclusion, this project achieved the goal that was outlined in the project b
 \cite{jin2010algorithm}
 \cite{git_repo}
 \section{Appendix}
-\subsection{Example Input file}
+\subsection{Example Input file(Easiest case possible)}
 BEGIN VALUES\\
 MX1[2,2] 1/1;4/1/0/0\\
 4.0 1.0\\
@@ -602,7 +610,7 @@ N->3/n0/5\\
 L->2/7;4/n0/n8/n0;6/7\\
 CH->6;13\\
 B->2/7;6/12\\
-\subsection{Test examples}
+\subsection{Test example}
 A test with a 3x3 input matrix\\
 BEGIN VALUES\\
 MX1[3,3] 1/1;4/1/0/0\\
@@ -667,9 +675,37 @@ $x=\begin{bmatrix}
 \end{bmatrix}$
      
 \subsection{Project Brief}
+
+Problem: SpiNNaker is a parallel architecture that its basic idea is
+inspired by the human brain. It simulates electronically the communica-
+tion between neurons of a brain and its most basic components (ie. axons,
+dendrites and synapses) using spikes which are the median by which the in-
+formation is transferred. So far the most prominent uses of the SpiNNaker
+architecture have been neural networks (which was the basic reason for the
+design) and robotics. The conjugate gradient method is an iterative algo-
+rithm for finding the solution of systems of linear equations, whose matrix
+is symmetric and positive-definite. The purpose of this project is to try to
+solve the conjugate gradient method problem on a SpiNNaker chip, so as to
+display more of the possibilities of the SpiNNaker architecture outside the
+spectrum of neural networks and closer to classic computer science problems.
+
+
+Goal:
+The goal of this project, is not only to display the ability
+of the SpiNNaker architecture in classic computer science applications, but
+also do it in an efficient way. This means to have the traditional complexity
+of the algorithm reduced by taking advantage the parallelism that the SpiN-
+Naker chip provides.
+
+
+Scope: The scope of this project is to develop a software to solve the
+conjugate gradient method,which will exploit the massive parallelism that
+the SpiNNaker chip offers. This project however will not interfere with the
+hardware of the SpiNNaker chip, or with any neural network applications
+that the chip may provide.
 \newpage
 \subsection{Gantt Charts}
-To find better resolution pictures of the GATT chart see:\url{https://github.com/Alex-Oiko/3rd-Year-Project/tree/master/Deliverables/Final_Report/Gantt_Charts} \cite{git_repo}
+To find better resolution pictures of the GATT charts see:\url{https://github.com/Alex-Oiko/3rd-Year-Project/tree/master/Deliverables/Final_Report/Gantt_Charts} \cite{git_repo}
 \topmargin=0pt
 \voffset=0pt
 \begin{figure}[h!]
